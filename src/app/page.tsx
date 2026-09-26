@@ -2,26 +2,18 @@
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { locales, defaultLocale } from '@/lib/i18n/config';
+import { detectBrowserLanguage } from '@/lib/i18n/detectBrowserLanguage';
+import { defaultLocale } from '@/lib/i18n/config';
 
-// Root page handles client-side redirection based on browser language
+// Root page handles client-side redirection based on browser language and user preference
 export default function RootPage() {
   const router = useRouter();
 
   useEffect(() => {
     try {
-      // Get browser language
-      const browserLang = navigator.language;
-      const primaryLang = browserLang.split('-')[0];
-
-      // Check if the language is supported
-      if ((locales as readonly string[]).includes(primaryLang)) {
-        router.replace(`/${primaryLang}`);
-      } else {
-        router.replace(`/${defaultLocale}`);
-      }
-    } catch (error) {
-      // Fallback to default locale if anything goes wrong
+      const bestLocale = detectBrowserLanguage();
+      router.replace(`/${bestLocale}`);
+    } catch {
       router.replace(`/${defaultLocale}`);
     }
   }, [router]);
