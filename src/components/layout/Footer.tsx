@@ -84,10 +84,10 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
             </div>
           </div>
 
-          {/* Product Links */}
+          {/* Resources Column */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-white mb-4">
-              Product
+              Resources
             </h3>
             <ul className="flex flex-col gap-2.5 text-xs text-zinc-500 dark:text-zinc-400">
               <li>
@@ -120,10 +120,20 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
                   Workflow Editor
                 </Link>
               </li>
+              <li>
+                <Link href={`/${locale}/license`} className="hover:text-red-600 transition-colors">
+                  License (AGPL-3.0)
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/acknowledgements`} className="hover:text-red-600 transition-colors">
+                  Acknowledgements
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Company Links */}
+          {/* Company Column */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-white mb-4">
               Company
@@ -131,56 +141,51 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
             <ul className="flex flex-col gap-2.5 text-xs text-zinc-500 dark:text-zinc-400">
               <li>
                 <Link href={`/${locale}/about`} className="hover:text-red-600 transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${locale}/blog`} className="hover:text-red-600 transition-colors font-medium">
-                  Blog & Daily Guides
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${locale}/faq`} className="hover:text-red-600 transition-colors">
-                  FAQ & Help
+                  About us
                 </Link>
               </li>
               <li>
                 <Link href={`/${locale}/contact`} className="hover:text-red-600 transition-colors">
-                  Contact
+                  Contact us
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/blog`} className="hover:text-red-600 transition-colors">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/press`} className="hover:text-red-600 transition-colors">
+                  Press
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Legal Links */}
+          {/* Legal Column */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-white mb-4">
-              Legal & Open Source
+              Legal
             </h3>
             <ul className="flex flex-col gap-2.5 text-xs text-zinc-500 dark:text-zinc-400">
               <li>
+                <Link href={`/${locale}/security`} className="hover:text-red-600 transition-colors">
+                  Security
+                </Link>
+              </li>
+              <li>
                 <Link href={`/${locale}/privacy`} className="hover:text-red-600 transition-colors">
-                  Privacy Policy
+                  Privacy policy
                 </Link>
-              </li>
-              <li>
-                <Link href={`/${locale}/license`} className="hover:text-red-600 transition-colors font-medium">
-                  License (AGPL-3.0)
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${locale}/acknowledgements`} className="hover:text-red-600 transition-colors">
-                  Acknowledgements & Credits
-                </Link>
-              </li>
-              <li>
-                <a href="https://github.com/PDFCraftTool/pdfcraft" target="_blank" rel="noopener noreferrer" className="hover:text-red-600 transition-colors">
-                  Source Code (GitHub)
-                </a>
               </li>
               <li>
                 <Link href={`/${locale}/terms`} className="hover:text-red-600 transition-colors">
-                  Terms of Use
+                  Terms &amp; conditions
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/cookies`} className="hover:text-red-600 transition-colors">
+                  Cookies
                 </Link>
               </li>
             </ul>
