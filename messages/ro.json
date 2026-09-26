@@ -1137,7 +1137,7 @@
       "email": {
         "title": "E-mail",
         "description": "Trimite-ne un e-mail și îți vom răspunde în 24-48 de ore.",
-        "action": "contact@pdfcraft.app"
+        "action": "contact@icreatepdf.com"
       },
       "github": {
         "title": "GitHub",
@@ -1147,7 +1147,7 @@
       "twitter": {
         "title": "Twitter",
         "description": "Urmărește-ne pentru noutăți și anunțuri.",
-        "action": "@pdfcraft"
+        "action": "@icreatepdf"
       }
     },
     "form": {

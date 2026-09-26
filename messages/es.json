@@ -1137,7 +1137,7 @@
       "email": {
         "title": "Correo electrónico",
         "description": "Envíenos un correo electrónico y responderemos dentro de 24-48 horas.",
-        "action": "contacto@pdfcraft.app"
+        "action": "contact@icreatepdf.com"
       },
       "github": {
         "title": "GitHub",
@@ -1147,7 +1147,7 @@
       "twitter": {
         "title": "Gorjeo",
         "description": "Síganos para actualizaciones y anuncios.",
-        "action": "@pdfcraft"
+        "action": "@icreatepdf"
       }
     },
     "form": {
