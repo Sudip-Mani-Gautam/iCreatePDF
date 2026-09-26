@@ -150,6 +150,44 @@ export default function AboutPageClient({ locale }: AboutPageClientProps) {
           </div>
         </section>
 
+        {/* Open Source & AGPL Attribution Section */}
+        <section className="py-12 bg-[hsl(var(--color-muted)/0.2)] border-t border-[hsl(var(--color-border))]">
+          <div className="container mx-auto px-4 max-w-3xl text-center">
+            <h3 className="text-xl font-bold text-[hsl(var(--color-foreground))] mb-3">
+              100% Free & Open Source Software
+            </h3>
+            <p className="text-sm text-[hsl(var(--color-muted-foreground))] leading-relaxed mb-6">
+              {tCommon('brand')} is distributed under the <strong>GNU Affero General Public License v3.0 (AGPL-3.0)</strong>, built upon the foundations of{' '}
+              <a href="https://github.com/PDFCraftTool/pdfcraft" target="_blank" rel="noopener noreferrer" className="underline text-[hsl(var(--color-primary))]">
+                PDFCraft
+              </a>{' '}
+              and BentoPDF. All source code is completely open, auditable, and freely available to all users.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <Link href={`/${locale}/license`}>
+                <Button variant="outline" size="sm">
+                  Review License (AGPLv3)
+                </Button>
+              </Link>
+              <Link href={`/${locale}/acknowledgements`}>
+                <Button variant="outline" size="sm">
+                  Credits & Acknowledgements
+                </Button>
+              </Link>
+              <a
+                href="https://github.com/PDFCraftTool/pdfcraft"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button variant="secondary" size="sm" className="gap-2">
+                  <Code className="w-4 h-4" />
+                  View Source Code
+                </Button>
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="py-16 bg-[hsl(var(--color-primary)/0.05)]">
           <div className="container mx-auto px-4">

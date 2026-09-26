@@ -1,8 +1,13 @@
-# PDFCraft
+# iCreatePDF (Built with PDFCraft)
+
+> **📜 Open Source Attribution Notice (AGPL-3.0 Section 4 & 5)**:
+> This project is a customized distribution based on **[PDFCraft](https://github.com/PDFCraftTool/pdfcraft)** and **[BentoPDF](https://github.com/alam00000/bentopdf)**.
+> Licensed under the **GNU Affero General Public License v3.0 (AGPL-3.0)**.
+> In accordance with AGPL-3.0 Section 13, all corresponding source code is freely available. See [NOTICE.md](NOTICE.md) and [LICENSE](LICENSE).
 
 <div align="center">
-  <img src="public/images/logo.png" alt="PDFCraft Logo" width="120" height="120" />
-  <h1>Professional PDF Tools</h1>
+  <img src="public/images/logo.png" alt="iCreatePDF Logo" width="120" height="120" />
+  <h1>iCreatePDF - Professional PDF Tools</h1>
   <p>
     <strong>Free, Private & Browser-Based</strong>
   </p>

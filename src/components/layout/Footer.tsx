@@ -179,17 +179,31 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="pt-8 border-t border-[hsl(var(--color-border))] flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-[hsl(var(--color-muted-foreground))]">
-            &copy; {currentYear} {t('brand')}. All rights reserved.
-          </p>
-          <div className="flex flex-wrap items-center gap-6">
+        {/* Copyright & AGPL-3.0 Open Source Notice */}
+        <div className="pt-8 border-t border-[hsl(var(--color-border))] flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+          <div className="text-xs text-[hsl(var(--color-muted-foreground))] space-y-1">
+            <p>
+              &copy; {currentYear} {t('brand')}. Licensed under{' '}
+              <Link href={`/${locale}/license`} className="underline hover:text-[hsl(var(--color-foreground))]">
+                GNU AGPLv3
+              </Link>.
+            </p>
+            <p className="text-[11px] opacity-80">
+              Based on open-source{' '}
+              <a href="https://github.com/PDFCraftTool/pdfcraft" target="_blank" rel="noopener noreferrer" className="underline hover:text-[hsl(var(--color-foreground))]">
+                PDFCraft
+              </a>{' '}
+              & BentoPDF. Free & open-source software.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-5">
             <Link href={`/${locale}/blog`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">Blog</Link>
             <Link href={`/${locale}/privacy`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">Privacy</Link>
-            <Link href={`/${locale}/license`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">License</Link>
+            <Link href={`/${locale}/license`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">License (AGPLv3)</Link>
             <Link href={`/${locale}/acknowledgements`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">Acknowledgements</Link>
-            <Link href={`/${locale}/terms`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">Terms</Link>
+            <a href="https://github.com/PDFCraftTool/pdfcraft" target="_blank" rel="noopener noreferrer" className="text-xs text-[hsl(var(--color-primary))] hover:underline font-medium">
+              Source Code (GitHub)
+            </a>
           </div>
         </div>
       </div>

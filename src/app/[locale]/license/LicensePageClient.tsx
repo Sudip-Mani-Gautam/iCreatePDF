@@ -126,10 +126,22 @@ export default function LicensePageClient({ locale }: LicensePageClientProps) {
               </span>
             </div>
 
-            <div className="space-y-4 text-sm text-[hsl(var(--color-muted-foreground))] leading-relaxed font-sans">
-              <p>
-                <strong>Copyright (C) 2026 {tCommon('brand')}. All rights reserved.</strong>
+            <div className="p-4 rounded-xl bg-[hsl(var(--color-muted)/0.5)] border border-[hsl(var(--color-border))] space-y-2 mb-6 text-xs text-[hsl(var(--color-foreground))]">
+              <p className="font-semibold text-sm">
+                Upstream Authors & Attribution (AGPL-3.0 Section 4 & 5):
               </p>
+              <p>
+                • <strong>Original Project</strong>: PDFCraft (<a href="https://github.com/PDFCraftTool/pdfcraft" target="_blank" rel="noopener noreferrer" className="underline text-[hsl(var(--color-primary))]">github.com/PDFCraftTool/pdfcraft</a>) and BentoPDF (<a href="https://github.com/alam00000/bentopdf" target="_blank" rel="noopener noreferrer" className="underline text-[hsl(var(--color-primary))]">github.com/alam00000/bentopdf</a>). Copyright &copy; 2024–2026 PDFCraft &amp; BentoPDF Contributors.
+              </p>
+              <p>
+                • <strong>Modified Distribution</strong>: iCreatePDF (<a href="https://icreatepdf.com" className="underline text-[hsl(var(--color-primary))]">icreatepdf.com</a>). Enhancements and modifications Copyright &copy; 2026 iCreatePDF Contributors.
+              </p>
+              <p>
+                • <strong>Complete Source Code (AGPL-3.0 Section 13)</strong>: The corresponding source code for this application is freely available at <a href="https://github.com/PDFCraftTool/pdfcraft" target="_blank" rel="noopener noreferrer" className="underline text-[hsl(var(--color-primary))]">https://github.com/PDFCraftTool/pdfcraft</a>.
+              </p>
+            </div>
+
+            <div className="space-y-4 text-sm text-[hsl(var(--color-muted-foreground))] leading-relaxed font-sans">
               <p>
                 This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
               </p>
