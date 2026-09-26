@@ -2,15 +2,15 @@
  * Site configuration
  */
 export const siteConfig = {
-  name: 'PDFCraft',
+  name: 'iCreatePDF',
   description: 'Professional PDF Tools - Free, Private & Browser-Based. Merge, split, compress, convert, and edit PDF files online without uploading to servers.',
-  url: 'https://pdfcraft.devtoolcafe.com',
+  url: 'https://icreatepdf.com',
   ogImage: '/images/og-image.png',
   links: {
-    github: 'https://github.com/PDFCraftTool/pdfcraft',
-    twitter: 'https://twitter.com/pdfcraft',
+    github: 'https://github.com',
+    twitter: 'https://twitter.com/icreatepdf',
   },
-  creator: 'PDFCraft Team',
+  creator: 'iCreatePDF Team',
   keywords: [
     'PDF tools',
     'PDF editor',
@@ -25,9 +25,9 @@ export const siteConfig = {
   ],
   // SEO-related settings
   seo: {
-    titleTemplate: '%s | PDFCraft',
-    defaultTitle: 'PDFCraft - Professional PDF Tools',
-    twitterHandle: '@pdfcraft',
+    titleTemplate: '%s | iCreatePDF',
+    defaultTitle: 'iCreatePDF - Professional PDF Tools',
+    twitterHandle: '@icreatepdf',
     locale: 'en_US',
   },
 };

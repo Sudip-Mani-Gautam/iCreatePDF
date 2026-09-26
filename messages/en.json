@@ -1,8 +1,8 @@
 {
   "metadata": {
     "home": {
-      "title": "PDFCraft - Professional PDF Tools",
-      "description": "Free, Private & Browser-Based. Merge, edit, and edit PDF files online without uploading to servers."
+      "title": "iCreatePDF - Professional PDF Tools",
+      "description": "Free, Private & Browser-Based. Merge, split, compress, and edit PDF files online without uploading to servers."
     },
     "tools": {
       "title": "All PDF Tools",
@@ -10,19 +10,19 @@
     },
     "about": {
       "title": "About",
-      "description": "Learn about PDFCraft - your free, private, and powerful PDF toolkit. All processing happens in your browser."
+      "description": "Learn about iCreatePDF - your free, private, and powerful PDF toolkit. All processing happens in your browser."
     },
     "faq": {
       "title": "Frequently Asked Questions",
-      "description": "Find answers to common questions about PDFCraft. Learn how to use our PDF tools effectively."
+      "description": "Find answers to common questions about iCreatePDF. Learn how to use our PDF tools effectively."
     },
     "privacy": {
       "title": "Privacy Policy",
-      "description": "PDFCraft privacy policy. Your files never leave your device - all processing happens locally in your browser."
+      "description": "iCreatePDF privacy policy. Your files never leave your device - all processing happens locally in your browser."
     },
     "contact": {
       "title": "Contact Us",
-      "description": "Get in touch with PDFCraft team. We'd love to hear from you."
+      "description": "Get in touch with iCreatePDF team. We'd love to hear from you."
     },
     "keywords": {
       "pdfTools": "PDF tools",
@@ -35,7 +35,7 @@
     }
   },
   "common": {
-    "brand": "PDFCraft",
+    "brand": "iCreatePDF",
     "tagline": "Professional PDF Tools - Free & Private",
     "navigation": {
       "home": "Home",
