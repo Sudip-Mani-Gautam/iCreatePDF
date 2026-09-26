@@ -18,9 +18,12 @@ In compliance with Section 13 of the GNU Affero General Public License, the comp
 
 **Source Code Repository**: [https://github.com/PDFCraftTool/pdfcraft](https://github.com/PDFCraftTool/pdfcraft) (and user deployment repository)
 
-### Modifications Made:
-1. Customized brand identity, styling tokens, and domain configuration for `icreatepdf.com`.
-2. Added built-in SEO-optimized Blog and Tutorial publishing system with schema markup.
-3. Added dedicated License, Acknowledgements, and Terms pages accessible from the user interface.
-4. Added automated GitHub Actions deployment pipeline for Hostinger / cPanel web hosting.
-5. Optimized Apache / LiteSpeed `.htaccess` configurations for WebAssembly headers.
+### Acknowledgements & Attribution Statement
+
+> **PDFCraft stands on the shoulders of giants.** We gratefully acknowledge **[BentoPDF](https://github.com/alam00000/bentopdf)** for their pioneering work in privacy-first, client-side PDF tools.  
+> Their project served as a significant inspiration and reference for our core logic. While **[PDFCraft](https://github.com/PDFCraftTool/pdfcraft)** has been re-engineered for the Next.js ecosystem and extends functionality with unique features like the *Workflow Editor*, we deeply respect the foundation laid by the BentoPDF team.  
+> **iCreatePDF** operates as a branded distribution of this open-source stack and honors both creator teams.
+
+### Full License Reference
+This project is licensed under the **AGPL-3.0 License** - see the [LICENSE](https://github.com/PDFCraftTool/pdfcraft/blob/main/LICENSE) file for complete details.
+

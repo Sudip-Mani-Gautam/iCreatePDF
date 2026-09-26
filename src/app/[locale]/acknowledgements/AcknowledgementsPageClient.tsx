@@ -22,6 +22,20 @@ interface ProjectCredit {
 
 const CREDITS: ProjectCredit[] = [
   {
+    name: 'PDFCraft',
+    category: 'Core Platform & Workflow Engine',
+    description: 'The open-source Next.js browser-based PDF toolkit with 80+ tools and visual workflow automation.',
+    license: 'AGPL-3.0',
+    url: 'https://github.com/PDFCraftTool/pdfcraft',
+  },
+  {
+    name: 'BentoPDF',
+    category: 'Pioneering Foundation',
+    description: 'Pioneering privacy-first, client-side PDF processing that inspired and referenced the core tool logic.',
+    license: 'AGPL-3.0',
+    url: 'https://github.com/alam00000/bentopdf',
+  },
+  {
     name: 'PDF.js',
     category: 'Rendering & Viewing',
     description: 'A general-purpose, web standards-based platform for parsing and rendering PDFs, created by Mozilla.',
@@ -105,16 +119,33 @@ export default function AcknowledgementsPageClient({ locale }: AcknowledgementsP
 
         {/* Upstream & Community Note */}
         <section className="container mx-auto px-4 max-w-4xl mt-12 mb-8">
-          <div className="p-6 rounded-2xl bg-[hsl(var(--color-card))] border border-[hsl(var(--color-border))]">
-            <h2 className="text-xl font-bold mb-3 flex items-center gap-2">
+          <div className="p-8 rounded-2xl bg-[hsl(var(--color-card))] border-2 border-[hsl(var(--color-primary)/0.3)] shadow-sm space-y-4">
+            <h2 className="text-xl font-bold flex items-center gap-2">
               <Cpu className="w-5 h-5 text-[hsl(var(--color-primary))]" />
-              Client-Side WebAssembly Architecture
+              Standing on the Shoulders of Giants
             </h2>
-            <p className="text-sm text-[hsl(var(--color-muted-foreground))] leading-relaxed mb-4">
-              Our privacy-first commitment is made possible through WebAssembly (WASM). By compiling robust native libraries directly into binary code executed in your browser sandbox, {tCommon('brand')} eliminates the need to transmit your documents over the web.
-            </p>
-            <p className="text-sm text-[hsl(var(--color-muted-foreground))] leading-relaxed">
-              We extend sincere gratitude to the developers of <strong className="text-[hsl(var(--color-foreground))]">PDFCraft</strong>, <strong className="text-[hsl(var(--color-foreground))]">BentoPDF</strong>, and the global open-source community whose contributions continue to push web document technology forward.
+            <div className="p-4 rounded-xl bg-[hsl(var(--color-muted)/0.5)] border-l-4 border-[hsl(var(--color-primary))] text-sm text-[hsl(var(--color-foreground))] leading-relaxed italic space-y-3">
+              <p>
+                &ldquo;<strong>PDFCraft stands on the shoulders of giants.</strong> We gratefully acknowledge{' '}
+                <a href="https://github.com/alam00000/bentopdf" target="_blank" rel="noopener noreferrer" className="font-semibold underline text-[hsl(var(--color-primary))] not-italic">
+                  BentoPDF
+                </a>{' '}
+                for their pioneering work in privacy-first, client-side PDF tools.
+              </p>
+              <p>
+                Their project served as a significant inspiration and reference for our core logic. While{' '}
+                <a href="https://github.com/PDFCraftTool/pdfcraft" target="_blank" rel="noopener noreferrer" className="font-semibold underline text-[hsl(var(--color-primary))] not-italic">
+                  PDFCraft
+                </a>{' '}
+                has been re-engineered for the Next.js ecosystem and extends functionality with unique features like the <em>Workflow Editor</em>, we deeply respect the foundation laid by the BentoPDF team.&rdquo;
+              </p>
+            </div>
+            <p className="text-xs text-[hsl(var(--color-muted-foreground))]">
+              This project is licensed under the <strong>AGPL-3.0 License</strong> - see the{' '}
+              <a href="https://github.com/PDFCraftTool/pdfcraft/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" className="underline text-[hsl(var(--color-primary))] font-medium">
+                LICENSE
+              </a>{' '}
+              file for details.
             </p>
           </div>
         </section>

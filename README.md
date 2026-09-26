@@ -380,13 +380,16 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 🤝 Acknowledgements
 
-PDFCraft stands on the shoulders of giants. We gratefully acknowledge [BentoPDF](https://github.com/alam00000/bentopdf) for their pioneering work in privacy-first, client-side PDF tools.
+iCreatePDF stands on the shoulders of giants. We gratefully acknowledge both:
 
-Their project served as a significant inspiration and reference for our core logic. While PDFCraft has been re-engineered for the Next.js ecosystem and extends functionality with unique features like the *Workflow Editor*, we deeply respect the foundation laid by the BentoPDF team.
+- **[PDFCraft](https://github.com/PDFCraftTool/pdfcraft)**: For the outstanding open-source web application, Next.js architecture, and feature-rich tools including the Workflow Editor.
+- **[BentoPDF](https://github.com/alam00000/bentopdf)**: For their pioneering work in privacy-first, client-side PDF tools.
+
+Their projects served as a significant inspiration and reference for our core logic. While PDFCraft was re-engineered for the Next.js ecosystem and extends functionality with unique features like the *Workflow Editor*, and iCreatePDF provides customized branding and deployment, we deeply respect and acknowledge the foundation laid by both the PDFCraft and BentoPDF teams.
 
 ## 📄 License
 
-This project is licensed under the AGPL-3.0 License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the AGPL-3.0 License - see the [LICENSE](https://github.com/PDFCraftTool/pdfcraft/blob/main/LICENSE) file for details.
 
 ---
 
