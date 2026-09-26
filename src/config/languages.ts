@@ -28,6 +28,7 @@ export const ALL_LANGUAGES: LanguageItem[] = [
   { code: 'nl', name: 'Dutch', nativeName: 'Nederlands', countryCode: 'NL', direction: 'ltr', column: 2 },
   { code: 'el', name: 'Greek', nativeName: 'Ελληνικά', countryCode: 'GR', direction: 'ltr', column: 2 },
   { code: 'hi', name: 'Hindi', nativeName: 'हिन्दी', countryCode: 'IN', direction: 'ltr', column: 2 },
+  { code: 'ne', name: 'Nepali', nativeName: 'नेपाली', countryCode: 'NP', direction: 'ltr', column: 2 },
   { code: 'id', name: 'Indonesian', nativeName: 'Bahasa Indonesia', countryCode: 'ID', direction: 'ltr', column: 2 },
   { code: 'ms', name: 'Malay', nativeName: 'Bahasa Melayu', countryCode: 'MY', direction: 'ltr', column: 2 },
 

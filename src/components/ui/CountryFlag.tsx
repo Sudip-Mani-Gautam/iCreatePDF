@@ -251,6 +251,34 @@ export const CountryFlag: React.FC<CountryFlagProps> = ({
           </>
         );
 
+      // Nepal (नेपाली)
+      case 'NP':
+      case 'NE':
+        return (
+          <>
+            {/* Subtle neutral background backing */}
+            <rect width="20" height="14" fill="#F4F4F5" className="dark:fill-zinc-800" />
+            {/* Deep Blue border of double-pennant */}
+            <polygon
+              points="2,0.8 13.5,6.4 6.8,6.4 15.2,13.2 2,13.2"
+              fill="#003893"
+            />
+            {/* Crimson Red body */}
+            <polygon
+              points="2.8,1.8 11.2,6.0 5.6,6.0 13.0,12.4 2.8,12.4"
+              fill="#DC143C"
+            />
+            {/* White Crescent Moon & Sun in upper pennant */}
+            <circle cx="5.6" cy="4.2" r="1.2" fill="#FFFFFF" />
+            <circle cx="5.6" cy="3.8" r="1.0" fill="#DC143C" />
+            <circle cx="5.6" cy="4.3" r="0.5" fill="#FFFFFF" />
+            {/* 12-pointed Sun in lower pennant */}
+            <circle cx="5.8" cy="9.6" r="1.4" fill="#FFFFFF" />
+            <circle cx="5.8" cy="9.6" r="0.8" fill="#DC143C" />
+            <circle cx="5.8" cy="9.6" r="0.4" fill="#FFFFFF" />
+          </>
+        );
+
       // 18. Indonesia (Bahasa Indonesia)
       case 'ID':
         return (
