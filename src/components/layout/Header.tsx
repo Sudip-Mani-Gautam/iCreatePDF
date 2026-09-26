@@ -184,6 +184,12 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
               Home
             </Link>
             <Link
+              href={`/${locale}/tools`}
+              className="text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-500 transition-colors"
+            >
+              Tools
+            </Link>
+            <Link
               href={`/${locale}/tools/merge-pdf`}
               className="text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-500 transition-colors"
             >
@@ -520,6 +526,13 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
               className="block px-4 py-2.5 text-sm font-semibold text-zinc-900 dark:text-white hover:bg-zinc-50 dark:hover:bg-zinc-900 rounded-lg"
             >
               Home
+            </Link>
+            <Link
+              href={`/${locale}/tools`}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block px-4 py-2.5 text-sm font-semibold text-zinc-900 dark:text-white hover:bg-zinc-50 dark:hover:bg-zinc-900 rounded-lg"
+            >
+              Tools
             </Link>
             <Link
               href={`/${locale}/tools/merge-pdf`}
