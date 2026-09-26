@@ -136,7 +136,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 font-sans antialiased">
+    <div className="min-h-screen flex flex-col bg-[hsl(var(--color-background))] text-[hsl(var(--color-foreground))] font-sans antialiased">
       <Header locale={locale} />
 
       <main className="flex-1 pt-24 pb-20">
@@ -147,7 +147,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
 
           <div className="container mx-auto px-4 max-w-4xl">
             {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-zinc-950 dark:text-white leading-[1.15] mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[hsl(var(--color-foreground))] leading-tight mb-4">
               Every PDF Tool You Need, <br />
               <span className="text-red-600 bg-gradient-to-r from-red-600 via-rose-600 to-red-500 bg-clip-text text-transparent">
                 Run Privately Offline
@@ -155,24 +155,24 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
             </h1>
 
             {/* Subtitle */}
-            <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed mb-8">
+            <p className="text-base sm:text-lg text-[hsl(var(--color-muted-foreground))] max-w-2xl mx-auto leading-relaxed mb-8">
               Process your files locally in your browser. No server uploads, no privacy risks. Complete speed and peace of mind.
             </p>
 
             {/* Search Input Bar */}
             <div className="relative max-w-xl mx-auto mb-6">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-zinc-400" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-[hsl(var(--color-muted-foreground))]" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search for tools (e.g., Merge, Protect, Compress)..."
-                className="w-full pl-11 pr-10 py-3.5 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-sm shadow-sm hover:shadow-md focus:shadow-md focus:border-red-500 focus:outline-none focus:ring-4 focus:ring-red-500/10 transition-all placeholder:text-zinc-400"
+                className="w-full pl-11 pr-10 py-3.5 rounded-full border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] text-sm shadow-xs hover:shadow-md focus:shadow-md focus:border-red-500 focus:outline-none focus:ring-4 focus:ring-red-500/10 transition-all placeholder:text-[hsl(var(--color-muted-foreground))] text-[hsl(var(--color-foreground))]"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-600 p-1 rounded-full"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))] p-1 rounded-full"
                   aria-label="Clear search"
                 >
                   <X className="w-4 h-4" />
@@ -248,7 +248,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                   <Link
                     key={tool.id}
                     href={`/${locale}/tools/${tool.slug}`}
-                    className="group relative flex flex-col justify-between p-5 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 hover:border-red-300 dark:hover:border-red-900 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-200 cursor-pointer overflow-hidden"
+                    className="group relative flex flex-col justify-between p-5 rounded-2xl bg-[hsl(var(--color-card))] border border-[hsl(var(--color-border))] hover:border-red-300 dark:hover:border-red-900 shadow-xs hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 cursor-pointer overflow-hidden"
                   >
                     <div>
                       {/* Top icon and badge */}
@@ -270,18 +270,18 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                       </div>
 
                       {/* Tool Title */}
-                      <h3 className="font-bold text-[15px] leading-snug text-zinc-900 dark:text-white group-hover:text-red-600 transition-colors mb-1.5 line-clamp-1">
+                      <h3 className="font-bold text-[15px] leading-snug text-[hsl(var(--color-foreground))] group-hover:text-red-600 transition-colors mb-1.5 line-clamp-1">
                         {toolName}
                       </h3>
 
                       {/* Tool Short Description */}
-                      <p className="text-xs text-zinc-500 dark:text-zinc-400 line-clamp-2 leading-relaxed mb-4">
+                      <p className="text-xs text-[hsl(var(--color-muted-foreground))] line-clamp-2 leading-relaxed mb-4">
                         {description}
                       </p>
                     </div>
 
                     {/* Bottom Action Arrow */}
-                    <div className="pt-2 flex items-center justify-between text-zinc-400 group-hover:text-red-600 transition-colors border-t border-zinc-100 dark:border-zinc-800/60 mt-auto">
+                    <div className="pt-2 flex items-center justify-between text-[hsl(var(--color-muted-foreground))] group-hover:text-red-600 transition-colors border-t border-[hsl(var(--color-border)/0.6)] mt-auto">
                       <span className="text-[11px] font-medium opacity-0 group-hover:opacity-100 transition-opacity">
                         Use Tool
                       </span>
@@ -295,13 +295,13 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
         </section>
 
         {/* Loved by Millions (Testimonials Section) */}
-        <section className="py-16 bg-zinc-50/70 dark:bg-zinc-900/40 border-y border-zinc-200/60 dark:border-zinc-800/60">
+        <section className="py-16 bg-[hsl(var(--color-muted)/0.4)] border-y border-[hsl(var(--color-border))]">
           <div className="container mx-auto px-4 max-w-6xl">
             <div className="text-center max-w-2xl mx-auto mb-12">
-              <h2 className="text-3xl sm:text-4xl font-black text-zinc-950 dark:text-white tracking-tight mb-3">
+              <h2 className="text-2xl sm:text-3xl font-bold text-[hsl(var(--color-foreground))] tracking-tight mb-3">
                 Loved by Millions
               </h2>
-              <p className="text-sm sm:text-base text-zinc-500 dark:text-zinc-400">
+              <p className="text-sm sm:text-base text-[hsl(var(--color-muted-foreground))]">
                 See why users choose iCreatePDF for secure offline editing
               </p>
             </div>
@@ -310,7 +310,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
               {testimonials.map((item, idx) => (
                 <div
                   key={idx}
-                  className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
+                  className="p-6 rounded-2xl bg-[hsl(var(--color-card))] border border-[hsl(var(--color-border))] shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between"
                 >
                   <div>
                     {/* 5 Stars */}
@@ -320,21 +320,21 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                       ))}
                     </div>
 
-                    <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed italic mb-6">
+                    <p className="text-xs sm:text-sm text-[hsl(var(--color-foreground))] leading-relaxed italic mb-6">
                       &ldquo;{item.quote}&rdquo;
                     </p>
                   </div>
 
                   {/* Author */}
-                  <div className="flex items-center gap-3 pt-4 border-t border-zinc-100 dark:border-zinc-800">
+                  <div className="flex items-center gap-3 pt-4 border-t border-[hsl(var(--color-border))]">
                     <div className={`w-8 h-8 rounded-full ${item.color} flex items-center justify-center font-bold text-xs flex-shrink-0`}>
                       {item.initials}
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-zinc-900 dark:text-white leading-tight">
+                      <div className="text-xs font-bold text-[hsl(var(--color-foreground))] leading-tight">
                         {item.author}
                       </div>
-                      <div className="text-[11px] text-zinc-400">
+                      <div className="text-[11px] text-[hsl(var(--color-muted-foreground))]">
                         {item.role}
                       </div>
                     </div>

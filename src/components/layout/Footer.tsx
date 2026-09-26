@@ -86,10 +86,10 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
 
           {/* Resources Column */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-white mb-4">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--color-foreground))] mb-4">
               Resources
             </h3>
-            <ul className="flex flex-col gap-2.5 text-xs text-zinc-500 dark:text-zinc-400">
+            <ul className="flex flex-col gap-2.5 text-xs text-[hsl(var(--color-muted-foreground))]">
               <li>
                 <Link href={`/${locale}/tools/merge-pdf`} className="hover:text-red-600 transition-colors">
                   Merge PDF
@@ -111,23 +111,13 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
                 </Link>
               </li>
               <li>
-                <Link href={`/${locale}/tools`} className="hover:text-red-600 transition-colors font-medium">
-                  All 67+ PDF Tools →
-                </Link>
-              </li>
-              <li>
                 <Link href={`/${locale}/workflow`} className="hover:text-red-600 transition-colors">
                   Workflow Editor
                 </Link>
               </li>
               <li>
-                <Link href={`/${locale}/license`} className="hover:text-red-600 transition-colors">
-                  License (AGPL-3.0)
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${locale}/acknowledgements`} className="hover:text-red-600 transition-colors">
-                  Acknowledgements
+                <Link href={`/${locale}/faq`} className="hover:text-red-600 transition-colors font-medium">
+                  Help &amp; FAQ
                 </Link>
               </li>
             </ul>
@@ -186,6 +176,16 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
               <li>
                 <Link href={`/${locale}/cookies`} className="hover:text-red-600 transition-colors">
                   Cookies
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/license`} className="hover:text-red-600 transition-colors">
+                  License (AGPL-3.0)
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/acknowledgements`} className="hover:text-red-600 transition-colors">
+                  Acknowledgements
                 </Link>
               </li>
             </ul>
