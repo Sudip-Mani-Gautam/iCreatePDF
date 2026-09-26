@@ -61,6 +61,7 @@ export function getToolContent(locale: Locale, toolId: string): ToolContent | un
     vi: toolContentVn,
     ro: toolContentEn, // Fallback to English for Romanian tool content for now
     pl: toolContentPl,
+    ne: toolContentEn,
   };
 
   const localeContent = contentMap[locale];
