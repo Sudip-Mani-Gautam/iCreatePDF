@@ -40,17 +40,17 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
       role="contentinfo"
     >
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-12">
           {/* Brand Column */}
-          <div className="col-span-1 md:col-span-1 flex flex-col gap-6">
+          <div className="flex flex-col gap-4">
             <Link
               href={`/${locale}`}
-              className="group flex items-center gap-2.5 text-xl font-bold text-[hsl(var(--color-foreground))]"
-              aria-label={`${t('brand')} - ${t('navigation.home')}`}
+              className="group flex items-center gap-2 text-xl font-bold"
+              aria-label="iCreatePDF - Home"
             >
-              <div className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-[hsl(var(--color-primary))] text-white shadow-md transition-transform group-hover:scale-105">
+              <div className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-red-600 text-white shadow-md shadow-red-500/25 transition-transform group-hover:scale-105">
                 <svg
-                  className="h-5 w-5"
+                  className="h-4.5 w-4.5 text-white"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -62,88 +62,128 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
                   <polyline points="14 2 14 8 20 8" />
                 </svg>
               </div>
-              <span data-testid="footer-brand-name">{t('brand')}</span>
+              <span className="text-xl font-extrabold tracking-tight flex items-center" data-testid="footer-brand-name">
+                <span className="text-zinc-900 dark:text-white">iCreate</span>
+                <span className="text-white bg-red-600 px-1.5 py-0.5 rounded-md ml-1 text-xs font-black shadow-sm">PDF</span>
+              </span>
             </Link>
-            <p className="text-sm text-[hsl(var(--color-muted-foreground))] leading-relaxed max-w-xs">
-              {t('tagline') || 'Professional, secure, and free PDF tools for everyone. No installation required.'}
+            <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-xs">
+              Your complete offline PDF toolkit. 100% private, zero uploads, fast and browser-based.
             </p>
 
-            <div className="flex gap-4">
-              <a href="https://github.com/PDFCraftTool/pdfcraft" className="p-2 rounded-full bg-[hsl(var(--color-muted))] text-[hsl(var(--color-muted-foreground))] hover:bg-[hsl(var(--color-primary))] hover:text-white transition-all">
+            <div className="flex gap-3 pt-2">
+              <a href="https://github.com/PDFCraftTool/pdfcraft" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:bg-red-600 hover:text-white transition-all" title="Source Code on GitHub">
                 <Github className="w-4 h-4" />
               </a>
-              <a href="https://x.com/PDFCraftTool" className="p-2 rounded-full bg-[hsl(var(--color-muted))] text-[hsl(var(--color-muted-foreground))] hover:bg-[hsl(var(--color-primary))] hover:text-white transition-all">
+              <a href="https://twitter.com/icreatepdf" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:bg-red-600 hover:text-white transition-all" title="Twitter / X">
                 <Twitter className="w-4 h-4" />
               </a>
-              <a href="#" className="p-2 rounded-full bg-[hsl(var(--color-muted))] text-[hsl(var(--color-muted-foreground))] hover:bg-[hsl(var(--color-primary))] hover:text-white transition-all">
+              <a href={`/${locale}/contact`} className="p-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:bg-red-600 hover:text-white transition-all" title="Contact Us">
                 <Mail className="w-4 h-4" />
               </a>
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Product Links */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-wider text-[hsl(var(--color-foreground))] mb-6">
-              Resources
+            <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-white mb-4">
+              Product
             </h3>
-            <ul className="flex flex-col gap-3">
-              {footerLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-primary))] transition-colors flex items-center gap-2 group"
-                  >
-                    <span className="w-1 h-1 rounded-full bg-[hsl(var(--color-muted-foreground))] group-hover:bg-[hsl(var(--color-primary))] transition-colors" />
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Security Features */}
-          <div>
-            <h3 className="text-sm font-bold uppercase tracking-wider text-[hsl(var(--color-foreground))] mb-6">
-              Security
-            </h3>
-            <ul className="flex flex-col gap-4">
-              <li className="flex items-start gap-3">
-                <div className="mt-0.5 p-1 rounded bg-[hsl(var(--color-success)/0.1)] text-[hsl(var(--color-success))]">
-                  <Lock className="h-3 w-3" />
-                </div>
-                <div>
-                  <span className="block text-sm font-medium text-[hsl(var(--color-foreground))]">Client-side processing</span>
-                  <span className="text-xs text-[hsl(var(--color-muted-foreground))]">Files never leave your device</span>
-                </div>
+            <ul className="flex flex-col gap-2.5 text-xs text-zinc-500 dark:text-zinc-400">
+              <li>
+                <Link href={`/${locale}/tools/merge-pdf`} className="hover:text-red-600 transition-colors">
+                  Merge PDF
+                </Link>
               </li>
-              <li className="flex items-start gap-3">
-                <div className="mt-0.5 p-1 rounded bg-[hsl(var(--color-primary)/0.1)] text-[hsl(var(--color-primary))]">
-                  <FileCheck className="h-3 w-3" />
-                </div>
-                <div>
-                  <span className="block text-sm font-medium text-[hsl(var(--color-foreground))]">No file uploads</span>
-                  <span className="text-xs text-[hsl(var(--color-muted-foreground))]">100% private & secure</span>
-                </div>
+              <li>
+                <Link href={`/${locale}/tools/split-pdf`} className="hover:text-red-600 transition-colors">
+                  Split PDF
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/tools/compress-pdf`} className="hover:text-red-600 transition-colors">
+                  Compress PDF
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/tools/edit-pdf`} className="hover:text-red-600 transition-colors">
+                  Edit PDF
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/tools`} className="hover:text-red-600 transition-colors font-medium">
+                  All 80+ PDF Tools →
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/workflow`} className="hover:text-red-600 transition-colors">
+                  Workflow Editor
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* Privacy Badge Block */}
-          <div className="flex flex-col justify-start">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-[hsl(var(--color-foreground))] mb-6">
-              Compliance
+          {/* Company Links */}
+          <div>
+            <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-white mb-4">
+              Company
             </h3>
-            <div
-              className="flex items-center gap-3 p-4 bg-[hsl(var(--color-card))] border border-[hsl(var(--color-border))] rounded-xl shadow-sm"
-            >
-              <div className="h-10 w-10 rounded-full bg-[hsl(var(--color-success)/0.1)] flex items-center justify-center flex-shrink-0">
-                <Shield className="h-5 w-5 text-[hsl(var(--color-success))]" aria-hidden="true" />
-              </div>
-              <div>
-                <div className="text-sm font-bold text-[hsl(var(--color-foreground))]">GDPR Compliant</div>
-                <div className="text-xs text-[hsl(var(--color-muted-foreground))]">{t('footer.privacyBadge')}</div>
-              </div>
-            </div>
+            <ul className="flex flex-col gap-2.5 text-xs text-zinc-500 dark:text-zinc-400">
+              <li>
+                <Link href={`/${locale}/about`} className="hover:text-red-600 transition-colors">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/blog`} className="hover:text-red-600 transition-colors font-medium">
+                  Blog & Daily Guides
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/faq`} className="hover:text-red-600 transition-colors">
+                  FAQ & Help
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/contact`} className="hover:text-red-600 transition-colors">
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Legal Links */}
+          <div>
+            <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-white mb-4">
+              Legal & Open Source
+            </h3>
+            <ul className="flex flex-col gap-2.5 text-xs text-zinc-500 dark:text-zinc-400">
+              <li>
+                <Link href={`/${locale}/privacy`} className="hover:text-red-600 transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/license`} className="hover:text-red-600 transition-colors font-medium">
+                  License (AGPL-3.0)
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/acknowledgements`} className="hover:text-red-600 transition-colors">
+                  Acknowledgements & Credits
+                </Link>
+              </li>
+              <li>
+                <a href="https://github.com/PDFCraftTool/pdfcraft" target="_blank" rel="noopener noreferrer" className="hover:text-red-600 transition-colors">
+                  Source Code (GitHub)
+                </a>
+              </li>
+              <li>
+                <Link href={`/${locale}/terms`} className="hover:text-red-600 transition-colors">
+                  Terms of Use
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
 

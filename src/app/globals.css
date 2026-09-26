@@ -2,18 +2,18 @@
 
 /* PDFCraft Design System - CSS Variables for Theming */
 :root {
-  /* Primary Colors - Deep Blue/Indigo for trust and modern tech feel */
-  --color-primary: 226 71% 55%; /* #3b82f6 - slightly more vibrant */
+  /* Primary Colors - Signature Red/Coral for iCreatePDF */
+  --color-primary: 354 85% 54%; /* #E11D48 / #EF4444 vibrant red */
   --color-primary-foreground: 0 0% 100%;
-  --color-primary-hover: 226 71% 45%;
+  --color-primary-hover: 354 85% 46%;
   
   /* Secondary Colors - Slate for neutral elements */
   --color-secondary: 215 20% 90%;
   --color-secondary-foreground: 215 25% 15%;
   --color-secondary-hover: 215 20% 80%;
   
-  /* Accent Colors - Teal/Cyan for highlights */
-  --color-accent: 172 66% 50%;
+  /* Accent Colors - Coral for highlights */
+  --color-accent: 354 85% 54%;
   --color-accent-foreground: 0 0% 100%;
   
   /* Background Colors */
@@ -81,16 +81,16 @@
 /* Dark Mode Theme */
 .dark {
   color-scheme: dark;
-  --color-primary: 226 71% 60%;
-  --color-primary-foreground: 222 47% 11%;
-  --color-primary-hover: 226 71% 70%;
+  --color-primary: 354 85% 62%;
+  --color-primary-foreground: 0 0% 100%;
+  --color-primary-hover: 354 85% 70%;
   
   --color-secondary: 215 20% 20%;
   --color-secondary-foreground: 210 40% 98%;
   --color-secondary-hover: 215 20% 30%;
   
-  --color-accent: 172 66% 50%;
-  --color-accent-foreground: 222 47% 11%;
+  --color-accent: 354 85% 62%;
+  --color-accent-foreground: 0 0% 100%;
   
   --color-background: 222 47% 7%; /* Darker background for more contrast */
   --color-foreground: 210 40% 98%;

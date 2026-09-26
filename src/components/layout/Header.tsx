@@ -157,34 +157,34 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
   };
 
   const navItems = [
-    { href: `/${locale}`, label: t('navigation.home') },
-    { href: `/${locale}/tools`, label: t('navigation.tools') },
-    { href: `/${locale}/workflow`, label: t('navigation.workflow') || 'Workflow' },
-    { href: `/${locale}/blog`, label: t('navigation.blog') || 'Blog' },
-    { href: `/${locale}/about`, label: t('navigation.about') },
-    { href: `/${locale}/faq`, label: t('navigation.faq') },
+    { href: `/${locale}`, label: 'Home' },
+    { href: `/${locale}/tools/merge-pdf`, label: 'Merge PDF' },
+    { href: `/${locale}/tools/split-pdf`, label: 'Split PDF' },
+    { href: `/${locale}/tools/compress-pdf`, label: 'Compress PDF' },
+    { href: `/${locale}/tools`, label: 'All Tools ▾' },
+    { href: `/${locale}/blog`, label: 'Blog' },
   ];
 
   return (
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${scrolled
-        ? 'bg-[hsl(var(--color-background))]/80 backdrop-blur-md border-b border-[hsl(var(--color-border))/0.5] shadow-sm'
-        : 'bg-transparent border-transparent'
+        ? 'bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md border-b border-zinc-200/80 dark:border-zinc-800 shadow-sm'
+        : 'bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm border-b border-zinc-100 dark:border-zinc-900'
         }`}
       role="banner"
     >
       <div className="container mx-auto px-4">
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex h-16 items-center justify-between">
           {/* Logo and Brand */}
           <div className="flex flex-1 items-center gap-2">
             <Link
               href={`/${locale}`}
-              className="group flex items-center gap-2.5 text-xl font-bold text-[hsl(var(--color-foreground))] hover:opacity-90 transition-opacity"
-              aria-label={`${t('brand')} - ${t('navigation.home')}`}
+              className="group flex items-center gap-2 text-xl font-bold hover:opacity-95 transition-opacity"
+              aria-label="iCreatePDF - Home"
             >
-              <div className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-[hsl(var(--color-primary))] to-[hsl(var(--color-accent))] shadow-lg shadow-primary/25 transition-transform group-hover:scale-105">
+              <div className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-red-600 text-white shadow-md shadow-red-500/25 transition-transform group-hover:scale-105">
                 <svg
-                  className="h-5 w-5 text-white"
+                  className="h-4.5 w-4.5 text-white"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -196,8 +196,9 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
                   <polyline points="14 2 14 8 20 8" />
                 </svg>
               </div>
-              <span className="text-xl tracking-tight" data-testid="brand-name">
-                {t('brand')}
+              <span className="text-xl font-extrabold tracking-tight flex items-center" data-testid="brand-name">
+                <span className="text-zinc-900 dark:text-white">iCreate</span>
+                <span className="text-white bg-red-600 px-1.5 py-0.5 rounded-md ml-1 text-xs font-black shadow-sm">PDF</span>
               </span>
             </Link>
           </div>
