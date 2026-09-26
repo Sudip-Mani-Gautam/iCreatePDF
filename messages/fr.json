@@ -35,16 +35,23 @@
     }
   },
   "common": {
-    "brand": "PDFCraft",
-    "tagline": "Outils PDF Professionnels - Gratuits et Privés",
+    "brand": "iCreatePDF",
+    "tagline": "Votre boîte à outils PDF hors ligne. 100% privé, sans téléversement, rapide et basé sur navigateur.",
     "navigation": {
       "home": "Accueil",
       "tools": "Outils",
       "workflow": "Flux de travail",
       "about": "À propos",
-      "faq": "FAQ",
+      "faq": "Foire aux questions",
       "privacy": "Confidentialité",
-      "contact": "Contact"
+      "contact": "Contact",
+      "security": "Sécurité",
+      "terms": "Conditions générales",
+      "cookies": "Cookies",
+      "press": "Presse",
+      "license": "Licence (AGPL-3.0)",
+      "acknowledgements": "Remerciements",
+      "blog": "Blog"
     },
     "buttons": {
       "upload": "Télécharger des fichiers",
@@ -86,7 +93,11 @@
       "footer": "© 2025 PDFCraft. Tous droits réservés.",
       "copyright": "© {year} PDFCraft. Tous droits réservés.",
       "privacyBadge": "100% Privé - Les fichiers ne quittent jamais votre appareil",
-      "madeWith": "Fait avec <Heart /> et <Nextjs />"
+      "madeWith": "Fait avec <Heart /> et <Nextjs />",
+      "resources": "Ressources",
+      "company": "Entreprise",
+      "legal": "Mentions légales",
+      "tagline": "Votre boîte à outils PDF hors ligne. 100% privé, sans téléversement, rapide et basé sur navigateur."
     },
     "recentFiles": {
       "title": "Fichiers Récents",

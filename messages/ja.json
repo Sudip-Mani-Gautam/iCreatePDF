@@ -35,8 +35,8 @@
     }
   },
   "common": {
-    "brand": "PDFCraft",
-    "tagline": "プロフェッショナルPDFツール - 無料＆プライベート",
+    "brand": "iCreatePDF",
+    "tagline": "完全なオフラインPDFツールキット。100%プライベート、アップロード不要、高速ブラウザベース。",
     "navigation": {
       "home": "家",
       "tools": "ツール",
@@ -44,7 +44,14 @@
       "about": "概要",
       "faq": "よくある質問",
       "privacy": "プライバシー",
-      "contact": "お問い合わせ"
+      "contact": "お問い合わせ",
+      "security": "セキュリティ",
+      "terms": "利用規約",
+      "cookies": "Cookie",
+      "press": "プレス",
+      "license": "ライセンス (AGPL-3.0)",
+      "acknowledgements": "謝辞",
+      "blog": "ブログ"
     },
     "buttons": {
       "upload": "ファイルをアップロード",
@@ -86,7 +93,11 @@
       "footer": "© 2025 PDFCraft. All rights reserved.",
       "copyright": "© {year} PDFCraft. All rights reserved.",
       "privacyBadge": "100%プライベート - ファイルはデバイスから離れません",
-      "madeWith": "<Heart /> と <Nextjs /> で作成"
+      "madeWith": "<Heart /> と <Nextjs /> で作成",
+      "resources": "リソース",
+      "company": "会社情報",
+      "legal": "法的情報",
+      "tagline": "完全なオフラインPDFツールキット。100%プライベート、アップロード不要、高速ブラウザベース。"
     },
     "recentFiles": {
       "title": "最近のファイル",

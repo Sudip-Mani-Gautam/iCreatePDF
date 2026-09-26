@@ -35,16 +35,23 @@
     }
   },
   "common": {
-    "brand": "PDFCraft",
-    "tagline": "Instrumente PDF Profesionale - Gratuite și Private",
+    "brand": "iCreatePDF",
+    "tagline": "Setul complet de instrumente PDF offline. 100% privat, fără încărcări, rapid și bazat pe browser.",
     "navigation": {
       "home": "Acasă",
       "tools": "Instrumente",
       "workflow": "Flux de lucru",
       "about": "Despre",
-      "faq": "FAQ",
+      "faq": "Întrebări frecvente",
       "privacy": "Confidențialitate",
-      "contact": "Contact"
+      "contact": "Contact",
+      "security": "Securitate",
+      "terms": "Termeni și condiții",
+      "cookies": "Module cookie",
+      "press": "Presă",
+      "license": "Licență (AGPL-3.0)",
+      "acknowledgements": "Mulțumiri",
+      "blog": "Blog"
     },
     "buttons": {
       "upload": "Încarcă Fișiere",
@@ -86,7 +93,11 @@
       "footer": "© 2025 PDFCraft. Toate drepturile rezervate.",
       "copyright": "© {year} PDFCraft. Toate drepturile rezervate.",
       "privacyBadge": "100% Privat - Fișierele nu părăsesc niciodată dispozitivul",
-      "madeWith": "Creat cu <Heart /> și <Nextjs />"
+      "madeWith": "Creat cu <Heart /> și <Nextjs />",
+      "resources": "Resurse",
+      "company": "Companie",
+      "legal": "Legal",
+      "tagline": "Setul complet de instrumente PDF offline. 100% privat, fără încărcări, rapid și bazat pe browser."
     },
     "recentFiles": {
       "title": "Fișiere Recente",

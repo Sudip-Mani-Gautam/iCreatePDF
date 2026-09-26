@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { 
   ChevronDown, 
   Search, 
@@ -29,60 +30,92 @@ interface FAQPageClientProps {
 }
 
 export default function FAQPageClient({ locale }: FAQPageClientProps) {
+  const t = useTranslations('faqPage');
+  const tCommon = useTranslations('common');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [expandedItems, setExpandedItems] = useState<Set<string>>(
-    new Set(['general-what-is', 'privacy-server-upload', 'technical-works-offline'])
+    new Set(['general-whatIs', 'general-what-is', 'privacy-uploaded', 'privacy-server-upload'])
   );
 
-  const categoryOptions = [
-    { key: 'all', label: 'All Questions', icon: HelpCircle },
-    { key: 'general', label: 'General', icon: Info },
-    { key: 'privacy', label: 'Privacy & Security', icon: ShieldCheck },
-    { key: 'features', label: 'Features & Tools', icon: Layers },
-    { key: 'technical', label: 'Technical & Offline', icon: Cpu },
-    { key: 'troubleshooting', label: 'Troubleshooting', icon: Wrench },
-    { key: 'languages', label: 'Languages', icon: Globe },
-  ];
+  // Dynamically load localized FAQs from messages translation dictionary
+  const localizedFaqs: FAQItem[] = useMemo(() => {
+    try {
+      const rawSections = t.raw('sections') as Record<string, Record<string, { question: string; answer: string }>> | undefined;
+      if (!rawSections || typeof rawSections !== 'object') {
+        return FAQ_ITEMS;
+      }
+
+      const items: FAQItem[] = [];
+
+      // Extract translated questions from messages
+      Object.entries(rawSections).forEach(([catKey, sectionMap]) => {
+        if (!sectionMap || typeof sectionMap !== 'object') return;
+        
+        let catLabel = catKey;
+        try {
+          catLabel = t(`categories.${catKey}` as any);
+        } catch {
+          catLabel = catKey.charAt(0).toUpperCase() + catKey.slice(1);
+        }
+
+        Object.entries(sectionMap).forEach(([itemKey, qa]) => {
+          if (qa && qa.question && qa.answer) {
+            items.push({
+              id: `${catKey}-${itemKey}`,
+              category: catKey as any,
+              categoryLabel: catLabel,
+              question: qa.question.replace(/PDFCraft/g, 'iCreatePDF'),
+              answer: qa.answer.replace(/PDFCraft/g, 'iCreatePDF'),
+            });
+          }
+        });
+      });
+
+      // If user language is English or if additional extended items exist, supplement with extended config
+      if (locale === 'en' || items.length === 0) {
+        return FAQ_ITEMS;
+      }
+
+      return items;
+    } catch {
+      return FAQ_ITEMS;
+    }
+  }, [t, locale]);
+
+  // Category navigation options using localized labels
+  const categoryOptions = useMemo(() => {
+    const getCatLabel = (key: string, fallback: string) => {
+      try {
+        return t(`categories.${key}` as any) || fallback;
+      } catch {
+        return fallback;
+      }
+    };
+
+    return [
+      { key: 'all', label: getCatLabel('all', 'All Questions'), icon: HelpCircle },
+      { key: 'general', label: getCatLabel('general', 'General'), icon: Info },
+      { key: 'privacy', label: getCatLabel('privacy', 'Privacy & Security'), icon: ShieldCheck },
+      { key: 'features', label: getCatLabel('features', 'Features & Tools'), icon: Layers },
+      { key: 'technical', label: getCatLabel('technical', 'Technical & Offline'), icon: Cpu },
+      { key: 'languages', label: getCatLabel('languages', 'Languages'), icon: Globe },
+    ];
+  }, [t]);
 
   // Category item counts
   const categoryCounts = useMemo(() => {
-    const counts: Record<string, number> = { all: FAQ_ITEMS.length };
-    FAQ_ITEMS.forEach((item) => {
+    const counts: Record<string, number> = { all: localizedFaqs.length };
+    localizedFaqs.forEach((item) => {
       counts[item.category] = (counts[item.category] || 0) + 1;
     });
     return counts;
-  }, []);
-
-  // Quick highlight cards
-  const highlightCards = [
-    {
-      icon: ShieldCheck,
-      title: '100% Client-Side Privacy',
-      desc: 'All operations execute locally via WebAssembly. Your files never leave your device.',
-      badge: 'Zero Uploads',
-      color: 'text-emerald-600 bg-emerald-50 dark:bg-emerald-950/40 dark:text-emerald-400'
-    },
-    {
-      icon: Cpu,
-      title: 'Works Completely Offline',
-      desc: 'Disconnect your internet or use in airplane mode. Zero dependence on remote servers.',
-      badge: 'Offline Capable',
-      color: 'text-blue-600 bg-blue-50 dark:bg-blue-950/40 dark:text-blue-400'
-    },
-    {
-      icon: Sparkles,
-      title: 'Free & Open Source',
-      desc: 'Licensed under GNU AGPLv3. Free forever with no subscription fees, watermarks, or paywalls.',
-      badge: 'AGPL-3.0',
-      color: 'text-amber-600 bg-amber-50 dark:bg-amber-950/40 dark:text-amber-400'
-    }
-  ];
+  }, [localizedFaqs]);
 
   // Filter FAQs based on query & category
   const filteredFaqs = useMemo(() => {
     const q = searchQuery.toLowerCase().trim();
-    return FAQ_ITEMS.filter((faq) => {
+    return localizedFaqs.filter((faq) => {
       const matchesSearch =
         q === '' ||
         faq.question.toLowerCase().includes(q) ||
@@ -93,7 +126,7 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
       const matchesCat = selectedCategory === 'all' || faq.category === selectedCategory;
       return matchesSearch && matchesCat;
     });
-  }, [searchQuery, selectedCategory]);
+  }, [localizedFaqs, searchQuery, selectedCategory]);
 
   const toggleItem = (id: string) => {
     setExpandedItems((prev) => {
@@ -130,29 +163,28 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
             <nav aria-label="Breadcrumb" className="mb-4 flex items-center justify-center gap-1.5 text-xs text-[hsl(var(--color-muted-foreground))]">
               <Link href={`/${locale}`} className="hover:text-[hsl(var(--color-foreground))] transition-colors flex items-center gap-1">
                 <Home className="w-3.5 h-3.5" />
-                <span>Home</span>
+                <span>{tCommon('navigation.home') || 'Home'}</span>
               </Link>
               <ChevronRight className="w-3 h-3 text-[hsl(var(--color-muted-foreground))/0.6]" />
-              <span className="text-[hsl(var(--color-foreground))] font-medium">Help &amp; FAQ</span>
+              <span className="text-[hsl(var(--color-foreground))] font-medium">
+                {tCommon('navigation.faq') || t('title') || 'Help & FAQ'}
+              </span>
             </nav>
 
             {/* Top Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 dark:bg-red-950/50 border border-red-200/60 dark:border-red-900/40 text-red-600 dark:text-red-400 text-xs font-bold mb-4">
               <HelpCircle className="w-3.5 h-3.5" />
-              <span>Help Center &amp; Knowledge Base</span>
+              <span>{tCommon('navigation.faq') || 'Help Center & Knowledge Base'}</span>
             </div>
 
             {/* Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[hsl(var(--color-foreground))] leading-tight mb-4">
-              Frequently Asked <br />
-              <span className="text-red-600 bg-gradient-to-r from-red-600 via-rose-600 to-red-500 bg-clip-text text-transparent">
-                Questions
-              </span>
+              {t('title') || 'Frequently Asked Questions'}
             </h1>
 
             {/* Subtitle */}
             <p className="text-base sm:text-lg text-[hsl(var(--color-muted-foreground))] max-w-2xl mx-auto leading-relaxed mb-8">
-              Everything you need to know about iCreatePDF, client-side zero-upload privacy, supported file formats, and offline editing capabilities.
+              {t('subtitle', { brand: 'iCreatePDF' }) || 'Find answers to common questions about iCreatePDF, client-side privacy, and offline capabilities.'}
             </p>
 
             {/* Search Input Bar */}
@@ -162,47 +194,19 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search questions (e.g., privacy, size limit, offline, compress)..."
+                placeholder={t('searchPlaceholder') || 'Search FAQs...'}
                 className="w-full pl-11 pr-10 py-3.5 rounded-full border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] text-sm shadow-xs hover:shadow-md focus:shadow-md focus:border-red-500 focus:outline-none focus:ring-4 focus:ring-red-500/10 transition-all placeholder:text-[hsl(var(--color-muted-foreground))] text-[hsl(var(--color-foreground))]"
                 aria-label="Search frequently asked questions"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))] p-1 rounded-full"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))] p-1 rounded-full cursor-pointer"
                   aria-label="Clear search"
                 >
                   <X className="w-4 h-4" />
                 </button>
               )}
-            </div>
-
-            {/* Highlight Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left max-w-4xl mx-auto mb-10">
-              {highlightCards.map((card, i) => {
-                const Icon = card.icon;
-                return (
-                  <div
-                    key={i}
-                    className="p-5 rounded-2xl bg-[hsl(var(--color-card))] border border-[hsl(var(--color-border))] hover:border-red-300 dark:hover:border-red-900/60 shadow-xs transition-all"
-                  >
-                    <div className="flex items-center justify-between mb-3">
-                      <div className={`w-9 h-9 rounded-xl ${card.color} flex items-center justify-center`}>
-                        <Icon className="w-4.5 h-4.5" />
-                      </div>
-                      <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[hsl(var(--color-muted))] text-[hsl(var(--color-muted-foreground))]">
-                        {card.badge}
-                      </span>
-                    </div>
-                    <h3 className="font-bold text-sm text-[hsl(var(--color-foreground))] mb-1">
-                      {card.title}
-                    </h3>
-                    <p className="text-xs text-[hsl(var(--color-muted-foreground))] leading-relaxed">
-                      {card.desc}
-                    </p>
-                  </div>
-                );
-              })}
             </div>
 
             {/* Category Filter Pills with Item Counts */}
@@ -215,7 +219,7 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
                   <button
                     key={cat.key}
                     onClick={() => setSelectedCategory(cat.key)}
-                    className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all ${
+                    className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
                       isActive
                         ? 'bg-red-600 text-white shadow-md shadow-red-500/25 scale-105'
                         : 'bg-[hsl(var(--color-card))] text-[hsl(var(--color-muted-foreground))] border border-[hsl(var(--color-border))] hover:bg-[hsl(var(--color-muted))] hover:text-[hsl(var(--color-foreground))]'
@@ -257,14 +261,14 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
                 onClick={expandAll}
                 className="text-xs font-bold text-[hsl(var(--color-muted-foreground))] hover:text-red-600 dark:hover:text-red-400 px-2.5 py-1 rounded-md hover:bg-[hsl(var(--color-muted))] transition-colors cursor-pointer"
               >
-                Expand All
+                {t('expandAll') || 'Expand All'}
               </button>
               <span className="text-[hsl(var(--color-border))]">•</span>
               <button
                 onClick={collapseAll}
                 className="text-xs font-bold text-[hsl(var(--color-muted-foreground))] hover:text-red-600 dark:hover:text-red-400 px-2.5 py-1 rounded-md hover:bg-[hsl(var(--color-muted))] transition-colors cursor-pointer"
               >
-                Collapse All
+                {t('collapseAll') || 'Collapse All'}
               </button>
             </div>
           </div>
@@ -274,10 +278,10 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
             <div className="text-center py-16 bg-[hsl(var(--color-card))] rounded-3xl border border-dashed border-[hsl(var(--color-border))]">
               <HelpCircle className="w-12 h-12 text-[hsl(var(--color-muted-foreground))] mx-auto mb-3 opacity-50" />
               <h3 className="text-lg font-bold text-[hsl(var(--color-foreground))] mb-1">
-                No matching questions found
+                {t('noResults') || 'No matching questions found'}
               </h3>
               <p className="text-sm text-[hsl(var(--color-muted-foreground))] mb-4 max-w-sm mx-auto">
-                We couldn&rsquo;t find any answer matching &ldquo;{searchQuery}&rdquo;. Try another term or contact our support team.
+                {searchQuery ? `"${searchQuery}"` : ''}
               </p>
               <button
                 onClick={() => {
@@ -286,7 +290,7 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
                 }}
                 className="px-4 py-2 rounded-full bg-red-600 text-white text-xs font-bold hover:bg-red-700 transition-colors shadow-sm cursor-pointer"
               >
-                Reset Search Filters
+                {tCommon('buttons.reset') || 'Reset'}
               </button>
             </div>
           ) : (
@@ -360,23 +364,23 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
 
             <div className="relative z-10 max-w-xl mx-auto space-y-3">
               <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-                Still have questions?
+                {t('cta.title') || 'Still have questions?'}
               </h2>
               <p className="text-sm sm:text-base text-white/90 leading-relaxed">
-                Can&rsquo;t find the answer you are looking for? Contact our community support team or explore our offline toolkit.
+                {t('cta.description') || "Can't find the answer you are looking for? Contact our community support team or explore our offline toolkit."}
               </p>
               <div className="pt-3 flex flex-wrap items-center justify-center gap-3">
                 <Link
                   href={`/${locale}/contact`}
                   className="px-6 py-3 rounded-full bg-white text-red-600 font-bold text-xs shadow-lg hover:bg-zinc-100 transition-all flex items-center gap-1.5"
                 >
-                  <Mail className="w-4 h-4" /> Contact Us
+                  <Mail className="w-4 h-4" /> {t('cta.button') || 'Contact Us'}
                 </Link>
                 <Link
                   href={`/${locale}/tools`}
                   className="px-6 py-3 rounded-full bg-red-700/80 hover:bg-red-800 text-white font-bold text-xs transition-all flex items-center gap-1.5"
                 >
-                  <FileText className="w-4 h-4" /> Explore All 67+ Tools
+                  <FileText className="w-4 h-4" /> {tCommon('navigation.tools') || 'All Tools'}
                 </Link>
               </div>
             </div>

@@ -35,8 +35,8 @@
     }
   },
   "common": {
-    "brand": "PDFCraft",
-    "tagline": "전문 PDF 도구 - 무료 & 프라이빗",
+    "brand": "iCreatePDF",
+    "tagline": "완전한 오프라인 PDF 툴킷. 100% 개인정보 보호, 업로드 불필요, 빠른 브라우저 기반.",
     "navigation": {
       "home": "집",
       "tools": "도구",
@@ -44,7 +44,14 @@
       "about": "소개",
       "faq": "자주 묻는 질문",
       "privacy": "은둔",
-      "contact": "문의하기"
+      "contact": "문의하기",
+      "security": "보안",
+      "terms": "이용약관",
+      "cookies": "쿠키",
+      "press": "보도자료",
+      "license": "라이선스 (AGPL-3.0)",
+      "acknowledgements": "감사의 글",
+      "blog": "블로그"
     },
     "buttons": {
       "upload": "파일 업로드",
@@ -86,7 +93,11 @@
       "footer": "© 2025 PDFCraft. All rights reserved.",
       "copyright": "© {year} PDFCraft. All rights reserved.",
       "privacyBadge": "100% 프라이빗 - 파일이 기기를 떠나지 않습니다",
-      "madeWith": "<Heart /> 및 <Nextjs />로 제작"
+      "madeWith": "<Heart /> 및 <Nextjs />로 제작",
+      "resources": "리소스",
+      "company": "회사",
+      "legal": "법적 고지",
+      "tagline": "완전한 오프라인 PDF 툴킷. 100% 개인정보 보호, 업로드 불필요, 빠른 브라우저 기반."
     },
     "recentFiles": {
       "title": "최근 파일",

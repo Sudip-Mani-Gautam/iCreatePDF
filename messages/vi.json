@@ -35,16 +35,23 @@
     }
   },
   "common": {
-    "brand": "PDFCraft",
-    "tagline": "Công cụ PDF Chuyên nghiệp - Miễn phí & Riêng tư",
+    "brand": "iCreatePDF",
+    "tagline": "Bộ công cụ PDF ngoại tuyến hoàn chỉnh của bạn. 100% riêng tư, không tải lên, nhanh chóng và trên trình duyệt.",
     "navigation": {
       "home": "Trang chủ",
       "tools": "Công cụ",
       "workflow": "Quy trình công việc",
       "about": "Giới thiệu",
-      "faq": "FAQ",
+      "faq": "Câu hỏi thường gặp",
       "privacy": "Sự riêng tư",
-      "contact": "Liên hệ"
+      "contact": "Liên hệ",
+      "security": "Bảo mật",
+      "terms": "Điều khoản & Điều kiện",
+      "cookies": "Cookie",
+      "press": "Báo chí",
+      "license": "Giấy phép (AGPL-3.0)",
+      "acknowledgements": "Lời cảm ơn",
+      "blog": "Blog"
     },
     "buttons": {
       "upload": "Tải lên Tệp",
@@ -86,7 +93,11 @@
       "footer": "© 2025 PDFCraft. Bảo lưu mọi quyền.",
       "copyright": "© {year} PDFCraft. Bảo lưu mọi quyền.",
       "privacyBadge": "100% Riêng tư - Tệp không bao giờ rời khỏi thiết bị",
-      "madeWith": "Được tạo bởi <Heart /> và <Nextjs />"
+      "madeWith": "Được tạo bởi <Heart /> và <Nextjs />",
+      "resources": "Tài nguyên",
+      "company": "Công ty",
+      "legal": "Pháp lý",
+      "tagline": "Bộ công cụ PDF ngoại tuyến hoàn chỉnh của bạn. 100% riêng tư, không tải lên, nhanh chóng và trên trình duyệt."
     },
     "recentFiles": {
       "title": "Tệp Gần đây",

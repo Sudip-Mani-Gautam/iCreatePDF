@@ -30,7 +30,8 @@ interface HomePageClientProps {
 type FilterCategory = 'all' | 'organize' | 'optimize' | 'convert' | 'edit' | 'security';
 
 export default function HomePageClient({ locale, localizedToolContent }: HomePageClientProps) {
-  const t = useTranslations();
+  const tHome = useTranslations('home');
+  const tCommon = useTranslations('common');
   const allTools = useMemo(() => getAllTools(), []);
 
   const [searchQuery, setSearchQuery] = useState('');
@@ -55,8 +56,8 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
 
       // Search match
       const localized = localizedToolContent?.[tool.id];
-      const title = localized?.title || tool.id.replace(/-/g, ' ');
-      const desc = localized?.description || tool.features.join(' ');
+      const title = localized?.title || tool.slug;
+      const desc = localized?.description || '';
       const query = searchQuery.toLowerCase().trim();
 
       const matchesSearch =
@@ -95,14 +96,14 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
     });
   }, [filteredTools, activeCategory, searchQuery]);
 
-  const categoriesList: { id: FilterCategory; label: string }[] = [
-    { id: 'all', label: 'All Tools' },
-    { id: 'organize', label: 'Organize' },
-    { id: 'optimize', label: 'Optimize' },
-    { id: 'convert', label: 'Convert' },
-    { id: 'edit', label: 'Edit' },
-    { id: 'security', label: 'Security' },
-  ];
+  const categoriesList: { id: FilterCategory; label: string }[] = useMemo(() => [
+    { id: 'all', label: tCommon('navigation.tools') || 'All Tools' },
+    { id: 'organize', label: tHome('categories.organizeManage') || 'Organize' },
+    { id: 'optimize', label: tHome('categories.optimizeRepair') || 'Optimize' },
+    { id: 'convert', label: tHome('categories.convertToPdf') || 'Convert' },
+    { id: 'edit', label: tHome('categories.editAnnotate') || 'Edit' },
+    { id: 'security', label: tHome('categories.securePdf') || 'Security' },
+  ], [tCommon, tHome]);
 
   const testimonials = [
     {
@@ -148,15 +149,28 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
           <div className="container mx-auto px-4 max-w-4xl">
             {/* Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[hsl(var(--color-foreground))] leading-tight mb-4">
-              Every PDF Tool You Need, <br />
-              <span className="text-red-600 bg-gradient-to-r from-red-600 via-rose-600 to-red-500 bg-clip-text text-transparent">
-                Run Privately Offline
-              </span>
+              {locale === 'en' ? (
+                <>
+                  Every PDF Tool You Need, <br />
+                  <span className="text-red-600 bg-gradient-to-r from-red-600 via-rose-600 to-red-500 bg-clip-text text-transparent">
+                    Run Privately Offline
+                  </span>
+                </>
+              ) : (
+                <>
+                  {tHome('hero.title') || 'Strumenti PDF professionali'} <br />
+                  <span className="text-red-600 bg-gradient-to-r from-red-600 via-rose-600 to-red-500 bg-clip-text text-transparent">
+                    {tHome('features.privacy.title') || '100% Privato'}
+                  </span>
+                </>
+              )}
             </h1>
 
             {/* Subtitle */}
             <p className="text-base sm:text-lg text-[hsl(var(--color-muted-foreground))] max-w-2xl mx-auto leading-relaxed mb-8">
-              Process your files locally in your browser. No server uploads, no privacy risks. Complete speed and peace of mind.
+              {locale === 'en'
+                ? 'Process your files locally in your browser. No server uploads, no privacy risks. Complete speed and peace of mind.'
+                : tHome('hero.subtitle') || tHome('features.privacy.description')}
             </p>
 
             {/* Search Input Bar */}
@@ -166,13 +180,13 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search for tools (e.g., Merge, Protect, Compress)..."
+                placeholder={locale === 'en' ? 'Search for tools (e.g., Merge, Protect, Compress)...' : `${tCommon('navigation.tools')}...`}
                 className="w-full pl-11 pr-10 py-3.5 rounded-full border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] text-sm shadow-xs hover:shadow-md focus:shadow-md focus:border-red-500 focus:outline-none focus:ring-4 focus:ring-red-500/10 transition-all placeholder:text-[hsl(var(--color-muted-foreground))] text-[hsl(var(--color-foreground))]"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))] p-1 rounded-full"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))] p-1 rounded-full cursor-pointer"
                   aria-label="Clear search"
                 >
                   <X className="w-4 h-4" />
@@ -188,10 +202,10 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                   <button
                     key={cat.id}
                     onClick={() => setActiveCategory(cat.id)}
-                    className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all ${
+                    className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
                       isActive
                         ? 'bg-red-600 text-white shadow-md shadow-red-500/25 scale-105'
-                        : 'bg-zinc-100 dark:bg-zinc-800/80 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700'
+                        : 'bg-[hsl(var(--color-card))] border border-[hsl(var(--color-border))] text-[hsl(var(--color-muted-foreground))] hover:bg-[hsl(var(--color-muted))] hover:text-[hsl(var(--color-foreground))]'
                     }`}
                   >
                     {cat.label}
@@ -203,7 +217,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                 href={`/${locale}/tools`}
                 className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400 hover:bg-amber-100 transition-colors border border-amber-200/60 dark:border-amber-800/40"
               >
-                +{allTools.length - 12} More
+                +{allTools.length - 12} {tCommon('navigation.tools') || 'More'}
               </Link>
             </div>
           </div>
@@ -212,37 +226,31 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
         {/* 5-Column Tools Grid Section */}
         <section className="container mx-auto px-4 max-w-7xl mt-4 mb-20">
           {displayTools.length === 0 ? (
-            <div className="text-center py-20 bg-zinc-50 dark:bg-zinc-900 rounded-3xl border border-dashed border-zinc-200 dark:border-zinc-800 max-w-xl mx-auto">
-              <FileText className="w-12 h-12 text-zinc-400 mx-auto mb-3 opacity-60" />
-              <h3 className="text-lg font-bold mb-1">No matching tools found</h3>
-              <p className="text-sm text-zinc-500 mb-4">
-                Try searching for something else or reset your filter.
+            <div className="text-center py-20 bg-[hsl(var(--color-card))] rounded-3xl border border-dashed border-[hsl(var(--color-border))] max-w-xl mx-auto">
+              <FileText className="w-12 h-12 text-[hsl(var(--color-muted-foreground))] mx-auto mb-3 opacity-60" />
+              <h3 className="text-lg font-bold mb-1">{tHome('popularTools.description') || 'No matching tools found'}</h3>
+              <p className="text-sm text-[hsl(var(--color-muted-foreground))] mb-4">
+                {tCommon('buttons.clearAll') || 'Try searching for something else or reset your filter.'}
               </p>
               <button
                 onClick={() => {
                   setSearchQuery('');
                   setActiveCategory('all');
                 }}
-                className="px-4 py-2 rounded-full bg-red-600 text-white text-xs font-bold hover:bg-red-700 transition-colors shadow-sm"
+                className="px-4 py-2 rounded-full bg-red-600 text-white text-xs font-bold hover:bg-red-700 transition-colors shadow-sm cursor-pointer"
               >
-                Reset Filter
+                {tCommon('buttons.reset') || 'Reset Filter'}
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-4.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
               {displayTools.map((tool) => {
+                const IconComponent = getToolIcon(tool.id);
                 const localized = localizedToolContent?.[tool.id];
-                const toolName = localized?.title || tool.id
-                  .split('-')
-                  .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-                  .join(' ');
-
-                const description = localized?.description || tool.features.slice(0, 2).map((f) => f.replace(/-/g, ' ')).join(', ');
-                const IconComponent = getToolIcon(tool.icon);
-
-                // Highlight special badges
-                const isAI = tool.id.includes('ai') || tool.id.includes('summarize');
-                const isPro = tool.id.includes('translate') || tool.id.includes('ocr');
+                const toolName = localized?.title || tool.slug;
+                const description = localized?.description || '';
+                const isPopular = ['merge-pdf', 'split-pdf', 'compress-pdf', 'pdf-to-word', 'word-to-pdf', 'edit-pdf', 'sign-pdf', 'protect-pdf', 'jpg-to-pdf', 'ocr-pdf'].includes(tool.id);
+                const isAI = ['ocr-pdf', 'summarize-pdf'].includes(tool.id);
 
                 return (
                   <Link
@@ -252,19 +260,18 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                   >
                     <div>
                       {/* Top icon and badge */}
-                      <div className="flex items-start justify-between mb-3.5">
-                        <div className="w-10 h-10 rounded-xl bg-red-50 dark:bg-red-950/40 text-red-600 dark:text-red-400 flex items-center justify-center group-hover:bg-red-600 group-hover:text-white transition-all duration-200 shadow-xs">
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="w-11 h-11 rounded-xl bg-red-50 dark:bg-red-950/50 flex items-center justify-center text-red-600 dark:text-red-400 group-hover:scale-110 transition-transform">
                           <IconComponent className="w-5 h-5" />
                         </div>
-
-                        {isAI && (
-                          <span className="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300">
-                            AI
+                        {isPopular && (
+                          <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-red-50 dark:bg-red-950 text-red-600 dark:text-red-400">
+                            {tHome('popularTools.badge') || 'Hot'}
                           </span>
                         )}
-                        {isPro && !isAI && (
-                          <span className="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
-                            PRO
+                        {isAI && (
+                          <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-50 dark:bg-amber-950 text-amber-600 dark:text-amber-400">
+                            AI
                           </span>
                         )}
                       </div>
@@ -283,7 +290,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                     {/* Bottom Action Arrow */}
                     <div className="pt-2 flex items-center justify-between text-[hsl(var(--color-muted-foreground))] group-hover:text-red-600 transition-colors border-t border-[hsl(var(--color-border)/0.6)] mt-auto">
                       <span className="text-[11px] font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                        Use Tool
+                        {tCommon('buttons.process') || 'Use Tool'}
                       </span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </div>
@@ -299,10 +306,10 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
           <div className="container mx-auto px-4 max-w-6xl">
             <div className="text-center max-w-2xl mx-auto mb-12">
               <h2 className="text-2xl sm:text-3xl font-bold text-[hsl(var(--color-foreground))] tracking-tight mb-3">
-                Loved by Millions
+                {tHome('popularTools.title') || 'Loved by Millions'}
               </h2>
               <p className="text-sm sm:text-base text-[hsl(var(--color-muted-foreground))]">
-                See why users choose iCreatePDF for secure offline editing
+                {tHome('popularTools.description') || 'See why users choose iCreatePDF for secure offline editing'}
               </p>
             </div>
 
@@ -345,26 +352,48 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
           </div>
         </section>
 
-        {/* Ready to Secure Your PDF Files (Red Gradient CTA Banner) */}
-        <section className="container mx-auto px-4 max-w-5xl my-16">
-          <div className="relative rounded-3xl p-8 sm:p-12 text-center text-white overflow-hidden shadow-2xl bg-gradient-to-r from-red-600 via-rose-600 to-red-500">
-            {/* Background subtle geometric rings */}
-            <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent bg-[length:40px_40px]" />
+        {/* Feature Pillars: 100% Client-Side */}
+        <section className="py-20 container mx-auto px-4 max-w-6xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="flex gap-4 items-start">
+              <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0">
+                <ShieldCheck className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="text-base font-bold text-[hsl(var(--color-foreground))] mb-1.5">
+                  {tHome('features.privacy.title') || '100% Private & Client-Side'}
+                </h3>
+                <p className="text-xs text-[hsl(var(--color-muted-foreground))] leading-relaxed">
+                  {tHome('features.privacy.description') || 'All operations run in your browser sandbox using WebAssembly. Files never touch any remote server.'}
+                </p>
+              </div>
+            </div>
 
-            <div className="relative z-10 max-w-2xl mx-auto space-y-4">
-              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-                Ready to secure your PDF files?
-              </h2>
-              <p className="text-sm sm:text-base text-white/90 leading-relaxed max-w-xl mx-auto">
-                Get started instantly. No accounts required for offline basic conversion.
-              </p>
-              <div className="pt-4">
-                <Link
-                  href={`/${locale}/tools`}
-                  className="inline-block px-8 py-3.5 rounded-full bg-white text-red-600 font-bold text-sm shadow-xl hover:bg-zinc-100 hover:scale-105 active:scale-95 transition-all"
-                >
-                  Explore All 80+ Tools Free
-                </Link>
+            <div className="flex gap-4 items-start">
+              <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 flex items-center justify-center flex-shrink-0">
+                <Zap className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="text-base font-bold text-[hsl(var(--color-foreground))] mb-1.5">
+                  {tHome('features.powerful.title') || 'Lightning Fast Performance'}
+                </h3>
+                <p className="text-xs text-[hsl(var(--color-muted-foreground))] leading-relaxed">
+                  {tHome('features.powerful.description') || 'No waiting for network uploads or downloads. Instant file manipulation powered by your device.'}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex gap-4 items-start">
+              <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 flex items-center justify-center flex-shrink-0">
+                <Sparkles className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="text-base font-bold text-[hsl(var(--color-foreground))] mb-1.5">
+                  {tHome('features.free.title') || 'Completely Free & Open'}
+                </h3>
+                <p className="text-xs text-[hsl(var(--color-muted-foreground))] leading-relaxed">
+                  {tHome('features.free.description') || 'No subscriptions, watermarks, or account registration required. Open source under GNU AGPLv3.'}
+                </p>
               </div>
             </div>
           </div>

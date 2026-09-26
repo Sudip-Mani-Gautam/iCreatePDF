@@ -35,16 +35,23 @@
     }
   },
   "common": {
-    "brand": "PDFCraft",
-    "tagline": "Alat PDF Profesional - Gratis & Pribadi",
+    "brand": "iCreatePDF",
+    "tagline": "Toolkit PDF offline lengkap Anda. 100% privat, tanpa unggahan, cepat dan berbasis browser.",
     "navigation": {
       "home": "Rumah",
       "tools": "Alat",
       "workflow": "Alur Kerja",
       "about": "Tentang",
-      "faq": "FAQ",
+      "faq": "Pertanyaan Umum",
       "privacy": "Pribadi",
-      "contact": "Hubungi"
+      "contact": "Hubungi",
+      "security": "Keamanan",
+      "terms": "Syarat & Ketentuan",
+      "cookies": "Cookie",
+      "press": "Pers",
+      "license": "Lisensi (AGPL-3.0)",
+      "acknowledgements": "Ucapan Terima Kasih",
+      "blog": "Blog"
     },
     "buttons": {
       "upload": "Unggah File",
@@ -86,7 +93,11 @@
       "footer": "© 2025 PDFCraft. Hak cipta dilindungi undang-undang.",
       "copyright": "© {year} PDFCraft. Hak cipta dilindungi undang-undang.",
       "privacyBadge": "100% Pribadi - File tidak pernah meninggalkan perangkat Anda",
-      "madeWith": "Dibuat dengan <Heart /> dan <Nextjs />"
+      "madeWith": "Dibuat dengan <Heart /> dan <Nextjs />",
+      "resources": "Sumber Daya",
+      "company": "Perusahaan",
+      "legal": "Hukum",
+      "tagline": "Toolkit PDF offline lengkap Anda. 100% privat, tanpa unggahan, cepat dan berbasis browser."
     },
     "recentFiles": {
       "title": "File Terbaru",

@@ -35,16 +35,23 @@
     }
   },
   "common": {
-    "brand": "PDFCraft",
-    "tagline": "Herramientas PDF Profesionales - Gratis y Privadas",
+    "brand": "iCreatePDF",
+    "tagline": "Su kit de herramientas PDF sin conexión. 100% privado, sin cargas, rápido y basado en navegador.",
     "navigation": {
       "home": "Inicio",
       "tools": "Herramientas",
       "workflow": "Flujo de trabajo",
       "about": "Acerca de",
-      "faq": "Preguntas Frecuentes",
+      "faq": "Preguntas frecuentes",
       "privacy": "Privacidad",
-      "contact": "Contacto"
+      "contact": "Contacto",
+      "security": "Seguridad",
+      "terms": "Términos y condiciones",
+      "cookies": "Cookies",
+      "press": "Prensa",
+      "license": "Licencia (AGPL-3.0)",
+      "acknowledgements": "Agradecimientos",
+      "blog": "Blog"
     },
     "buttons": {
       "upload": "Subir Archivos",
@@ -86,7 +93,11 @@
       "footer": "© 2025 PDFCraft. Todos los derechos reservados.",
       "copyright": "© {year} PDFCraft. Todos los derechos reservados.",
       "privacyBadge": "100% Privado - Los archivos nunca salen de tu dispositivo",
-      "madeWith": "Hecho con <Heart /> y <Nextjs />"
+      "madeWith": "Hecho con <Heart /> y <Nextjs />",
+      "resources": "Recursos",
+      "company": "Empresa",
+      "legal": "Legal",
+      "tagline": "Su kit de herramientas PDF sin conexión. 100% privado, sin cargas, rápido y basado en navegador."
     },
     "recentFiles": {
       "title": "Archivos Recientes",

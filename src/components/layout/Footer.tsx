@@ -7,6 +7,7 @@ import { useTranslations } from 'next-intl';
 import { Shield, Lock, FileCheck, Github, Twitter, Mail, Globe } from 'lucide-react';
 import { type Locale, locales, localeConfig, getLocalizedPath } from '@/lib/i18n/config';
 import { saveLanguagePreference } from './LanguageSelector';
+import { getToolContent } from '@/config/tool-content';
 
 export interface FooterProps {
   locale: Locale;
@@ -18,28 +19,24 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const footerLinks = [
-    { href: `/${locale}/blog`, label: t('navigation.blog') || 'Blog' },
-    { href: `/${locale}/about`, label: t('navigation.about') },
-    { href: `/${locale}/faq`, label: t('navigation.faq') },
-    { href: `/${locale}/privacy`, label: t('navigation.privacy') },
-    { href: `/${locale}/license`, label: t('navigation.license') || 'License' },
-    { href: `/${locale}/acknowledgements`, label: t('navigation.acknowledgements') || 'Acknowledgements' },
-    { href: `/${locale}/contact`, label: t('navigation.contact') },
-  ];
-
   const handleLanguageChange = (newLocale: Locale) => {
     saveLanguagePreference(newLocale);
     const newPath = getLocalizedPath(pathname, newLocale);
     router.push(newPath);
   };
 
+  // Localized tool titles
+  const mergeTitle = getToolContent(locale, 'merge-pdf')?.title || 'Merge PDF';
+  const splitTitle = getToolContent(locale, 'split-pdf')?.title || 'Split PDF';
+  const compressTitle = getToolContent(locale, 'compress-pdf')?.title || 'Compress PDF';
+  const editTitle = getToolContent(locale, 'edit-pdf')?.title || 'Edit PDF';
+
   return (
     <footer
-      className="w-full border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/60 dark:bg-zinc-950 pt-16 pb-8"
+      className="w-full border-t border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] pt-16 pb-8 text-[hsl(var(--color-foreground))]"
       role="contentinfo"
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-6xl">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-12">
           {/* Brand Column */}
           <div className="flex flex-col gap-4">
@@ -58,27 +55,29 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
-                  <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                   <polyline points="14 2 14 8 20 8" />
+                  <path d="M9 15h6" />
+                  <path d="M12 12v6" />
                 </svg>
               </div>
               <span className="text-xl font-extrabold tracking-tight flex items-center" data-testid="footer-brand-name">
-                <span className="text-zinc-900 dark:text-white">iCreate</span>
+                <span className="text-[hsl(var(--color-foreground))]">iCreate</span>
                 <span className="text-white bg-red-600 px-1.5 py-0.5 rounded-md ml-1 text-xs font-black shadow-sm">PDF</span>
               </span>
             </Link>
-            <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-xs">
-              Your complete offline PDF toolkit. 100% private, zero uploads, fast and browser-based.
+            <p className="text-xs text-[hsl(var(--color-muted-foreground))] leading-relaxed max-w-xs">
+              {t('footer.tagline') || t('tagline') || 'Your complete offline PDF toolkit. 100% private, zero uploads, fast and browser-based.'}
             </p>
 
             <div className="flex gap-3 pt-2">
-              <a href="https://github.com/PDFCraftTool/pdfcraft" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-500 hover:bg-red-600 hover:text-white transition-all" title="Source Code on GitHub">
+              <a href="https://github.com/PDFCraftTool/pdfcraft" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[hsl(var(--color-card))] border border-[hsl(var(--color-border))] text-[hsl(var(--color-muted-foreground))] hover:bg-red-600 hover:text-white transition-all" title="Source Code on GitHub">
                 <Github className="w-4 h-4" />
               </a>
-              <a href="https://twitter.com/icreatepdf" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-500 hover:bg-red-600 hover:text-white transition-all" title="Twitter / X">
+              <a href="https://twitter.com/icreatepdf" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[hsl(var(--color-card))] border border-[hsl(var(--color-border))] text-[hsl(var(--color-muted-foreground))] hover:bg-red-600 hover:text-white transition-all" title="Twitter / X">
                 <Twitter className="w-4 h-4" />
               </a>
-              <a href={`/${locale}/contact`} className="p-2 rounded-lg bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-500 hover:bg-red-600 hover:text-white transition-all" title="Contact Us">
+              <a href={`/${locale}/contact`} className="p-2 rounded-lg bg-[hsl(var(--color-card))] border border-[hsl(var(--color-border))] text-[hsl(var(--color-muted-foreground))] hover:bg-red-600 hover:text-white transition-all" title="Contact Us">
                 <Mail className="w-4 h-4" />
               </a>
             </div>
@@ -87,37 +86,37 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
           {/* Resources Column */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--color-foreground))] mb-4">
-              Resources
+              {t('footer.resources') || 'Resources'}
             </h3>
             <ul className="flex flex-col gap-2.5 text-xs text-[hsl(var(--color-muted-foreground))]">
               <li>
                 <Link href={`/${locale}/tools/merge-pdf`} className="hover:text-red-600 transition-colors">
-                  Merge PDF
+                  {mergeTitle}
                 </Link>
               </li>
               <li>
                 <Link href={`/${locale}/tools/split-pdf`} className="hover:text-red-600 transition-colors">
-                  Split PDF
+                  {splitTitle}
                 </Link>
               </li>
               <li>
                 <Link href={`/${locale}/tools/compress-pdf`} className="hover:text-red-600 transition-colors">
-                  Compress PDF
+                  {compressTitle}
                 </Link>
               </li>
               <li>
                 <Link href={`/${locale}/tools/edit-pdf`} className="hover:text-red-600 transition-colors">
-                  Edit PDF
+                  {editTitle}
                 </Link>
               </li>
               <li>
                 <Link href={`/${locale}/workflow`} className="hover:text-red-600 transition-colors">
-                  Workflow Editor
+                  {t('navigation.workflow') || 'Workflow Editor'}
                 </Link>
               </li>
               <li>
                 <Link href={`/${locale}/faq`} className="hover:text-red-600 transition-colors font-medium">
-                  Help &amp; FAQ
+                  {t('navigation.faq') || 'Help & FAQ'}
                 </Link>
               </li>
             </ul>
@@ -125,28 +124,28 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
 
           {/* Company Column */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-white mb-4">
-              Company
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--color-foreground))] mb-4">
+              {t('footer.company') || 'Company'}
             </h3>
-            <ul className="flex flex-col gap-2.5 text-xs text-zinc-500 dark:text-zinc-400">
+            <ul className="flex flex-col gap-2.5 text-xs text-[hsl(var(--color-muted-foreground))]">
               <li>
                 <Link href={`/${locale}/about`} className="hover:text-red-600 transition-colors">
-                  About us
+                  {t('navigation.about') || 'About us'}
                 </Link>
               </li>
               <li>
                 <Link href={`/${locale}/contact`} className="hover:text-red-600 transition-colors">
-                  Contact us
+                  {t('navigation.contact') || 'Contact us'}
                 </Link>
               </li>
               <li>
                 <Link href={`/${locale}/blog`} className="hover:text-red-600 transition-colors">
-                  Blog
+                  {t('navigation.blog') || 'Blog'}
                 </Link>
               </li>
               <li>
                 <Link href={`/${locale}/press`} className="hover:text-red-600 transition-colors">
-                  Press
+                  {t('navigation.press') || 'Press'}
                 </Link>
               </li>
             </ul>
@@ -154,38 +153,38 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
 
           {/* Legal Column */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-white mb-4">
-              Legal
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--color-foreground))] mb-4">
+              {t('footer.legal') || 'Legal'}
             </h3>
-            <ul className="flex flex-col gap-2.5 text-xs text-zinc-500 dark:text-zinc-400">
+            <ul className="flex flex-col gap-2.5 text-xs text-[hsl(var(--color-muted-foreground))]">
               <li>
                 <Link href={`/${locale}/security`} className="hover:text-red-600 transition-colors">
-                  Security
+                  {t('navigation.security') || 'Security'}
                 </Link>
               </li>
               <li>
                 <Link href={`/${locale}/privacy`} className="hover:text-red-600 transition-colors">
-                  Privacy policy
+                  {t('navigation.privacy') || 'Privacy policy'}
                 </Link>
               </li>
               <li>
                 <Link href={`/${locale}/terms`} className="hover:text-red-600 transition-colors">
-                  Terms &amp; conditions
+                  {t('navigation.terms') || 'Terms & conditions'}
                 </Link>
               </li>
               <li>
                 <Link href={`/${locale}/cookies`} className="hover:text-red-600 transition-colors">
-                  Cookies
+                  {t('navigation.cookies') || 'Cookies'}
                 </Link>
               </li>
               <li>
                 <Link href={`/${locale}/license`} className="hover:text-red-600 transition-colors">
-                  License (AGPL-3.0)
+                  {t('navigation.license') || 'License (AGPL-3.0)'}
                 </Link>
               </li>
               <li>
                 <Link href={`/${locale}/acknowledgements`} className="hover:text-red-600 transition-colors">
-                  Acknowledgements
+                  {t('navigation.acknowledgements') || 'Acknowledgements'}
                 </Link>
               </li>
             </ul>
@@ -193,11 +192,11 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
         </div>
 
         {/* Language Switcher */}
-        <div className="py-6 border-t border-zinc-200 dark:border-zinc-800">
+        <div className="py-6 border-t border-[hsl(var(--color-border))]">
           <div className="flex items-center gap-3 mb-4">
-            <Globe className="h-4 w-4 text-zinc-400" />
-            <span className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-              {t('buttons.selectLanguage')}
+            <Globe className="h-4 w-4 text-[hsl(var(--color-muted-foreground))]" />
+            <span className="text-sm font-semibold text-[hsl(var(--color-foreground))]">
+              {t('buttons.selectLanguage') || 'Select Language'}
             </span>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -209,10 +208,10 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
                   key={loc}
                   onClick={() => handleLanguageChange(loc)}
                   className={`
-                    px-3 py-1.5 text-xs rounded-full transition-all font-medium
+                    px-3 py-1.5 text-xs rounded-full transition-all font-medium cursor-pointer
                     ${isActive
                       ? 'bg-red-600 text-white shadow-sm'
-                      : 'bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800'
+                      : 'bg-[hsl(var(--color-card))] border border-[hsl(var(--color-border))] text-[hsl(var(--color-muted-foreground))] hover:bg-[hsl(var(--color-muted))] hover:text-[hsl(var(--color-foreground))]'
                     }
                   `}
                   aria-current={isActive ? 'true' : undefined}
@@ -225,27 +224,27 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
         </div>
 
         {/* Copyright & AGPL-3.0 Open Source Notice */}
-        <div className="pt-8 border-t border-zinc-200 dark:border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-          <div className="text-xs text-zinc-500 dark:text-zinc-400 space-y-1">
+        <div className="pt-8 border-t border-[hsl(var(--color-border))] flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+          <div className="text-xs text-[hsl(var(--color-muted-foreground))] space-y-1">
             <p>
-              &copy; {currentYear} {t('brand')}. Licensed under{' '}
-              <Link href={`/${locale}/license`} className="underline hover:text-zinc-900 dark:hover:text-white">
+              &copy; {currentYear} {t('brand') || 'iCreatePDF'}. Licensed under{' '}
+              <Link href={`/${locale}/license`} className="underline hover:text-[hsl(var(--color-foreground))]">
                 GNU AGPLv3
               </Link>.
             </p>
             <p className="text-[11px] opacity-80">
               Based on open-source{' '}
-              <a href="https://github.com/PDFCraftTool/pdfcraft" target="_blank" rel="noopener noreferrer" className="underline hover:text-zinc-900 dark:hover:text-white">
+              <a href="https://github.com/PDFCraftTool/pdfcraft" target="_blank" rel="noopener noreferrer" className="underline hover:text-[hsl(var(--color-foreground))]">
                 PDFCraft
               </a>{' '}
               & BentoPDF. Free & open-source software.
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-center md:justify-end gap-5">
-            <Link href={`/${locale}/blog`} className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">Blog</Link>
-            <Link href={`/${locale}/privacy`} className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">Privacy</Link>
-            <Link href={`/${locale}/license`} className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">License (AGPLv3)</Link>
-            <Link href={`/${locale}/acknowledgements`} className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">Acknowledgements</Link>
+            <Link href={`/${locale}/blog`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">{t('navigation.blog') || 'Blog'}</Link>
+            <Link href={`/${locale}/privacy`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">{t('navigation.privacy') || 'Privacy'}</Link>
+            <Link href={`/${locale}/license`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">{t('navigation.license') || 'License (AGPL-3.0)'}</Link>
+            <Link href={`/${locale}/acknowledgements`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">{t('navigation.acknowledgements') || 'Acknowledgements'}</Link>
             <a href="https://github.com/PDFCraftTool/pdfcraft" target="_blank" rel="noopener noreferrer" className="text-xs text-red-600 dark:text-red-400 hover:underline font-medium">
               Source Code (GitHub)
             </a>
@@ -257,4 +256,3 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
 };
 
 export default Footer;
-

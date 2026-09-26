@@ -35,8 +35,8 @@
     }
   },
   "common": {
-    "brand": "PDFCraft",
-    "tagline": "專業PDF工具 - 免費且私密",
+    "brand": "iCreatePDF",
+    "tagline": "您的全套離線PDF工具箱。100%隱私、零伺服器上傳、快速且完全基於瀏覽器。",
     "navigation": {
       "home": "首頁",
       "tools": "工具",
@@ -44,7 +44,14 @@
       "about": "關於",
       "faq": "常見問題",
       "privacy": "隱私",
-      "contact": "聯絡我們"
+      "contact": "聯絡我們",
+      "security": "安全保障",
+      "terms": "服務條款",
+      "cookies": "Cookie 政策",
+      "press": "媒體報導",
+      "license": "開源許可 (AGPL-3.0)",
+      "acknowledgements": "致謝名單",
+      "blog": "官方部落格"
     },
     "buttons": {
       "upload": "上傳檔案",
@@ -86,7 +93,11 @@
       "footer": "© 2025 PDFCraft. 保留所有權利。",
       "copyright": "© {year} PDFCraft. 保留所有權利。",
       "privacyBadge": "100% 私密 - 檔案永不離開您的裝置",
-      "madeWith": "Made with <Heart /> and <Nextjs />"
+      "madeWith": "Made with <Heart /> and <Nextjs />",
+      "resources": "資源",
+      "company": "公司",
+      "legal": "法律條款",
+      "tagline": "您的全套離線PDF工具箱。100%隱私、零伺服器上傳、快速且完全基於瀏覽器。"
     },
     "recentFiles": {
       "title": "最近檔案",

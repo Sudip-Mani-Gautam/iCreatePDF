@@ -35,16 +35,23 @@
     }
   },
   "common": {
-    "brand": "PDFCraft",
-    "tagline": "Strumenti PDF professionali - Gratuiti e Privati",
+    "brand": "iCreatePDF",
+    "tagline": "Il tuo kit di strumenti PDF offline completo. 100% privato, zero caricamenti, veloce e basato su browser.",
     "navigation": {
       "home": "Home",
       "tools": "Strumenti",
       "workflow": "Flusso di lavoro",
       "about": "Informazioni",
-      "faq": "FAQ",
+      "faq": "Domande frequenti",
       "privacy": "Privacy",
-      "contact": "Contatto"
+      "contact": "Contatto",
+      "security": "Sicurezza",
+      "terms": "Termini e condizioni",
+      "cookies": "Cookie",
+      "press": "Stampa",
+      "license": "Licenza (AGPL-3.0)",
+      "acknowledgements": "Ringraziamenti",
+      "blog": "Blog"
     },
     "buttons": {
       "upload": "Carica file",
@@ -86,7 +93,11 @@
       "footer": "© 2025 PDFCraft. Tutti i diritti riservati.",
       "copyright": "© {year} PDFCraft. Tutti i diritti riservati.",
       "privacyBadge": "100% Privato - I file non lasciano mai il tuo dispositivo",
-      "madeWith": "Fatto con <Heart /> e <Nextjs />"
+      "madeWith": "Fatto con <Heart /> e <Nextjs />",
+      "resources": "Risorse",
+      "company": "Azienda",
+      "legal": "Legale",
+      "tagline": "Il tuo kit di strumenti PDF offline completo. 100% privato, zero caricamenti, veloce e basato su browser."
     },
     "recentFiles": {
       "title": "File recenti",

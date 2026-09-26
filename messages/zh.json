@@ -35,8 +35,8 @@
     }
   },
   "common": {
-    "brand": "PDFCraft",
-    "tagline": "专业PDF工具 - 免费且私密",
+    "brand": "iCreatePDF",
+    "tagline": "您的全套离线PDF工具箱。100%私密、零服务器上传、快速且完全基于浏览器。",
     "navigation": {
       "home": "首页",
       "tools": "工具",
@@ -44,7 +44,14 @@
       "about": "关于",
       "faq": "常见问题",
       "privacy": "隐私",
-      "contact": "联系我们"
+      "contact": "联系我们",
+      "security": "安全保障",
+      "terms": "服务条款",
+      "cookies": "Cookie 政策",
+      "press": "媒体报道",
+      "license": "开源许可 (AGPL-3.0)",
+      "acknowledgements": "致谢名单",
+      "blog": "官方博客"
     },
     "buttons": {
       "upload": "上传文件",
@@ -86,7 +93,11 @@
       "footer": "© 2025 PDFCraft. 保留所有权利。",
       "copyright": "© {year} PDFCraft. 保留所有权利。",
       "privacyBadge": "100% 私密 - 文件永不离开您的设备",
-      "madeWith": "Made with <Heart /> and <Nextjs />"
+      "madeWith": "Made with <Heart /> and <Nextjs />",
+      "resources": "资源",
+      "company": "公司",
+      "legal": "法律条款",
+      "tagline": "您的全套离线PDF工具箱。100%私密、零服务器上传、快速且完全基于浏览器。"
     },
     "recentFiles": {
       "title": "最近文件",
@@ -1302,8 +1313,8 @@
     "imageInput": "图片输入源",
     "fileInput": "通用文件输入源",
     "downloadPdf": "下载 PDF",
-    "downloadZip": "打包 ZIP 下载",
-    "outputCategory": "输出与导出 (Output & Export)",
+    "downloadZip": "打包为 ZIP 下载",
+    "outputCategory": "输出与导出",
     "noSavedWorkflows": "暂无已保存的工作流",
     "saveWorkflowHint": "创建并保存您的第一个工作流",
     "noFavorites": "暂无收藏的工作流",
@@ -1473,12 +1484,9 @@
     },
     "autoLayout": "一键整理布局",
     "duplicateNode": "复制节点",
-    "downloadZip": "打包为 ZIP 下载",
     "downloadIndividually": "分别下载各文件",
     "flowControl": "流程控制",
     "conditionGateway": "条件分支",
-    "downloadPdf": "下载 PDF",
-    "outputCategory": "输出与导出",
     "filenameLabel": "输出文件名"
   },
   "tools": {
