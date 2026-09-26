@@ -19,9 +19,12 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
   const pathname = usePathname();
 
   const footerLinks = [
+    { href: `/${locale}/blog`, label: t('navigation.blog') || 'Blog' },
     { href: `/${locale}/about`, label: t('navigation.about') },
     { href: `/${locale}/faq`, label: t('navigation.faq') },
     { href: `/${locale}/privacy`, label: t('navigation.privacy') },
+    { href: `/${locale}/license`, label: t('navigation.license') || 'License' },
+    { href: `/${locale}/acknowledgements`, label: t('navigation.acknowledgements') || 'Acknowledgements' },
     { href: `/${locale}/contact`, label: t('navigation.contact') },
   ];
 
@@ -179,12 +182,14 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
         {/* Copyright */}
         <div className="pt-8 border-t border-[hsl(var(--color-border))] flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-[hsl(var(--color-muted-foreground))]">
-            &copy; {currentYear} {t('brand')}. {t('footer.copyright', { year: '' }).replace(/^\d{4}\s*/, '')}
+            &copy; {currentYear} {t('brand')}. All rights reserved.
           </p>
-          <div className="flex items-center gap-6">
-            <Link href={`/${locale}/terms`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">Terms</Link>
+          <div className="flex flex-wrap items-center gap-6">
+            <Link href={`/${locale}/blog`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">Blog</Link>
             <Link href={`/${locale}/privacy`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">Privacy</Link>
-            <Link href={`/${locale}/cookies`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">Cookies</Link>
+            <Link href={`/${locale}/license`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">License</Link>
+            <Link href={`/${locale}/acknowledgements`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">Acknowledgements</Link>
+            <Link href={`/${locale}/terms`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">Terms</Link>
           </div>
         </div>
       </div>

@@ -39,11 +39,17 @@ export const navConfig = {
   mainNav: [
     { title: 'Home', href: '/' },
     { title: 'Tools', href: '/tools' },
+    { title: 'Blog', href: '/blog' },
     { title: 'About', href: '/about' },
     { title: 'FAQ', href: '/faq' },
   ],
   footerNav: [
+    { title: 'Blog', href: '/blog' },
+    { title: 'About', href: '/about' },
+    { title: 'FAQ', href: '/faq' },
     { title: 'Privacy', href: '/privacy' },
+    { title: 'License', href: '/license' },
+    { title: 'Acknowledgements', href: '/acknowledgements' },
     { title: 'Contact', href: '/contact' },
   ],
 };
