@@ -5,10 +5,12 @@ export const siteConfig = {
   name: 'iCreatePDF',
   description: 'Professional PDF Tools - Free, Private & Browser-Based. Merge, split, compress, convert, and edit PDF files online without uploading to servers.',
   url: 'https://icreatepdf.com',
+  email: 'sudipmanigautam3@gmail.com',
   ogImage: '/images/og-image.png',
   links: {
-    github: 'https://github.com',
+    github: 'https://github.com/Sudip-Mani-Gautam/iCreatePDF',
     twitter: 'https://twitter.com/icreatepdf',
+    email: 'mailto:sudipmanigautam3@gmail.com',
   },
   creator: 'iCreatePDF Team',
   keywords: [

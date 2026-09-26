@@ -77,7 +77,7 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
               <a href="https://twitter.com/icreatepdf" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[hsl(var(--color-card))] border border-[hsl(var(--color-border))] text-[hsl(var(--color-muted-foreground))] hover:bg-red-600 hover:text-white transition-all" title="Twitter / X">
                 <Twitter className="w-4 h-4" />
               </a>
-              <a href={`/${locale}/contact`} className="p-2 rounded-lg bg-[hsl(var(--color-card))] border border-[hsl(var(--color-border))] text-[hsl(var(--color-muted-foreground))] hover:bg-red-600 hover:text-white transition-all" title="Contact Us">
+              <a href="mailto:sudipmanigautam3@gmail.com" className="p-2 rounded-lg bg-[hsl(var(--color-card))] border border-[hsl(var(--color-border))] text-[hsl(var(--color-muted-foreground))] hover:bg-red-600 hover:text-white transition-all" title="Email: sudipmanigautam3@gmail.com">
                 <Mail className="w-4 h-4" />
               </a>
             </div>

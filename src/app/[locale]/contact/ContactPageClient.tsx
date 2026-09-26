@@ -44,8 +44,8 @@ export default function ContactPageClient({ locale }: ContactPageClientProps) {
       icon: Mail,
       title: t('methods.email.title'),
       description: t('methods.email.description'),
-      action: 'contact@icreatepdf.com',
-      href: 'mailto:contact@icreatepdf.com',
+      action: 'sudipmanigautam3@gmail.com',
+      href: 'mailto:sudipmanigautam3@gmail.com',
     },
     {
       icon: Github,
@@ -75,7 +75,7 @@ export default function ContactPageClient({ locale }: ContactPageClientProps) {
     try {
       const subjectText = formData.subject ? `[iCreatePDF Contact] ${formData.subject}` : '[iCreatePDF Contact] Inquiry';
       const bodyText = `Name: ${formData.name}\nEmail: ${formData.email}\nSubject: ${formData.subject}\n\nMessage:\n${formData.message}`;
-      const mailtoUrl = `mailto:contact@icreatepdf.com?subject=${encodeURIComponent(subjectText)}&body=${encodeURIComponent(bodyText)}`;
+      const mailtoUrl = `mailto:sudipmanigautam3@gmail.com?subject=${encodeURIComponent(subjectText)}&body=${encodeURIComponent(bodyText)}`;
 
       // Save for fallback on success screen
       setSubmittedData({ ...formData });
@@ -204,7 +204,7 @@ export default function ContactPageClient({ locale }: ContactPageClientProps) {
 
                   {submittedData && (
                     <div className="p-4 rounded-xl bg-[hsl(var(--color-muted)/0.5)] border border-[hsl(var(--color-border))] text-left text-xs space-y-1.5 max-w-md mx-auto my-4 text-[hsl(var(--color-muted-foreground))]">
-                      <div><strong className="text-[hsl(var(--color-foreground))]">To:</strong> contact@icreatepdf.com</div>
+                      <div><strong className="text-[hsl(var(--color-foreground))]">To:</strong> sudipmanigautam3@gmail.com</div>
                       <div><strong className="text-[hsl(var(--color-foreground))]">From:</strong> {submittedData.name} ({submittedData.email})</div>
                       <div><strong className="text-[hsl(var(--color-foreground))]">Subject:</strong> {submittedData.subject || 'General Inquiry'}</div>
                     </div>
@@ -219,7 +219,7 @@ export default function ContactPageClient({ locale }: ContactPageClientProps) {
                     </button>
                     {submittedData && (
                       <a
-                        href={`mailto:contact@icreatepdf.com?subject=${encodeURIComponent(`[iCreatePDF Contact] ${submittedData.subject}`)}&body=${encodeURIComponent(submittedData.message)}`}
+                        href={`mailto:sudipmanigautam3@gmail.com?subject=${encodeURIComponent(`[iCreatePDF Contact] ${submittedData.subject}`)}&body=${encodeURIComponent(submittedData.message)}`}
                         className="px-5 py-2.5 rounded-full border border-[hsl(var(--color-border))] hover:bg-[hsl(var(--color-muted))] text-xs font-bold text-[hsl(var(--color-foreground))] transition-colors inline-flex items-center gap-1.5"
                       >
                         <Mail className="w-3.5 h-3.5" /> Open in Mail App
