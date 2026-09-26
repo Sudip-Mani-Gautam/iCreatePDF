@@ -53,12 +53,12 @@ export default function BlogPageClient({ locale }: BlogPageClientProps) {
     <div className="min-h-screen flex flex-col bg-[hsl(var(--color-background))] text-[hsl(var(--color-foreground))]">
       <Header locale={locale} />
 
-      <main className="flex-1 pt-24 pb-16">
+      <main className="flex-1 pt-16 pb-16">
         {/* Hero Section */}
-        <section className="relative overflow-hidden py-12 md:py-16 border-b border-[hsl(var(--color-border))/0.4] bg-gradient-to-b from-[hsl(var(--color-primary)/0.05)] to-transparent">
+        <section className="relative overflow-hidden pt-4 pb-10 border-b border-[hsl(var(--color-border))/0.4] bg-gradient-to-b from-[hsl(var(--color-primary)/0.05)] to-transparent">
           <div className="container mx-auto px-4 max-w-6xl">
-            <div className="text-center max-w-3xl mx-auto mb-10">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[hsl(var(--color-primary)/0.1)] text-[hsl(var(--color-primary))] mb-4">
+            <div className="text-center max-w-3xl mx-auto mb-8">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[hsl(var(--color-primary)/0.1)] text-[hsl(var(--color-primary))] mb-3">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Updated Daily with Tutorials & Guides</span>
               </div>

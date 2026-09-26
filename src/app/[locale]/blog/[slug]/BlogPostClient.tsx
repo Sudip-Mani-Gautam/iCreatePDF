@@ -86,9 +86,9 @@ export default function BlogPostClient({
 
       <Header locale={locale} />
 
-      <main className="flex-1 pt-24 pb-20">
+      <main className="flex-1 pt-16 pb-16">
         {/* Breadcrumb Navigation */}
-        <div className="container mx-auto px-4 max-w-4xl pt-6 pb-4">
+        <div className="container mx-auto px-4 max-w-4xl pt-4 pb-2">
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-[hsl(var(--color-muted-foreground))]">
             <Link href={`/${locale}`} className="hover:text-[hsl(var(--color-foreground))] transition-colors">
               Home

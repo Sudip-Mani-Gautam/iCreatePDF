@@ -100,9 +100,9 @@ export default function AcknowledgementsPageClient({ locale }: AcknowledgementsP
     <div className="min-h-screen flex flex-col bg-[hsl(var(--color-background))] text-[hsl(var(--color-foreground))]">
       <Header locale={locale} />
 
-      <main className="flex-1 pt-24 pb-20">
+      <main className="flex-1 pt-16 pb-16">
         {/* Hero Section */}
-        <section className="py-12 md:py-16 border-b border-[hsl(var(--color-border))/0.5] bg-gradient-to-b from-[hsl(var(--color-primary)/0.05)] to-transparent">
+        <section className="pt-4 pb-10 border-b border-[hsl(var(--color-border))/0.5] bg-gradient-to-b from-[hsl(var(--color-primary)/0.05)] to-transparent">
           <div className="container mx-auto px-4 max-w-4xl text-center">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-rose-500/10 text-rose-500 mb-4">
               <Heart className="w-3.5 h-3.5 fill-rose-500" />

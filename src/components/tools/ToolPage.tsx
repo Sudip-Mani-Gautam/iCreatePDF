@@ -60,8 +60,8 @@ export function ToolPage({ tool, content, locale, children, localizedRelatedTool
       <div className="min-h-screen flex flex-col" data-testid="tool-page">
         <Header locale={locale as Locale} />
 
-        <main id="main-content" className="flex-1" tabIndex={-1}>
-          <div className="max-w-7xl mx-auto px-4 pt-24 pb-8">
+        <main id="main-content" className="flex-1 pt-16" tabIndex={-1}>
+          <div className="max-w-7xl mx-auto px-4 pt-4 pb-8">
             {/* Breadcrumb Navigation */}
             <nav aria-label="Breadcrumb" className="mb-4 flex items-center text-sm text-[hsl(var(--color-muted-foreground))] animate-in fade-in slide-in-from-top-4 duration-500 delay-100">
               <Link

@@ -39,9 +39,9 @@ export default function SecurityPageClient({ locale }: SecurityPageClientProps) 
     <div className="min-h-screen flex flex-col bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 font-sans antialiased">
       <Header locale={locale} />
 
-      <main className="flex-1 pt-24 pb-20">
+      <main className="flex-1 pt-16 pb-16">
         <div className="container mx-auto px-4 max-w-5xl">
-          <div className="text-center py-10 max-w-3xl mx-auto">
+          <div className="text-center pt-4 pb-8 max-w-3xl mx-auto">
             <div className="w-14 h-14 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto mb-4">
               <ShieldCheck className="w-7 h-7" />
             </div>

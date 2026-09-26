@@ -16,9 +16,9 @@ export default function CookiesPageClient({ locale }: CookiesPageClientProps) {
     <div className="min-h-screen flex flex-col bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 font-sans antialiased">
       <Header locale={locale} />
 
-      <main className="flex-1 pt-24 pb-20">
+      <main className="flex-1 pt-16 pb-16">
         <div className="container mx-auto px-4 max-w-4xl">
-          <div className="text-center py-10">
+          <div className="text-center pt-4 pb-8">
             <div className="w-14 h-14 rounded-2xl bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 flex items-center justify-center mx-auto mb-4">
               <Cookie className="w-7 h-7" />
             </div>

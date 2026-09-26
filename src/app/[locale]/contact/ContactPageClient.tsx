@@ -97,10 +97,10 @@ export default function ContactPageClient({ locale }: ContactPageClientProps) {
     <div className="min-h-screen flex flex-col bg-[hsl(var(--color-background))] text-[hsl(var(--color-foreground))] font-sans antialiased selection:bg-red-500 selection:text-white">
       <Header locale={locale} />
 
-      {/* Main Container with generous pt-24 top padding so content is never cut off by fixed header */}
-      <main className="flex-1 pt-24 pb-20">
+      {/* Main Container with pt-16 top padding matching fixed h-16 header */}
+      <main className="flex-1 pt-16 pb-16">
         {/* Hero Section */}
-        <section className="relative overflow-hidden pt-6 pb-10 text-center">
+        <section className="relative overflow-hidden pt-3 pb-8 text-center">
           {/* Subtle warm backdrop glow matching HomePage and FAQ */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-red-100/40 via-rose-50/20 to-transparent dark:from-red-950/20 dark:via-rose-950/10 blur-3xl -z-10 pointer-events-none" />
 

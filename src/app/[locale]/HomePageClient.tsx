@@ -140,9 +140,9 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
     <div className="min-h-screen flex flex-col bg-[hsl(var(--color-background))] text-[hsl(var(--color-foreground))] font-sans antialiased">
       <Header locale={locale} />
 
-      <main className="flex-1 pt-24 pb-20">
+      <main className="flex-1 pt-16 pb-16">
         {/* Hero Section */}
-        <section className="relative overflow-hidden pt-8 pb-12 text-center">
+        <section className="relative overflow-hidden pt-3 pb-8 text-center">
           {/* Subtle warm backdrop glow */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-red-100/40 via-rose-50/20 to-transparent dark:from-red-950/20 dark:via-rose-950/10 blur-3xl -z-10 pointer-events-none" />
 
