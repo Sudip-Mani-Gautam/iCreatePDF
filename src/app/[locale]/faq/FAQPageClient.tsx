@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { 
   ChevronDown, 
@@ -13,133 +12,28 @@ import {
   Cpu, 
   Globe, 
   Mail, 
-  ArrowRight,
   Sparkles,
   Info,
-  CheckCircle2,
-  FileText
+  Wrench,
+  FileText,
+  Home,
+  ChevronRight
 } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { type Locale } from '@/lib/i18n/config';
+import { FAQ_ITEMS, type FAQItem } from '@/config/faqs';
 
 interface FAQPageClientProps {
   locale: Locale;
 }
 
-interface FAQItem {
-  id: string;
-  category: string;
-  categoryLabel: string;
-  question: string;
-  answer: string;
-}
-
 export default function FAQPageClient({ locale }: FAQPageClientProps) {
-  const t = useTranslations('faqPage');
-  const tCommon = useTranslations('common');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
-  const [expandedItems, setExpandedItems] = useState<Set<string>>(new Set(['general-whatIs', 'privacy-uploaded']));
-
-  // Helper to extract FAQ items
-  const faqs: FAQItem[] = useMemo(() => {
-    const rawFaqs = [
-      {
-        id: 'general-whatIs',
-        category: 'general',
-        categoryLabel: 'General',
-        question: 'What is iCreatePDF?',
-        answer: 'iCreatePDF is a free, privacy-first document suite that operates 100% locally within your web browser. With 67+ professional tools, you can merge, split, compress, edit, convert, and sign PDF documents without ever uploading your files to any remote server.',
-      },
-      {
-        id: 'general-isFree',
-        category: 'general',
-        categoryLabel: 'General',
-        question: 'Is iCreatePDF completely free to use?',
-        answer: 'Yes, iCreatePDF is 100% free and open-source under the GNU AGPLv3 license. There are no paywalls, no forced subscriptions, and no hidden trial periods. All core tools are accessible to everyone unconditionally.',
-      },
-      {
-        id: 'general-account',
-        category: 'general',
-        categoryLabel: 'General',
-        question: 'Do I need to create an account or sign up?',
-        answer: 'No registration or account is required. You can start editing, converting, or compressing your documents immediately upon opening the website.',
-      },
-      {
-        id: 'privacy-uploaded',
-        category: 'privacy',
-        categoryLabel: 'Privacy & Security',
-        question: 'Are my PDF files uploaded to your servers?',
-        answer: 'Never. Unlike traditional online PDF converters, iCreatePDF processes your documents locally on your device using WebAssembly (Wasm) and HTML5 APIs. Your data never traverses the internet or touches our infrastructure.',
-      },
-      {
-        id: 'privacy-safe',
-        category: 'privacy',
-        categoryLabel: 'Privacy & Security',
-        question: 'Is it safe to process confidential and legal documents?',
-        answer: 'Yes, absolutely. Because file bytes remain strictly inside your browser sandbox memory and are never transmitted over the network, iCreatePDF is ideal for confidential legal briefs, medical records, financial statements, and proprietary business documents.',
-      },
-      {
-        id: 'privacy-storage',
-        category: 'privacy',
-        categoryLabel: 'Privacy & Security',
-        question: 'What happens to my files after I close the browser?',
-        answer: 'When you close the browser tab or finish processing, your browser automatically garbage-collects and flushes all allocated memory buffers. Zero trace remains on disk or in the cloud.',
-      },
-      {
-        id: 'features-operations',
-        category: 'features',
-        categoryLabel: 'Features',
-        question: 'What PDF tools and operations are available?',
-        answer: 'iCreatePDF provides over 67+ tools including PDF Merge, Split, Lossless Compression, OCR text recognition, Image conversion (JPG, PNG, WebP), Office documents (Word, Excel, PowerPoint to PDF), Page reordering, Digital Signatures, Watermarking, AES-256 Encryption, and Redaction.',
-      },
-      {
-        id: 'features-merge',
-        category: 'features',
-        categoryLabel: 'Features',
-        question: 'Can I combine and reorder multiple PDFs at once?',
-        answer: 'Yes. With the Merge PDF and Organize PDF tools, you can upload dozens of files, drag and drop pages into any custom sequence, rotate individual pages, and merge them into a single high-quality document in seconds.',
-      },
-      {
-        id: 'features-edit',
-        category: 'features',
-        categoryLabel: 'Features',
-        question: 'Can I add text, shapes, or signatures to an existing PDF?',
-        answer: 'Yes. Our PDF Editor tool allows you to draw or type text, insert shapes, highlight paragraphs, add watermarks, and stamp legal electronic signatures directly onto any document.',
-      },
-      {
-        id: 'technical-browsers',
-        category: 'technical',
-        categoryLabel: 'Technical',
-        question: 'Which web browsers and operating systems are supported?',
-        answer: 'iCreatePDF works seamlessly on all modern browsers (Google Chrome, Mozilla Firefox, Apple Safari, Microsoft Edge, and Brave) across Windows, macOS, Linux, iOS, and Android.',
-      },
-      {
-        id: 'technical-sizeLimit',
-        category: 'technical',
-        categoryLabel: 'Technical',
-        question: 'Is there a file size limit?',
-        answer: 'Because processing happens on your local device, file sizes are primarily limited by your available device RAM. In practice, files up to 500MB and batch sets of hundreds of pages process smoothly on standard laptops.',
-      },
-      {
-        id: 'technical-offline',
-        category: 'technical',
-        categoryLabel: 'Technical',
-        question: 'Can I use iCreatePDF without an active internet connection?',
-        answer: 'Yes. Once the web application is loaded in your browser or cached via our Service Worker, you can disconnect your Wi-Fi or turn on Airplane Mode and continue processing files completely offline.',
-      },
-      {
-        id: 'languages-supported',
-        category: 'languages',
-        categoryLabel: 'Languages',
-        question: 'What languages does iCreatePDF support?',
-        answer: 'iCreatePDF is localized in 15+ major global languages including English, Spanish, French, German, Italian, Portuguese, Japanese, Korean, Chinese, Arabic (with full RTL support), and more.',
-      },
-    ];
-
-    return rawFaqs;
-  }, []);
+  const [expandedItems, setExpandedItems] = useState<Set<string>>(
+    new Set(['general-what-is', 'privacy-server-upload', 'technical-works-offline'])
+  );
 
   const categoryOptions = [
     { key: 'all', label: 'All Questions', icon: HelpCircle },
@@ -147,8 +41,18 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
     { key: 'privacy', label: 'Privacy & Security', icon: ShieldCheck },
     { key: 'features', label: 'Features & Tools', icon: Layers },
     { key: 'technical', label: 'Technical & Offline', icon: Cpu },
+    { key: 'troubleshooting', label: 'Troubleshooting', icon: Wrench },
     { key: 'languages', label: 'Languages', icon: Globe },
   ];
+
+  // Category item counts
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = { all: FAQ_ITEMS.length };
+    FAQ_ITEMS.forEach((item) => {
+      counts[item.category] = (counts[item.category] || 0) + 1;
+    });
+    return counts;
+  }, []);
 
   // Quick highlight cards
   const highlightCards = [
@@ -169,7 +73,7 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
     {
       icon: Sparkles,
       title: 'Free & Open Source',
-      desc: 'Fully licensed under GNU AGPLv3. Free forever with no subscription fees or paywalls.',
+      desc: 'Licensed under GNU AGPLv3. Free forever with no subscription fees, watermarks, or paywalls.',
       badge: 'AGPL-3.0',
       color: 'text-amber-600 bg-amber-50 dark:bg-amber-950/40 dark:text-amber-400'
     }
@@ -178,17 +82,18 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
   // Filter FAQs based on query & category
   const filteredFaqs = useMemo(() => {
     const q = searchQuery.toLowerCase().trim();
-    return faqs.filter((faq) => {
+    return FAQ_ITEMS.filter((faq) => {
       const matchesSearch =
         q === '' ||
         faq.question.toLowerCase().includes(q) ||
         faq.answer.toLowerCase().includes(q) ||
-        faq.categoryLabel.toLowerCase().includes(q);
+        faq.categoryLabel.toLowerCase().includes(q) ||
+        (faq.keywords && faq.keywords.some((kw) => kw.toLowerCase().includes(q)));
 
       const matchesCat = selectedCategory === 'all' || faq.category === selectedCategory;
       return matchesSearch && matchesCat;
     });
-  }, [faqs, searchQuery, selectedCategory]);
+  }, [searchQuery, selectedCategory]);
 
   const toggleItem = (id: string) => {
     setExpandedItems((prev) => {
@@ -216,15 +121,25 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
 
       <main className="flex-1 pt-24 pb-20">
         {/* Hero Section */}
-        <section className="relative overflow-hidden pt-8 pb-12 text-center">
+        <section className="relative overflow-hidden pt-6 pb-12 text-center">
           {/* Subtle warm backdrop glow */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-red-100/40 via-rose-50/20 to-transparent dark:from-red-950/20 dark:via-rose-950/10 blur-3xl -z-10 pointer-events-none" />
 
           <div className="container mx-auto px-4 max-w-4xl">
-            {/* Top Pill */}
+            {/* Breadcrumb Navigation for SEO & UX */}
+            <nav aria-label="Breadcrumb" className="mb-4 flex items-center justify-center gap-1.5 text-xs text-[hsl(var(--color-muted-foreground))]">
+              <Link href={`/${locale}`} className="hover:text-[hsl(var(--color-foreground))] transition-colors flex items-center gap-1">
+                <Home className="w-3.5 h-3.5" />
+                <span>Home</span>
+              </Link>
+              <ChevronRight className="w-3 h-3 text-[hsl(var(--color-muted-foreground))/0.6]" />
+              <span className="text-[hsl(var(--color-foreground))] font-medium">Help &amp; FAQ</span>
+            </nav>
+
+            {/* Top Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 dark:bg-red-950/50 border border-red-200/60 dark:border-red-900/40 text-red-600 dark:text-red-400 text-xs font-bold mb-4">
               <HelpCircle className="w-3.5 h-3.5" />
-              <span>Help &amp; Knowledge Base</span>
+              <span>Help Center &amp; Knowledge Base</span>
             </div>
 
             {/* Headline */}
@@ -237,7 +152,7 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
 
             {/* Subtitle */}
             <p className="text-base sm:text-lg text-[hsl(var(--color-muted-foreground))] max-w-2xl mx-auto leading-relaxed mb-8">
-              Everything you need to know about iCreatePDF, client-side privacy, supported file formats, and offline capabilities.
+              Everything you need to know about iCreatePDF, client-side zero-upload privacy, supported file formats, and offline editing capabilities.
             </p>
 
             {/* Search Input Bar */}
@@ -247,8 +162,9 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search questions (e.g., privacy, size limit, offline)..."
+                placeholder="Search questions (e.g., privacy, size limit, offline, compress)..."
                 className="w-full pl-11 pr-10 py-3.5 rounded-full border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] text-sm shadow-xs hover:shadow-md focus:shadow-md focus:border-red-500 focus:outline-none focus:ring-4 focus:ring-red-500/10 transition-all placeholder:text-[hsl(var(--color-muted-foreground))] text-[hsl(var(--color-foreground))]"
+                aria-label="Search frequently asked questions"
               />
               {searchQuery && (
                 <button
@@ -262,7 +178,7 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
             </div>
 
             {/* Highlight Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left max-w-4xl mx-auto mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left max-w-4xl mx-auto mb-10">
               {highlightCards.map((card, i) => {
                 const Icon = card.icon;
                 return (
@@ -289,23 +205,31 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
               })}
             </div>
 
-            {/* Category Filter Pills */}
-            <div className="flex flex-wrap items-center justify-center gap-2 max-w-3xl mx-auto">
+            {/* Category Filter Pills with Item Counts */}
+            <div className="flex flex-wrap items-center justify-center gap-2 max-w-4xl mx-auto">
               {categoryOptions.map((cat) => {
                 const isActive = selectedCategory === cat.key;
                 const Icon = cat.icon;
+                const count = categoryCounts[cat.key] || 0;
                 return (
                   <button
                     key={cat.key}
                     onClick={() => setSelectedCategory(cat.key)}
-                    className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold transition-all ${
+                    className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all ${
                       isActive
                         ? 'bg-red-600 text-white shadow-md shadow-red-500/25 scale-105'
-                        : 'bg-[hsl(var(--color-muted))] text-[hsl(var(--color-muted-foreground))] hover:bg-[hsl(var(--color-muted))/0.8] hover:text-[hsl(var(--color-foreground))]'
+                        : 'bg-[hsl(var(--color-card))] text-[hsl(var(--color-muted-foreground))] border border-[hsl(var(--color-border))] hover:bg-[hsl(var(--color-muted))] hover:text-[hsl(var(--color-foreground))]'
                     }`}
                   >
                     <Icon className="w-3.5 h-3.5" />
                     <span>{cat.label}</span>
+                    <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${
+                      isActive 
+                        ? 'bg-white/20 text-white' 
+                        : 'bg-[hsl(var(--color-muted))] text-[hsl(var(--color-muted-foreground))]'
+                    }`}>
+                      {count}
+                    </span>
                   </button>
                 );
               })}
@@ -313,8 +237,12 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
           </div>
         </section>
 
-        {/* FAQ Accordion Section */}
-        <section className="container mx-auto px-4 max-w-4xl mt-4 mb-20">
+        {/* FAQ Accordion Section with Microdata Markup */}
+        <section 
+          className="container mx-auto px-4 max-w-4xl mt-4 mb-20"
+          itemScope 
+          itemType="https://schema.org/FAQPage"
+        >
           {/* Header row with count & expand/collapse buttons */}
           <div className="flex items-center justify-between pb-4 mb-6 border-b border-[hsl(var(--color-border))]">
             <div className="text-xs font-semibold text-[hsl(var(--color-muted-foreground))]">
@@ -327,14 +255,14 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
             <div className="flex items-center gap-2">
               <button
                 onClick={expandAll}
-                className="text-xs font-bold text-[hsl(var(--color-muted-foreground))] hover:text-red-600 dark:hover:text-red-400 px-2.5 py-1 rounded-md hover:bg-[hsl(var(--color-muted))] transition-colors"
+                className="text-xs font-bold text-[hsl(var(--color-muted-foreground))] hover:text-red-600 dark:hover:text-red-400 px-2.5 py-1 rounded-md hover:bg-[hsl(var(--color-muted))] transition-colors cursor-pointer"
               >
                 Expand All
               </button>
               <span className="text-[hsl(var(--color-border))]">•</span>
               <button
                 onClick={collapseAll}
-                className="text-xs font-bold text-[hsl(var(--color-muted-foreground))] hover:text-red-600 dark:hover:text-red-400 px-2.5 py-1 rounded-md hover:bg-[hsl(var(--color-muted))] transition-colors"
+                className="text-xs font-bold text-[hsl(var(--color-muted-foreground))] hover:text-red-600 dark:hover:text-red-400 px-2.5 py-1 rounded-md hover:bg-[hsl(var(--color-muted))] transition-colors cursor-pointer"
               >
                 Collapse All
               </button>
@@ -349,14 +277,14 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
                 No matching questions found
               </h3>
               <p className="text-sm text-[hsl(var(--color-muted-foreground))] mb-4 max-w-sm mx-auto">
-                We couldn&rsquo;t find any answer matching &ldquo;{searchQuery}&rdquo;. Try another term or contact support.
+                We couldn&rsquo;t find any answer matching &ldquo;{searchQuery}&rdquo;. Try another term or contact our support team.
               </p>
               <button
                 onClick={() => {
                   setSearchQuery('');
                   setSelectedCategory('all');
                 }}
-                className="px-4 py-2 rounded-full bg-red-600 text-white text-xs font-bold hover:bg-red-700 transition-colors shadow-sm"
+                className="px-4 py-2 rounded-full bg-red-600 text-white text-xs font-bold hover:bg-red-700 transition-colors shadow-sm cursor-pointer"
               >
                 Reset Search Filters
               </button>
@@ -366,26 +294,33 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
               {filteredFaqs.map((faq) => {
                 const isOpen = expandedItems.has(faq.id);
                 return (
-                  <div
+                  <article
                     key={faq.id}
                     className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
                       isOpen
                         ? 'bg-[hsl(var(--color-card))] border-red-300 dark:border-red-900/60 shadow-md'
                         : 'bg-[hsl(var(--color-card))] border-[hsl(var(--color-border))] hover:border-zinc-300 dark:hover:border-zinc-700 shadow-xs'
                     }`}
+                    itemScope
+                    itemProp="mainEntity"
+                    itemType="https://schema.org/Question"
                   >
                     <button
                       onClick={() => toggleItem(faq.id)}
                       className="w-full p-5 text-left flex items-start justify-between gap-4 cursor-pointer focus:outline-none"
                       aria-expanded={isOpen}
+                      aria-controls={`faq-answer-${faq.id}`}
                     >
                       <div className="space-y-1">
                         <span className="inline-block text-[10px] font-extrabold uppercase tracking-wider text-red-600 dark:text-red-400 px-2 py-0.5 rounded-full bg-red-50 dark:bg-red-950/60">
                           {faq.categoryLabel}
                         </span>
-                        <h3 className="font-bold text-base text-[hsl(var(--color-foreground))] leading-snug">
+                        <h2 
+                          className="font-bold text-base text-[hsl(var(--color-foreground))] leading-snug"
+                          itemProp="name"
+                        >
                           {faq.question}
-                        </h3>
+                        </h2>
                       </div>
 
                       <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-200 ${
@@ -398,11 +333,19 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
                     </button>
 
                     {isOpen && (
-                      <div className="px-5 pb-5 pt-1 text-sm text-[hsl(var(--color-muted-foreground))] leading-relaxed border-t border-[hsl(var(--color-border)/0.6)] mt-1 animate-in fade-in duration-150">
-                        {faq.answer}
+                      <div 
+                        id={`faq-answer-${faq.id}`}
+                        className="px-5 pb-5 pt-1 text-sm text-[hsl(var(--color-muted-foreground))] leading-relaxed border-t border-[hsl(var(--color-border)/0.6)] mt-1 animate-in fade-in duration-150"
+                        itemScope
+                        itemProp="acceptedAnswer"
+                        itemType="https://schema.org/Answer"
+                      >
+                        <p itemProp="text">
+                          {faq.answer}
+                        </p>
                       </div>
                     )}
-                  </div>
+                  </article>
                 );
               })}
             </div>

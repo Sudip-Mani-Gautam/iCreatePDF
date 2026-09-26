@@ -1,7 +1,13 @@
 import type { Metadata } from 'next';
-import { setRequestLocale, getTranslations } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 import { locales, type Locale } from '@/lib/i18n/config';
-import { generateFaqMetadata } from '@/lib/seo';
+import { 
+  generateFaqMetadata, 
+  generateFAQPageSchema, 
+  generateBreadcrumbSchema, 
+  serializeStructuredData 
+} from '@/lib/seo';
+import { FAQ_ITEMS } from '@/config/faqs';
 import FAQPageClient from './FAQPageClient';
 
 export function generateStaticParams() {
@@ -15,12 +21,28 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const validLocale = locales.includes(locale as Locale) ? (locale as Locale) : 'en';
-  const t = await getTranslations({ locale: validLocale, namespace: 'metadata' });
 
-  return generateFaqMetadata(validLocale, {
-    title: t('faq.title'),
-    description: t('faq.description'),
+  const baseMeta = generateFaqMetadata(validLocale, {
+    title: 'Frequently Asked Questions (FAQ) | 100% Private Offline PDF Tools - iCreatePDF',
+    description: 'Find answers to common questions about iCreatePDF. Learn about our 100% client-side privacy, zero server uploads, offline capabilities, file size limits, and 67+ free tools.',
   });
+
+  return {
+    ...baseMeta,
+    keywords: [
+      'PDF FAQ',
+      'frequently asked questions',
+      'private PDF tools',
+      'offline PDF editor',
+      'zero upload PDF',
+      'free PDF converter',
+      'client-side WebAssembly',
+      'merge PDF offline',
+      'compress PDF without losing quality',
+      'GDPR compliant PDF editor',
+      'HIPAA compliant PDF'
+    ],
+  };
 }
 
 interface FAQPageProps {
@@ -29,9 +51,40 @@ interface FAQPageProps {
 
 export default async function FAQPage({ params }: FAQPageProps) {
   const { locale } = await params;
+  const validLocale = locales.includes(locale as Locale) ? (locale as Locale) : 'en';
 
   // Enable static rendering
   setRequestLocale(locale);
 
-  return <FAQPageClient locale={locale as Locale} />;
+  // Generate SEO-rich Schema.org JSON-LD structured data
+  const faqSchema = generateFAQPageSchema(
+    FAQ_ITEMS.map((item) => ({
+      question: item.question,
+      answer: item.answer,
+    }))
+  );
+
+  const breadcrumbSchema = generateBreadcrumbSchema(
+    [
+      { name: 'Home', path: '' },
+      { name: 'Help & FAQ', path: '/faq' },
+    ],
+    validLocale
+  );
+
+  return (
+    <>
+      {/* Schema.org FAQPage Structured Data for Google Rich Snippets */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeStructuredData(faqSchema) }}
+      />
+      {/* Schema.org BreadcrumbList Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeStructuredData(breadcrumbSchema) }}
+      />
+      <FAQPageClient locale={validLocale} />
+    </>
+  );
 }
