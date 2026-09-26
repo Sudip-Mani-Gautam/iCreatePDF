@@ -1,7 +1,10 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *, [data-theme="dark"], [data-theme="dark"] *));
+
 /* PDFCraft Design System - CSS Variables for Theming */
 :root {
+  color-scheme: light;
   /* Primary Colors - Signature Red/Coral for iCreatePDF */
   --color-primary: 354 85% 54%; /* #E11D48 / #EF4444 vibrant red */
   --color-primary-foreground: 0 0% 100%;
@@ -17,7 +20,7 @@
   --color-accent-foreground: 0 0% 100%;
   
   /* Background Colors */
-  --color-background: 210 40% 98%; /* Slightly off-white for depth */
+  --color-background: 210 40% 98%;
   --color-foreground: 222 47% 11%;
   
   /* Muted Colors */
@@ -79,7 +82,7 @@
 }
 
 /* Dark Mode Theme */
-.dark {
+.dark, [data-theme="dark"] {
   color-scheme: dark;
   --color-primary: 354 85% 62%;
   --color-primary-foreground: 0 0% 100%;

@@ -8,17 +8,19 @@ export function ThemeToggle() {
 
   useEffect(() => {
     // Check initial state injected by script
-    const isDark = document.documentElement.classList.contains('dark');
+    const isDark = document.documentElement.classList.contains('dark') || document.documentElement.getAttribute('data-theme') === 'dark';
     setTheme(isDark ? 'dark' : 'light');
   }, []);
 
   const toggleTheme = () => {
     if (theme === 'light') {
       document.documentElement.classList.add('dark');
+      document.documentElement.setAttribute('data-theme', 'dark');
       localStorage.setItem('theme', 'dark');
       setTheme('dark');
     } else {
       document.documentElement.classList.remove('dark');
+      document.documentElement.setAttribute('data-theme', 'light');
       localStorage.setItem('theme', 'light');
       setTheme('light');
     }

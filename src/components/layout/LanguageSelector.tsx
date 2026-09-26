@@ -161,7 +161,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ currentLocal
         aria-expanded={isOpen}
         aria-haspopup="listbox"
         aria-label={t('selectLanguage')}
-        className="flex items-center gap-1.5"
+        className="flex items-center gap-1.5 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800"
       >
         <Globe className="h-4 w-4" aria-hidden="true" />
         <span className="hidden sm:inline text-sm">{currentConfig.nativeName}</span>
@@ -174,7 +174,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ currentLocal
       {/* Dropdown */}
       {isOpen && (
         <div
-          className="absolute top-full right-0 mt-1 w-48 py-1 bg-[hsl(var(--color-background))] border border-[hsl(var(--color-border))] rounded-[var(--radius-lg)] shadow-lg z-50"
+          className="absolute top-full right-0 mt-1 w-48 py-1 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl shadow-xl z-50"
           role="listbox"
           aria-label={t('selectLanguage')}
           aria-activedescendant={focusedIndex >= 0 ? `language-option-${locales[focusedIndex]}` : undefined}
@@ -192,10 +192,10 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ currentLocal
                 onKeyDown={(e) => handleOptionKeyDown(e, locale, index)}
                 className={`
                   flex items-center justify-between w-full px-3 py-2 text-sm text-left
-                  transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[hsl(var(--color-ring))]
+                  transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-red-500
                   ${isSelected 
-                    ? 'bg-[hsl(var(--color-primary)/0.1)] text-[hsl(var(--color-primary))]' 
-                    : 'text-[hsl(var(--color-foreground))] hover:bg-[hsl(var(--color-muted))] focus:bg-[hsl(var(--color-muted))]'
+                    ? 'bg-red-50 dark:bg-red-950/40 text-red-600 dark:text-red-400 font-semibold' 
+                    : 'text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 focus:bg-zinc-100 dark:focus:bg-zinc-800'
                   }
                 `}
                 role="option"
@@ -205,12 +205,12 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ currentLocal
               >
                 <span className="flex items-center gap-2">
                   <span>{config.nativeName}</span>
-                  <span className="text-xs text-[hsl(var(--color-muted-foreground))]">
+                  <span className="text-xs text-zinc-400 dark:text-zinc-500">
                     ({config.name})
                   </span>
                 </span>
                 {isSelected && (
-                  <Check className="h-4 w-4" aria-hidden="true" />
+                  <Check className="h-4 w-4 text-red-600 dark:text-red-400" aria-hidden="true" />
                 )}
               </button>
             );

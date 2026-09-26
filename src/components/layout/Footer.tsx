@@ -36,7 +36,7 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
 
   return (
     <footer
-      className="w-full border-t border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] pt-16 pb-8"
+      className="w-full border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/60 dark:bg-zinc-950 pt-16 pb-8"
       role="contentinfo"
     >
       <div className="container mx-auto px-4">
@@ -72,13 +72,13 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
             </p>
 
             <div className="flex gap-3 pt-2">
-              <a href="https://github.com/PDFCraftTool/pdfcraft" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:bg-red-600 hover:text-white transition-all" title="Source Code on GitHub">
+              <a href="https://github.com/PDFCraftTool/pdfcraft" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-500 hover:bg-red-600 hover:text-white transition-all" title="Source Code on GitHub">
                 <Github className="w-4 h-4" />
               </a>
-              <a href="https://twitter.com/icreatepdf" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:bg-red-600 hover:text-white transition-all" title="Twitter / X">
+              <a href="https://twitter.com/icreatepdf" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-500 hover:bg-red-600 hover:text-white transition-all" title="Twitter / X">
                 <Twitter className="w-4 h-4" />
               </a>
-              <a href={`/${locale}/contact`} className="p-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:bg-red-600 hover:text-white transition-all" title="Contact Us">
+              <a href={`/${locale}/contact`} className="p-2 rounded-lg bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-500 hover:bg-red-600 hover:text-white transition-all" title="Contact Us">
                 <Mail className="w-4 h-4" />
               </a>
             </div>
@@ -112,7 +112,7 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
               </li>
               <li>
                 <Link href={`/${locale}/tools`} className="hover:text-red-600 transition-colors font-medium">
-                  All 80+ PDF Tools →
+                  All 67+ PDF Tools →
                 </Link>
               </li>
               <li>
@@ -188,10 +188,10 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
         </div>
 
         {/* Language Switcher */}
-        <div className="py-6 border-t border-[hsl(var(--color-border))]">
+        <div className="py-6 border-t border-zinc-200 dark:border-zinc-800">
           <div className="flex items-center gap-3 mb-4">
-            <Globe className="h-4 w-4 text-[hsl(var(--color-muted-foreground))]" />
-            <span className="text-sm font-medium text-[hsl(var(--color-foreground))]">
+            <Globe className="h-4 w-4 text-zinc-400" />
+            <span className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
               {t('buttons.selectLanguage')}
             </span>
           </div>
@@ -204,10 +204,10 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
                   key={loc}
                   onClick={() => handleLanguageChange(loc)}
                   className={`
-                    px-3 py-1.5 text-sm rounded-full transition-all
+                    px-3 py-1.5 text-xs rounded-full transition-all font-medium
                     ${isActive
-                      ? 'bg-[hsl(var(--color-primary))] text-white font-medium'
-                      : 'bg-[hsl(var(--color-muted))] text-[hsl(var(--color-muted-foreground))] hover:bg-[hsl(var(--color-primary)/0.1)] hover:text-[hsl(var(--color-primary))]'
+                      ? 'bg-red-600 text-white shadow-sm'
+                      : 'bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800'
                     }
                   `}
                   aria-current={isActive ? 'true' : undefined}
@@ -220,28 +220,28 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
         </div>
 
         {/* Copyright & AGPL-3.0 Open Source Notice */}
-        <div className="pt-8 border-t border-[hsl(var(--color-border))] flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-          <div className="text-xs text-[hsl(var(--color-muted-foreground))] space-y-1">
+        <div className="pt-8 border-t border-zinc-200 dark:border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+          <div className="text-xs text-zinc-500 dark:text-zinc-400 space-y-1">
             <p>
               &copy; {currentYear} {t('brand')}. Licensed under{' '}
-              <Link href={`/${locale}/license`} className="underline hover:text-[hsl(var(--color-foreground))]">
+              <Link href={`/${locale}/license`} className="underline hover:text-zinc-900 dark:hover:text-white">
                 GNU AGPLv3
               </Link>.
             </p>
             <p className="text-[11px] opacity-80">
               Based on open-source{' '}
-              <a href="https://github.com/PDFCraftTool/pdfcraft" target="_blank" rel="noopener noreferrer" className="underline hover:text-[hsl(var(--color-foreground))]">
+              <a href="https://github.com/PDFCraftTool/pdfcraft" target="_blank" rel="noopener noreferrer" className="underline hover:text-zinc-900 dark:hover:text-white">
                 PDFCraft
               </a>{' '}
               & BentoPDF. Free & open-source software.
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-center md:justify-end gap-5">
-            <Link href={`/${locale}/blog`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">Blog</Link>
-            <Link href={`/${locale}/privacy`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">Privacy</Link>
-            <Link href={`/${locale}/license`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">License (AGPLv3)</Link>
-            <Link href={`/${locale}/acknowledgements`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">Acknowledgements</Link>
-            <a href="https://github.com/PDFCraftTool/pdfcraft" target="_blank" rel="noopener noreferrer" className="text-xs text-[hsl(var(--color-primary))] hover:underline font-medium">
+            <Link href={`/${locale}/blog`} className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">Blog</Link>
+            <Link href={`/${locale}/privacy`} className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">Privacy</Link>
+            <Link href={`/${locale}/license`} className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">License (AGPLv3)</Link>
+            <Link href={`/${locale}/acknowledgements`} className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">Acknowledgements</Link>
+            <a href="https://github.com/PDFCraftTool/pdfcraft" target="_blank" rel="noopener noreferrer" className="text-xs text-red-600 dark:text-red-400 hover:underline font-medium">
               Source Code (GitHub)
             </a>
           </div>

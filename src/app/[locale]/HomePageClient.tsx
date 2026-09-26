@@ -143,7 +143,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
         {/* Hero Section */}
         <section className="relative overflow-hidden pt-8 pb-12 text-center">
           {/* Subtle warm backdrop glow */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-red-100/40 via-rose-50/20 to-transparent blur-3xl -z-10 pointer-events-none" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-red-100/40 via-rose-50/20 to-transparent dark:from-red-950/20 dark:via-rose-950/10 blur-3xl -z-10 pointer-events-none" />
 
           <div className="container mx-auto px-4 max-w-4xl">
             {/* Headline */}
