@@ -376,7 +376,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
               {displayTools.map((tool) => {
-                const IconComponent = getToolIcon(tool.id);
+                const IconComponent = getToolIcon(tool.icon || tool.id);
                 const localized = localizedToolContent?.[tool.id];
                 const toolName = localized?.title || tool.slug;
                 const description = localized?.description || '';

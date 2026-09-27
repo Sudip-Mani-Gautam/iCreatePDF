@@ -148,6 +148,17 @@ export const ICON_MAP: Record<string, LucideIcon> = {
     'tablet-smartphone': TabletSmartphone
 };
 
-export const getToolIcon = (iconName: string): LucideIcon => {
-    return ICON_MAP[iconName] || FileText;
+import { tools } from './tools';
+
+export const getToolIcon = (iconOrToolId: string): LucideIcon => {
+    if (!iconOrToolId) return FileText;
+    if (ICON_MAP[iconOrToolId]) {
+        return ICON_MAP[iconOrToolId];
+    }
+    // Fallback in case tool.id or tool.slug was passed instead of tool.icon
+    const matchedTool = tools.find(t => t.id === iconOrToolId || t.slug === iconOrToolId);
+    if (matchedTool?.icon && ICON_MAP[matchedTool.icon]) {
+        return ICON_MAP[matchedTool.icon];
+    }
+    return FileText;
 };
