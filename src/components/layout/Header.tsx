@@ -82,8 +82,14 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
 
   // Localized tool titles
   const mergeTitle = getToolContent(locale, 'merge-pdf')?.title || 'Merge PDF';
-  const splitTitle = getToolContent(locale, 'split-pdf')?.title || 'Split PDF';
-  const compressTitle = getToolContent(locale, 'compress-pdf')?.title || 'Compress PDF';
+
+  const allToolsLabel = (() => {
+    try {
+      const text = t('navigation.allTools');
+      if (text && !text.includes('navigation.allTools') && !text.includes('common.')) return text;
+    } catch {}
+    return locale === 'ne' ? 'सबै PDF उपकरणहरू' : locale === 'hi' ? 'सभी PDF टूल्स' : locale === 'ms' ? 'Semua Alatan PDF' : 'All PDF Tools';
+  })();
 
   const toolsDropdownRef = useRef<HTMLDivElement>(null);
   const productsMenuRef = useRef<HTMLDivElement>(null);
@@ -279,18 +285,6 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
             >
               {mergeTitle}
             </Link>
-            <Link
-              href={`/${locale}/tools/split-pdf`}
-              className="text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-500 transition-colors"
-            >
-              {splitTitle}
-            </Link>
-            <Link
-              href={`/${locale}/tools/compress-pdf`}
-              className="text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-500 transition-colors"
-            >
-              {compressTitle}
-            </Link>
 
             {/* All Tools Mega Dropdown matching user mockup */}
             <div className="relative" ref={toolsDropdownRef}>
@@ -299,10 +293,10 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
                   setIsToolsDropdownOpen(!isToolsDropdownOpen);
                   setIsProductsMenuOpen(false);
                 }}
-                className="flex items-center gap-1 text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-500 transition-colors py-2"
+                className="flex items-center gap-1.5 text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-500 transition-colors py-2 cursor-pointer font-semibold"
                 aria-expanded={isToolsDropdownOpen}
               >
-                <span>{t('navigation.allTools') || t('navigation.tools') || 'All Tools'}</span>
+                <span>{allToolsLabel}</span>
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isToolsDropdownOpen ? 'rotate-180 text-red-600' : ''}`} />
               </button>
 
@@ -624,25 +618,11 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
               {mergeTitle}
             </Link>
             <Link
-              href={`/${locale}/tools/split-pdf`}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="block px-4 py-2.5 text-sm font-semibold text-zinc-900 dark:text-white hover:bg-zinc-50 dark:hover:bg-zinc-900 rounded-lg"
-            >
-              {splitTitle}
-            </Link>
-            <Link
-              href={`/${locale}/tools/compress-pdf`}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="block px-4 py-2.5 text-sm font-semibold text-zinc-900 dark:text-white hover:bg-zinc-50 dark:hover:bg-zinc-900 rounded-lg"
-            >
-              {compressTitle}
-            </Link>
-            <Link
               href={`/${locale}/tools`}
               onClick={() => setIsMobileMenuOpen(false)}
               className="block px-4 py-2.5 text-sm font-semibold text-red-600 hover:bg-zinc-50 dark:hover:bg-zinc-900 rounded-lg"
             >
-              {t('navigation.allTools') || 'All 67+ Tools'} →
+              {allToolsLabel} →
             </Link>
             <Link
               href={`/${locale}/blog`}

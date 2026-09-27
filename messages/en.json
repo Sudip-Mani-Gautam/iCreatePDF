@@ -51,7 +51,8 @@
       "security": "Security",
       "terms": "Terms & Conditions",
       "cookies": "Cookies",
-      "press": "Press"
+      "press": "Press",
+      "allTools": "All PDF Tools"
     },
     "buttons": {
       "upload": "Upload Files",
