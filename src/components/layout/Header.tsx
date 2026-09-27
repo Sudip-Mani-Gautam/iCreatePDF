@@ -197,7 +197,7 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
       isAi: true,
       tools: [
         { 
-          label: 'AI Summarizer', 
+          label: locale === 'ne' ? 'AI सारांशकर्ता' : locale === 'hi' ? 'AI सारांशकर्ता' : locale === 'ms' ? 'Penyusun AI' : 'AI Summarizer', 
           toolId: 'ai-pdf-reflower',
           href: `/${locale}/tools/ai-pdf-reflower`, 
           icon: Sparkles, 
@@ -205,7 +205,7 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
           iconColor: 'text-amber-500 dark:text-amber-400' 
         },
         { 
-          label: 'Translate PDF', 
+          label: locale === 'ne' ? 'PDF पाठक' : locale === 'hi' ? 'PDF पाठक' : locale === 'ms' ? 'Pembaca PDF' : 'Translate PDF', 
           toolId: 'pdf-reader',
           href: `/${locale}/tools/pdf-reader`, 
           icon: Languages, 
@@ -400,7 +400,7 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
                     {/* Left Column: OTHER PRODUCTS (5 cols) */}
                     <div className="md:col-span-5 space-y-4">
                       <div className="text-[11px] font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
-                        OTHER PRODUCTS
+                        {locale === 'ne' ? 'अन्य उत्पादनहरू' : locale === 'hi' ? 'अन्य उत्पाद' : locale === 'ms' ? 'PRODUK LAIN' : 'OTHER PRODUCTS'}
                       </div>
 
                       <div className="space-y-2">
@@ -414,7 +414,7 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
                               iCreateIMG
                             </div>
                             <div className="text-xs text-zinc-500 dark:text-zinc-400">
-                              Effortless image editing
+                              {locale === 'ne' ? 'सहज तस्बिर सम्पादन' : locale === 'hi' ? 'सरल छवि संपादन' : locale === 'ms' ? 'Penyuntingan imej mudah' : 'Effortless image editing'}
                             </div>
                           </div>
                         </div>
@@ -433,7 +433,7 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
                               iCreateSign
                             </div>
                             <div className="text-xs text-zinc-500 dark:text-zinc-400">
-                              e-Signing made simple
+                              {locale === 'ne' ? 'सजिलो डिजिटल हस्ताक्षर' : locale === 'hi' ? 'सरल ई-हस्ताक्षर' : locale === 'ms' ? 'e-Tandatangan dipermudahkan' : 'e-Signing made simple'}
                             </div>
                           </div>
                         </Link>
@@ -448,7 +448,7 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
                               iCreateAPI
                             </div>
                             <div className="text-xs text-zinc-500 dark:text-zinc-400">
-                              Document automation for developers
+                              {locale === 'ne' ? 'विकासकर्ताहरूका लागि कागजात स्वचालन' : locale === 'hi' ? 'डेवलपर्स के लिए दस्तावेज़ स्वचालन' : locale === 'ms' ? 'Automasi dokumen untuk pembangun' : 'Document automation for developers'}
                             </div>
                           </div>
                         </div>
@@ -458,7 +458,7 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
                           <div className="flex items-center gap-2 mb-1">
                             <Blocks className="w-4 h-4 text-zinc-500 dark:text-zinc-400" />
                             <span className="font-bold text-sm text-zinc-900 dark:text-white">
-                              Integrations
+                              {locale === 'ne' ? 'एकीकरण (इन्टिग्रेसन)' : locale === 'hi' ? 'इंटीग्रेशन' : locale === 'ms' ? 'Integrasi' : 'Integrations'}
                             </span>
                           </div>
                           <div className="text-xs text-zinc-500 dark:text-zinc-400">
@@ -473,17 +473,17 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
                       {/* SOLUTIONS */}
                       <div>
                         <div className="text-[11px] font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500 mb-2.5">
-                          SOLUTIONS
+                          {locale === 'ne' ? 'समाधानहरू' : locale === 'hi' ? 'समाधान' : locale === 'ms' ? 'PENYELESAIAN' : 'SOLUTIONS'}
                         </div>
                         <div className="p-3 rounded-xl bg-zinc-50/80 dark:bg-zinc-800/40 hover:bg-zinc-100 dark:hover:bg-zinc-800/80 transition-colors cursor-pointer">
                           <div className="flex items-center gap-2 mb-1">
                             <BarChart3 className="w-4 h-4 text-zinc-600 dark:text-zinc-300" />
                             <span className="font-bold text-sm text-zinc-900 dark:text-white">
-                              Business
+                              {locale === 'ne' ? 'व्यवसायिक' : locale === 'hi' ? 'व्यापार' : locale === 'ms' ? 'Perniagaan' : 'Business'}
                             </span>
                           </div>
                           <div className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                            Streamlined PDF workflows for teams
+                            {locale === 'ne' ? 'टोलीहरूका लागि सहज PDF कार्यप्रवाह' : locale === 'hi' ? 'टीमों के लिए सुव्यवस्थित PDF वर्कफ़्लो' : locale === 'ms' ? 'Aliran kerja PDF lancar untuk pasukan' : 'Streamlined PDF workflows for teams'}
                           </div>
                         </div>
                       </div>
@@ -491,18 +491,18 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
                       {/* APPLICATIONS */}
                       <div>
                         <div className="text-[11px] font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500 mb-2.5">
-                          APPLICATIONS
+                          {locale === 'ne' ? 'एप्लिकेसनहरू' : locale === 'hi' ? 'एप्लिकेशन' : locale === 'ms' ? 'APLIKASI' : 'APPLICATIONS'}
                         </div>
                         <div className="space-y-2">
                           <div className="p-3 rounded-xl bg-zinc-50/80 dark:bg-zinc-800/40 hover:bg-zinc-100 dark:hover:bg-zinc-800/80 transition-colors cursor-pointer">
                             <div className="flex items-center gap-2 mb-1">
                               <Monitor className="w-4 h-4 text-zinc-600 dark:text-zinc-300" />
                               <span className="font-bold text-sm text-zinc-900 dark:text-white">
-                                Desktop App
+                                {locale === 'ne' ? 'डेस्कटप एप' : locale === 'hi' ? 'डेस्कटॉप ऐप' : locale === 'ms' ? 'Aplikasi Desktop' : 'Desktop App'}
                               </span>
                             </div>
                             <div className="text-xs text-zinc-500 dark:text-zinc-400">
-                              For Mac and Windows
+                              {locale === 'ne' ? 'म्याक र विन्डोजका लागि' : locale === 'hi' ? 'Mac और Windows के लिए' : locale === 'ms' ? 'Untuk Mac dan Windows' : 'For Mac and Windows'}
                             </div>
                           </div>
 
@@ -510,11 +510,11 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
                             <div className="flex items-center gap-2 mb-1">
                               <Smartphone className="w-4 h-4 text-zinc-600 dark:text-zinc-300" />
                               <span className="font-bold text-sm text-zinc-900 dark:text-white">
-                                Mobile App
+                                {locale === 'ne' ? 'मोबाइल एप' : locale === 'hi' ? 'मोबाइल ऐप' : locale === 'ms' ? 'Aplikasi Mudah Alih' : 'Mobile App'}
                               </span>
                             </div>
                             <div className="text-xs text-zinc-500 dark:text-zinc-400">
-                              For iOS and Android
+                              {locale === 'ne' ? 'iOS र एन्ड्रोइडका लागि' : locale === 'hi' ? 'iOS और Android के लिए' : locale === 'ms' ? 'Untuk iOS dan Android' : 'For iOS and Android'}
                             </div>
                           </div>
                         </div>
@@ -529,7 +529,7 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
                         className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors font-medium"
                       >
                         <CreditCard className="w-4 h-4 text-zinc-400" />
-                        <span>Pricing</span>
+                        <span>{locale === 'ne' ? 'मूल्य निर्धारण (निःशुल्क)' : locale === 'hi' ? 'मूल्य निर्धारण (मुफ़्त)' : locale === 'ms' ? 'Harga (Percuma)' : 'Pricing'}</span>
                       </Link>
 
                       <Link
@@ -538,7 +538,7 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
                         className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors font-medium"
                       >
                         <Lock className="w-4 h-4 text-zinc-400" />
-                        <span>Security</span>
+                        <span>{t('navigation.security') || 'Security'}</span>
                       </Link>
 
                       <Link
@@ -547,7 +547,7 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
                         className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors font-medium"
                       >
                         <LayoutGrid className="w-4 h-4 text-zinc-400" />
-                        <span>Features</span>
+                        <span>{locale === 'ne' ? 'विशेषताहरू' : locale === 'hi' ? 'विशेषताएं' : locale === 'ms' ? 'Ciri-ciri' : 'Features'}</span>
                       </Link>
 
                       <Link
@@ -556,7 +556,7 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
                         className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors font-medium"
                       >
                         <Heart className="w-4 h-4 text-zinc-400" />
-                        <span>About us</span>
+                        <span>{t('navigation.about') || 'About us'}</span>
                       </Link>
 
                       <div className="pt-3 my-2 border-t border-zinc-100 dark:border-zinc-800 space-y-1">
@@ -566,13 +566,13 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
                           className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors font-medium"
                         >
                           <HelpCircle className="w-4 h-4 text-zinc-400" />
-                          <span>Help & FAQ</span>
+                          <span>{t('navigation.faq') || 'Help & FAQ'}</span>
                         </Link>
 
                         <div className="px-3 py-1">
                           <div className="text-xs text-zinc-400 flex items-center gap-1.5">
                             <Globe className="w-3.5 h-3.5" />
-                            <span>100% Client-side</span>
+                            <span>{locale === 'ne' ? '१००% क्लाइन्ट-साइड' : locale === 'hi' ? '100% क्लाइंट-साइड' : locale === 'ms' ? '100% Bahagian Klien' : '100% Client-side'}</span>
                           </div>
                         </div>
                       </div>

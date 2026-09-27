@@ -1248,22 +1248,22 @@
   "home": {
     "hero": {
       "title": "Professional PDF Tools",
-      "highlight": "Professional Tools",
+      "highlight": "व्यावसायिक टूल्स",
       "subtitle": "Free, private, and powerful PDF processing in your browser",
       "cta": "Get Started"
     },
     "features": {
       "privacy": {
-        "title": "100% निजी एवं सुरक्षित",
-        "description": "All processing happens in your browser. Your files never leave your device."
-      },
-      "free": {
-        "title": "पूरी तरह से मुफ़्त",
-        "description": "No registration, no limits, no hidden costs."
+        "title": "100% निजी और सुरक्षित",
+        "description": "सभी प्रोसेसिंग WebAssembly का उपयोग करके आपके ब्राउज़र में होती है। फाइलें कभी किसी सर्वर पर अपलोड नहीं होती हैं।"
       },
       "powerful": {
-        "title": "Powerful Tools",
-        "description": "67+ professional PDF tools for all your needs."
+        "title": "अत्यंत तेज़ प्रदर्शन",
+        "description": "अपलोड या डाउनलोड का कोई इंतज़ार नहीं। आपकी डिवाइस द्वारा तुरंत फाइल प्रोसेसिंग।"
+      },
+      "free": {
+        "title": "पूरी तरह से मुफ़्त और ओपन सोर्स",
+        "description": "कोई सदस्यता, वॉटरमार्क या खाता पंजीकरण की आवश्यकता नहीं। GNU AGPLv3 के तहत ओपन सोर्स।"
       }
     },
     "popularTools": {
@@ -1305,7 +1305,33 @@
       "security": "सुरक्षा",
       "optimize": "अनुकूलित करें",
       "advanced": "उन्नत टूल्स"
-    }
+    },
+    "testimonials": [
+      {
+        "quote": "अब तक का सबसे तेज़ और सुरक्षित PDF संपादक। सभी प्रोसेसिंग बिना किसी सर्वर जोखिम के स्थानीय रूप से होती है।",
+        "author": "Sarah Jenkins",
+        "role": "सुरक्षा लेखा परीक्षक",
+        "initials": "SJ"
+      },
+      {
+        "quote": "100% ऑफ़लाइन प्रोसेसिंग। हमारे संवेदनशील कानूनी दस्तावेज़ कभी स्थानीय डिवाइस से बाहर नहीं जाते। शून्य अपलोड।",
+        "author": "Michael Davis",
+        "role": "अनुपालन अधिकारी",
+        "initials": "MD"
+      },
+      {
+        "quote": "हमारी पूरी टीम के लिए महंगे सब्सक्रिप्शन खर्च को समाप्त कर दिया। फाइलें तुरंत मर्ज, कंप्रेस और साइन करें।",
+        "author": "Emily Duran",
+        "role": "प्रोजेक्ट मैनेजर",
+        "initials": "ED"
+      },
+      {
+        "quote": "शानदार बैच वर्कफ़्लो और ज़ीरो-सर्वर तकनीक ने हमारी इंजीनियरिंग टीम के हर महीने दर्जनों घंटे बचाए।",
+        "author": "David Chen",
+        "role": "संचालन निदेशक",
+        "initials": "DC"
+      }
+    ]
   },
   "workflow": {
     "title": "PDF Workflow Builder",

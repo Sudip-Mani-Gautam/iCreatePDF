@@ -134,8 +134,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "rotate-custom": {
-    "title": "Rotate by Custom Degrees (नेपाली)",
-    "metaDescription": "Rotate PDF pages by any angle. Precise custom rotation for straightening scanned documents.",
+    "title": "कस्टम कोणमा घुमाउनुहोस्",
+    "metaDescription": "PDF पृष्ठहरूलाई आफूले चाहेको जुनसुकै कोणमा घुमाउनुहोस्। स्क्यान गरिएका कागजातहरू सिधा बनाउनका लागि सटीक उपकरण।",
     "keywords": [
       "rotate pdf custom angle",
       "straighten pdf",
@@ -198,8 +198,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "grid-combine": {
-    "title": "Grid Combine PDF (नेपाली)",
-    "metaDescription": "Combine multiple PDF files onto single pages with a flexible grid layout. Arrange 2, 4, 6, 9 or more PDFs per page with borders and spacing.",
+    "title": "ग्रिडमा PDF मिलाउनुहोस्",
+    "metaDescription": "लचिलो ग्रिड लेआउटको साथ एउटै पृष्ठमा धेरै PDF पृष्ठहरू मिलाउनुहोस्। प्रति पृष्ठ २, ४, ६ वा ९ पृष्ठहरू व्यवस्थित गर्नुहोस्।",
     "keywords": [
       "grid combine",
       "merge pdf grid",
@@ -822,8 +822,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "bookmark": {
-    "title": "Edit Bookmarks (नेपाली)",
-    "metaDescription": "Add, edit, and manage PDF bookmarks. Create navigation structure for your documents.",
+    "title": "बुकमार्क सम्पादन गर्नुहोस्",
+    "metaDescription": "PDF बुकमार्कहरू थप्नुहोस्, सम्पादन गर्नुहोस् र व्यवस्थापन गर्नुहोस्। आफ्ना कागजातहरूका लागि नेभिगेसन संरचना सिर्जना गर्नुहोस्।",
     "keywords": [
       "pdf bookmarks",
       "edit bookmarks",
@@ -882,8 +882,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "table-of-contents": {
-    "title": "Table of Contents (नेपाली)",
-    "metaDescription": "Generate a table of contents for your PDF. Create clickable navigation from bookmarks.",
+    "title": "विषय-सूची सिर्जना गर्नुहोस्",
+    "metaDescription": "आफ्नो PDF का लागि अन्तरक्रियात्मक विषय-सूची सिर्जना गर्नुहोस्। बुकमार्कहरूबाट क्लिक गर्न मिल्ने नेभिगेसन बनाउनुहोस्।",
     "keywords": [
       "pdf table of contents",
       "toc generator",
@@ -1060,8 +1060,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "header-footer": {
-    "title": "Header & Footer (नेपाली)",
-    "metaDescription": "Add headers and footers to PDF documents. Include page numbers, dates, and custom text.",
+    "title": "हेडर र फुटर थप्नुहोस्",
+    "metaDescription": "PDF कागजातहरूमा हेडर र फुटर थप्नुहोस्। पृष्ठ नम्बर, मिति र अनुकूलित पाठ समावेश गर्नुहोस्।",
     "keywords": [
       "pdf header",
       "pdf footer",
@@ -1119,8 +1119,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "invert-colors": {
-    "title": "Invert Colors (नेपाली)",
-    "metaDescription": "Invert PDF colors for dark mode reading. Convert documents to negative colors.",
+    "title": "रङ उल्टाउनुहोस् (डार्क मोड)",
+    "metaDescription": "डार्क मोडमा सजिलै पढ्नका लागि PDF रङहरू उल्टाउनुहोस्। कागजातलाई नेगेटिभ रङमा रूपान्तरण गर्नुहोस्।",
     "keywords": [
       "invert pdf colors",
       "pdf dark mode",
@@ -1178,8 +1178,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "background-color": {
-    "title": "Background Color (नेपाली)",
-    "metaDescription": "Change PDF background color. Add colored backgrounds to document pages.",
+    "title": "पृष्ठभूमि रङ बदल्नुहोस्",
+    "metaDescription": "PDF कागजातको पृष्ठभूमिको रङ परिवर्तन गर्नुहोस् वा विभिन्न पृष्ठहरूमा रङ्गीन पृष्ठभूमि थप्नुहोस्।",
     "keywords": [
       "pdf background color",
       "change pdf background",
@@ -1237,8 +1237,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "text-color": {
-    "title": "Change Text Color (नेपाली)",
-    "metaDescription": "Change text color in PDF documents. Modify the color of all text content.",
+    "title": "पाठको रङ बदल्नुहोस्",
+    "metaDescription": "PDF कागजातहरूमा पाठको रङ परिवर्तन गर्नुहोस्। सम्पूर्ण सामग्रीको फन्ट रङ परिमार्जन गर्नुहोस्।",
     "keywords": [
       "change pdf text color",
       "pdf text color",
@@ -1296,8 +1296,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "add-stamps": {
-    "title": "Add Stamps (नेपाली)",
-    "metaDescription": "Add stamps to PDF documents. Use preset or custom stamps for approval, review, and more.",
+    "title": "स्ट्याम्प थप्नुहोस्",
+    "metaDescription": "PDF कागजातहरूमा स्ट्याम्प लगाउनुहोस्। स्वीकृति, समीक्षा वा आधिकारिक कामका लागि तयार वा आफ्नै स्ट्याम्प प्रयोग गर्नुहोस्।",
     "keywords": [
       "pdf stamps",
       "add stamp",
@@ -1355,8 +1355,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "remove-annotations": {
-    "title": "Remove Annotations (नेपाली)",
-    "metaDescription": "Remove annotations from PDF files. Delete comments, highlights, and markup.",
+    "title": "टिप्पणी र एनोटेसन हटाउनुहोस्",
+    "metaDescription": "PDF फाइलहरूबाट टिप्पणी, हाइलाइट र अन्य मार्कअपहरू एकैसाथ हटाउनुहोस्।",
     "keywords": [
       "remove pdf annotations",
       "delete comments",
@@ -1473,8 +1473,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "form-creator": {
-    "title": "Form Creator (नेपाली)",
-    "metaDescription": "Create fillable PDF forms. Add text fields, checkboxes, and dropdowns to documents.",
+    "title": "फारम निर्माता",
+    "metaDescription": "भर्न मिल्ने अन्तरक्रियात्मक PDF फारमहरू बनाउनुहोस्। पाठ बाकस, चेकबक्स र ड्रपडाउन सूचीहरू थप्नुहोस्।",
     "keywords": [
       "create pdf form",
       "pdf form creator",
@@ -1532,8 +1532,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "remove-blank-pages": {
-    "title": "Remove Blank Pages (नेपाली)",
-    "metaDescription": "Automatically detect and remove blank pages from PDF documents.",
+    "title": "खाली पृष्ठहरू हटाउनुहोस्",
+    "metaDescription": "PDF कागजातहरूबाट अनावश्यक खाली पृष्ठहरू स्वचालित रूपमा पहिचान गरी हटाउनुहोस्।",
     "keywords": [
       "remove blank pages",
       "delete empty pages",
@@ -3503,8 +3503,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "add-attachments": {
-    "title": "Add Attachments (नेपाली)",
-    "metaDescription": "Embed files in PDF documents. Attach any file type to your PDFs.",
+    "title": "संलग्न फाइलहरू थप्नुहोस्",
+    "metaDescription": "PDF कागजातहरूमा जुनसुकै प्रकारका फाइलहरू इम्बेड गरी सुरक्षित रूपमा संलग्न गर्नुहोस्।",
     "keywords": [
       "pdf attachments",
       "embed files",
@@ -3562,8 +3562,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "extract-attachments": {
-    "title": "Extract Attachments (नेपाली)",
-    "metaDescription": "Extract embedded files from PDFs. Download all attachments from PDF documents.",
+    "title": "संलग्न फाइलहरू निकाल्नुहोस्",
+    "metaDescription": "PDF भित्र इम्बेड गरिएका सबै संलग्न फाइलहरू निकाल्नुहोस् र आफ्नो उपकरणमा डाउनलोड गर्नुहोस्।",
     "keywords": [
       "extract attachments",
       "pdf attachments",
@@ -3686,8 +3686,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "edit-attachments": {
-    "title": "Edit Attachments (नेपाली)",
-    "metaDescription": "Manage PDF attachments. View, rename, and remove embedded files.",
+    "title": "संलग्न फाइलहरू व्यवस्थापन गर्नुहोस्",
+    "metaDescription": "PDF भित्रका संलग्न फाइलहरू हेर्नुहोस्, पुनः नामाकरण गर्नुहोस् र हटाउनुहोस्।",
     "keywords": [
       "edit attachments",
       "manage pdf files",
@@ -3745,8 +3745,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "divide-pages": {
-    "title": "Divide Pages (नेपाली)",
-    "metaDescription": "Split PDF pages into multiple sections. Divide pages horizontally or vertically.",
+    "title": "पृष्ठहरू विभाजन गर्नुहोस्",
+    "metaDescription": "PDF पृष्ठहरूलाई तेर्सो वा ठाडो रूपमा बहु-खण्डहरूमा विभाजन गर्नुहोस्।",
     "keywords": [
       "divide pdf pages",
       "split page",
@@ -3804,8 +3804,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "add-blank-page": {
-    "title": "Add Blank Page (नेपाली)",
-    "metaDescription": "Insert blank pages into PDF documents. Add empty pages at any position.",
+    "title": "खाली पृष्ठ थप्नुहोस्",
+    "metaDescription": "PDF कागजातको सुरुमा, अन्त्यमा वा कुनै पनि निश्चित स्थानमा खाली पृष्ठ घुसाउनुहोस्।",
     "keywords": [
       "add blank page",
       "insert page",
@@ -3863,8 +3863,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "reverse-pages": {
-    "title": "Reverse Pages (नेपाली)",
-    "metaDescription": "Reverse PDF page order. Flip document pages from last to first.",
+    "title": "पृष्ठ क्रम उल्टाउनुहोस्",
+    "metaDescription": "PDF कागजातको पृष्ठहरूको क्रम उल्टो बनाउनुहोस् (अन्तिम पृष्ठबाट पहिलो पृष्ठ)।",
     "keywords": [
       "reverse pdf",
       "flip page order",
@@ -3981,8 +3981,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "overlay-pdf": {
-    "title": "Overlay PDF (नेपाली)",
-    "metaDescription": "Overlay or underlay pages from one PDF onto another. Perfect for stamps, letterheads, and layout composition.",
+    "title": "PDF ओभरले गर्नुहोस्",
+    "metaDescription": "कागजात पृष्ठहरूमा लेटरहेड, पृष्ठभूमि वा वाटरमार्कको रूपमा अर्को PDF ओभरले गर्नुहोस्।",
     "keywords": [
       "overlay pdf",
       "underlay pdf",
@@ -4046,8 +4046,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "timestamp-pdf": {
-    "title": "Timestamp PDF (नेपाली)",
-    "metaDescription": "Add RFC 3161 trusted timestamps to PDF documents. Prove document existence at a specific point in time without certificates.",
+    "title": "डिजिटल टाइमस्ट्याम्प थप्नुहोस्",
+    "metaDescription": "प्रमाणीकरण र कानुनी वैधताका लागि PDF कागजातहरूमा विश्वसनीय डिजिटल टाइमस्ट्याम्प थप्नुहोस्।",
     "keywords": [
       "timestamp pdf",
       "rfc 3161",
@@ -4106,8 +4106,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "add-page-labels": {
-    "title": "Add Page Labels (नेपाली)",
-    "metaDescription": "Apply custom page labels to your PDF catalog. Supports Roman numerals, prefixes, and complex disjoint ranges.",
+    "title": "पृष्ठ लेबल थप्नुहोस्",
+    "metaDescription": "कागजात खण्डहरूका लागि रोमन वा अनुकूलित पृष्ठ नम्बर र लेबलहरू परिभाषित गर्नुहोस्।",
     "keywords": [
       "pdf page labels",
       "roman numerals pdf",
@@ -4166,8 +4166,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "n-up-pdf": {
-    "title": "N-Up PDF (नेपाली)",
-    "metaDescription": "Print multiple PDF pages per sheet. Create 2-up, 4-up, or custom layouts.",
+    "title": "N-Up PDF (प्रति पृष्ठ बहु पृष्ठ)",
+    "metaDescription": "कागज बचत गर्न एउटै पानामा २, ४ वा बढी पृष्ठहरू छाप्ने गरी मिलाउनुहोस्।",
     "keywords": [
       "n-up pdf",
       "multiple pages per sheet",
@@ -4225,8 +4225,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "combine-single-page": {
-    "title": "Combine to Single Page (नेपाली)",
-    "metaDescription": "Stitch PDF pages into one continuous page. Create scrollable single-page documents.",
+    "title": "एउटै लामो पृष्ठमा मिलाउनुहोस्",
+    "metaDescription": "सम्पूर्ण PDF कागजातका सबै पृष्ठहरूलाई एउटै अविच्छिन्न लामो पृष्ठमा मिलाउनुहोस्।",
     "keywords": [
       "combine pages",
       "single page pdf",
@@ -4284,8 +4284,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "view-metadata": {
-    "title": "View Metadata (नेपाली)",
-    "metaDescription": "View PDF document properties. See author, title, dates, and other metadata.",
+    "title": "मेटाडेटा हेर्नुहोस्",
+    "metaDescription": "PDF कागजातको शीर्षक, लेखक, सिर्जना मिति र अन्य लुकेका प्राविधिक विवरणहरू हेर्नुहोस्।",
     "keywords": [
       "pdf metadata",
       "document properties",
@@ -4343,8 +4343,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "edit-metadata": {
-    "title": "Edit Metadata (नेपाली)",
-    "metaDescription": "Edit PDF document properties. Change title, author, subject, and keywords.",
+    "title": "मेटाडेटा सम्पादन गर्नुहोस्",
+    "metaDescription": "PDF फाइलको शीर्षक, लेखक, विषय र कुञ्जीशब्द सम्बन्धी मेटाडेटा परिमार्जन गर्नुहोस्।",
     "keywords": [
       "edit pdf metadata",
       "change pdf properties",
@@ -4402,8 +4402,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "pdf-to-zip": {
-    "title": "PDFs to ZIP (नेपाली)",
-    "metaDescription": "Package multiple PDFs into a ZIP archive. Compress and bundle PDF files.",
+    "title": "PDF बाट ZIP सङ्ग्रह",
+    "metaDescription": "धेरै PDF फाइलहरूलाई एउटै कम्प्रेस गरिएको ZIP सङ्ग्रहमा सजिलै प्याक गर्नुहोस्।",
     "keywords": [
       "pdf to zip",
       "compress pdfs",
@@ -4520,8 +4520,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "posterize-pdf": {
-    "title": "Posterize PDF (नेपाली)",
-    "metaDescription": "Split large PDF pages into printable tiles. Create posters from PDF pages.",
+    "title": "पोस्टर बनाउनुहोस् (टाइलिङ)",
+    "metaDescription": "ठूलो PDF पृष्ठलाई सामान्य प्रिन्टरबाट जोडेर पोस्टर बनाउन धेरै पानाहरूमा विभाजन गर्नुहोस्।",
     "keywords": [
       "posterize pdf",
       "tile pdf",
@@ -4579,8 +4579,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "fix-page-size": {
-    "title": "Fix Page Size (नेपाली)",
-    "metaDescription": "Standardize PDF page sizes. Convert all pages to uniform dimensions.",
+    "title": "पृष्ठको आकार मिलाउनुहोस्",
+    "metaDescription": "सबै PDF पृष्ठहरूलाई मानक A4, Letter वा अन्य एकरूप आकारमा रूपान्तरण गर्नुहोस्।",
     "keywords": [
       "fix page size",
       "standardize pdf",
@@ -4638,8 +4638,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "linearize-pdf": {
-    "title": "Linearize PDF (नेपाली)",
-    "metaDescription": "Optimize PDF for fast web viewing. Enable progressive loading.",
+    "title": "फास्ट वेब भ्यू (लिनियराइज)",
+    "metaDescription": "वेब ब्राउजरमा छिटो स्ट्रिमिङ र पहिलो पृष्ठ तुरुन्त खुल्ने गरी PDF अनुकूलन गर्नुहोस्।",
     "keywords": [
       "linearize pdf",
       "fast web view",
@@ -4697,8 +4697,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "page-dimensions": {
-    "title": "Page Dimensions (नेपाली)",
-    "metaDescription": "Analyze PDF page sizes. View dimensions of all pages in your document.",
+    "title": "पृष्ठ नाप र आयाम",
+    "metaDescription": "PDF पृष्ठहरूको सही भौतिक चौडाइ, उचाइ र मार्जिन नाप्नुहोस् र निरीक्षण गर्नुहोस्।",
     "keywords": [
       "pdf page size",
       "page dimensions",
@@ -4756,8 +4756,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "remove-restrictions": {
-    "title": "Remove Restrictions (नेपाली)",
-    "metaDescription": "Remove PDF restrictions. Unlock printing, copying, and editing permissions.",
+    "title": "प्रतिबन्धहरू हटाउनुहोस्",
+    "metaDescription": "PDF को प्रिन्ट, प्रतिलिपि वा सम्पादनमा लगाइएका सुरक्षा प्रतिबन्धहरू सजिलै हटाउनुहोस्।",
     "keywords": [
       "remove pdf restrictions",
       "unlock pdf",
@@ -4933,8 +4933,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "sanitize-pdf": {
-    "title": "Sanitize PDF (नेपाली)",
-    "metaDescription": "Remove hidden data from PDFs. Clean metadata, scripts, and sensitive information.",
+    "title": "PDF शुद्धीकरण (गोपनीयता)",
+    "metaDescription": "गोपनीयताका लागि लुकेका मेटाडेटा, स्क्रिप्ट र संवेदनशील संशोधन इतिहास सफा गर्नुहोस्।",
     "keywords": [
       "sanitize pdf",
       "clean pdf",
@@ -4992,8 +4992,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "find-and-redact": {
-    "title": "Find and Redact (नेपाली)",
-    "metaDescription": "Search and redact text across all pages of a PDF. Batch redact sensitive information like account numbers, names, and more.",
+    "title": "खोज्नुहोस् र सेन्सर (रेड्याक्ट) गर्नुहोस्",
+    "metaDescription": "गोप्य शब्दहरू खोजेर कालो पट्टी लगाई संवेदनशील डेटा स्थायी रूपमा मेटाउनुहोस्।",
     "keywords": [
       "redact pdf",
       "find and redact",
@@ -5251,8 +5251,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "remove-metadata": {
-    "title": "Remove Metadata (नेपाली)",
-    "metaDescription": "Strip metadata from PDF files. Remove author, dates, and document properties.",
+    "title": "मेटाडेटा हटाउनुहोस्",
+    "metaDescription": "गोपनीयता सुरक्षाका लागि PDF बाट सबै व्यक्तिगत मेटाडेटा र ट्र्याकिङ विवरणहरू हटाउनुहोस्।",
     "keywords": [
       "remove pdf metadata",
       "strip metadata",
@@ -5310,8 +5310,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "change-permissions": {
-    "title": "Change Permissions (नेपाली)",
-    "metaDescription": "Modify PDF permissions. Control printing, copying, and editing access.",
+    "title": "अनुमतिहरू परिवर्तन गर्नुहोस्",
+    "metaDescription": "PDF को प्रिन्ट, परिमार्जन वा पाठ प्रतिलिपि गर्ने प्रयोगकर्ता अनुमतिहरू नियन्त्रण गर्नुहोस्।",
     "keywords": [
       "pdf permissions",
       "change pdf access",
@@ -5488,8 +5488,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "deskew-pdf": {
-    "title": "Deskew PDF (नेपाली)",
-    "metaDescription": "Automatically straighten scanned or tilted PDF pages. Fix skewed documents with precision angle detection.",
+    "title": "कागजात सिधा बनाउनुहोस् (डेस्क्यू)",
+    "metaDescription": "स्क्यान गर्दा बाङ्गा भएका PDF पृष्ठहरूलाई स्वतः कोण पत्ता लगाई सिधा र सन्तुलित बनाउनुहोस्।",
     "keywords": [
       "deskew pdf",
       "straighten pdf",
@@ -5556,8 +5556,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "pdf-booklet": {
-    "title": "PDF Booklet Creator (नेपाली)",
-    "metaDescription": "Create booklet layouts from PDF for printing. Arrange pages for saddle-stitch binding with multiple grid options.",
+    "title": "पुस्तिका (बुकलेट) निर्माता",
+    "metaDescription": "दुईतर्फी फोल्डिङ र बाइन्डिङका लागि पृष्ठहरूलाई क्रमबद्ध गरी पुस्तक ढाँचामा बदल्नुहोस्।",
     "keywords": [
       "pdf booklet",
       "booklet creator",
@@ -5616,8 +5616,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "rasterize-pdf": {
-    "title": "Rasterize PDF (नेपाली)",
-    "metaDescription": "Convert PDF pages to high-quality images. Export as PNG, JPEG, or WebP with custom DPI settings.",
+    "title": "रास्टराइज PDF",
+    "metaDescription": "सम्पादन वा छेडछाड रोक्न सबै भेक्टर र पाठहरूलाई उच्च गुणस्तरको फ्ल्याट छविमा बदल्नुहोस्।",
     "keywords": [
       "rasterize pdf",
       "pdf to image",
@@ -5926,8 +5926,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "font-to-outline": {
-    "title": "Font to Outline (नेपाली)",
-    "metaDescription": "Remove font dependencies from PDF documents by converting pages to high-quality images. Ensures compatibility across all systems.",
+    "title": "फन्टलाई आउटलाइनमा बदल्नुहोस्",
+    "metaDescription": "फन्ट समस्या समाधान गर्न र सटीक प्रिन्टका लागि सबै पाठलाई भेक्टर आकारमा बदल्नुहोस्।",
     "keywords": [
       "font to outline",
       "outline fonts",
@@ -5999,8 +5999,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "extract-tables": {
-    "title": "Extract Tables from PDF (नेपाली)",
-    "metaDescription": "Detect and extract tables from PDF documents. Export to JSON, Markdown, or CSV formats.",
+    "title": "PDF बाट तालिका निकाल्नुहोस्",
+    "metaDescription": "PDF भित्रका डेटा तालिकाहरू पहिचान गरी एक्सेल वा CSV ढाँचामा सजिलै निकाल्नुहोस्।",
     "keywords": [
       "extract tables",
       "pdf table extraction",
@@ -6059,8 +6059,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "ocg-manager": {
-    "title": "PDF Layer Manager (OCG) (नेपाली)",
-    "metaDescription": "Manage PDF layers (Optional Content Groups). View, toggle, add, delete, and rename layers in your PDF documents.",
+    "title": "तह (लेयर) व्यवस्थापक",
+    "metaDescription": "PDF भित्रका दृश्य लेयरहरू (OCG) हेर्नुहोस्, लुकाउनुहोस् वा मर्ज गर्नुहोस्।",
     "keywords": [
       "pdf layers",
       "ocg manager",
@@ -6124,8 +6124,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "pdf-reader": {
-    "title": "PDF Reader (नेपाली)",
-    "metaDescription": "Free online PDF reader. View, navigate, zoom, rotate, and print PDF documents directly in your browser.",
+    "title": "PDF पाठक (रिडर)",
+    "metaDescription": "कुनै अतिरिक्त सफ्टवेयर बिना ब्राउजरमै सिधै सहज र सुरक्षित रूपमा PDF कागजातहरू पढ्नुहोस्।",
     "keywords": [
       "pdf reader",
       "pdf viewer",
@@ -6189,8 +6189,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "digital-sign-pdf": {
-    "title": "Digital Signature (नेपाली)",
-    "metaDescription": "Add X.509 digital signatures to PDF documents. Sign PDFs with PFX, P12, or PEM certificates for legal validity.",
+    "title": "डिजिटल हस्ताक्षर",
+    "metaDescription": "क्रिप्टोग्राफिक प्रमाणपत्र प्रयोग गरी कानुनी रूपमा मान्य डिजिटल हस्ताक्षर थप्नुहोस्।",
     "keywords": [
       "digital signature pdf",
       "x509 certificate",
@@ -6255,8 +6255,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "validate-signature": {
-    "title": "Validate Signature (नेपाली)",
-    "metaDescription": "Verify digital signatures in PDF documents. Check certificate validity, signer information, and document integrity.",
+    "title": "हस्ताक्षर प्रमाणीकरण",
+    "metaDescription": "PDF कागजातमा रहेका डिजिटल हस्ताक्षरहरूको आधिकारिकता, वैधता र अखण्डता जाँच गर्नुहोस्।",
     "keywords": [
       "validate pdf signature",
       "verify digital signature",
@@ -6319,8 +6319,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "ai-pdf-reflower": {
-    "title": "AI PDF Layout Reflower (नेपाली)",
-    "metaDescription": "Re-typeset PDF documents into responsive mobile-friendly layouts. Support Markdown and EPUB export for enhanced small-screen reading.",
+    "title": "AI लेआउट रिफ्लो",
+    "metaDescription": "मोबाइल र सानो स्क्रिनमा सहजै पढ्नका लागि AI को मद्दतले PDF लेआउट पुनर्गठन गर्नुहोस्।",
     "keywords": [
       "pdf reflow",
       "responsive pdf",
@@ -6379,8 +6379,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "citation-linker": {
-    "title": "Citation Linker (नेपाली)",
-    "metaDescription": "Scan and activate citation markers in PDFs, converting them into clickable DOI links or page-jump targets.",
+    "title": "सन्दर्भ लिङ्कर (साइटेसन)",
+    "metaDescription": "अनुसन्धान पत्रहरूका सन्दर्भ र उद्धरणहरूलाई स्वतः क्लिक गर्न मिल्ने लिङ्कमा बदल्नुहोस्।",
     "keywords": [
       "citation linker",
       "pdf hyperlink",
@@ -6439,8 +6439,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "vector-extractor": {
-    "title": "PDF Vector Extractor (नेपाली)",
-    "metaDescription": "Convert PDF into high-fidelity SVG, allowing you to select, recolor, and export vector charts, logos, and graphics.",
+    "title": "भेक्टर रेखाचित्र निकाल्नुहोस्",
+    "metaDescription": "PDF कागजातहरूबाट भेक्टर ग्राफिक्स, लोगो र चित्रहरू SVG ढाँचामा निकाल्नुहोस्।",
     "keywords": [
       "extract vectors from pdf",
       "pdf to svg",
@@ -6499,8 +6499,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "deep-sanitize": {
-    "title": "Deep Metadata Sanitizer (नेपाली)",
-    "metaDescription": "Thoroughly wipe author metadata, modification logs, hidden layers, and orphan objects from PDFs for maximum privacy.",
+    "title": "गहिरो मेटाडेटा शुद्धीकरण",
+    "metaDescription": "पूर्ण सुरक्षाका लागि सबै लुकेका स्ट्रिमहरू, एनोटेसनहरू र मेटाडेटा स्थायी रूपमा हटाउनुहोस्।",
     "keywords": [
       "pdf sanitization",
       "clear metadata",
@@ -6559,8 +6559,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "booklet-folding-simulator": {
-    "title": "3D Booklet & Folding Simulator (नेपाली)",
-    "metaDescription": "Impose multi-page PDFs into foldable print sheets, featuring 3D physical folding animations and saddle-stitch previews.",
+    "title": "३D बुकलेट सिमुलेटर",
+    "metaDescription": "प्रिन्ट गर्नुअघि ३D अन्तरक्रियात्मक दृश्यमा बुकलेट कसरी फोल्ड हुन्छ हेर्नुहोस्।",
     "keywords": [
       "3D imposition",
       "folding simulator",
@@ -6684,8 +6684,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "form-logic-designer": {
-    "title": "Form Logic Designer (नेपाली)",
-    "metaDescription": "Design dynamic behaviors using a glassmorphic node canvas and inject interactive AcroJS logic into PDF forms.",
+    "title": "फारम लजिक डिजाइनर",
+    "metaDescription": "PDF फारमहरूमा सर्तसहितका नियमहरू, स्वतः गणना र प्रमाणीकरण लजिक थप्नुहोस्।",
     "keywords": [
       "PDF form logic",
       "AcroJS injection",
@@ -6744,8 +6744,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "eink-optimizer": {
-    "title": "e-Ink Reader Optimizer (नेपाली)",
-    "metaDescription": "Optimize PDFs for e-Ink screens via background clearing, Otsu binarization, and morphological text dilation.",
+    "title": "ई-इंक रिडर अनुकूलक",
+    "metaDescription": "Kindle र e-Ink स्क्रिनहरूमा स्पष्ट देखिने गरी कन्ट्रास्ट र लेआउट अनुकूलन गर्नुहोस्।",
     "keywords": [
       "eink optimizer",
       "binarization",
@@ -6804,8 +6804,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "cert-cryptor": {
-    "title": "Certificate Encrypt & Sign (नेपाली)",
-    "metaDescription": "Secure PDFs using asymmetric public-key certificate encryption, paired with a 3D gold wax-seal imprint and PKCS#7 signature.",
+    "title": "प्रमाणपत्र इन्क्रिप्सन",
+    "metaDescription": "सार्वजनिक कुञ्जी प्रमाणपत्र (X.509) प्रयोग गरी PDF कागजात सुरक्षित गर्नुहोस्।",
     "keywords": [
       "certificate encryption",
       "wax seal signature",
@@ -6869,8 +6869,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "passport-id-composer": {
-    "title": "Double-Sided ID Composer (नेपाली)",
-    "metaDescription": "Instantly compose both front and back sides of ID cards or passports onto a single A4 page with optional anti-counterfeit watermarks.",
+    "title": "दोहोरो परिचयपत्र मिलाउनुहोस्",
+    "metaDescription": "नागरिकता, राहदानी वा लाइसेन्सको अगाडि र पछाडिको भाग एउटै पानामा मिलाउनुहोस्।",
     "keywords": [
       "ID card composer",
       "passport imposition",
@@ -6929,8 +6929,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "annotation-exporter": {
-    "title": "Export Annotations (नेपाली)",
-    "metaDescription": "Extract PDF comments, notes, highlights, and underlines, and structure them into Markdown/JSON notebooks aligned with outline chapters.",
+    "title": "टिप्पणीहरू निर्यात गर्नुहोस्",
+    "metaDescription": "PDF भित्रका सबै टिप्पणी, नोट र हाइलाइटहरूलाई छुट्टै फाइलमा निर्यात गर्नुहोस्।",
     "keywords": [
       "export annotations",
       "extract pdf highlights",
@@ -6989,8 +6989,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "batch-watermark-remover": {
-    "title": "Batch Remove Watermarks (नेपाली)",
-    "metaDescription": "Physically scrub watermark strings and XObject images from the PDF content stream without messing up layouts.",
+    "title": "ब्याच वाटरमार्क हटाउने",
+    "metaDescription": "धेरै PDF फाइलहरूबाट एकैपटक अनावश्यक वाटरमार्कहरू स्वतः हटाउनुहोस्।",
     "keywords": [
       "remove watermark",
       "pdf watermark eraser",
@@ -7049,8 +7049,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "smart-data-redactor": {
-    "title": "Sensitive Data Redaction (नेपाली)",
-    "metaDescription": "Automatically detect phone numbers, emails, and IDs, overlay opaque masks, and physically erase underlying text streams.",
+    "title": "संवेदनशील डेटा सेन्सर",
+    "metaDescription": "व्यक्तिगत पहिचान नम्बर, फोन वा बैंक खाता विवरणहरू स्वतः पहिचान गरी कालो पट्टी लगाउनुहोस्।",
     "keywords": [
       "automatic redaction",
       "redact privacy pdf",
@@ -7109,8 +7109,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "bookmarks-auto-generator": {
-    "title": "Auto Generate Bookmarks (नेपाली)",
-    "metaDescription": "Analyze document layout hierarchy and regex patterns (e.g. Chapter) to generate and inject /Outline bookmark catalogs.",
+    "title": "स्वतः बुकमार्क सिर्जना",
+    "metaDescription": "शीर्षक र फन्ट शैलीको आधारमा PDF कागजातका लागि स्वतः बुकमार्कहरू सिर्जना गर्नुहोस्।",
     "keywords": [
       "generate bookmarks",
       "pdf outline builder",
@@ -7169,8 +7169,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "batch-barcode-injector": {
-    "title": "Batch Inject Barcodes (नेपाली)",
-    "metaDescription": "Generate custom QR/Code128 tags and precisely inject them into bulk PDF pages with aligning guidelines.",
+    "title": "ब्याच बारकोड थप्नुहोस्",
+    "metaDescription": "धेरै PDF कागजातहरूमा स्वतः क्रमबद्ध बारकोड वा QR कोड छाप्नुहोस्।",
     "keywords": [
       "generate qr pdf",
       "barcode injector",
@@ -7229,8 +7229,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "signature-ink-optimizer": {
-    "title": "Extract Signature & Stamp (नेपाली)",
-    "metaDescription": "Extract handwritten signatures and red corporate stamps from photos, remove paper shadow noise, and export transparent PNGs.",
+    "title": "हस्ताक्षर र छाप निकाल्नुहोस्",
+    "metaDescription": "स्क्यान गरिएको कागजातबाट पृष्ठभूमि हटाएर स्पष्ट हस्ताक्षर वा छाप मात्र अलग गर्नुहोस्।",
     "keywords": [
       "extract signature",
       "transparent signature background",
@@ -7289,8 +7289,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "dead-link-debugger": {
-    "title": "Fix Dead Links (नेपाली)",
-    "metaDescription": "Scan all URL actions and link annotations in PDF, detect reachability, and inject redirects.",
+    "title": "निष्क्रिय लिङ्क ठीक गर्नुहोस्",
+    "metaDescription": "PDF भित्रका टुटेका वा निष्क्रिय वेब लिङ्कहरू पहिचान गरी सच्याउनुहोस्।",
     "keywords": [
       "dead link pdf",
       "edit pdf hyperlinks",
@@ -7349,8 +7349,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "interactive-toc-generator": {
-    "title": "Generate Interactive TOC (नेपाली)",
-    "metaDescription": "Generate aesthetic Table of Contents pages, insert them pre-content, and wire internal bidirectional GoTo anchors.",
+    "title": "अन्तरक्रियात्मक विषय-सूची",
+    "metaDescription": "दस्तावेजको शीर्षक संरचनाबाट स्वतः अन्तरक्रियात्मक क्लिक गर्न मिल्ने विषय-सूची सिर्जना गर्नुहोस्।",
     "keywords": [
       "generate table of contents",
       "interactive toc pdf",
@@ -7409,8 +7409,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "global-invoice-parser": {
-    "title": "Invoice Translate & Convert (नेपाली)",
-    "metaDescription": "Extract currency totals from multi-national invoices, run calculations, and stamp interactive frosted-glass exchange ledgers.",
+    "title": "बीजक (इन्भ्वाइस) रूपान्तरण",
+    "metaDescription": "PDF इन्भ्वाइसबाट डेटा पढी एक्सेल वा लेखा प्रणालीमा रूपान्तरण गर्नुहोस्।",
     "keywords": [
       "translate invoice",
       "invoice currency converter",
@@ -7469,8 +7469,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "pdf-deskew-aligner": {
-    "title": "Auto Scan Deskew (नेपाली)",
-    "metaDescription": "Detect and auto-correct page rotations and alignments on mobile-photo or scanned PDF sheets instantly.",
+    "title": "स्वतः स्क्यान पङ्क्तिबद्ध",
+    "metaDescription": "स्क्यान गर्दा बाङ्गो भएका कागजातहरूलाई स्वतः कोण पत्ता लगाई पूर्ण सिधा बनाउनुहोस्।",
     "keywords": [
       "pdf deskew",
       "scanned page alignment",
@@ -7529,8 +7529,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "pdf-two-column-reflower": {
-    "title": "Two-Column Paper Reflow (नेपाली)",
-    "metaDescription": "Analyze IEEE/ACM double-column paper PDF structures and reflow them into responsive single-column layouts for smooth mobile and e-Reader viewing.",
+    "title": "दुई-स्तम्भ लेआउट रिफ्लो",
+    "metaDescription": "दुई स्तम्भ भएका अनुसन्धान पत्रहरूलाई फोनमा पढ्न मिल्ने गरी एउटै स्तम्भमा बदल्नुहोस्।",
     "keywords": [
       "two-column pdf to single",
       "reflow academic paper",
@@ -7589,8 +7589,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "pdf-page-resizer-uniform": {
-    "title": "Uniform PDF Page Size (नेपाली)",
-    "metaDescription": "Batch resize and normalize mixed-format A4, A3, and Letter PDF sheets into a uniform target size with proportional centering and margin padding.",
+    "title": "एकरूप पृष्ठ आकार",
+    "metaDescription": "फरक-फरक आकारका पृष्ठहरू भएका PDF लाई सबै पृष्ठ एउटै मानक आकारमा मिलाउनुहोस्।",
     "keywords": [
       "uniform page size",
       "resize pdf pages",
@@ -7649,8 +7649,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "handwriting-ink-contrast-booster": {
-    "title": "Enhance Handwriting Ink (नेपाली)",
-    "metaDescription": "Extract blue or black handwriting signatures from photos, bleach yellow paper grain, and dramatically boost ink contrast for readability.",
+    "title": "हस्तलेखन कन्ट्रास्ट बढाउनुहोस्",
+    "metaDescription": "हस्तलिखित नोट वा हस्ताक्षरको मसी गाढा र पढ्न सजिलो बनाउनुहोस्।",
     "keywords": [
       "enhance handwritten contract",
       "ink contrast boost",
@@ -7709,8 +7709,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "pdf-spine-bookbinder": {
-    "title": "Calculate Book Spine Width (नेपाली)",
-    "metaDescription": "Calculate book spine width based on page count and paper GSM, and generate a printable cover template with spine fold lines.",
+    "title": "पुस्तक स्पाइन चौडाइ गणना",
+    "metaDescription": "कागजको मोटाइ र पृष्ठ सङ्ख्या अनुसार पुस्तकको बाइन्डिङ स्पाइन चौडाइ गणना गर्नुहोस्।",
     "keywords": [
       "book spine calculator",
       "binding spine thickness",
@@ -7769,8 +7769,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "pdf-signature-anchor-helper": {
-    "title": "Signature Position Guide (नेपाली)",
-    "metaDescription": "Automatically locate signature fields in contracts, and inject interactive hovering guides and anchors for quick signing.",
+    "title": "हस्ताक्षर स्थान गाइड",
+    "metaDescription": "कागजातमा डिजिटल हस्ताक्षर गर्नुपर्ने सही स्थान र बाकस तोक्नुहोस्।",
     "keywords": [
       "locate signature pdf",
       "inject sign anchor",
@@ -7829,8 +7829,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "pdf-lossless-slicer": {
-    "title": "Lossless Drawing Slicing (नेपाली)",
-    "metaDescription": "Extract a partial region of large PDF CAD drawings, maps, or charts at a low-level, keeping vector resolution intact while dropping file size.",
+    "title": "हानिरहित रेखाचित्र स्लाइसिङ",
+    "metaDescription": "ठूला वास्तुकला वा इन्जिनियरिङ नक्साहरूलाई गुणस्तर नघटाई स-साना खण्डमा काट्नुहोस्।",
     "keywords": [
       "pdf vector crop",
       "lossless pdf slice",
@@ -7889,8 +7889,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "pdf-scratchpad-canvas": {
-    "title": "Grid Scratchpad Canvas (नेपाली)",
-    "metaDescription": "Stitch high-quality grid, ruled, or Cornell note-taking margins to PDF pages for formula derivations and exam note preparation.",
+    "title": "ग्रिड स्क्र्याचप्याड क्यानभास",
+    "metaDescription": "PDF मा हातले लेख्न वा स्केच गर्न मिल्ने नोटप्याड ग्रिड थप्नुहोस्।",
     "keywords": [
       "pdf margin expand",
       "add scratchpad page",
@@ -7949,8 +7949,8 @@ export const toolContentNe: Record<string, ToolContent> = {
     ]
   },
   "photo-tiling-prepress": {
-    "title": "ID Photo DIY Print Tiler (नेपाली)",
-    "metaDescription": "Crop and tile passport/ID photos onto standard 5\" or 6\" photo papers, and stamp precise prepress physical crop marks for easy cutting.",
+    "title": "पासपोर्ट फोटो प्रिन्ट टाइल",
+    "metaDescription": "एउटै ४x६ वा A4 फोटो पेपरमा धेरै पासपोर्ट साइजका फोटोहरू टाइल गरी छाप्न तयार गर्नुहोस्।",
     "keywords": [
       "id photo tiling",
       "print passport photo",

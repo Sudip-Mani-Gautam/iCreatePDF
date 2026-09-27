@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useMessages } from 'next-intl';
 import { 
   Search, 
   X, 
@@ -30,8 +30,10 @@ interface HomePageClientProps {
 type FilterCategory = 'all' | 'organize' | 'optimize' | 'convert' | 'edit' | 'security';
 
 export default function HomePageClient({ locale, localizedToolContent }: HomePageClientProps) {
+  const messages = useMessages();
   const tHome = useTranslations('home');
   const tCommon = useTranslations('common');
+  const tTools = useTranslations('toolsPage');
   const allTools = useMemo(() => getAllTools(), []);
 
   const [searchQuery, setSearchQuery] = useState('');
@@ -105,36 +107,147 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
     { id: 'security', label: tHome('categories.securePdf') || 'Security' },
   ], [tCommon, tHome]);
 
-  const testimonials = [
-    {
-      quote: "The fastest and safest PDF editor I've ever used. All processing occurs locally without risking confidential client documents.",
-      author: 'Sarah Jenkins',
-      role: 'Security Auditor',
-      initials: 'SJ',
-      color: 'bg-rose-100 text-rose-600',
-    },
-    {
-      quote: "100 percent offline processing. Our sensitive legal audits never leave our local memory. Zero uploads and total speed.",
-      author: 'Michael Davis',
-      role: 'Compliance Officer',
-      initials: 'MD',
-      color: 'bg-red-100 text-red-600',
-    },
-    {
-      quote: "Eliminated expensive recurring subscription costs for our entire team. Merge, compress, and sign files instantly.",
-      author: 'Emily Duran',
-      role: 'Project Manager',
-      initials: 'ED',
-      color: 'bg-orange-100 text-orange-600',
-    },
-    {
-      quote: "The visual batch workflows and zero-server architecture saved our engineering team dozens of hours every month.",
-      author: 'David Chen',
-      role: 'Operations Director',
-      initials: 'DC',
-      color: 'bg-pink-100 text-pink-600',
-    },
-  ];
+  const testimonials = useMemo(() => {
+    const rawItems = (messages as any)?.home?.testimonials;
+    if (Array.isArray(rawItems) && rawItems.length > 0) {
+      const colors = [
+        'bg-rose-100 text-rose-600',
+        'bg-red-100 text-red-600',
+        'bg-orange-100 text-orange-600',
+        'bg-pink-100 text-pink-600',
+      ];
+      return rawItems.map((item: any, idx: number) => ({
+        ...item,
+        color: colors[idx % colors.length],
+      }));
+    }
+
+    if (locale === 'ne') {
+      return [
+        {
+          quote: "मैले प्रयोग गरेको सबैभन्दा छिटो र सुरक्षित PDF सम्पादक। सबै प्रशोधन कुनै गोपनीयता जोखिम बिना सिधै उपकरणमा हुन्छ।",
+          author: "Sarah Jenkins",
+          role: "सुरक्षा परीक्षक",
+          initials: "SJ",
+          color: "bg-rose-100 text-rose-600"
+        },
+        {
+          quote: "१००% अफलाइन प्रशोधन। हाम्रा संवेदनशील कानुनी कागजातहरू कहिल्यै स्थानीय उपकरणबाट बाहिर जाँदैनन्। शून्य अपलोड र उच्च गति।",
+          author: "Michael Davis",
+          role: "अनुपालन अधिकारी",
+          initials: "MD",
+          color: "bg-red-100 text-red-600"
+        },
+        {
+          quote: "हाम्रो सम्पूर्ण टोलीका लागि महँगो मासिक सदस्यता खर्च हटायो। फाइलहरू तुरुन्तै मर्ज, कम्प्रेस र हस्ताक्षर गर्नुहोस्।",
+          author: "Emily Duran",
+          role: "परियोजना प्रबन्धक",
+          initials: "ED",
+          color: "bg-orange-100 text-orange-600"
+        },
+        {
+          quote: "उत्कृष्ट दृश्य ब्याच कार्यप्रवाह र शून्य-सर्भर प्रविधिले हाम्रो इन्जिनियरिङ टोलीको हरेक महिना दर्जनौं घण्टा बचत गर्यो।",
+          author: "David Chen",
+          role: "सञ्चालन निर्देशक",
+          initials: "DC",
+          color: "bg-pink-100 text-pink-600"
+        }
+      ];
+    } else if (locale === 'hi') {
+      return [
+        {
+          quote: "अब तक का सबसे तेज़ और सुरक्षित PDF संपादक। सभी प्रोसेसिंग बिना किसी सर्वर जोखिम के स्थानीय रूप से होती है।",
+          author: "Sarah Jenkins",
+          role: "सुरक्षा लेखा परीक्षक",
+          initials: "SJ",
+          color: "bg-rose-100 text-rose-600"
+        },
+        {
+          quote: "100% ऑफ़लाइन प्रोसेसिंग। हमारे संवेदनशील कानूनी दस्तावेज़ कभी स्थानीय डिवाइस से बाहर नहीं जाते। शून्य अपलोड।",
+          author: "Michael Davis",
+          role: "अनुपालन अधिकारी",
+          initials: "MD",
+          color: "bg-red-100 text-red-600"
+        },
+        {
+          quote: "हमारी पूरी टीम के लिए महंगे सब्सक्रिप्शन खर्च को समाप्त कर दिया। फाइलें तुरंत मर्ज, कंप्रेस और साइन करें।",
+          author: "Emily Duran",
+          role: "प्रोजेक्ट मैनेजर",
+          initials: "ED",
+          color: "bg-orange-100 text-orange-600"
+        },
+        {
+          quote: "शानदार बैच वर्कफ़्लो और ज़ीरो-सर्वर तकनीक ने हमारी इंजीनियरिंग टीम के हर महीने दर्जनों घंटे बचाए।",
+          author: "David Chen",
+          role: "संचालन निदेशक",
+          initials: "DC",
+          color: "bg-pink-100 text-pink-600"
+        }
+      ];
+    } else if (locale === 'ms') {
+      return [
+        {
+          quote: "Editor PDF terpantas dan paling selamat yang pernah saya gunakan. Semua pemprosesan berlaku setempat tanpa risiko privasi.",
+          author: "Sarah Jenkins",
+          role: "Juruaudit Keselamatan",
+          initials: "SJ",
+          color: "bg-rose-100 text-rose-600"
+        },
+        {
+          quote: "100% pemprosesan luar talian. Audit undang-undang sensitif kami tidak pernah meninggalkan memori setempat.",
+          author: "Michael Davis",
+          role: "Pegawai Pematuhan",
+          initials: "MD",
+          color: "bg-red-100 text-red-600"
+        },
+        {
+          quote: "Menghapuskan kos langganan mahal untuk seluruh pasukan kami. Gabung, mampat dan tandatangan fail serta-merta.",
+          author: "Emily Duran",
+          role: "Pengurus Projek",
+          initials: "ED",
+          color: "bg-orange-100 text-orange-600"
+        },
+        {
+          quote: "Aliran kerja kelompok visual dan seni bina sifar pelayan menjimatkan puluhan jam pasukan kejuruteraan kami.",
+          author: "David Chen",
+          role: "Pengarah Operasi",
+          initials: "DC",
+          color: "bg-pink-100 text-pink-600"
+        }
+      ];
+    }
+
+    return [
+      {
+        quote: "The fastest and safest PDF editor I've ever used. All processing occurs locally without risking confidential client documents.",
+        author: 'Sarah Jenkins',
+        role: 'Security Auditor',
+        initials: 'SJ',
+        color: 'bg-rose-100 text-rose-600',
+      },
+      {
+        quote: "100 percent offline processing. Our sensitive legal audits never leave our local memory. Zero uploads and total speed.",
+        author: 'Michael Davis',
+        role: 'Compliance Officer',
+        initials: 'MD',
+        color: 'bg-red-100 text-red-600',
+      },
+      {
+        quote: "Eliminated expensive recurring subscription costs for our entire team. Merge, compress, and sign files instantly.",
+        author: 'Emily Duran',
+        role: 'Project Manager',
+        initials: 'ED',
+        color: 'bg-orange-100 text-orange-600',
+      },
+      {
+        quote: "The visual batch workflows and zero-server architecture saved our engineering team dozens of hours every month.",
+        author: 'David Chen',
+        role: 'Operations Director',
+        initials: 'DC',
+        color: 'bg-pink-100 text-pink-600',
+      },
+    ];
+  }, [messages, locale]);
 
   return (
     <div suppressHydrationWarning className="min-h-screen flex flex-col bg-[hsl(var(--color-background))] text-[hsl(var(--color-foreground))] font-sans antialiased">
@@ -158,9 +271,9 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                 </>
               ) : (
                 <>
-                  {tHome('hero.title') || 'Strumenti PDF professionali'} <br />
+                  {tHome('hero.title')} <br />
                   <span className="text-red-600 bg-gradient-to-r from-red-600 via-rose-600 to-red-500 bg-clip-text text-transparent">
-                    {tHome('features.privacy.title') || '100% Privato'}
+                    {tHome('hero.highlight') || tHome('features.privacy.title')}
                   </span>
                 </>
               )}
@@ -170,7 +283,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
             <p className="text-base sm:text-lg text-[hsl(var(--color-muted-foreground))] max-w-2xl mx-auto leading-relaxed mb-8">
               {locale === 'en'
                 ? 'Process your files locally in your browser. No server uploads, no privacy risks. Complete speed and peace of mind.'
-                : tHome('hero.subtitle') || tHome('features.privacy.description')}
+                : (tHome('hero.subtitle') || tHome('features.privacy.description'))}
             </p>
 
             {/* Search Input Bar */}
@@ -180,7 +293,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder={locale === 'en' ? 'Search for tools (e.g., Merge, Protect, Compress)...' : `${tCommon('navigation.tools')}...`}
+                placeholder={tTools('searchPlaceholder') || (locale === 'en' ? 'Search for tools (e.g., Merge, Protect, Compress)...' : `${tCommon('navigation.tools')}...`)}
                 className="w-full pl-11 pr-10 py-3.5 rounded-full border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] text-sm shadow-xs hover:shadow-md focus:shadow-md focus:border-red-500 focus:outline-none focus:ring-4 focus:ring-red-500/10 transition-all placeholder:text-[hsl(var(--color-muted-foreground))] text-[hsl(var(--color-foreground))]"
               />
               {searchQuery && (
@@ -228,9 +341,11 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
           {displayTools.length === 0 ? (
             <div className="text-center py-20 bg-[hsl(var(--color-card))] rounded-3xl border border-dashed border-[hsl(var(--color-border))] max-w-xl mx-auto">
               <FileText className="w-12 h-12 text-[hsl(var(--color-muted-foreground))] mx-auto mb-3 opacity-60" />
-              <h3 className="text-lg font-bold mb-1">{tHome('popularTools.description') || 'No matching tools found'}</h3>
+              <h3 className="text-lg font-bold mb-1">
+                {locale === 'ne' ? 'कुनै मिल्दो उपकरण फेला परेन' : locale === 'hi' ? 'कोई मेल खाता टूल नहीं मिला' : locale === 'ms' ? 'Tiada alatan sepadan ditemui' : (tHome('popularTools.description') || 'No matching tools found')}
+              </h3>
               <p className="text-sm text-[hsl(var(--color-muted-foreground))] mb-4">
-                {tCommon('buttons.clearAll') || 'Try searching for something else or reset your filter.'}
+                {locale === 'ne' ? 'कृपया अन्य शब्द खोजी हेर्नुहोस् वा फिल्टर रिसेट गर्नुहोस्।' : locale === 'hi' ? 'कृपया कुछ और खोजें या अपना फ़िल्टर रीसेट करें।' : locale === 'ms' ? 'Cuba cari kata kunci lain atau set semula penapis anda.' : (tCommon('buttons.clearAll') || 'Try searching for something else or reset your filter.')}
               </p>
               <button
                 onClick={() => {
@@ -239,7 +354,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                 }}
                 className="px-4 py-2 rounded-full bg-red-600 text-white text-xs font-bold hover:bg-red-700 transition-colors shadow-sm cursor-pointer"
               >
-                {tCommon('buttons.reset') || 'Reset Filter'}
+                {locale === 'ne' ? 'फिल्टर रिसेट गर्नुहोस्' : locale === 'hi' ? 'फ़िल्टर रीसेट करें' : locale === 'ms' ? 'Set Semula Penapis' : (tCommon('buttons.reset') || 'Reset Filter')}
               </button>
             </div>
           ) : (
@@ -290,7 +405,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                     {/* Bottom Action Arrow */}
                     <div className="pt-2 flex items-center justify-between text-[hsl(var(--color-muted-foreground))] group-hover:text-red-600 transition-colors border-t border-[hsl(var(--color-border)/0.6)] mt-auto">
                       <span className="text-[11px] font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                        {tCommon('buttons.process') || 'Use Tool'}
+                        {locale === 'ne' ? 'उपकरण खोल्नुहोस्' : locale === 'hi' ? 'टूल खोलें' : locale === 'ms' ? 'Buka Alatan' : (tCommon('buttons.process') || 'Use Tool')}
                       </span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </div>

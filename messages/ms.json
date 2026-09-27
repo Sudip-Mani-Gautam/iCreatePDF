@@ -1248,22 +1248,22 @@
   "home": {
     "hero": {
       "title": "Professional PDF Tools",
-      "highlight": "Professional Tools",
+      "highlight": "Alatan Profesional",
       "subtitle": "Free, private, and powerful PDF processing in your browser",
       "cta": "Get Started"
     },
     "features": {
       "privacy": {
-        "title": "100% Peribadi",
-        "description": "All processing happens in your browser. Your files never leave your device."
-      },
-      "free": {
-        "title": "Percuma Sepenuhnya",
-        "description": "No registration, no limits, no hidden costs."
+        "title": "100% Peribadi & Setempat",
+        "description": "Semua operasi berjalan dalam persekitaran pelayar anda menggunakan WebAssembly. Fail tidak pernah dimuat naik ke pelayan."
       },
       "powerful": {
-        "title": "Powerful Tools",
-        "description": "67+ professional PDF tools for all your needs."
+        "title": "Prestasi Sepantas Kilat",
+        "description": "Tiada masa menunggu muat naik atau muat turun. Pemprosesan fail segera dikuasakan oleh peranti anda."
+      },
+      "free": {
+        "title": "Percuma Sepenuhnya & Sumber Terbuka",
+        "description": "Tiada langganan, tera air atau pendaftaran akaun diperlukan. Sumber terbuka di bawah GNU AGPLv3."
       }
     },
     "popularTools": {
@@ -1305,7 +1305,33 @@
       "security": "Keselamatan",
       "optimize": "Optimum",
       "advanced": "Alatan Lanjutan"
-    }
+    },
+    "testimonials": [
+      {
+        "quote": "Editor PDF terpantas dan paling selamat yang pernah saya gunakan. Semua pemprosesan berlaku setempat tanpa risiko privasi.",
+        "author": "Sarah Jenkins",
+        "role": "Juruaudit Keselamatan",
+        "initials": "SJ"
+      },
+      {
+        "quote": "100% pemprosesan luar talian. Audit undang-undang sensitif kami tidak pernah meninggalkan memori setempat.",
+        "author": "Michael Davis",
+        "role": "Pegawai Pematuhan",
+        "initials": "MD"
+      },
+      {
+        "quote": "Menghapuskan kos langganan mahal untuk seluruh pasukan kami. Gabung, mampat dan tandatangan fail serta-merta.",
+        "author": "Emily Duran",
+        "role": "Pengurus Projek",
+        "initials": "ED"
+      },
+      {
+        "quote": "Aliran kerja kelompok visual dan seni bina sifar pelayan menjimatkan puluhan jam pasukan kejuruteraan kami.",
+        "author": "David Chen",
+        "role": "Pengarah Operasi",
+        "initials": "DC"
+      }
+    ]
   },
   "workflow": {
     "title": "PDF Workflow Builder",

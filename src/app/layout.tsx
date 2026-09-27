@@ -36,6 +36,24 @@ export default function RootLayout({
                   document.documentElement.setAttribute('data-theme', 'light');
                 }
               } catch (_) {}
+
+              // Filter out browser extension DOM mutation hydration warnings (Bitdefender bis_skin_checked, etc.)
+              (function() {
+                var origError = console.error;
+                console.error = function() {
+                  var msg = arguments && arguments[0] ? String(arguments[0]) : '';
+                  if (
+                    msg.indexOf('bis_skin_checked') !== -1 ||
+                    msg.indexOf('bis_register') !== -1 ||
+                    msg.indexOf('__processed_') !== -1 ||
+                    (msg.indexOf('hydrated') !== -1 && msg.indexOf('browser extension') !== -1) ||
+                    (msg.indexOf('hydrated') !== -1 && msg.indexOf('attribute') !== -1)
+                  ) {
+                    return;
+                  }
+                  origError.apply(console, arguments);
+                };
+              })();
             `,
           }}
         />

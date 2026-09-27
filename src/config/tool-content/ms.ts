@@ -134,8 +134,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "rotate-custom": {
-    "title": "Rotate by Custom Degrees",
-    "metaDescription": "Rotate PDF pages by any angle. Precise custom rotation for straightening scanned documents.",
+    "title": "Putar mengikut Sudut Tersuai",
+    "metaDescription": "Putar halaman PDF mengikut sebarang sudut. Putaran tersuai tepat untuk meluruskan dokumen yang diimbas.",
     "keywords": [
       "rotate pdf custom angle",
       "straighten pdf",
@@ -198,8 +198,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "grid-combine": {
-    "title": "Grid Combine PDF",
-    "metaDescription": "Combine multiple PDF files onto single pages with a flexible grid layout. Arrange 2, 4, 6, 9 or more PDFs per page with borders and spacing.",
+    "title": "Gabung Grid PDF",
+    "metaDescription": "Gabungkan berbilang fail PDF ke dalam halaman tunggal dengan susun atur grid fleksibel. Susun 2, 4, 6, 9 atau lebih PDF setiap halaman.",
     "keywords": [
       "grid combine",
       "merge pdf grid",
@@ -822,8 +822,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "bookmark": {
-    "title": "Edit Bookmarks",
-    "metaDescription": "Add, edit, and manage PDF bookmarks. Create navigation structure for your documents.",
+    "title": "Sunting Penanda Halaman",
+    "metaDescription": "Tambah, sunting dan urus penanda halaman PDF. Cipta struktur navigasi teratur untuk dokumen anda.",
     "keywords": [
       "pdf bookmarks",
       "edit bookmarks",
@@ -882,8 +882,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "table-of-contents": {
-    "title": "Table of Contents",
-    "metaDescription": "Generate a table of contents for your PDF. Create clickable navigation from bookmarks.",
+    "title": "Jadual Kandungan",
+    "metaDescription": "Hasilkan jadual kandungan untuk PDF anda. Cipta navigasi boleh klik daripada penanda halaman.",
     "keywords": [
       "pdf table of contents",
       "toc generator",
@@ -1060,8 +1060,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "header-footer": {
-    "title": "Header & Footer",
-    "metaDescription": "Add headers and footers to PDF documents. Include page numbers, dates, and custom text.",
+    "title": "Pengepala & Pengaki",
+    "metaDescription": "Tambah pengepala dan pengaki pada dokumen PDF. Masukkan nombor halaman, tarikh dan teks tersuai.",
     "keywords": [
       "pdf header",
       "pdf footer",
@@ -1119,8 +1119,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "invert-colors": {
-    "title": "Invert Colors",
-    "metaDescription": "Invert PDF colors for dark mode reading. Convert documents to negative colors.",
+    "title": "Songsangkan Warna",
+    "metaDescription": "Songsangkan warna PDF untuk mod gelap yang selesa dibaca. Tukar dokumen kepada warna negatif.",
     "keywords": [
       "invert pdf colors",
       "pdf dark mode",
@@ -1178,8 +1178,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "background-color": {
-    "title": "Background Color",
-    "metaDescription": "Change PDF background color. Add colored backgrounds to document pages.",
+    "title": "Warna Latar Belakang",
+    "metaDescription": "Tukar warna latar belakang PDF. Tambah latar belakang berwarna pada halaman dokumen.",
     "keywords": [
       "pdf background color",
       "change pdf background",
@@ -1237,8 +1237,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "text-color": {
-    "title": "Change Text Color",
-    "metaDescription": "Change text color in PDF documents. Modify the color of all text content.",
+    "title": "Tukar Warna Teks",
+    "metaDescription": "Tukar warna teks dalam dokumen PDF. Ubah suai warna semua kandungan teks.",
     "keywords": [
       "change pdf text color",
       "pdf text color",
@@ -1296,8 +1296,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "add-stamps": {
-    "title": "Add Stamps",
-    "metaDescription": "Add stamps to PDF documents. Use preset or custom stamps for approval, review, and more.",
+    "title": "Tambah Cap",
+    "metaDescription": "Tambah cap pada dokumen PDF. Gunakan cap pratetap atau tersuai untuk kelulusan dan semakan.",
     "keywords": [
       "pdf stamps",
       "add stamp",
@@ -1355,8 +1355,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "remove-annotations": {
-    "title": "Remove Annotations",
-    "metaDescription": "Remove annotations from PDF files. Delete comments, highlights, and markup.",
+    "title": "Padam Anotasi",
+    "metaDescription": "Alih keluar anotasi daripada fail PDF. Padam ulasan, sorotan dan tandaan.",
     "keywords": [
       "remove pdf annotations",
       "delete comments",
@@ -1473,8 +1473,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "form-creator": {
-    "title": "Form Creator",
-    "metaDescription": "Create fillable PDF forms. Add text fields, checkboxes, and dropdowns to documents.",
+    "title": "Pencipta Borang",
+    "metaDescription": "Cipta borang PDF yang boleh diisi. Tambah medan teks, kotak pilihan dan menu lungsur pada dokumen.",
     "keywords": [
       "create pdf form",
       "pdf form creator",
@@ -1532,8 +1532,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "remove-blank-pages": {
-    "title": "Remove Blank Pages",
-    "metaDescription": "Automatically detect and remove blank pages from PDF documents.",
+    "title": "Padam Halaman Kosong",
+    "metaDescription": "Kesan dan padam halaman kosong secara automatik daripada dokumen PDF anda.",
     "keywords": [
       "remove blank pages",
       "delete empty pages",
@@ -3503,8 +3503,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "add-attachments": {
-    "title": "Add Attachments",
-    "metaDescription": "Embed files in PDF documents. Attach any file type to your PDFs.",
+    "title": "Tambah Lampiran",
+    "metaDescription": "Benamkan fail dalam dokumen PDF. Lampirkan sebarang jenis fail ke dalam PDF anda.",
     "keywords": [
       "pdf attachments",
       "embed files",
@@ -3562,8 +3562,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "extract-attachments": {
-    "title": "Extract Attachments",
-    "metaDescription": "Extract embedded files from PDFs. Download all attachments from PDF documents.",
+    "title": "Ekstrak Lampiran",
+    "metaDescription": "Ekstrak fail terbenam daripada PDF. Muat turun semua lampiran daripada dokumen PDF.",
     "keywords": [
       "extract attachments",
       "pdf attachments",
@@ -3686,8 +3686,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "edit-attachments": {
-    "title": "Edit Attachments",
-    "metaDescription": "Manage PDF attachments. View, rename, and remove embedded files.",
+    "title": "Urus Lampiran",
+    "metaDescription": "Urus lampiran PDF. Lihat, namakan semula dan alih keluar fail terbenam.",
     "keywords": [
       "edit attachments",
       "manage pdf files",
@@ -3745,8 +3745,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "divide-pages": {
-    "title": "Divide Pages",
-    "metaDescription": "Split PDF pages into multiple sections. Divide pages horizontally or vertically.",
+    "title": "Bahagikan Halaman",
+    "metaDescription": "Bahagikan halaman PDF kepada beberapa bahagian secara mendatar atau menegak.",
     "keywords": [
       "divide pdf pages",
       "split page",
@@ -3804,8 +3804,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "add-blank-page": {
-    "title": "Add Blank Page",
-    "metaDescription": "Insert blank pages into PDF documents. Add empty pages at any position.",
+    "title": "Tambah Halaman Kosong",
+    "metaDescription": "Sisipkan halaman kosong pada permulaan, penghujung atau kedudukan khusus dalam PDF.",
     "keywords": [
       "add blank page",
       "insert page",
@@ -3863,8 +3863,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "reverse-pages": {
-    "title": "Reverse Pages",
-    "metaDescription": "Reverse PDF page order. Flip document pages from last to first.",
+    "title": "Balikkan Susunan Halaman",
+    "metaDescription": "Balikkan susunan halaman dokumen PDF anda dari belakang ke hadapan.",
     "keywords": [
       "reverse pdf",
       "flip page order",
@@ -3981,8 +3981,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "overlay-pdf": {
-    "title": "Overlay PDF",
-    "metaDescription": "Overlay or underlay pages from one PDF onto another. Perfect for stamps, letterheads, and layout composition.",
+    "title": "Tindih PDF",
+    "metaDescription": "Tindih satu fail PDF ke atas yang lain sebagai kepala surat, latar belakang atau tera air.",
     "keywords": [
       "overlay pdf",
       "underlay pdf",
@@ -4046,8 +4046,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "timestamp-pdf": {
-    "title": "Timestamp PDF",
-    "metaDescription": "Add RFC 3161 trusted timestamps to PDF documents. Prove document existence at a specific point in time without certificates.",
+    "title": "Cap Masa Digital PDF",
+    "metaDescription": "Tambah cap masa digital yang dipercayai pada dokumen PDF untuk pengesahan undang-undang.",
     "keywords": [
       "timestamp pdf",
       "rfc 3161",
@@ -4106,8 +4106,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "add-page-labels": {
-    "title": "Add Page Labels",
-    "metaDescription": "Apply custom page labels to your PDF catalog. Supports Roman numerals, prefixes, and complex disjoint ranges.",
+    "title": "Tambah Label Halaman",
+    "metaDescription": "Takrifkan penomboran halaman tersuai atau angka roman untuk setiap bahagian dokumen PDF.",
     "keywords": [
       "pdf page labels",
       "roman numerals pdf",
@@ -4166,8 +4166,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "n-up-pdf": {
-    "title": "N-Up PDF",
-    "metaDescription": "Print multiple PDF pages per sheet. Create 2-up, 4-up, or custom layouts.",
+    "title": "N-Up PDF (Berbilang Halaman Sehelai)",
+    "metaDescription": "Susun berbilang halaman (2, 4 atau lebih) pada satu helaian untuk menjimatkan kertas.",
     "keywords": [
       "n-up pdf",
       "multiple pages per sheet",
@@ -4225,8 +4225,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "combine-single-page": {
-    "title": "Combine to Single Page",
-    "metaDescription": "Stitch PDF pages into one continuous page. Create scrollable single-page documents.",
+    "title": "Gabung ke Halaman Tunggal",
+    "metaDescription": "Gabungkan semua halaman dokumen PDF ke dalam satu halaman panjang yang berterusan.",
     "keywords": [
       "combine pages",
       "single page pdf",
@@ -4284,8 +4284,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "view-metadata": {
-    "title": "View Metadata",
-    "metaDescription": "View PDF document properties. See author, title, dates, and other metadata.",
+    "title": "Lihat Metadata",
+    "metaDescription": "Lihat tajuk, pengarang, tarikh penciptaan dan sifat metadata tersembunyi dokumen PDF.",
     "keywords": [
       "pdf metadata",
       "document properties",
@@ -4343,8 +4343,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "edit-metadata": {
-    "title": "Edit Metadata",
-    "metaDescription": "Edit PDF document properties. Change title, author, subject, and keywords.",
+    "title": "Sunting Metadata",
+    "metaDescription": "Ubah suai tajuk, pengarang, subjek dan kata kunci metadata dokumen PDF anda.",
     "keywords": [
       "edit pdf metadata",
       "change pdf properties",
@@ -4402,8 +4402,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "pdf-to-zip": {
-    "title": "PDFs to ZIP",
-    "metaDescription": "Package multiple PDFs into a ZIP archive. Compress and bundle PDF files.",
+    "title": "PDF ke ZIP",
+    "metaDescription": "Pek beberapa fail PDF ke dalam satu arkib ZIP termampat dengan mudah.",
     "keywords": [
       "pdf to zip",
       "compress pdfs",
@@ -4520,8 +4520,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "posterize-pdf": {
-    "title": "Posterize PDF",
-    "metaDescription": "Split large PDF pages into printable tiles. Create posters from PDF pages.",
+    "title": "Jadikan Poster (Jubin)",
+    "metaDescription": "Bahagikan halaman PDF besar kepada beberapa helaian untuk dicetak sebagai poster besar.",
     "keywords": [
       "posterize pdf",
       "tile pdf",
@@ -4579,8 +4579,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "fix-page-size": {
-    "title": "Fix Page Size",
-    "metaDescription": "Standardize PDF page sizes. Convert all pages to uniform dimensions.",
+    "title": "Betulkan Saiz Halaman",
+    "metaDescription": "Tukar semua halaman PDF kepada saiz standard yang seragam seperti A4 atau Letter.",
     "keywords": [
       "fix page size",
       "standardize pdf",
@@ -4638,8 +4638,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "linearize-pdf": {
-    "title": "Linearize PDF",
-    "metaDescription": "Optimize PDF for fast web viewing. Enable progressive loading.",
+    "title": "Pandangan Web Pantas (Linearize)",
+    "metaDescription": "Optimumkan PDF untuk penstriman web pantas agar halaman pertama dibuka serta-merta.",
     "keywords": [
       "linearize pdf",
       "fast web view",
@@ -4697,8 +4697,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "page-dimensions": {
-    "title": "Page Dimensions",
-    "metaDescription": "Analyze PDF page sizes. View dimensions of all pages in your document.",
+    "title": "Dimensi Halaman",
+    "metaDescription": "Periksa dan ukur dimensi lebar, tinggi dan jidar halaman PDF dengan tepat.",
     "keywords": [
       "pdf page size",
       "page dimensions",
@@ -4756,8 +4756,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "remove-restrictions": {
-    "title": "Remove Restrictions",
-    "metaDescription": "Remove PDF restrictions. Unlock printing, copying, and editing permissions.",
+    "title": "Alih Keluar Sekatan",
+    "metaDescription": "Alih keluar sekatan keselamatan pencetakan, penyalinan atau penyuntingan pada fail PDF.",
     "keywords": [
       "remove pdf restrictions",
       "unlock pdf",
@@ -4933,8 +4933,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "sanitize-pdf": {
-    "title": "Sanitize PDF",
-    "metaDescription": "Remove hidden data from PDFs. Clean metadata, scripts, and sensitive information.",
+    "title": "Bersihkan PDF (Sanitize)",
+    "metaDescription": "Bersihkan metadata tersembunyi, skrip dan sejarah semakan sensitif untuk keselamatan privasi.",
     "keywords": [
       "sanitize pdf",
       "clean pdf",
@@ -4992,8 +4992,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "find-and-redact": {
-    "title": "Find and Redact",
-    "metaDescription": "Search and redact text across all pages of a PDF. Batch redact sensitive information like account numbers, names, and more.",
+    "title": "Cari dan Padam Kekal (Redact)",
+    "metaDescription": "Cari teks sensitif dan padamkannya secara kekal dengan blok legap untuk melindungi kerahsiaan.",
     "keywords": [
       "redact pdf",
       "find and redact",
@@ -5251,8 +5251,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "remove-metadata": {
-    "title": "Remove Metadata",
-    "metaDescription": "Strip metadata from PDF files. Remove author, dates, and document properties.",
+    "title": "Padam Metadata",
+    "metaDescription": "Keluarkan semua metadata peribadi dan maklumat penjejakan daripada dokumen PDF anda.",
     "keywords": [
       "remove pdf metadata",
       "strip metadata",
@@ -5310,8 +5310,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "change-permissions": {
-    "title": "Change Permissions",
-    "metaDescription": "Modify PDF permissions. Control printing, copying, and editing access.",
+    "title": "Tukar Kebenaran",
+    "metaDescription": "Kawal kebenaran pengguna untuk mencetak, menyalin teks atau mengubah suai fail PDF.",
     "keywords": [
       "pdf permissions",
       "change pdf access",
@@ -5488,8 +5488,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "deskew-pdf": {
-    "title": "Deskew PDF",
-    "metaDescription": "Automatically straighten scanned or tilted PDF pages. Fix skewed documents with precision angle detection.",
+    "title": "Luruskan PDF (Deskew)",
+    "metaDescription": "Luruskan halaman PDF yang senget akibat imbasan secara automatik dan tepat.",
     "keywords": [
       "deskew pdf",
       "straighten pdf",
@@ -5556,8 +5556,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "pdf-booklet": {
-    "title": "PDF Booklet Creator",
-    "metaDescription": "Create booklet layouts from PDF for printing. Arrange pages for saddle-stitch binding with multiple grid options.",
+    "title": "Pencipta Buku Kecil (Booklet)",
+    "metaDescription": "Susun halaman PDF untuk cetakan dua belah dan lipatan buku kecil yang sempurna.",
     "keywords": [
       "pdf booklet",
       "booklet creator",
@@ -5616,8 +5616,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "rasterize-pdf": {
-    "title": "Rasterize PDF",
-    "metaDescription": "Convert PDF pages to high-quality images. Export as PNG, JPEG, or WebP with custom DPI settings.",
+    "title": "Rasterkan PDF",
+    "metaDescription": "Tukarkan teks dan vektor PDF kepada imej rata berkualiti tinggi untuk mengelakkan suntingan.",
     "keywords": [
       "rasterize pdf",
       "pdf to image",
@@ -5926,8 +5926,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "font-to-outline": {
-    "title": "Font to Outline",
-    "metaDescription": "Remove font dependencies from PDF documents by converting pages to high-quality images. Ensures compatibility across all systems.",
+    "title": "Tukar Fon ke Garis Luar",
+    "metaDescription": "Tukar semua fon teks kepada bentuk vektor untuk mengelakkan masalah penggantian fon.",
     "keywords": [
       "font to outline",
       "outline fonts",
@@ -5999,8 +5999,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "extract-tables": {
-    "title": "Extract Tables from PDF",
-    "metaDescription": "Detect and extract tables from PDF documents. Export to JSON, Markdown, or CSV formats.",
+    "title": "Ekstrak Jadual daripada PDF",
+    "metaDescription": "Kesan jadual data dalam dokumen PDF dan ekstrak ke format CSV atau Excel dengan tepat.",
     "keywords": [
       "extract tables",
       "pdf table extraction",
@@ -6059,8 +6059,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "ocg-manager": {
-    "title": "PDF Layer Manager (OCG)",
-    "metaDescription": "Manage PDF layers (Optional Content Groups). View, toggle, add, delete, and rename layers in your PDF documents.",
+    "title": "Pengurus Lapisan PDF (OCG)",
+    "metaDescription": "Urus, sembunyikan atau gabungkan lapisan kandungan pilihan (OCG) dalam dokumen PDF.",
     "keywords": [
       "pdf layers",
       "ocg manager",
@@ -6124,8 +6124,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "pdf-reader": {
-    "title": "PDF Reader",
-    "metaDescription": "Free online PDF reader. View, navigate, zoom, rotate, and print PDF documents directly in your browser.",
+    "title": "Pembaca PDF",
+    "metaDescription": "Baca dan semak dokumen PDF terus dalam pelayar anda tanpa perisian tambahan.",
     "keywords": [
       "pdf reader",
       "pdf viewer",
@@ -6189,8 +6189,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "digital-sign-pdf": {
-    "title": "Digital Signature",
-    "metaDescription": "Add X.509 digital signatures to PDF documents. Sign PDFs with PFX, P12, or PEM certificates for legal validity.",
+    "title": "Tandatangan Digital",
+    "metaDescription": "Tandatangan dokumen PDF dengan sijil digital kriptografi yang sah di sisi undang-undang.",
     "keywords": [
       "digital signature pdf",
       "x509 certificate",
@@ -6255,8 +6255,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "validate-signature": {
-    "title": "Validate Signature",
-    "metaDescription": "Verify digital signatures in PDF documents. Check certificate validity, signer information, and document integrity.",
+    "title": "Sahkan Tandatangan",
+    "metaDescription": "Sahkan ketulenan dan integriti tandatangan digital pada dokumen PDF anda.",
     "keywords": [
       "validate pdf signature",
       "verify digital signature",
@@ -6319,8 +6319,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "ai-pdf-reflower": {
-    "title": "AI PDF Layout Reflower",
-    "metaDescription": "Re-typeset PDF documents into responsive mobile-friendly layouts. Support Markdown and EPUB export for enhanced small-screen reading.",
+    "title": "Susun Semula Susun Atur AI",
+    "metaDescription": "Susun semula reka letak PDF menggunakan AI untuk bacaan optimum pada skrin telefon pintar.",
     "keywords": [
       "pdf reflow",
       "responsive pdf",
@@ -6379,8 +6379,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "citation-linker": {
-    "title": "Citation Linker",
-    "metaDescription": "Scan and activate citation markers in PDFs, converting them into clickable DOI links or page-jump targets.",
+    "title": "Penyambung Petikan (Citation)",
+    "metaDescription": "Tukar petikan teks dan rujukan akademik kepada pautan aktif yang boleh diklik secara automatik.",
     "keywords": [
       "citation linker",
       "pdf hyperlink",
@@ -6439,8 +6439,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "vector-extractor": {
-    "title": "PDF Vector Extractor",
-    "metaDescription": "Convert PDF into high-fidelity SVG, allowing you to select, recolor, and export vector charts, logos, and graphics.",
+    "title": "Ekstrak Vektor PDF",
+    "metaDescription": "Ekstrak grafik vektor, logo dan lukisan daripada dokumen PDF ke format SVG.",
     "keywords": [
       "extract vectors from pdf",
       "pdf to svg",
@@ -6499,8 +6499,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "deep-sanitize": {
-    "title": "Deep Metadata Sanitizer",
-    "metaDescription": "Thoroughly wipe author metadata, modification logs, hidden layers, and orphan objects from PDFs for maximum privacy.",
+    "title": "Pembersihan Mendalam Metadata",
+    "metaDescription": "Buang semua aliran data tersembunyi, anotasi dan metadata secara kekal untuk privasi mutlak.",
     "keywords": [
       "pdf sanitization",
       "clear metadata",
@@ -6559,8 +6559,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "booklet-folding-simulator": {
-    "title": "3D Booklet & Folding Simulator",
-    "metaDescription": "Impose multi-page PDFs into foldable print sheets, featuring 3D physical folding animations and saddle-stitch previews.",
+    "title": "Simulator Lipatan Buku 3D",
+    "metaDescription": "Lihat simulasi lipatan buku kecil 3D secara interaktif sebelum mencetak pada kertas fizikal.",
     "keywords": [
       "3D imposition",
       "folding simulator",
@@ -6684,8 +6684,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "form-logic-designer": {
-    "title": "Form Logic Designer",
-    "metaDescription": "Design dynamic behaviors using a glassmorphic node canvas and inject interactive AcroJS logic into PDF forms.",
+    "title": "Pereka Logik Borang",
+    "metaDescription": "Tambah logik bersyarat, pengiraan automatik dan peraturan pengesahan pada borang PDF.",
     "keywords": [
       "PDF form logic",
       "AcroJS injection",
@@ -6744,8 +6744,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "eink-optimizer": {
-    "title": "e-Ink Reader Optimizer",
-    "metaDescription": "Optimize PDFs for e-Ink screens via background clearing, Otsu binarization, and morphological text dilation.",
+    "title": "Pengoptimum Pembaca e-Ink",
+    "metaDescription": "Optimumkan kontras dan susun atur PDF agar tajam dan jelas dibaca pada peranti e-Ink.",
     "keywords": [
       "eink optimizer",
       "binarization",
@@ -6804,8 +6804,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "cert-cryptor": {
-    "title": "Certificate Encrypt & Sign",
-    "metaDescription": "Secure PDFs using asymmetric public-key certificate encryption, paired with a 3D gold wax-seal imprint and PKCS#7 signature.",
+    "title": "Penyulitan Sijil Digital",
+    "metaDescription": "Sulitkan dokumen PDF menggunakan sijil digital X.509 untuk keselamatan peringkat perusahaan.",
     "keywords": [
       "certificate encryption",
       "wax seal signature",
@@ -6869,8 +6869,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "passport-id-composer": {
-    "title": "Double-Sided ID Composer",
-    "metaDescription": "Instantly compose both front and back sides of ID cards or passports onto a single A4 page with optional anti-counterfeit watermarks.",
+    "title": "Penyusun Kad Pengenalan Dwi-Muka",
+    "metaDescription": "Susun bahagian hadapan dan belakang kad pengenalan atau pasport pada satu helaian cetakan.",
     "keywords": [
       "ID card composer",
       "passport imposition",
@@ -6929,8 +6929,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "annotation-exporter": {
-    "title": "Export Annotations",
-    "metaDescription": "Extract PDF comments, notes, highlights, and underlines, and structure them into Markdown/JSON notebooks aligned with outline chapters.",
+    "title": "Eksport Anotasi",
+    "metaDescription": "Eksport semua ulasan, nota dan sorotan daripada PDF ke fail teks atau markdown berasingan.",
     "keywords": [
       "export annotations",
       "extract pdf highlights",
@@ -6989,8 +6989,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "batch-watermark-remover": {
-    "title": "Batch Remove Watermarks",
-    "metaDescription": "Physically scrub watermark strings and XObject images from the PDF content stream without messing up layouts.",
+    "title": "Pemadam Tera Air Kelompok",
+    "metaDescription": "Alih keluar tera air daripada berbilang fail PDF secara kelompok dengan pantas.",
     "keywords": [
       "remove watermark",
       "pdf watermark eraser",
@@ -7049,8 +7049,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "smart-data-redactor": {
-    "title": "Sensitive Data Redaction",
-    "metaDescription": "Automatically detect phone numbers, emails, and IDs, overlay opaque masks, and physically erase underlying text streams.",
+    "title": "Sensor Data Sensitif Pintar",
+    "metaDescription": "Kesan dan padam maklumat peribadi, nombor telefon dan akaun bank secara automatik.",
     "keywords": [
       "automatic redaction",
       "redact privacy pdf",
@@ -7109,8 +7109,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "bookmarks-auto-generator": {
-    "title": "Auto Generate Bookmarks",
-    "metaDescription": "Analyze document layout hierarchy and regex patterns (e.g. Chapter) to generate and inject /Outline bookmark catalogs.",
+    "title": "Penjana Penanda Halaman Auto",
+    "metaDescription": "Jana penanda halaman secara automatik berdasarkan tajuk dan hierarki teks dokumen PDF.",
     "keywords": [
       "generate bookmarks",
       "pdf outline builder",
@@ -7169,8 +7169,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "batch-barcode-injector": {
-    "title": "Batch Inject Barcodes",
-    "metaDescription": "Generate custom QR/Code128 tags and precisely inject them into bulk PDF pages with aligning guidelines.",
+    "title": "Penyuntik Kod Bar Kelompok",
+    "metaDescription": "Masukkan kod bar atau kod QR secara dinamik ke dalam kumpulan fail PDF sekaligus.",
     "keywords": [
       "generate qr pdf",
       "barcode injector",
@@ -7229,8 +7229,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "signature-ink-optimizer": {
-    "title": "Extract Signature & Stamp",
-    "metaDescription": "Extract handwritten signatures and red corporate stamps from photos, remove paper shadow noise, and export transparent PNGs.",
+    "title": "Pengoptimum Dakwat Tandatangan & Cap",
+    "metaDescription": "Asingkan tandatangan dan cap rasmi daripada latar belakang dokumen imbasan dengan jelas.",
     "keywords": [
       "extract signature",
       "transparent signature background",
@@ -7289,8 +7289,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "dead-link-debugger": {
-    "title": "Fix Dead Links",
-    "metaDescription": "Scan all URL actions and link annotations in PDF, detect reachability, and inject redirects.",
+    "title": "Pembaiki Pautan Rosak",
+    "metaDescription": "Kesan dan baiki pautan web yang rosak atau tidak sah di dalam dokumen PDF anda.",
     "keywords": [
       "dead link pdf",
       "edit pdf hyperlinks",
@@ -7349,8 +7349,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "interactive-toc-generator": {
-    "title": "Generate Interactive TOC",
-    "metaDescription": "Generate aesthetic Table of Contents pages, insert them pre-content, and wire internal bidirectional GoTo anchors.",
+    "title": "Penjana Jadual Kandungan Interaktif",
+    "metaDescription": "Bina jadual kandungan interaktif dengan pautan halaman boleh klik secara automatik.",
     "keywords": [
       "generate table of contents",
       "interactive toc pdf",
@@ -7409,8 +7409,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "global-invoice-parser": {
-    "title": "Invoice Translate & Convert",
-    "metaDescription": "Extract currency totals from multi-national invoices, run calculations, and stamp interactive frosted-glass exchange ledgers.",
+    "title": "Penghurai Invois Global",
+    "metaDescription": "Ekstrak data invois PDF dan tukarkan ke format terstruktur untuk perakaunan.",
     "keywords": [
       "translate invoice",
       "invoice currency converter",
@@ -7469,8 +7469,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "pdf-deskew-aligner": {
-    "title": "Auto Scan Deskew",
-    "metaDescription": "Detect and auto-correct page rotations and alignments on mobile-photo or scanned PDF sheets instantly.",
+    "title": "Penyelaras Auto Imbasan",
+    "metaDescription": "Luruskan dokumen imbasan yang condong dengan pengesanan sudut automatik yang jitu.",
     "keywords": [
       "pdf deskew",
       "scanned page alignment",
@@ -7529,8 +7529,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "pdf-two-column-reflower": {
-    "title": "Two-Column Paper Reflow",
-    "metaDescription": "Analyze IEEE/ACM double-column paper PDF structures and reflow them into responsive single-column layouts for smooth mobile and e-Reader viewing.",
+    "title": "Susun Semula Dua Kolum ke Satu",
+    "metaDescription": "Tukar artikel jurnal dwi-kolum kepada kolum tunggal untuk bacaan mudah alih yang selesa.",
     "keywords": [
       "two-column pdf to single",
       "reflow academic paper",
@@ -7589,8 +7589,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "pdf-page-resizer-uniform": {
-    "title": "Uniform PDF Page Size",
-    "metaDescription": "Batch resize and normalize mixed-format A4, A3, and Letter PDF sheets into a uniform target size with proportional centering and margin padding.",
+    "title": "Penyelaras Saiz Halaman Seragam",
+    "metaDescription": "Seragamkan dokumen PDF yang mempunyai saiz berbeza kepada saiz piawai yang konsisten.",
     "keywords": [
       "uniform page size",
       "resize pdf pages",
@@ -7649,8 +7649,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "handwriting-ink-contrast-booster": {
-    "title": "Enhance Handwriting Ink",
-    "metaDescription": "Extract blue or black handwriting signatures from photos, bleach yellow paper grain, and dramatically boost ink contrast for readability.",
+    "title": "Peningkat Kontras Tulisan Tangan",
+    "metaDescription": "Tingkatkan kejelasan dakwat tulisan tangan dan tandatangan pudar agar mudah dibaca.",
     "keywords": [
       "enhance handwritten contract",
       "ink contrast boost",
@@ -7709,8 +7709,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "pdf-spine-bookbinder": {
-    "title": "Calculate Book Spine Width",
-    "metaDescription": "Calculate book spine width based on page count and paper GSM, and generate a printable cover template with spine fold lines.",
+    "title": "Kira Ketebalan Tulang Buku",
+    "metaDescription": "Kira lebar tulang buku yang tepat mengikut ketebalan kertas dan bilangan halaman fizikal.",
     "keywords": [
       "book spine calculator",
       "binding spine thickness",
@@ -7769,8 +7769,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "pdf-signature-anchor-helper": {
-    "title": "Signature Position Guide",
-    "metaDescription": "Automatically locate signature fields in contracts, and inject interactive hovering guides and anchors for quick signing.",
+    "title": "Panduan Kedudukan Tandatangan",
+    "metaDescription": "Tentukan kedudukan dan sauh yang tepat untuk meletakkan tandatangan digital pada PDF.",
     "keywords": [
       "locate signature pdf",
       "inject sign anchor",
@@ -7829,8 +7829,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "pdf-lossless-slicer": {
-    "title": "Lossless Drawing Slicing",
-    "metaDescription": "Extract a partial region of large PDF CAD drawings, maps, or charts at a low-level, keeping vector resolution intact while dropping file size.",
+    "title": "Pemotong Pelan Tanpa Kehilangan",
+    "metaDescription": "Potong pelan lukisan kejuruteraan besar kepada bahagian kecil tanpa mengurangkan resolusi.",
     "keywords": [
       "pdf vector crop",
       "lossless pdf slice",
@@ -7889,8 +7889,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "pdf-scratchpad-canvas": {
-    "title": "Grid Scratchpad Canvas",
-    "metaDescription": "Stitch high-quality grid, ruled, or Cornell note-taking margins to PDF pages for formula derivations and exam note preparation.",
+    "title": "Kanvas Catatan Bergrid",
+    "metaDescription": "Tambah kanvas bergrid untuk lakaran tangan dan catatan terus pada dokumen PDF.",
     "keywords": [
       "pdf margin expand",
       "add scratchpad page",
@@ -7949,8 +7949,8 @@ export const toolContentMs: Record<string, ToolContent> = {
     ]
   },
   "photo-tiling-prepress": {
-    "title": "ID Photo DIY Print Tiler",
-    "metaDescription": "Crop and tile passport/ID photos onto standard 5\" or 6\" photo papers, and stamp precise prepress physical crop marks for easy cutting.",
+    "title": "Penyusun Cetakan Foto Pasport",
+    "metaDescription": "Susun berbilang salinan foto pasport pada sekeping kertas foto A4 atau 4x6 untuk dicetak.",
     "keywords": [
       "id photo tiling",
       "print passport photo",

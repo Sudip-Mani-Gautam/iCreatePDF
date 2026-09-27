@@ -227,17 +227,19 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
         <div className="pt-8 border-t border-[hsl(var(--color-border))] flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
           <div className="text-xs text-[hsl(var(--color-muted-foreground))] space-y-1">
             <p>
-              &copy; {currentYear} {t('brand') || 'iCreatePDF'}. Licensed under{' '}
+              &copy; {currentYear} {t('brand') || 'iCreatePDF'}. {locale === 'ne' ? 'इजाजतपत्र: ' : locale === 'hi' ? 'लाइसेंस: ' : locale === 'ms' ? 'Dilesenkan di bawah ' : 'Licensed under '}
               <Link href={`/${locale}/license`} className="underline hover:text-[hsl(var(--color-foreground))]">
                 GNU AGPLv3
               </Link>.
             </p>
             <p className="text-[11px] opacity-80">
-              Based on open-source{' '}
-              <a href="https://github.com/PDFCraftTool/pdfcraft" target="_blank" rel="noopener noreferrer" className="underline hover:text-[hsl(var(--color-foreground))]">
-                PDFCraft
-              </a>{' '}
-              & BentoPDF. Free & open-source software.
+              {locale === 'ne'
+                ? 'खुला स्रोत PDFCraft र BentoPDF मा आधारित। निःशुल्क र खुला स्रोत सफ्टवेयर।'
+                : locale === 'hi'
+                ? 'ओपन-सोर्स PDFCraft और BentoPDF पर आधारित। निःशुल्क और खुला स्रोत सॉफ़्टवेयर।'
+                : locale === 'ms'
+                ? 'Berasaskan sumber terbuka PDFCraft & BentoPDF. Perisian percuma & sumber terbuka.'
+                : 'Based on open-source PDFCraft & BentoPDF. Free & open-source software.'}
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-center md:justify-end gap-5">
@@ -245,8 +247,8 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
             <Link href={`/${locale}/privacy`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">{t('navigation.privacy') || 'Privacy'}</Link>
             <Link href={`/${locale}/license`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">{t('navigation.license') || 'License (AGPL-3.0)'}</Link>
             <Link href={`/${locale}/acknowledgements`} className="text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]">{t('navigation.acknowledgements') || 'Acknowledgements'}</Link>
-            <a href="https://github.com/PDFCraftTool/pdfcraft" target="_blank" rel="noopener noreferrer" className="text-xs text-red-600 dark:text-red-400 hover:underline font-medium">
-              Source Code (GitHub)
+            <a href="https://github.com/Sudip-Mani-Gautam/iCreatePDF" target="_blank" rel="noopener noreferrer" className="text-xs text-red-600 dark:text-red-400 hover:underline font-medium">
+              {locale === 'ne' ? 'स्रोत कोड (GitHub)' : locale === 'hi' ? 'स्रोत कोड (GitHub)' : locale === 'ms' ? 'Kod Sumber (GitHub)' : 'Source Code (GitHub)'}
             </a>
           </div>
         </div>
