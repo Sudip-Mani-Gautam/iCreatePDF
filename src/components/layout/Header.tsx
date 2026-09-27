@@ -49,7 +49,8 @@ import {
   Sparkles,
   Languages,
   Search,
-  Github
+  Github,
+  ShieldCheck
 } from 'lucide-react';
 import { type Locale } from '@/lib/i18n/config';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
@@ -643,191 +644,224 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
                 </svg>
               </button>
 
-              {/* Ecosystem Products Modal Popup (Matches user's screenshot exactly) */}
+              {/* Ecosystem Products Modal Popup */}
               {isProductsMenuOpen && (
                 <div
-                  className="absolute right-0 top-full mt-2 w-[740px] max-w-[95vw] p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-150 z-50 text-zinc-900 dark:text-zinc-100"
+                  className="absolute right-0 top-full mt-2.5 w-[590px] max-w-[94vw] p-4.5 sm:p-5 rounded-2xl bg-white/95 dark:bg-zinc-900/95 backdrop-blur-xl border border-zinc-200/90 dark:border-zinc-800 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-150 z-50 text-zinc-900 dark:text-zinc-100"
                 >
-                  <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-                    {/* Left Column: OTHER PRODUCTS (5 cols) */}
-                    <div className="md:col-span-5 space-y-4">
-                      <div className="text-[11px] font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
-                        {locale === 'ne' ? 'अन्य उत्पादनहरू' : locale === 'hi' ? 'अन्य उत्पाद' : locale === 'ms' ? 'PRODUK LAIN' : 'OTHER PRODUCTS'}
+                  {/* Header Title */}
+                  <div className="flex items-center justify-between pb-3 mb-3 border-b border-zinc-100 dark:border-zinc-800/80">
+                    <div className="flex items-center gap-2">
+                      <div className="w-6 h-6 rounded-lg bg-red-600/10 text-red-600 dark:text-red-400 flex items-center justify-center">
+                        <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                          <rect x="3.5" y="3.5" width="6.5" height="6.5" rx="1.5" />
+                          <rect x="14" y="3.5" width="6.5" height="6.5" rx="1.5" />
+                          <rect x="14" y="14" width="6.5" height="6.5" rx="1.5" />
+                          <rect x="3.5" y="14" width="6.5" height="6.5" rx="1.5" />
+                        </svg>
                       </div>
+                      <span className="font-extrabold text-sm text-zinc-950 dark:text-white tracking-tight">
+                        {locale === 'ne' ? 'iCreate सुइट' : locale === 'hi' ? 'iCreate सुइट' : locale === 'ms' ? 'Suit iCreate' : 'iCreate Suite'}
+                      </span>
+                    </div>
+                    <span className="text-[11px] font-medium text-zinc-400 dark:text-zinc-500">
+                      {locale === 'ne' ? 'उत्पादकता अनुप्रयोगहरूको समूह' : locale === 'hi' ? 'उत्पादकता ऐप्स का समूह' : locale === 'ms' ? 'Aplikasi produktiviti terhubung' : 'Connected productivity apps'}
+                    </span>
+                  </div>
 
-                      <div className="space-y-2">
-                        {/* iCreateIMG */}
-                        <div className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800/70 transition-colors cursor-pointer">
-                          <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center flex-shrink-0">
-                            <ImageIcon className="w-5 h-5" />
-                          </div>
-                          <div>
-                            <div className="font-bold text-sm text-zinc-900 dark:text-white">
-                              iCreateIMG
-                            </div>
-                            <div className="text-xs text-zinc-500 dark:text-zinc-400">
-                              {locale === 'ne' ? 'सहज तस्बिर सम्पादन' : locale === 'hi' ? 'सरल छवि संपादन' : locale === 'ms' ? 'Penyuntingan imej mudah' : 'Effortless image editing'}
-                            </div>
-                          </div>
+                  {/* Top Section: 4 Core Suite Products Grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {/* iCreatePDF (Current Active App) */}
+                    <Link
+                      href={`/${locale}`}
+                      onClick={() => setIsProductsMenuOpen(false)}
+                      className="group relative flex items-start gap-3 p-2.5 rounded-xl border border-red-500/25 bg-red-50/25 dark:bg-red-950/20 hover:bg-red-50/50 dark:hover:bg-red-950/35 transition-all"
+                    >
+                      <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-red-500 to-rose-600 text-white flex items-center justify-center shrink-0 shadow-sm shadow-red-500/20">
+                        <FileText className="w-4.5 h-4.5" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center gap-1.5">
+                          <span className="font-bold text-sm text-zinc-950 dark:text-white group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">
+                            iCreatePDF
+                          </span>
+                          <span className="px-1.5 py-0.2 rounded-full text-[9px] font-extrabold uppercase tracking-wider bg-red-600 text-white">
+                            {locale === 'ne' ? 'सक्रिय' : locale === 'hi' ? 'सक्रिय' : locale === 'ms' ? 'Aktif' : 'Active'}
+                          </span>
                         </div>
+                        <p className="text-xs text-zinc-500 dark:text-zinc-400 truncate mt-0.5">
+                          {locale === 'ne' ? 'सबै-मा-एक PDF उपकरण र सम्पादक' : locale === 'hi' ? 'ऑल-इन-वन PDF उपकरण और संपादक' : locale === 'ms' ? 'Alat & editor PDF lengkap' : 'All-in-one PDF tools & editor'}
+                        </p>
+                      </div>
+                    </Link>
 
-                        {/* iCreateSign */}
-                        <Link
-                          href={`/${locale}/tools/sign-pdf`}
-                          onClick={() => setIsProductsMenuOpen(false)}
-                          className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800/70 transition-colors cursor-pointer"
-                        >
-                          <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center flex-shrink-0">
-                            <PenTool className="w-5 h-5" />
-                          </div>
-                          <div>
-                            <div className="font-bold text-sm text-zinc-900 dark:text-white">
-                              iCreateSign
-                            </div>
-                            <div className="text-xs text-zinc-500 dark:text-zinc-400">
-                              {locale === 'ne' ? 'सजिलो डिजिटल हस्ताक्षर' : locale === 'hi' ? 'सरल ई-हस्ताक्षर' : locale === 'ms' ? 'e-Tandatangan dipermudahkan' : 'e-Signing made simple'}
-                            </div>
-                          </div>
-                        </Link>
+                    {/* iCreateSign */}
+                    <Link
+                      href={`/${locale}/tools/sign-pdf`}
+                      onClick={() => setIsProductsMenuOpen(false)}
+                      className="group flex items-start gap-3 p-2.5 rounded-xl border border-transparent hover:border-zinc-200 dark:hover:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-800/60 transition-all cursor-pointer"
+                    >
+                      <div className="w-9 h-9 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 flex items-center justify-center shrink-0">
+                        <PenTool className="w-4.5 h-4.5" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <span className="font-bold text-sm text-zinc-950 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors block">
+                          iCreateSign
+                        </span>
+                        <p className="text-xs text-zinc-500 dark:text-zinc-400 truncate mt-0.5">
+                          {locale === 'ne' ? 'सजिलो डिजिटल हस्ताक्षर र साइनिङ' : locale === 'hi' ? 'सरल डिजिटल हस्ताक्षर और साइनिंग' : locale === 'ms' ? 'Tandatangan digital & e-sign' : 'Digital signatures & e-sign'}
+                        </p>
+                      </div>
+                    </Link>
 
-                        {/* iCreateAPI */}
-                        <div className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800/70 transition-colors cursor-pointer">
-                          <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0">
-                            <Code2 className="w-5 h-5" />
-                          </div>
-                          <div>
-                            <div className="font-bold text-sm text-zinc-900 dark:text-white">
-                              iCreateAPI
-                            </div>
-                            <div className="text-xs text-zinc-500 dark:text-zinc-400">
-                              {locale === 'ne' ? 'विकासकर्ताहरूका लागि कागजात स्वचालन' : locale === 'hi' ? 'डेवलपर्स के लिए दस्तावेज़ स्वचालन' : locale === 'ms' ? 'Automasi dokumen untuk pembangun' : 'Document automation for developers'}
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Integrations */}
-                        <div className="p-3.5 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-all cursor-pointer">
-                          <div className="flex items-center gap-2 mb-1">
-                            <Blocks className="w-4 h-4 text-zinc-500 dark:text-zinc-400" />
-                            <span className="font-bold text-sm text-zinc-900 dark:text-white">
-                              {locale === 'ne' ? 'एकीकरण (इन्टिग्रेसन)' : locale === 'hi' ? 'इंटीग्रेशन' : locale === 'ms' ? 'Integrasi' : 'Integrations'}
-                            </span>
-                          </div>
-                          <div className="text-xs text-zinc-500 dark:text-zinc-400">
-                            Zapier, Make, Wordpress...
-                          </div>
-                        </div>
+                    {/* iCreateIMG */}
+                    <div
+                      className="group flex items-start gap-3 p-2.5 rounded-xl border border-transparent hover:border-zinc-200 dark:hover:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-800/60 transition-all cursor-pointer"
+                    >
+                      <div className="w-9 h-9 rounded-xl bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20 flex items-center justify-center shrink-0">
+                        <ImageIcon className="w-4.5 h-4.5" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <span className="font-bold text-sm text-zinc-950 dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors block">
+                          iCreateIMG
+                        </span>
+                        <p className="text-xs text-zinc-500 dark:text-zinc-400 truncate mt-0.5">
+                          {locale === 'ne' ? 'सहज तस्बिर सम्पादन र रूपान्तरण' : locale === 'hi' ? 'सरल छवि संपादन और रूपांतरण' : locale === 'ms' ? 'Penyuntingan & penukaran imej' : 'Effortless image conversion & editing'}
+                        </p>
                       </div>
                     </div>
 
-                    {/* Middle Column: SOLUTIONS & APPLICATIONS (4 cols) */}
-                    <div className="md:col-span-4 space-y-5">
-                      {/* SOLUTIONS */}
-                      <div>
-                        <div className="text-[11px] font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500 mb-2.5">
-                          {locale === 'ne' ? 'समाधानहरू' : locale === 'hi' ? 'समाधान' : locale === 'ms' ? 'PENYELESAIAN' : 'SOLUTIONS'}
-                        </div>
-                        <div className="p-3 rounded-xl bg-zinc-50/80 dark:bg-zinc-800/40 hover:bg-zinc-100 dark:hover:bg-zinc-800/80 transition-colors cursor-pointer">
-                          <div className="flex items-center gap-2 mb-1">
-                            <BarChart3 className="w-4 h-4 text-zinc-600 dark:text-zinc-300" />
-                            <span className="font-bold text-sm text-zinc-900 dark:text-white">
-                              {locale === 'ne' ? 'व्यवसायिक' : locale === 'hi' ? 'व्यापार' : locale === 'ms' ? 'Perniagaan' : 'Business'}
-                            </span>
-                          </div>
-                          <div className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                            {locale === 'ne' ? 'टोलीहरूका लागि सहज PDF कार्यप्रवाह' : locale === 'hi' ? 'टीमों के लिए सुव्यवस्थित PDF वर्कफ़्लो' : locale === 'ms' ? 'Aliran kerja PDF lancar untuk pasukan' : 'Streamlined PDF workflows for teams'}
-                          </div>
-                        </div>
+                    {/* iCreateAPI */}
+                    <div
+                      className="group flex items-start gap-3 p-2.5 rounded-xl border border-transparent hover:border-zinc-200 dark:hover:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-800/60 transition-all cursor-pointer"
+                    >
+                      <div className="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 flex items-center justify-center shrink-0">
+                        <Code2 className="w-4.5 h-4.5" />
                       </div>
-
-                      {/* APPLICATIONS */}
-                      <div>
-                        <div className="text-[11px] font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500 mb-2.5">
-                          {locale === 'ne' ? 'एप्लिकेसनहरू' : locale === 'hi' ? 'एप्लिकेशन' : locale === 'ms' ? 'APLIKASI' : 'APPLICATIONS'}
-                        </div>
-                        <div className="space-y-2">
-                          <div className="p-3 rounded-xl bg-zinc-50/80 dark:bg-zinc-800/40 hover:bg-zinc-100 dark:hover:bg-zinc-800/80 transition-colors cursor-pointer">
-                            <div className="flex items-center gap-2 mb-1">
-                              <Monitor className="w-4 h-4 text-zinc-600 dark:text-zinc-300" />
-                              <span className="font-bold text-sm text-zinc-900 dark:text-white">
-                                {locale === 'ne' ? 'डेस्कटप एप' : locale === 'hi' ? 'डेस्कटॉप ऐप' : locale === 'ms' ? 'Aplikasi Desktop' : 'Desktop App'}
-                              </span>
-                            </div>
-                            <div className="text-xs text-zinc-500 dark:text-zinc-400">
-                              {locale === 'ne' ? 'म्याक र विन्डोजका लागि' : locale === 'hi' ? 'Mac और Windows के लिए' : locale === 'ms' ? 'Untuk Mac dan Windows' : 'For Mac and Windows'}
-                            </div>
-                          </div>
-
-                          <div className="p-3 rounded-xl bg-zinc-50/80 dark:bg-zinc-800/40 hover:bg-zinc-100 dark:hover:bg-zinc-800/80 transition-colors cursor-pointer">
-                            <div className="flex items-center gap-2 mb-1">
-                              <Smartphone className="w-4 h-4 text-zinc-600 dark:text-zinc-300" />
-                              <span className="font-bold text-sm text-zinc-900 dark:text-white">
-                                {locale === 'ne' ? 'मोबाइल एप' : locale === 'hi' ? 'मोबाइल ऐप' : locale === 'ms' ? 'Aplikasi Mudah Alih' : 'Mobile App'}
-                              </span>
-                            </div>
-                            <div className="text-xs text-zinc-500 dark:text-zinc-400">
-                              {locale === 'ne' ? 'iOS र एन्ड्रोइडका लागि' : locale === 'hi' ? 'iOS और Android के लिए' : locale === 'ms' ? 'Untuk iOS dan Android' : 'For iOS and Android'}
-                            </div>
-                          </div>
-                        </div>
+                      <div className="min-w-0 flex-1">
+                        <span className="font-bold text-sm text-zinc-950 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors block">
+                          iCreateAPI
+                        </span>
+                        <p className="text-xs text-zinc-500 dark:text-zinc-400 truncate mt-0.5">
+                          {locale === 'ne' ? 'विकासकर्ताहरूका लागि कागजात स्वचालन' : locale === 'hi' ? 'डेवलपर्स के लिए दस्तावेज़ स्वचालन' : locale === 'ms' ? 'Automasi dokumen untuk pembangun' : 'Document automation for developers'}
+                        </p>
                       </div>
                     </div>
+                  </div>
 
-                    {/* Right Column: Links (3 cols) with left border */}
-                    <div className="md:col-span-3 md:border-l border-zinc-100 dark:border-zinc-800 md:pl-5 space-y-1">
-                      <Link
-                        href={`/${locale}`}
-                        onClick={() => setIsProductsMenuOpen(false)}
-                        className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors font-medium"
+                  {/* Middle Section: Platforms & Solutions (Clean 3-Card Row) */}
+                  <div className="pt-3 mt-1">
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500 mb-2 px-0.5">
+                      {locale === 'ne' ? 'प्लेटफर्म र समाधानहरू' : locale === 'hi' ? 'प्लेटफ़ॉर्म और समाधान' : locale === 'ms' ? 'Platform & Penyelesaian' : 'Platforms & Solutions'}
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                      {/* Desktop App */}
+                      <a
+                        href="https://github.com/Sudip-Mani-Gautam/iCreatePDF/releases"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2.5 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40 hover:bg-zinc-100/80 dark:hover:bg-zinc-800/80 transition-all flex items-center gap-2.5 group cursor-pointer"
                       >
-                        <CreditCard className="w-4 h-4 text-zinc-400" />
-                        <span>{locale === 'ne' ? 'मूल्य निर्धारण (निःशुल्क)' : locale === 'hi' ? 'मूल्य निर्धारण (मुफ़्त)' : locale === 'ms' ? 'Harga (Percuma)' : 'Pricing'}</span>
-                      </Link>
+                        <div className="w-8 h-8 rounded-lg bg-zinc-200/60 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center shrink-0 group-hover:text-red-600 transition-colors">
+                          <Monitor className="w-4 h-4" />
+                        </div>
+                        <div className="min-w-0">
+                          <span className="font-bold text-xs text-zinc-900 dark:text-white block truncate">
+                            {locale === 'ne' ? 'डेस्कटप एप' : locale === 'hi' ? 'डेस्कटॉप ऐप' : locale === 'ms' ? 'Aplikasi Desktop' : 'Desktop App'}
+                          </span>
+                          <span className="text-[10px] text-zinc-400 dark:text-zinc-500 block truncate">
+                            {locale === 'ne' ? 'म्याक र विन्डोज अफलाइन' : locale === 'hi' ? 'Mac और Windows ऑफ़लाइन' : locale === 'ms' ? 'Luar talian Mac & Win' : 'Mac & Windows offline'}
+                          </span>
+                        </div>
+                      </a>
 
-                      <Link
-                        href={`/${locale}/privacy`}
-                        onClick={() => setIsProductsMenuOpen(false)}
-                        className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors font-medium"
-                      >
-                        <Lock className="w-4 h-4 text-zinc-400" />
-                        <span>{t('navigation.security') || 'Security'}</span>
-                      </Link>
-
-                      <Link
-                        href={`/${locale}/tools`}
-                        onClick={() => setIsProductsMenuOpen(false)}
-                        className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors font-medium"
-                      >
-                        <LayoutGrid className="w-4 h-4 text-zinc-400" />
-                        <span>{locale === 'ne' ? 'विशेषताहरू' : locale === 'hi' ? 'विशेषताएं' : locale === 'ms' ? 'Ciri-ciri' : 'Features'}</span>
-                      </Link>
-
+                      {/* Mobile App */}
                       <Link
                         href={`/${locale}/about`}
                         onClick={() => setIsProductsMenuOpen(false)}
-                        className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors font-medium"
+                        className="p-2.5 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40 hover:bg-zinc-100/80 dark:hover:bg-zinc-800/80 transition-all flex items-center gap-2.5 group cursor-pointer"
                       >
-                        <Heart className="w-4 h-4 text-zinc-400" />
-                        <span>{t('navigation.about') || 'About us'}</span>
+                        <div className="w-8 h-8 rounded-lg bg-zinc-200/60 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center shrink-0 group-hover:text-blue-600 transition-colors">
+                          <Smartphone className="w-4 h-4" />
+                        </div>
+                        <div className="min-w-0">
+                          <span className="font-bold text-xs text-zinc-900 dark:text-white block truncate">
+                            {locale === 'ne' ? 'मोबाइल एप' : locale === 'hi' ? 'मोबाइल ऐप' : locale === 'ms' ? 'Aplikasi Mudah Alih' : 'Mobile App'}
+                          </span>
+                          <span className="text-[10px] text-zinc-400 dark:text-zinc-500 block truncate">
+                            {locale === 'ne' ? 'iOS र एन्ड्रोइड PWA' : locale === 'hi' ? 'iOS और Android PWA' : locale === 'ms' ? 'PWA iOS & Android' : 'iOS & Android PWA'}
+                          </span>
+                        </div>
                       </Link>
 
-                      <div className="pt-3 my-2 border-t border-zinc-100 dark:border-zinc-800 space-y-1">
-                        <Link
-                          href={`/${locale}/faq`}
-                          onClick={() => setIsProductsMenuOpen(false)}
-                          className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors font-medium"
-                        >
-                          <HelpCircle className="w-4 h-4 text-zinc-400" />
-                          <span>{t('navigation.faq') || 'Help & FAQ'}</span>
-                        </Link>
-
-                        <div className="px-3 py-1">
-                          <div className="text-xs text-zinc-400 flex items-center gap-1.5">
-                            <Globe className="w-3.5 h-3.5" />
-                            <span>{locale === 'ne' ? '१००% क्लाइन्ट-साइड' : locale === 'hi' ? '100% क्लाइंट-साइड' : locale === 'ms' ? '100% Bahagian Klien' : '100% Client-side'}</span>
-                          </div>
+                      {/* Business & Integrations */}
+                      <Link
+                        href={`/${locale}/about`}
+                        onClick={() => setIsProductsMenuOpen(false)}
+                        className="p-2.5 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40 hover:bg-zinc-100/80 dark:hover:bg-zinc-800/80 transition-all flex items-center gap-2.5 group cursor-pointer"
+                      >
+                        <div className="w-8 h-8 rounded-lg bg-zinc-200/60 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center shrink-0 group-hover:text-emerald-600 transition-colors">
+                          <BarChart3 className="w-4 h-4" />
                         </div>
-                      </div>
+                        <div className="min-w-0">
+                          <span className="font-bold text-xs text-zinc-900 dark:text-white block truncate">
+                            {locale === 'ne' ? 'व्यवसायिक' : locale === 'hi' ? 'व्यापार और टीम' : locale === 'ms' ? 'Perniagaan' : 'Business & Teams'}
+                          </span>
+                          <span className="text-[10px] text-zinc-400 dark:text-zinc-500 block truncate">
+                            {locale === 'ne' ? 'कार्यप्रवाह र एकीकरण' : locale === 'hi' ? 'वर्कफ़्लो और इंटीग्रेशन' : locale === 'ms' ? 'Aliran kerja berpasukan' : 'Workflows & tools'}
+                          </span>
+                        </div>
+                      </Link>
+                    </div>
+                  </div>
+
+                  {/* Bottom Section: Quick Links & Security Trust Bar */}
+                  <div className="mt-3.5 pt-3 border-t border-zinc-100 dark:border-zinc-800/80 flex flex-wrap items-center justify-between gap-2.5 text-xs">
+                    <div className="flex items-center gap-2.5 text-zinc-500 dark:text-zinc-400 flex-wrap">
+                      <Link
+                        href={`/${locale}`}
+                        onClick={() => setIsProductsMenuOpen(false)}
+                        className="hover:text-zinc-950 dark:hover:text-white transition-colors"
+                      >
+                        {locale === 'ne' ? 'मूल्य निर्धारण' : locale === 'hi' ? 'मूल्य निर्धारण' : locale === 'ms' ? 'Harga' : 'Pricing'}
+                      </Link>
+                      <span className="text-zinc-300 dark:text-zinc-700">•</span>
+                      <Link
+                        href={`/${locale}/privacy`}
+                        onClick={() => setIsProductsMenuOpen(false)}
+                        className="hover:text-zinc-950 dark:hover:text-white transition-colors"
+                      >
+                        {t('navigation.security') || 'Security'}
+                      </Link>
+                      <span className="text-zinc-300 dark:text-zinc-700">•</span>
+                      <Link
+                        href={`/${locale}/tools`}
+                        onClick={() => setIsProductsMenuOpen(false)}
+                        className="hover:text-zinc-950 dark:hover:text-white transition-colors"
+                      >
+                        {locale === 'ne' ? 'विशेषताहरू' : locale === 'hi' ? 'विशेषताएं' : locale === 'ms' ? 'Ciri-ciri' : 'Features'}
+                      </Link>
+                      <span className="text-zinc-300 dark:text-zinc-700">•</span>
+                      <Link
+                        href={`/${locale}/faq`}
+                        onClick={() => setIsProductsMenuOpen(false)}
+                        className="hover:text-zinc-950 dark:hover:text-white transition-colors"
+                      >
+                        {t('navigation.faq') || 'Help & FAQ'}
+                      </Link>
+                      <span className="text-zinc-300 dark:text-zinc-700">•</span>
+                      <Link
+                        href={`/${locale}/about`}
+                        onClick={() => setIsProductsMenuOpen(false)}
+                        className="hover:text-zinc-950 dark:hover:text-white transition-colors"
+                      >
+                        {t('navigation.about') || 'About'}
+                      </Link>
+                    </div>
+
+                    <div className="flex items-center gap-1.5 px-2 py-0.8 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[11px] font-semibold border border-emerald-500/20">
+                      <ShieldCheck className="w-3.5 h-3.5" />
+                      <span>{locale === 'ne' ? '१००% क्लाइन्ट-साइड' : locale === 'hi' ? '100% क्लाइंट-साइड' : locale === 'ms' ? '100% Bahagian Klien' : '100% Client-Side'}</span>
                     </div>
                   </div>
                 </div>
