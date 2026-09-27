@@ -975,7 +975,9 @@
     "showingFiltered": "Es werden {filtered} von {total} Tools angezeigt",
     "forQuery": "für „{query}“",
     "inCategory": "in {category}",
-    "noToolsFound": "Keine Werkzeuge gefunden"
+    "noToolsFound": "Keine Werkzeuge gefunden",
+    "searchPlaceholder": "Tools suchen (z.B. zusammenfügen, komprimieren, signieren)...",
+    "noResults": "Keine Tools gefunden, die Ihrer Suche entsprechen"
   },
   "faqPage": {
     "title": "Häufig gestellte Fragen (FAQ)",

@@ -975,7 +975,9 @@
     "showingFiltered": "Mostra {filtered} di {total} strumenti",
     "forQuery": "per \"{query}\"",
     "inCategory": "tra {category}",
-    "noToolsFound": "Nessuno strumento trovato"
+    "noToolsFound": "Nessuno strumento trovato",
+    "searchPlaceholder": "Cerca strumenti (es. unisci, comprimi, firma)...",
+    "noResults": "Nessuno strumento trovato corrispondente alla tua ricerca"
   },
   "faqPage": {
     "title": "Domande frequenti",

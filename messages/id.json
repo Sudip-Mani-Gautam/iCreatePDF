@@ -975,7 +975,9 @@
     "showingFiltered": "Menampilkan {filtered} dari {total} alat",
     "forQuery": "untuk \"{query}\"",
     "inCategory": "di {category}",
-    "noToolsFound": "Alat tidak ditemukan"
+    "noToolsFound": "Alat tidak ditemukan",
+    "searchPlaceholder": "Cari alat (mis. gabung, kompres, tanda tangan)...",
+    "noResults": "Tidak ada alat yang cocok dengan pencarian Anda"
   },
   "faqPage": {
     "title": "Pertanyaan yang Sering Diajukan",

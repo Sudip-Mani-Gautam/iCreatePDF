@@ -975,7 +975,9 @@
     "showingFiltered": "Mostrando {filtered} de {total} ferramentas",
     "forQuery": "para \"{query}\"",
     "inCategory": "em {category}",
-    "noToolsFound": "Nenhuma ferramenta encontrada"
+    "noToolsFound": "Nenhuma ferramenta encontrada",
+    "searchPlaceholder": "Pesquisar ferramentas (ex. juntar, comprimir, assinar)...",
+    "noResults": "Nenhuma ferramenta encontrada correspondente à sua pesquisa"
   },
   "faqPage": {
     "title": "Perguntas frequentes",

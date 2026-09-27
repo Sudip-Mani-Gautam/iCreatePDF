@@ -975,7 +975,9 @@
     "showingFiltered": "Đang hiển thị {filtered} trên {total} công cụ",
     "forQuery": "cho \"{query}\"",
     "inCategory": "trong {category}",
-    "noToolsFound": "Không tìm thấy công cụ nào"
+    "noToolsFound": "Không tìm thấy công cụ nào",
+    "searchPlaceholder": "Tìm kiếm công cụ (vd: hợp nhất, nén, ký)...",
+    "noResults": "Không tìm thấy công cụ nào phù hợp với tìm kiếm của bạn"
   },
   "faqPage": {
     "title": "Câu hỏi thường gặp",

@@ -989,7 +989,9 @@
     "showingFiltered": "显示 {filtered} / {total} 个工具",
     "forQuery": "搜索 \"{query}\"",
     "inCategory": "分类：{category}",
-    "noToolsFound": "未找到工具"
+    "noToolsFound": "未找到工具",
+    "searchPlaceholder": "搜索工具（例如：合并、压缩、签名）...",
+    "noResults": "未找到匹配您搜索的工具"
   },
   "faqPage": {
     "title": "常见问题",

@@ -975,7 +975,9 @@
     "showingFiltered": "顯示 {filtered} / {total} 個工具",
     "forQuery": "搜尋 \"{query}\"",
     "inCategory": "分類：{category}",
-    "noToolsFound": "未找到工具"
+    "noToolsFound": "未找到工具",
+    "searchPlaceholder": "搜尋工具（例如：合併、壓縮、簽名）...",
+    "noResults": "未找到符合您搜尋的工具"
   },
   "faqPage": {
     "title": "常見問題",

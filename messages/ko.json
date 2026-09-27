@@ -975,7 +975,9 @@
     "showingFiltered": "도구 {total}개 중 {filtered}개 표시 중",
     "forQuery": "\"{query}\"에 대해",
     "inCategory": "{category}에",
-    "noToolsFound": "도구를 찾을 수 없습니다."
+    "noToolsFound": "도구를 찾을 수 없습니다.",
+    "searchPlaceholder": "도구 검색 (예: 병합, 압축, 서명)...",
+    "noResults": "검색과 일치하는 도구를 찾을 수 없습니다"
   },
   "faqPage": {
     "title": "자주 묻는 질문 (FAQ)",

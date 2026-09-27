@@ -999,7 +999,9 @@
     "showingFiltered": "Menunjukkan {filtered} daripada {total} alatan",
     "forQuery": "for \"{query}\"",
     "inCategory": "in {category}",
-    "noToolsFound": "Tiada alatan ditemui"
+    "noToolsFound": "Tiada alatan ditemui",
+    "searchPlaceholder": "Cari alatan (cth: gabung, mampat, tandatangan)...",
+    "noResults": "Tiada alatan ditemui sepadan dengan carian anda"
   },
   "faqPage": {
     "title": "Frequently Asked Questions",

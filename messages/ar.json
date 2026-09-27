@@ -975,7 +975,9 @@
     "showingFiltered": "عرض {filtered} من أصل {total} أدوات",
     "forQuery": "عن \"{query}\"",
     "inCategory": "في {category}",
-    "noToolsFound": "لم يتم العثور على أدوات"
+    "noToolsFound": "لم يتم العثور على أدوات",
+    "searchPlaceholder": "البحث عن الأدوات (مثل: دمج، ضغط، توقيع)...",
+    "noResults": "لم يتم العثور على أدوات تطابق بحثك"
   },
   "faqPage": {
     "title": "الأسئلة الشائعة",

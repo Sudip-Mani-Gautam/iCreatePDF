@@ -975,7 +975,9 @@
     "showingFiltered": "{total} 個中 {filtered} 個のツールを表示しています",
     "forQuery": "「{query}」の場合",
     "inCategory": "{category} 内",
-    "noToolsFound": "ツールが見つかりません"
+    "noToolsFound": "ツールが見つかりません",
+    "searchPlaceholder": "ツールを検索（例：結合、圧縮、署名）...",
+    "noResults": "検索に一致するツールが見つかりませんでした"
   },
   "faqPage": {
     "title": "よくあるご質問 (FAQ)",

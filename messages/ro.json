@@ -975,7 +975,9 @@
     "showingFiltered": "Se afișează {filtered} din {total} instrumente",
     "forQuery": "pentru \"{query}\"",
     "inCategory": "în {category}",
-    "noToolsFound": "Nu s-au găsit instrumente"
+    "noToolsFound": "Nu s-au găsit instrumente",
+    "searchPlaceholder": "Căutați instrumente (de ex. unire, comprimare, semnare)...",
+    "noResults": "Nu s-au găsit instrumente care să corespundă căutării dvs."
   },
   "faqPage": {
     "title": "Întrebări frecvente",

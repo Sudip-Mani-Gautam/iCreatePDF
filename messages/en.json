@@ -999,7 +999,9 @@
     "showingFiltered": "Showing {filtered} of {total} tools",
     "forQuery": "for \"{query}\"",
     "inCategory": "in {category}",
-    "noToolsFound": "No tools found"
+    "noToolsFound": "No tools found",
+    "searchPlaceholder": "Search for tools (e.g. merge, compress, sign)...",
+    "noResults": "No tools found matching your search"
   },
   "faqPage": {
     "title": "Frequently Asked Questions",

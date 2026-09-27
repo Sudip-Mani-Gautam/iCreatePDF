@@ -999,7 +999,9 @@
     "showingFiltered": "{total} में से {filtered} टूल्स दिखाए जा रहे हैं",
     "forQuery": "for \"{query}\"",
     "inCategory": "in {category}",
-    "noToolsFound": "कोई टूल नहीं मिला"
+    "noToolsFound": "कोई टूल नहीं मिला",
+    "searchPlaceholder": "टूल्स खोजें (जैसे: मर्ज, कंप्रेस, साइन)...",
+    "noResults": "आपकी खोज से मेल खाने वाला कोई टूल नहीं मिला"
   },
   "faqPage": {
     "title": "Frequently Asked Questions",

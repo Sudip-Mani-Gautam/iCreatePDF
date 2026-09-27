@@ -39,6 +39,22 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState<FilterCategory>('all');
 
+  const searchPlaceholder = (() => {
+    try {
+      const text = tTools('searchPlaceholder');
+      if (text && !text.includes('toolsPage.searchPlaceholder') && !text.includes('searchPlaceholder')) {
+        return text;
+      }
+    } catch {}
+    return locale === 'ne'
+      ? 'उपकरणहरू खोज्नुहोस् (जस्तै: मर्ज, कम्प्रेस, हस्ताक्षर)...'
+      : locale === 'hi'
+      ? 'टूल्स खोजें (जैसे: मर्ज, कंप्रेस, साइन)...'
+      : locale === 'ms'
+      ? 'Cari alatan (cth: gabung, mampat, tandatangan)...'
+      : 'Search for tools (e.g., merge, compress, sign)...';
+  })();
+
   // Filter tools based on category pill and search query
   const filteredTools = useMemo(() => {
     return allTools.filter((tool) => {
@@ -293,7 +309,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder={tTools('searchPlaceholder') || (locale === 'en' ? 'Search for tools (e.g., Merge, Protect, Compress)...' : `${tCommon('navigation.tools')}...`)}
+                placeholder={searchPlaceholder}
                 className="w-full pl-11 pr-10 py-3.5 rounded-full border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] text-sm shadow-xs hover:shadow-md focus:shadow-md focus:border-red-500 focus:outline-none focus:ring-4 focus:ring-red-500/10 transition-all placeholder:text-[hsl(var(--color-muted-foreground))] text-[hsl(var(--color-foreground))]"
               />
               {searchQuery && (

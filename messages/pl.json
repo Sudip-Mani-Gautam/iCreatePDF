@@ -989,7 +989,9 @@
     "showingFiltered": "Wyświetlono {filtered} z {total, plural, one {# narzędzia} few {# narzędzi} many {# narzędzi} other {# narzędzia}}",
     "forQuery": "dla „{query}”",
     "inCategory": "w {category}",
-    "noToolsFound": "Nie znaleziono żadnych narzędzi"
+    "noToolsFound": "Nie znaleziono żadnych narzędzi",
+    "searchPlaceholder": "Szukaj narzędzi (np. połącz, kompresuj, podpisz)...",
+    "noResults": "Nie znaleziono narzędzi pasujących do wyszukiwania"
   },
   "faqPage": {
     "title": "Często zadawane pytania",

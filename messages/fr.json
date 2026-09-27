@@ -975,7 +975,9 @@
     "showingFiltered": "Affichage de {filtered} sur {total} outils",
     "forQuery": "pour \"{query}\"",
     "inCategory": "dans {category}",
-    "noToolsFound": "Aucun outil trouvé"
+    "noToolsFound": "Aucun outil trouvé",
+    "searchPlaceholder": "Rechercher des outils (ex. fusionner, compresser, signer)...",
+    "noResults": "Aucun outil trouvé correspondant à votre recherche"
   },
   "faqPage": {
     "title": "Foire aux questions",
