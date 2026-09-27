@@ -353,7 +353,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
         </section>
 
         {/* 5-Column Tools Grid Section */}
-        <section className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 mt-4 mb-20">
+        <section className="w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-10 mt-4 mb-20">
           {displayTools.length === 0 ? (
             <div className="text-center py-20 bg-[hsl(var(--color-card))] rounded-3xl border border-dashed border-[hsl(var(--color-border))] max-w-xl mx-auto">
               <FileText className="w-12 h-12 text-[hsl(var(--color-muted-foreground))] mx-auto mb-3 opacity-60" />
@@ -387,11 +387,11 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                   <Link
                     key={tool.id}
                     href={`/${locale}/tools/${tool.slug}`}
-                    className="group relative flex flex-col justify-between p-5 rounded-2xl bg-[hsl(var(--color-card))] border border-[hsl(var(--color-border))] hover:border-red-300 dark:hover:border-red-900 shadow-xs hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 cursor-pointer overflow-hidden"
+                    className="group relative flex flex-col justify-between p-5 rounded-2xl bg-[hsl(var(--color-card))] border border-[hsl(var(--color-border))] hover:border-red-300 dark:hover:border-red-900 shadow-xs hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 cursor-pointer overflow-hidden min-h-[210px] sm:aspect-square"
                   >
                     <div>
                       {/* Top icon and badge */}
-                      <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center justify-between mb-3.5">
                         <div className="w-11 h-11 rounded-xl bg-red-50 dark:bg-red-950/50 flex items-center justify-center text-red-600 dark:text-red-400 group-hover:scale-110 transition-transform">
                           <IconComponent className="w-5 h-5" />
                         </div>
@@ -413,7 +413,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                       </h3>
 
                       {/* Tool Short Description */}
-                      <p className="text-xs text-[hsl(var(--color-muted-foreground))] line-clamp-2 leading-relaxed mb-4">
+                      <p className="text-xs text-[hsl(var(--color-muted-foreground))] line-clamp-3 leading-relaxed mb-3">
                         {description}
                       </p>
                     </div>
@@ -434,7 +434,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
 
         {/* Loved by Millions (Testimonials Section) */}
         <section suppressHydrationWarning className="py-16 bg-[hsl(var(--color-muted)/0.4)] border-y border-[hsl(var(--color-border))]">
-          <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-10">
             <div className="text-center max-w-2xl mx-auto mb-12">
               <h2 className="text-2xl sm:text-3xl font-bold text-[hsl(var(--color-foreground))] tracking-tight mb-3">
                 {tHome('popularTools.title') || 'Loved by Millions'}
@@ -484,7 +484,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
         </section>
 
         {/* Feature Pillars: 100% Client-Side */}
-        <section className="py-20 w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-20 w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="flex gap-4 items-start">
               <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0">

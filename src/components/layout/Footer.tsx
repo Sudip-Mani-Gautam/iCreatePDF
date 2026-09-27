@@ -36,7 +36,7 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
       className="w-full border-t border-[hsl(var(--color-border))] bg-[hsl(var(--color-background))] pt-16 pb-8 text-[hsl(var(--color-foreground))]"
       role="contentinfo"
     >
-      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-12">
           {/* Brand Column */}
           <div className="flex flex-col gap-4">
