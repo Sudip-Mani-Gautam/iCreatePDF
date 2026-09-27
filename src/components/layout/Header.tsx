@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { 
   Menu, 
@@ -46,11 +47,17 @@ import {
   Eraser,
   GitCompare,
   Sparkles,
-  Languages
+  Languages,
+  Search,
+  Github
 } from 'lucide-react';
 import { type Locale } from '@/lib/i18n/config';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { LanguageSelector } from './LanguageSelector';
+import { RecentFilesDropdown } from '@/components/common/RecentFilesDropdown';
+import { UpdateCheckButton } from '@/components/common/UpdateCheckButton';
+import { searchTools, SearchResult } from '@/lib/utils/search';
+import { tools } from '@/config/tools';
 import { getToolContent } from '@/config/tool-content';
 
 export interface HeaderProps {
@@ -73,12 +80,22 @@ interface CategoryGroup {
   tools: ToolItem[];
 }
 
-export const Header: React.FC<HeaderProps> = ({ locale }) => {
+export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => {
   const t = useTranslations('common');
+  const router = useRouter();
   const [isToolsDropdownOpen, setIsToolsDropdownOpen] = useState(false);
   const [isProductsMenuOpen, setIsProductsMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  // Search state
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
+  const [selectedIndex, setSelectedIndex] = useState(-1);
+  const [localizedTools, setLocalizedTools] = useState<Record<string, { title: string; description: string }>>({});
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const searchContainerRef = useRef<HTMLDivElement>(null);
 
   // Localized tool titles
   const mergeTitle = getToolContent(locale, 'merge-pdf')?.title || 'Merge PDF';
@@ -94,6 +111,22 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
   const toolsDropdownRef = useRef<HTMLDivElement>(null);
   const productsMenuRef = useRef<HTMLDivElement>(null);
 
+  // Load localized tool content for search
+  useEffect(() => {
+    const contentMap: Record<string, { title: string; description: string }> = {};
+    tools.forEach((tool) => {
+      const content = getToolContent(locale, tool.id);
+      if (content) {
+        contentMap[tool.id] = {
+          title: content.title,
+          description: content.metaDescription || '',
+        };
+      }
+    });
+    setLocalizedTools(contentMap);
+  }, [locale]);
+
+  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
@@ -101,6 +134,120 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Handle search query changes
+  useEffect(() => {
+    if (searchQuery.trim()) {
+      const results = searchTools(searchQuery, localizedTools);
+      setSearchResults(results.slice(0, 8));
+      setSelectedIndex(-1);
+    } else {
+      setSearchResults([]);
+      setSelectedIndex(-1);
+    }
+  }, [searchQuery, localizedTools]);
+
+  // Close search when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (searchContainerRef.current && !searchContainerRef.current.contains(event.target as Node)) {
+        setIsSearchOpen(false);
+        setSearchQuery('');
+        setSearchResults([]);
+      }
+    };
+
+    if (isSearchOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, [isSearchOpen]);
+
+  // Keyboard shortcut for Cmd+K / Ctrl+K
+  useEffect(() => {
+    const handleGlobalKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setIsSearchOpen((prev) => {
+          if (!prev) {
+            setTimeout(() => searchInputRef.current?.focus(), 100);
+          }
+          return true;
+        });
+      }
+    };
+    document.addEventListener('keydown', handleGlobalKeyDown);
+    return () => document.removeEventListener('keydown', handleGlobalKeyDown);
+  }, []);
+
+  // Handle search keyboard navigation
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        setSelectedIndex((prev) => Math.min(prev + 1, searchResults.length - 1));
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        setSelectedIndex((prev) => Math.max(prev - 1, -1));
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        if (selectedIndex >= 0 && searchResults[selectedIndex]) {
+          navigateToTool(searchResults[selectedIndex].tool.slug);
+        } else if (searchResults.length > 0) {
+          navigateToTool(searchResults[0].tool.slug);
+        }
+      } else if (e.key === 'Escape') {
+        setIsSearchOpen(false);
+        setSearchQuery('');
+        setSearchResults([]);
+      }
+    },
+    [searchResults, selectedIndex]
+  );
+
+  const navigateToTool = useCallback(
+    (slug: string) => {
+      router.push(`/${locale}/tools/${slug}`);
+      setIsSearchOpen(false);
+      setSearchQuery('');
+      setSearchResults([]);
+    },
+    [locale, router]
+  );
+
+  const handleSearchToggle = useCallback(() => {
+    setIsSearchOpen((prev) => {
+      const next = !prev;
+      if (next) {
+        setTimeout(() => searchInputRef.current?.focus(), 100);
+      } else {
+        setSearchQuery('');
+        setSearchResults([]);
+      }
+      return next;
+    });
+  }, []);
+
+  const getToolIcon = (category: string) => {
+    const icons: Record<string, string> = {
+      'edit-annotate': '✏️',
+      'convert-to-pdf': '📄',
+      'convert-from-pdf': '🖼️',
+      'organize-manage': '📁',
+      'optimize-repair': '🔧',
+      'secure-pdf': '🔒',
+    };
+    return icons[category] || '📄';
+  };
+
+  const searchPlaceholder =
+    locale === 'ne'
+      ? 'उपकरणहरू खोज्नुहोस्...'
+      : locale === 'hi'
+      ? 'टूल्स खोजें...'
+      : locale === 'ms'
+      ? 'Cari alatan...'
+      : 'Search tools...';
 
   // Close dropdowns when clicking outside
   useEffect(() => {
@@ -119,15 +266,15 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
 
   // Close on Escape key
   useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
+    const handleEscKey = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         setIsToolsDropdownOpen(false);
         setIsProductsMenuOpen(false);
         setIsMobileMenuOpen(false);
       }
     };
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
+    document.addEventListener('keydown', handleEscKey);
+    return () => document.removeEventListener('keydown', handleEscKey);
   }, []);
 
   // 7-Column Layout matching user's exact mockup
@@ -232,12 +379,12 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
       role="banner"
     >
       <div className="container mx-auto px-4 md:px-8">
-        <div className="flex h-16 items-center justify-between">
-          {/* Logo and Brand */}
-          <div className="flex items-center gap-6">
+        <div className="flex h-16 items-center justify-between gap-4">
+          {/* Logo and Brand + Desktop Navigation (together on the left, NOT centered) */}
+          <div className="flex items-center gap-6 lg:gap-8">
             <Link
               href={`/${locale}`}
-              className="group flex items-center gap-2 text-xl font-bold hover:opacity-95 transition-opacity"
+              className="group flex items-center gap-2 text-xl font-bold hover:opacity-95 transition-opacity flex-shrink-0"
               aria-label="iCreatePDF - Home"
             >
               <div className="relative flex h-8.5 w-8.5 items-center justify-center rounded-xl bg-red-600 text-white shadow-md shadow-red-500/25 transition-transform group-hover:scale-105">
@@ -259,103 +406,214 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
                 <span className="text-white bg-red-600 px-1.5 py-0.5 rounded-md ml-1 text-xs font-black shadow-sm">PDF</span>
               </span>
             </Link>
+
+            {/* Desktop Navigation Links */}
+            <nav
+              className="hidden md:flex items-center gap-5 lg:gap-6 text-sm font-semibold"
+              role="navigation"
+              aria-label="Main navigation"
+            >
+              <Link
+                href={`/${locale}`}
+                className="text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-500 transition-colors"
+              >
+                {t('navigation.home') || 'Home'}
+              </Link>
+              <Link
+                href={`/${locale}/tools`}
+                className="text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-500 transition-colors"
+              >
+                {t('navigation.tools') || 'Tools'}
+              </Link>
+              <Link
+                href={`/${locale}/tools/merge-pdf`}
+                className="text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-500 transition-colors"
+              >
+                {mergeTitle}
+              </Link>
+
+              {/* All Tools Mega Dropdown matching user mockup */}
+              <div className="relative" ref={toolsDropdownRef}>
+                <button
+                  onClick={() => {
+                    setIsToolsDropdownOpen(!isToolsDropdownOpen);
+                    setIsProductsMenuOpen(false);
+                  }}
+                  className="flex items-center gap-1.5 text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-500 transition-colors py-2 cursor-pointer font-semibold"
+                  aria-expanded={isToolsDropdownOpen}
+                >
+                  <span>{allToolsLabel}</span>
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isToolsDropdownOpen ? 'rotate-180 text-red-600' : ''}`} />
+                </button>
+
+                {isToolsDropdownOpen && (
+                  <div
+                    className="absolute left-0 md:-left-28 lg:-left-44 top-full mt-2 w-[1140px] max-w-[94vw] p-7 rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200/90 dark:border-zinc-800 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-150 z-50 text-zinc-900 dark:text-zinc-100"
+                  >
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-5">
+                      {organizedCategories.map((col) => (
+                        <div key={col.category} className="flex flex-col">
+                          {/* Column Header with bottom line */}
+                          <div className={`text-[11px] font-bold uppercase tracking-wider pb-2 mb-3 border-b border-zinc-100 dark:border-zinc-800/80 ${
+                            col.isAi ? 'text-amber-500 dark:text-amber-400' : 'text-zinc-400 dark:text-zinc-500'
+                          }`}>
+                            {col.category}
+                          </div>
+
+                          {/* Tools List */}
+                          <ul className="space-y-1">
+                            {col.tools.map((item) => {
+                              const IconComponent = item.icon;
+                              const localizedTitle = item.toolId ? (getToolContent(locale, item.toolId)?.title || item.label) : item.label;
+                              return (
+                                <li key={item.label}>
+                                  <Link
+                                    href={item.href}
+                                    onClick={() => setIsToolsDropdownOpen(false)}
+                                    className="group flex items-center gap-2.5 py-1.5 px-2 -mx-2 rounded-lg text-[13px] font-medium transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-800/60"
+                                  >
+                                    <IconComponent className={`w-4 h-4 flex-shrink-0 transition-colors ${
+                                      item.iconColor || 'text-zinc-400 dark:text-zinc-500 group-hover:text-red-600 dark:group-hover:text-red-400'
+                                    }`} />
+                                    <span className={`transition-colors whitespace-nowrap ${
+                                      item.color || 'text-zinc-700 dark:text-zinc-200 group-hover:text-red-600 dark:group-hover:text-red-400'
+                                    }`}>
+                                      {localizedTitle}
+                                    </span>
+                                  </Link>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <Link
+                href={`/${locale}/blog`}
+                className="text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-500 transition-colors"
+              >
+                {t('navigation.blog') || 'Blog'}
+              </Link>
+            </nav>
           </div>
 
-          {/* Desktop Navigation Links */}
-          <nav
-            className="hidden md:flex items-center gap-6 text-sm font-semibold"
-            role="navigation"
-            aria-label="Main navigation"
-          >
-            <Link
-              href={`/${locale}`}
-              className="text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-500 transition-colors"
-            >
-              {t('navigation.home') || 'Home'}
-            </Link>
-            <Link
-              href={`/${locale}/tools`}
-              className="text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-500 transition-colors"
-            >
-              {t('navigation.tools') || 'Tools'}
-            </Link>
-            <Link
-              href={`/${locale}/tools/merge-pdf`}
-              className="text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-500 transition-colors"
-            >
-              {mergeTitle}
-            </Link>
-
-            {/* All Tools Mega Dropdown matching user mockup */}
-            <div className="relative" ref={toolsDropdownRef}>
-              <button
-                onClick={() => {
-                  setIsToolsDropdownOpen(!isToolsDropdownOpen);
-                  setIsProductsMenuOpen(false);
-                }}
-                className="flex items-center gap-1.5 text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-500 transition-colors py-2 cursor-pointer font-semibold"
-                aria-expanded={isToolsDropdownOpen}
-              >
-                <span>{allToolsLabel}</span>
-                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isToolsDropdownOpen ? 'rotate-180 text-red-600' : ''}`} />
-              </button>
-
-              {isToolsDropdownOpen && (
-                <div
-                  className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[1140px] max-w-[97vw] p-7 rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200/90 dark:border-zinc-800 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-150 z-50 text-zinc-900 dark:text-zinc-100"
-                >
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-5">
-                    {organizedCategories.map((col) => (
-                      <div key={col.category} className="flex flex-col">
-                        {/* Column Header with bottom line */}
-                        <div className={`text-[11px] font-bold uppercase tracking-wider pb-2 mb-3 border-b border-zinc-100 dark:border-zinc-800/80 ${
-                          col.isAi ? 'text-amber-500 dark:text-amber-400' : 'text-zinc-400 dark:text-zinc-500'
-                        }`}>
-                          {col.category}
-                        </div>
-
-                        {/* Tools List */}
-                        <ul className="space-y-1">
-                          {col.tools.map((item) => {
-                            const IconComponent = item.icon;
-                            const localizedTitle = item.toolId ? (getToolContent(locale, item.toolId)?.title || item.label) : item.label;
-                            return (
-                              <li key={item.label}>
-                                <Link
-                                  href={item.href}
-                                  onClick={() => setIsToolsDropdownOpen(false)}
-                                  className="group flex items-center gap-2.5 py-1.5 px-2 -mx-2 rounded-lg text-[13px] font-medium transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-800/60"
-                                >
-                                  <IconComponent className={`w-4 h-4 flex-shrink-0 transition-colors ${
-                                    item.iconColor || 'text-zinc-400 dark:text-zinc-500 group-hover:text-red-600 dark:group-hover:text-red-400'
-                                  }`} />
-                                  <span className={`transition-colors whitespace-nowrap ${
-                                    item.color || 'text-zinc-700 dark:text-zinc-200 group-hover:text-red-600 dark:group-hover:text-red-400'
-                                  }`}>
-                                    {localizedTitle}
-                                  </span>
-                                </Link>
-                              </li>
-                            );
-                          })}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-
-            <Link
-              href={`/${locale}/blog`}
-              className="text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-500 transition-colors"
-            >
-              {t('navigation.blog') || 'Blog'}
-            </Link>
-          </nav>
-
           {/* Right side actions */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            {/* Search */}
+            {showSearch && (
+              <div className="relative" ref={searchContainerRef}>
+                {isSearchOpen ? (
+                  <div className="fixed md:absolute left-4 right-4 md:left-auto md:right-0 top-3 md:top-1/2 md:-translate-y-1/2 z-50 md:origin-right animate-in fade-in slide-in-from-right-4 duration-200">
+                    <div className="relative w-full md:w-80 lg:w-96">
+                      <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-400" aria-hidden="true" />
+                      <input
+                        ref={searchInputRef}
+                        type="search"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        onKeyDown={handleKeyDown}
+                        placeholder={searchPlaceholder}
+                        className="w-full pl-9 pr-9 py-2 text-sm rounded-xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                        aria-label="Search tools"
+                        autoComplete="off"
+                      />
+                      <button
+                        type="button"
+                        onClick={handleSearchToggle}
+                        aria-label="Close search"
+                        className="absolute right-2.5 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 p-1"
+                      >
+                        <X className="h-4 w-4" aria-hidden="true" />
+                      </button>
+
+                      {/* Search Results Dropdown */}
+                      {searchResults.length > 0 && (
+                        <div className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-xl overflow-hidden animate-in fade-in slide-in-from-top-2 duration-150 max-h-[60vh] overflow-y-auto z-50">
+                          <ul className="py-2" role="listbox">
+                            {searchResults.map((result, index) => {
+                              const localized = localizedTools[result.tool.id];
+                              const toolName = localized?.title || result.tool.id.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+                              const toolDescription = localized?.description || result.tool.features.slice(0, 3).join(' • ');
+
+                              return (
+                                <li key={result.tool.id}>
+                                  <button
+                                    onClick={() => navigateToTool(result.tool.slug)}
+                                    onMouseEnter={() => setSelectedIndex(index)}
+                                    className={`w-full px-4 py-2.5 text-left flex items-center gap-3 transition-colors ${
+                                      index === selectedIndex
+                                        ? 'bg-red-50 dark:bg-red-950/40 text-red-600 dark:text-red-400'
+                                        : 'hover:bg-zinc-50 dark:hover:bg-zinc-800 text-zinc-800 dark:text-zinc-200'
+                                    }`}
+                                    role="option"
+                                    aria-selected={index === selectedIndex}
+                                  >
+                                    <span className="text-xl filter grayscale group-hover:grayscale-0">
+                                      {getToolIcon(result.tool.category)}
+                                    </span>
+                                    <div className="flex-1 min-w-0">
+                                      <div className="font-semibold text-sm truncate">
+                                        {toolName}
+                                      </div>
+                                      <div className="text-xs text-zinc-500 dark:text-zinc-400 truncate">
+                                        {toolDescription}
+                                      </div>
+                                    </div>
+                                  </button>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ) : (
+                  <button
+                    onClick={handleSearchToggle}
+                    aria-label="Open search"
+                    className="flex items-center gap-1.5 px-2 py-1.5 rounded-lg text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+                    title="Search (⌘K)"
+                  >
+                    <Search className="h-4 w-4" aria-hidden="true" />
+                    <span className="hidden lg:inline-block text-[11px] font-medium text-zinc-400 dark:text-zinc-500 border border-zinc-200 dark:border-zinc-700 rounded px-1.5 py-0.5 leading-none">
+                      ⌘K
+                    </span>
+                  </button>
+                )}
+              </div>
+            )}
+
+            {/* Recent Files Dropdown */}
+            <RecentFilesDropdown
+              locale={locale}
+              translations={{
+                title: t('recentFiles.title') || (locale === 'ne' ? 'भर्खरका फाइलहरू' : 'Recent Files'),
+                empty: t('recentFiles.empty') || (locale === 'ne' ? 'कुनै भर्खरका फाइलहरू छैनन्' : 'No recent files'),
+                clearAll: t('recentFiles.clearAll') || (locale === 'ne' ? 'सबै हटाउनुहोस्' : 'Clear all'),
+                processedWith: t('recentFiles.processedWith') || (locale === 'ne' ? 'सँग प्रशोधित' : 'Processed with'),
+              }}
+            />
+
+            {/* Update Check Button */}
+            <UpdateCheckButton />
+
+            {/* GitHub Repository Link */}
+            <a
+              href="https://github.com/Sudip-Mani-Gautam/iCreatePDF"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:flex items-center justify-center w-8.5 h-8.5 rounded-lg text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+              aria-label="GitHub Repository"
+              title="GitHub Repository"
+            >
+              <Github className="h-4.5 w-4.5" aria-hidden="true" />
+            </a>
+
             {/* Apps 4-Square Red Icon (Ecosystem Menu Popup) */}
             <div className="relative" ref={productsMenuRef}>
               <button
