@@ -50,7 +50,7 @@ export default async function LocaleLayout({
   const direction = localeConfig[locale as Locale]?.direction || 'ltr';
 
   return (
-    <NextIntlClientProvider messages={messages}>
+    <NextIntlClientProvider messages={messages} locale={locale}>
       <div lang={locale} dir={direction} suppressHydrationWarning className={`${fontVariables} min-h-screen bg-background text-foreground antialiased font-sans`}>
         <SkipLink targetId="main-content">Skip to main content</SkipLink>
         {children}
