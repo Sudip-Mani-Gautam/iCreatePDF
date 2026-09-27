@@ -247,6 +247,8 @@ export function generateWebPageSchema(
     ro: 'ro-RO',
     pl: 'pl-PL',
     ne: 'ne-NP',
+    hi: 'hi-IN',
+    ms: 'ms-MY',
   };
 
   return {

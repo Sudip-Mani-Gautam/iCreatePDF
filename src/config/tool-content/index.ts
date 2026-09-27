@@ -17,6 +17,9 @@ export { toolContentIt } from './it';
 export { toolContentId } from './id';
 export { toolContentVn } from './vi';
 export { toolContentPl } from './pl';
+export { toolContentNe } from './ne';
+export { toolContentHi } from './hi';
+export { toolContentMs } from './ms';
 
 import { toolContentEn } from './en';
 import { toolContentJa } from './ja';
@@ -32,6 +35,9 @@ import { toolContentIt } from './it';
 import { toolContentId } from './id';
 import { toolContentVn } from './vi';
 import { toolContentPl } from './pl';
+import { toolContentNe } from './ne';
+import { toolContentHi } from './hi';
+import { toolContentMs } from './ms';
 import { ToolContent } from '@/types/tool';
 import type { Locale } from '@/lib/i18n/config';
 
@@ -61,7 +67,9 @@ export function getToolContent(locale: Locale, toolId: string): ToolContent | un
     vi: toolContentVn,
     ro: toolContentEn, // Fallback to English for Romanian tool content for now
     pl: toolContentPl,
-    ne: toolContentEn,
+    ne: toolContentNe,
+    hi: toolContentHi,
+    ms: toolContentMs,
   };
 
   const localeContent = contentMap[locale];

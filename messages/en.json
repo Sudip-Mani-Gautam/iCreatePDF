@@ -79,7 +79,8 @@
       "rotateAllLeft": "Rotate All Left",
       "rotateAllRight": "Rotate All Right",
       "confirm": "Confirm",
-      "add": "Add"
+      "add": "Add",
+      "more": "More"
     },
     "status": {
       "idle": "Ready",
@@ -976,6 +977,14 @@
       "downloadStartedNotice": "Download opened in your browser! If not started, click the copy button to paste into your browser.",
       "downloadFailedNotice": "Could not open browser automatically. Please click copy to paste link manually in your browser.",
       "linkCopied": "Download link copied to clipboard!"
+    },
+    "categories": {
+      "organize": "ORGANIZE",
+      "optimize": "OPTIMIZE",
+      "convertFrom": "CONVERT FROM",
+      "convertTo": "CONVERT TO",
+      "edit": "EDIT PDF",
+      "security": "SECURITY"
     }
   },
   "toolsPage": {

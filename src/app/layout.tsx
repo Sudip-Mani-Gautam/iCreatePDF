@@ -45,7 +45,7 @@ export default function RootLayout({
           async
         />
       </head>
-      <body className="min-h-screen bg-background text-foreground antialiased">
+      <body suppressHydrationWarning className="min-h-screen bg-background text-foreground antialiased">
         {children}
       </body>
     </html>

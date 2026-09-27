@@ -137,7 +137,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-[hsl(var(--color-background))] text-[hsl(var(--color-foreground))] font-sans antialiased">
+    <div suppressHydrationWarning className="min-h-screen flex flex-col bg-[hsl(var(--color-background))] text-[hsl(var(--color-foreground))] font-sans antialiased">
       <Header locale={locale} />
 
       <main className="flex-1 pt-16 pb-16">
@@ -217,7 +217,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                 href={`/${locale}/tools`}
                 className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400 hover:bg-amber-100 transition-colors border border-amber-200/60 dark:border-amber-800/40"
               >
-                +{allTools.length - 12} {tCommon('navigation.tools') || 'More'}
+                +{allTools.length - 12} {tCommon('buttons.more') || 'More'}
               </Link>
             </div>
           </div>
@@ -302,7 +302,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
         </section>
 
         {/* Loved by Millions (Testimonials Section) */}
-        <section className="py-16 bg-[hsl(var(--color-muted)/0.4)] border-y border-[hsl(var(--color-border))]">
+        <section suppressHydrationWarning className="py-16 bg-[hsl(var(--color-muted)/0.4)] border-y border-[hsl(var(--color-border))]">
           <div className="container mx-auto px-4 max-w-6xl">
             <div className="text-center max-w-2xl mx-auto mb-12">
               <h2 className="text-2xl sm:text-3xl font-bold text-[hsl(var(--color-foreground))] tracking-tight mb-3">

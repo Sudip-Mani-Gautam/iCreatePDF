@@ -51,6 +51,7 @@ import {
 import { type Locale } from '@/lib/i18n/config';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { LanguageSelector } from './LanguageSelector';
+import { getToolContent } from '@/config/tool-content';
 
 export interface HeaderProps {
   locale: Locale;
@@ -59,6 +60,7 @@ export interface HeaderProps {
 
 interface ToolItem {
   label: string;
+  toolId?: string;
   href: string;
   icon: React.ComponentType<{ className?: string }>;
   color?: string;
@@ -77,6 +79,11 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
   const [isProductsMenuOpen, setIsProductsMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  // Localized tool titles
+  const mergeTitle = getToolContent(locale, 'merge-pdf')?.title || 'Merge PDF';
+  const splitTitle = getToolContent(locale, 'split-pdf')?.title || 'Split PDF';
+  const compressTitle = getToolContent(locale, 'compress-pdf')?.title || 'Compress PDF';
 
   const toolsDropdownRef = useRef<HTMLDivElement>(null);
   const productsMenuRef = useRef<HTMLDivElement>(null);
@@ -120,69 +127,69 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
   // 7-Column Layout matching user's exact mockup
   const organizedCategories: CategoryGroup[] = [
     {
-      category: 'ORGANIZE',
+      category: t('categories.organize') || 'ORGANIZE',
       isAi: false,
       tools: [
-        { label: 'Merge PDF', href: `/${locale}/tools/merge-pdf`, icon: Layers },
-        { label: 'Split PDF', href: `/${locale}/tools/split-pdf`, icon: Scissors },
-        { label: 'Remove Pages', href: `/${locale}/tools/delete-pages`, icon: FileX },
-        { label: 'Extract Pages', href: `/${locale}/tools/extract-pages`, icon: FileCheck2 },
-        { label: 'Organize PDF', href: `/${locale}/tools/organize-pdf`, icon: LayoutDashboard },
-        { label: 'Scan to PDF', href: `/${locale}/tools/scan-pdf`, icon: Scan },
+        { label: 'Merge PDF', toolId: 'merge-pdf', href: `/${locale}/tools/merge-pdf`, icon: Layers },
+        { label: 'Split PDF', toolId: 'split-pdf', href: `/${locale}/tools/split-pdf`, icon: Scissors },
+        { label: 'Remove Pages', toolId: 'delete-pages', href: `/${locale}/tools/delete-pages`, icon: FileX },
+        { label: 'Extract Pages', toolId: 'extract-pages', href: `/${locale}/tools/extract-pages`, icon: FileCheck2 },
+        { label: 'Organize PDF', toolId: 'organize-pdf', href: `/${locale}/tools/organize-pdf`, icon: LayoutDashboard },
+        { label: 'Scan to PDF', toolId: 'scan-pdf', href: `/${locale}/tools/scan-pdf`, icon: Scan },
       ],
     },
     {
-      category: 'OPTIMIZE',
+      category: t('categories.optimize') || 'OPTIMIZE',
       isAi: false,
       tools: [
-        { label: 'Compress PDF', href: `/${locale}/tools/compress-pdf`, icon: Minimize2 },
-        { label: 'Repair PDF', href: `/${locale}/tools/repair-pdf`, icon: Wrench },
-        { label: 'OCR PDF', href: `/${locale}/tools/ocr-pdf`, icon: ScanText },
+        { label: 'Compress PDF', toolId: 'compress-pdf', href: `/${locale}/tools/compress-pdf`, icon: Minimize2 },
+        { label: 'Repair PDF', toolId: 'repair-pdf', href: `/${locale}/tools/repair-pdf`, icon: Wrench },
+        { label: 'OCR PDF', toolId: 'ocr-pdf', href: `/${locale}/tools/ocr-pdf`, icon: ScanText },
       ],
     },
     {
-      category: 'CONVERT FROM',
+      category: t('categories.convertFrom') || 'CONVERT FROM',
       isAi: false,
       tools: [
-        { label: 'PDF to JPG', href: `/${locale}/tools/pdf-to-jpg`, icon: FileImage },
-        { label: 'PDF to Word', href: `/${locale}/tools/pdf-to-docx`, icon: FileText },
-        { label: 'PDF to PPT', href: `/${locale}/tools/pdf-to-pptx`, icon: Presentation },
-        { label: 'PDF to Excel', href: `/${locale}/tools/pdf-to-excel`, icon: Sheet },
-        { label: 'PDF to PDF/A', href: `/${locale}/tools/pdf-to-pdfa`, icon: FileBadge },
+        { label: 'PDF to JPG', toolId: 'pdf-to-jpg', href: `/${locale}/tools/pdf-to-jpg`, icon: FileImage },
+        { label: 'PDF to Word', toolId: 'pdf-to-docx', href: `/${locale}/tools/pdf-to-docx`, icon: FileText },
+        { label: 'PDF to PPT', toolId: 'pdf-to-pptx', href: `/${locale}/tools/pdf-to-pptx`, icon: Presentation },
+        { label: 'PDF to Excel', toolId: 'pdf-to-excel', href: `/${locale}/tools/pdf-to-excel`, icon: Sheet },
+        { label: 'PDF to PDF/A', toolId: 'pdf-to-pdfa', href: `/${locale}/tools/pdf-to-pdfa`, icon: FileBadge },
       ],
     },
     {
-      category: 'CONVERT TO',
+      category: t('categories.convertTo') || 'CONVERT TO',
       isAi: false,
       tools: [
-        { label: 'JPG to PDF', href: `/${locale}/tools/jpg-to-pdf`, icon: Image },
-        { label: 'Word to PDF', href: `/${locale}/tools/word-to-pdf`, icon: FileText },
-        { label: 'PPT to PDF', href: `/${locale}/tools/pptx-to-pdf`, icon: Presentation },
-        { label: 'Excel to PDF', href: `/${locale}/tools/excel-to-pdf`, icon: Sheet },
-        { label: 'HTML to PDF', href: `/${locale}/tools/html-to-pdf`, icon: Code2 },
+        { label: 'JPG to PDF', toolId: 'jpg-to-pdf', href: `/${locale}/tools/jpg-to-pdf`, icon: Image },
+        { label: 'Word to PDF', toolId: 'word-to-pdf', href: `/${locale}/tools/word-to-pdf`, icon: FileText },
+        { label: 'PPT to PDF', toolId: 'pptx-to-pdf', href: `/${locale}/tools/pptx-to-pdf`, icon: Presentation },
+        { label: 'Excel to PDF', toolId: 'excel-to-pdf', href: `/${locale}/tools/excel-to-pdf`, icon: Sheet },
+        { label: 'HTML to PDF', toolId: 'html-to-pdf', href: `/${locale}/tools/html-to-pdf`, icon: Code2 },
       ],
     },
     {
-      category: 'EDIT PDF',
+      category: t('categories.edit') || 'EDIT PDF',
       isAi: false,
       tools: [
-        { label: 'Rotate PDF', href: `/${locale}/tools/rotate-pdf`, icon: RotateCw },
-        { label: 'Page Numbers', href: `/${locale}/tools/page-numbers`, icon: Hash },
-        { label: 'Watermark', href: `/${locale}/tools/add-watermark`, icon: Stamp },
-        { label: 'Crop PDF', href: `/${locale}/tools/crop-pdf`, icon: Crop },
-        { label: 'Edit PDF', href: `/${locale}/tools/edit-pdf`, icon: FileEdit },
-        { label: 'PDF Forms', href: `/${locale}/tools/form-filler`, icon: FileSignature },
+        { label: 'Rotate PDF', toolId: 'rotate-pdf', href: `/${locale}/tools/rotate-pdf`, icon: RotateCw },
+        { label: 'Page Numbers', toolId: 'page-numbers', href: `/${locale}/tools/page-numbers`, icon: Hash },
+        { label: 'Watermark', toolId: 'add-watermark', href: `/${locale}/tools/add-watermark`, icon: Stamp },
+        { label: 'Crop PDF', toolId: 'crop-pdf', href: `/${locale}/tools/crop-pdf`, icon: Crop },
+        { label: 'Edit PDF', toolId: 'edit-pdf', href: `/${locale}/tools/edit-pdf`, icon: FileEdit },
+        { label: 'PDF Forms', toolId: 'form-filler', href: `/${locale}/tools/form-filler`, icon: FileSignature },
       ],
     },
     {
-      category: 'SECURITY',
+      category: t('categories.security') || 'SECURITY',
       isAi: false,
       tools: [
-        { label: 'Protect PDF', href: `/${locale}/tools/encrypt-pdf`, icon: Lock },
-        { label: 'Unlock PDF', href: `/${locale}/tools/decrypt-pdf`, icon: Unlock },
-        { label: 'Sign PDF', href: `/${locale}/tools/sign-pdf`, icon: PenTool },
-        { label: 'Redact PDF', href: `/${locale}/tools/redact-pdf`, icon: Eraser },
-        { label: 'Compare PDF', href: `/${locale}/tools/compare-pdfs`, icon: GitCompare },
+        { label: 'Protect PDF', toolId: 'encrypt-pdf', href: `/${locale}/tools/encrypt-pdf`, icon: Lock },
+        { label: 'Unlock PDF', toolId: 'decrypt-pdf', href: `/${locale}/tools/decrypt-pdf`, icon: Unlock },
+        { label: 'Sign PDF', toolId: 'sign-pdf', href: `/${locale}/tools/sign-pdf`, icon: PenTool },
+        { label: 'Redact PDF', toolId: 'redact-pdf', href: `/${locale}/tools/redact-pdf`, icon: Eraser },
+        { label: 'Compare PDF', toolId: 'compare-pdfs', href: `/${locale}/tools/compare-pdfs`, icon: GitCompare },
       ],
     },
     {
@@ -191,6 +198,7 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
       tools: [
         { 
           label: 'AI Summarizer', 
+          toolId: 'ai-pdf-reflower',
           href: `/${locale}/tools/ai-pdf-reflower`, 
           icon: Sparkles, 
           color: 'text-amber-500 hover:text-amber-600 dark:text-amber-400 dark:hover:text-amber-300 font-semibold', 
@@ -198,6 +206,7 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
         },
         { 
           label: 'Translate PDF', 
+          toolId: 'pdf-reader',
           href: `/${locale}/tools/pdf-reader`, 
           icon: Languages, 
           color: 'text-emerald-500 hover:text-emerald-600 dark:text-emerald-400 dark:hover:text-emerald-300 font-semibold', 
@@ -256,31 +265,31 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
               href={`/${locale}`}
               className="text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-500 transition-colors"
             >
-              Home
+              {t('navigation.home') || 'Home'}
             </Link>
             <Link
               href={`/${locale}/tools`}
               className="text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-500 transition-colors"
             >
-              Tools
+              {t('navigation.tools') || 'Tools'}
             </Link>
             <Link
               href={`/${locale}/tools/merge-pdf`}
               className="text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-500 transition-colors"
             >
-              Merge PDF
+              {mergeTitle}
             </Link>
             <Link
               href={`/${locale}/tools/split-pdf`}
               className="text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-500 transition-colors"
             >
-              Split PDF
+              {splitTitle}
             </Link>
             <Link
               href={`/${locale}/tools/compress-pdf`}
               className="text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-500 transition-colors"
             >
-              Compress PDF
+              {compressTitle}
             </Link>
 
             {/* All Tools Mega Dropdown matching user mockup */}
@@ -293,7 +302,7 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
                 className="flex items-center gap-1 text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-500 transition-colors py-2"
                 aria-expanded={isToolsDropdownOpen}
               >
-                <span>All Tools</span>
+                <span>{t('navigation.allTools') || t('navigation.tools') || 'All Tools'}</span>
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isToolsDropdownOpen ? 'rotate-180 text-red-600' : ''}`} />
               </button>
 
@@ -315,6 +324,7 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
                         <ul className="space-y-1">
                           {col.tools.map((item) => {
                             const IconComponent = item.icon;
+                            const localizedTitle = item.toolId ? (getToolContent(locale, item.toolId)?.title || item.label) : item.label;
                             return (
                               <li key={item.label}>
                                 <Link
@@ -328,7 +338,7 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
                                   <span className={`transition-colors whitespace-nowrap ${
                                     item.color || 'text-zinc-700 dark:text-zinc-200 group-hover:text-red-600 dark:group-hover:text-red-400'
                                   }`}>
-                                    {item.label}
+                                    {localizedTitle}
                                   </span>
                                 </Link>
                               </li>
@@ -346,7 +356,7 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
               href={`/${locale}/blog`}
               className="text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-500 transition-colors"
             >
-              Blog
+              {t('navigation.blog') || 'Blog'}
             </Link>
           </nav>
 
@@ -597,49 +607,49 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
               onClick={() => setIsMobileMenuOpen(false)}
               className="block px-4 py-2.5 text-sm font-semibold text-zinc-900 dark:text-white hover:bg-zinc-50 dark:hover:bg-zinc-900 rounded-lg"
             >
-              Home
+              {t('navigation.home') || 'Home'}
             </Link>
             <Link
               href={`/${locale}/tools`}
               onClick={() => setIsMobileMenuOpen(false)}
               className="block px-4 py-2.5 text-sm font-semibold text-zinc-900 dark:text-white hover:bg-zinc-50 dark:hover:bg-zinc-900 rounded-lg"
             >
-              Tools
+              {t('navigation.tools') || 'Tools'}
             </Link>
             <Link
               href={`/${locale}/tools/merge-pdf`}
               onClick={() => setIsMobileMenuOpen(false)}
               className="block px-4 py-2.5 text-sm font-semibold text-zinc-900 dark:text-white hover:bg-zinc-50 dark:hover:bg-zinc-900 rounded-lg"
             >
-              Merge PDF
+              {mergeTitle}
             </Link>
             <Link
               href={`/${locale}/tools/split-pdf`}
               onClick={() => setIsMobileMenuOpen(false)}
               className="block px-4 py-2.5 text-sm font-semibold text-zinc-900 dark:text-white hover:bg-zinc-50 dark:hover:bg-zinc-900 rounded-lg"
             >
-              Split PDF
+              {splitTitle}
             </Link>
             <Link
               href={`/${locale}/tools/compress-pdf`}
               onClick={() => setIsMobileMenuOpen(false)}
               className="block px-4 py-2.5 text-sm font-semibold text-zinc-900 dark:text-white hover:bg-zinc-50 dark:hover:bg-zinc-900 rounded-lg"
             >
-              Compress PDF
+              {compressTitle}
             </Link>
             <Link
               href={`/${locale}/tools`}
               onClick={() => setIsMobileMenuOpen(false)}
               className="block px-4 py-2.5 text-sm font-semibold text-red-600 hover:bg-zinc-50 dark:hover:bg-zinc-900 rounded-lg"
             >
-              All 67+ Tools →
+              {t('navigation.allTools') || 'All 67+ Tools'} →
             </Link>
             <Link
               href={`/${locale}/blog`}
               onClick={() => setIsMobileMenuOpen(false)}
               className="block px-4 py-2.5 text-sm font-semibold text-zinc-900 dark:text-white hover:bg-zinc-50 dark:hover:bg-zinc-900 rounded-lg"
             >
-              Blog & Daily Guides
+              {t('navigation.blog') || 'Blog'}
             </Link>
           </div>
         )}

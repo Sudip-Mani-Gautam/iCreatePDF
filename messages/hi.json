@@ -1,28 +1,28 @@
 {
   "metadata": {
     "home": {
-      "title": "iCreatePDF - व्यावसायिक PDF उपकरणहरू",
-      "description": "निःशुल्क, सुरक्षित र ब्राउजर-आधारित। कुनै सर्भर अपलोड बिना PDF मर्ज, स्प्लिट, कम्प्रेस र सम्पादन गर्नुहोस्।"
+      "title": "iCreatePDF - व्यावसायिक PDF टूल्स",
+      "description": "निःशुल्क, सुरक्षित और ब्राउज़र-आधारित। बिना किसी सर्वर अपलोड के PDF मर्ज, स्प्लिट, कंप्रेस और एडिट करें।"
     },
     "tools": {
-      "title": "सबै PDF उपकरणहरू",
-      "description": "सबै ६७+ व्यावसायिक PDF उपकरणहरू ब्राउज गर्नुहोस्। निःशुल्क PDF मर्ज, स्प्लिट, कम्प्रेस, रूपान्तरण र सम्पादन गर्नुहोस्।"
+      "title": "All PDF Tools",
+      "description": "Browse all 67+ professional PDF tools. Merge, split, compress, convert, edit, and secure your PDF files for free."
     },
     "about": {
-      "title": "हाम्रोबारे",
-      "description": "iCreatePDF को बारेमा जान्नुहोस् - तपाईंको निःशुल्क, सुरक्षित र शक्तिशाली PDF टुलकिट।"
+      "title": "About",
+      "description": "Learn about iCreatePDF - your free, private, and powerful PDF toolkit. All processing happens in your browser."
     },
     "faq": {
-      "title": "प्रायः सोधिने प्रश्नहरू (FAQ)",
-      "description": "iCreatePDF सम्बन्धी प्रायः सोधिने प्रश्नहरूको जवाफ फेला पार्नुहोस्।"
+      "title": "Frequently Asked Questions",
+      "description": "Find answers to common questions about iCreatePDF. Learn how to use our PDF tools effectively."
     },
     "privacy": {
       "title": "गोपनीयता नीति",
-      "description": "तपाईंका फाइलहरू कहिल्यै तपाईंको उपकरणबाट बाहिर जाँदैनन् - सबै प्रशोधन ब्राउजरमै हुन्छ।"
+      "description": "iCreatePDF privacy policy. Your files never leave your device - all processing happens locally in your browser."
     },
     "contact": {
-      "title": "सम्पर्क गर्नुहोस्",
-      "description": "iCreatePDF टोलीसँग सम्पर्कमा रहनुहोस्। हामी तपाईंको सहयोगको लागि सधैं तयार छौं।"
+      "title": "Contact Us",
+      "description": "Get in touch with iCreatePDF team. We'd love to hear from you."
     },
     "keywords": {
       "pdfTools": "PDF tools",
@@ -36,103 +36,100 @@
   },
   "common": {
     "brand": "iCreatePDF",
-    "tagline": "तपाईंको पूर्ण अफलाइन PDF टुलकिट। १००% सुरक्षित, कुनै सर्भर अपलोड बिना, छिटो र ब्राउजरमै आधारित।",
+    "tagline": "आपका संपूर्ण ऑफ़लाइन PDF टूलकिट। 100% सुरक्षित, बिना किसी सर्वर अपलोड के, तेज़ और ब्राउज़र-आधारित।",
     "navigation": {
-      "home": "गृहपृष्ठ",
-      "tools": "सबै उपकरणहरू",
-      "workflow": "कार्यप्रवाह",
-      "blog": "ब्लग",
-      "about": "हाम्रोबारे",
-      "faq": "प्रायः सोधिने प्रश्नहरू",
+      "home": "होम",
+      "tools": "सभी टूल्स",
+      "workflow": "वर्कफ़्लो",
+      "blog": "ब्लॉग",
+      "about": "हमारे बारे में",
+      "faq": "अक्सर पूछे जाने वाले प्रश्न",
       "privacy": "गोपनीयता नीति",
-      "license": "इजाजतपत्र (AGPL-3.0)",
-      "acknowledgements": "कृतज्ञता",
-      "contact": "सम्पर्क",
+      "license": "लाइसेंस (AGPL-3.0)",
+      "acknowledgements": "आभार एवं कृतज्ञता",
+      "contact": "संपर्क",
       "security": "सुरक्षा",
-      "terms": "सेवाका सर्तहरू",
+      "terms": "सेवा की शर्तें",
       "cookies": "कुकी नीति",
-      "press": "प्रेस एवं मिडिया",
-      "allTools": "सबै ६७+ उपकरणहरू"
+      "press": "प्रेस एवं मीडिया",
+      "allTools": "सभी 67+ टूल्स"
     },
     "buttons": {
       "upload": "Upload Files",
-      "download": "डाउनलोड गर्नुहोस्",
-      "process": "प्रशोधन गर्नुहोस्",
-      "cancel": "रद्द गर्नुहोस्",
-      "reset": "रिसेट गर्नुहोस्",
-      "clear": "खाली गर्नुहोस्",
-      "selectLanguage": "भाषा छान्नुहोस्",
-      "close": "बन्द गर्नुहोस्",
-      "save": "बचत गर्नुहोस्",
-      "delete": "हटाउनुहोस्",
-      "edit": "सम्पादन",
-      "back": "पछाडि",
-      "next": "अगाडि",
+      "download": "डाउनलोड करें",
+      "process": "प्रोसेस करें",
+      "cancel": "रद्द करें",
+      "reset": "रीसेट करें",
+      "clear": "साफ़ करें",
+      "selectLanguage": "भाषा चुनें",
+      "close": "बंद करें",
+      "save": "सहेजें",
+      "delete": "हटाएं",
+      "edit": "संपादित करें",
+      "back": "पीछे",
+      "next": "आगे",
       "previous": "Previous",
       "submit": "Submit",
-      "clearAll": "सबै खाली गर्नुहोस्",
-      "remove": "हटाउनुहोस्",
+      "clearAll": "सभी साफ़ करें",
+      "remove": "हटाएं",
       "selectAll": "Select All",
       "deselectAll": "Deselect All",
-      "apply": "लागू गर्नुहोस्",
+      "apply": "लागू करें",
       "insertAtBeginning": "Insert at Beginning",
       "insertAtEnd": "Insert at End",
       "rotateAllLeft": "Rotate All Left",
       "rotateAllRight": "Rotate All Right",
       "confirm": "Confirm",
-      "add": "थप्नुहोस्",
-      "selectFile": "फाइल छान्नुहोस्",
-      "selectFiles": "फाइलहरू छान्नुहोस्",
-      "dropFilesHere": "फाइलहरू यहाँ छोड्नुहोस्",
-      "more": "थप उपकरणहरू"
+      "add": "जोड़ें",
+      "more": "और अधिक"
     },
     "status": {
-      "idle": "तयार",
-      "uploading": "अपलोड हुँदैछ...",
-      "processing": "प्रशोधन हुँदैछ...",
+      "idle": "तैयार",
+      "uploading": "Uploading...",
+      "processing": "प्रोसेसिंग जारी है...",
       "complete": "Complete",
       "error": "त्रुटि",
-      "loading": "लोड हुँदैछ..."
+      "loading": "लोड हो रहा है..."
     },
     "footer": {
-      "footer": "© {year} iCreatePDF. सबै अधिकार सुरक्षित।",
-      "copyright": "© {year} iCreatePDF. सबै अधिकार सुरक्षित।",
-      "privacyBadge": "१००% निजी - फाइलहरू कहिल्यै तपाईंको उपकरणबाट बाहिर जाँदैनन्",
+      "footer": "© {year} iCreatePDF. सर्वाधिकार सुरक्षित।",
+      "copyright": "© {year} iCreatePDF. सर्वाधिकार सुरक्षित।",
+      "privacyBadge": "100% निजी - फाइलें कभी आपके डिवाइस से बाहर नहीं जातीं",
       "madeWith": "Made with <Heart /> and <Nextjs />",
-      "resources": "स्रोतहरू",
-      "company": "कम्पनी",
-      "legal": "कानुनी",
-      "tagline": "तपाईंको पूर्ण अफलाइन PDF टुलकिट। १००% सुरक्षित, कुनै सर्भर अपलोड बिना, छिटो र ब्राउजरमै आधारित।"
+      "resources": "संसाधन",
+      "company": "कंपनी",
+      "legal": "कानूनी",
+      "tagline": "आपका संपूर्ण ऑफ़लाइन PDF टूलकिट। 100% सुरक्षित, बिना किसी सर्वर अपलोड के, तेज़ और ब्राउज़र-आधारित।"
     },
     "recentFiles": {
       "title": "Recent Files",
       "empty": "No recent files",
-      "clearAll": "सबै खाली गर्नुहोस्",
+      "clearAll": "सभी साफ़ करें",
       "processedWith": "Processed with"
     },
     "savedProjects": {
       "title": "Saved Projects",
       "empty": "No saved projects",
-      "clearAll": "सबै खाली गर्नुहोस्",
+      "clearAll": "सभी साफ़ करें",
       "resume": "Resume",
-      "delete": "हटाउनुहोस्",
+      "delete": "हटाएं",
       "inProgress": "In Progress",
       "paused": "Paused",
-      "completed": "सम्पन्न",
+      "completed": "पूर्ण हुआ",
       "progress": "Progress",
       "files": "files"
     },
     "batchProcessing": {
       "title": "Batch Processing",
       "addFiles": "Drop files here or click to add",
-      "clearAll": "सबै खाली गर्नुहोस्",
+      "clearAll": "सभी साफ़ करें",
       "startProcessing": "Start Processing",
-      "cancelProcessing": "रद्द गर्नुहोस्",
-      "downloadAll": "सबै डाउनलोड गर्नुहोस्",
+      "cancelProcessing": "रद्द करें",
+      "downloadAll": "सभी डाउनलोड करें",
       "downloadZip": "Download as ZIP",
       "pending": "Pending",
-      "processing": "प्रशोधन हुँदैछ...",
-      "completed": "सम्पन्न",
+      "processing": "प्रोसेसिंग जारी है...",
+      "completed": "पूर्ण हुआ",
       "error": "त्रुटि",
       "progress": "Overall Progress",
       "filesSelected": "files selected",
@@ -140,8 +137,8 @@
     },
     "guidedTour": {
       "startTour": "Start Tour",
-      "next": "अगाडि",
-      "prev": "पछाडि",
+      "next": "आगे",
+      "prev": "पीछे",
       "finish": "Finish",
       "skip": "Skip",
       "stepOf": "of",
@@ -150,7 +147,7 @@
       "helpButton": "Help Tour"
     },
     "search": {
-      "placeholder": "उपकरणहरू खोज्नुहोस्...",
+      "placeholder": "टूल्स खोजें...",
       "hint": "Press Enter to select, ↑↓ to navigate",
       "noResults": "No tools found"
     },
@@ -162,7 +159,7 @@
       "encryptedTitle": "This Document is Encrypted",
       "enterPasswordHelp": "Please enter the password to unlock and load:<br/>",
       "passwordPlaceholder": "Enter document password...",
-      "cancelButton": "रद्द गर्नुहोस्",
+      "cancelButton": "रद्द करें",
       "decrypting": "Decrypting...",
       "decryptAndContinue": "Decrypt & Continue"
     },
@@ -197,7 +194,7 @@
       "processButton": "Execute Physical Deskew Aligner",
       "successMessage": "Document scanned axes horizontally aligned successfully!",
       "compassTitle": "Gyroscope Edge Aligner",
-      "clearButton": "खाली गर्नुहोस्",
+      "clearButton": "साफ़ करें",
       "gyroHelp": "Set detection options on the right. Gyroscope probes are aligning pages horizontally.",
       "dpiLabel": "Detection Precision Resolution",
       "dpi72": "72 DPI (Fastest Probing)",
@@ -212,7 +209,7 @@
       "processButton": "Execute Lossless Reflow",
       "successMessage": "Academic paper double-column flow successfully reflowed to single-column!",
       "previewTitle": "3D Folded Page Simulation View",
-      "clearButton": "खाली गर्नुहोस्",
+      "clearButton": "साफ़ करें",
       "splitRatio": "Middle Gutter Offset Ratio",
       "readingFlowLabel": "Reading Flow Direction",
       "flowVertical": "Vertical Waterfall Layout (Recommended)",
@@ -225,7 +222,7 @@
       "processButton": "Unify Dimensions Layout",
       "successMessage": "Varied PDF sheets successfully unified to standard size!",
       "magnifierTitle": "3D Uniform Multi-Size Page Tray",
-      "clearButton": "खाली गर्नुहोस्",
+      "clearButton": "साफ़ करें",
       "loadedFiles": "{count} multi-size documents loaded",
       "uniformHelp": "Various page shapes (A3, Letter, custom sheets) are scaled and aligned uniformly under the circular light beam.",
       "targetSpecLabel": "Target Uniform Paper Specification",
@@ -243,7 +240,7 @@
       "processButton": "Execute Background Bleach",
       "successMessage": "Handwritten stroke lines and red stamp contrast purified successfully!",
       "magnifierTitle": "Illuminated Contrast Lens (Drag to sweep paper mold)",
-      "clearButton": "खाली गर्नुहोस्",
+      "clearButton": "साफ़ करें",
       "inkTitle": "Handwritten Ink / Signatures",
       "bleachHelp": "(Drag the right slider to bleach backing paper)",
       "targetTypeLabel": "Target Extraction Scheme",
@@ -279,7 +276,7 @@
       "successMessage": "Interactive signature anchors and navigation pointers woven successfully!",
       "anchorLabelDefault": "Sign Here / Click to Place",
       "magnifierTitle": "Agreement Radar Anchor Deck (Click preview to place signatures)",
-      "clearButton": "खाली गर्नुहोस्",
+      "clearButton": "साफ़ करें",
       "anchorLabelLabel": "Guide Overlay Text",
       "targetPageLabel": "Active Target Page"
     },
@@ -290,7 +287,7 @@
       "processButton": "Slice Lossless local Matrix",
       "successMessage": "High-resolution drawing local sliced out losslessly!",
       "magnifierTitle": "Laser Crop Matrix (Drag and scale visual crop borders)",
-      "clearButton": "खाली गर्नुहोस्",
+      "clearButton": "साफ़ करें",
       "targetPageLabel": "Target Slice Page",
       "sliceWidth": "Slice Width: {percent}%",
       "sliceHeight": "Slice Height: {percent}%"
@@ -320,7 +317,7 @@
       "processButton": "Tile Matrix Prepress",
       "successMessage": "Passport photo matrix prepress and crop marks stamped successfully!",
       "previewTitle": "Wooden Pre-flight Card Desk (Magnetic Alignment Snaps)",
-      "clearButton": "खाली गर्नुहोस्",
+      "clearButton": "साफ़ करें",
       "photoSpecLabel": "Target Photo Specifications",
       "photoSpec1Inch": "Standard 1-Inch (25mm x 35mm)",
       "photoSpec2Inch": "Standard 2-Inch (35mm x 49mm)",
@@ -336,7 +333,7 @@
       "processButton": "Execute Invoice Parse & Convert",
       "successMessage": "Exchange rate ledger stamped on foreign invoice successfully!",
       "previewTitle": "Smart Invoice Converted Account Sandtable",
-      "clearButton": "खाली गर्नुहोस्",
+      "clearButton": "साफ़ करें",
       "convertedSuccess": "Converted successfully",
       "convertRateApplied": "Converted original total {original} {currency} locally via exchange rate {rate}.",
       "emptyStateDescription": "Extract currency info from the invoice in one click and render a premium localized exchange-rate card styled with glassmorphism locally.",
@@ -355,7 +352,7 @@
       "processButton": "Generate ID Tiling Sheet",
       "successMessage": "ID cards arranged onto standard A4 sheet successfully!",
       "previewTitle": "ID Layout Preview Deck (Magnetic snapping layout grids)",
-      "clearButton": "खाली गर्नुहोस्",
+      "clearButton": "साफ़ करें",
       "frontLabel": "FRONT (Face)",
       "backLabel": "BACK (Details)",
       "watermarkLabel": "Anti-Copy Security Watermark Text",
@@ -373,7 +370,7 @@
       "processButton": "Extract PDF Summary Note",
       "successMessage": "All highlights and commenter notes extracted successfully!",
       "previewTitle": "Extraction Summary Preview Deck",
-      "clearButton": "खाली गर्नुहोस्",
+      "clearButton": "साफ़ करें",
       "formatLabel": "Export Document Format",
       "formatMd": "Markdown (.md - hierarchy preserved)",
       "formatJson": "JSON Data (Developer format)",
@@ -391,7 +388,7 @@
       "processButton": "Execute Stream Purge",
       "successMessage": "All matched watermark background layers purged successfully!",
       "previewTitle": "Watermark Removal Precision Sandbox",
-      "clearButton": "खाली गर्नुहोस्",
+      "clearButton": "साफ़ करें",
       "emptyStateDescription": "Identify Tj/TJ contents stream keywords and automatically clean repetitive backdrop layouts, keeping raw vector resolution.",
       "watermarkKeywordsLabel": "Target Watermark Text Pattern",
       "watermarkKeywordsPlaceholder": "e.g. COPY, CONFIDENTIAL (comma-separated)",
@@ -404,7 +401,7 @@
       "processButton": "Execute Privacy Redaction",
       "successMessage": "All sensitive privacy data masked and purged successfully!",
       "previewTitle": "Privacy Data Redaction Sandtable",
-      "clearButton": "खाली गर्नुहोस्",
+      "clearButton": "साफ़ करें",
       "emptyStateDescription": "Discover and obscure target sensitive categories, completely clearing corresponding glyph text streams from PDF.",
       "emailRedactLabel": "Filter Email Addresses",
       "phoneRedactLabel": "Filter Phone Numbers",
@@ -419,7 +416,7 @@
       "processButton": "Generate Outline Bookmarks",
       "successMessage": "Chapter bookmark outlines computed and injected successfully!",
       "previewTitle": "3D Dynamic Outline Hierarchy Tree",
-      "clearButton": "खाली गर्नुहोस्",
+      "clearButton": "साफ़ करें",
       "emptyStateDescription": "Inspects title font sizing and hierarchical tags like 'Chapter 1' to compile deep expandable bookmark navigation sidebars.",
       "detectStrategyLabel": "Title Detection Strategy",
       "detectStrategyBoth": "Font Size Weight + Regex Patterns",
@@ -434,7 +431,7 @@
       "processButton": "Batch Position & Inject Barcode",
       "successMessage": "QR codes / barcodes batches injected successfully!",
       "previewTitle": "Visual Barcode Alignment Grid Workspace",
-      "clearButton": "खाली गर्नुहोस्",
+      "clearButton": "साफ़ करें",
       "gridLabel": "Origin is at bottom-left corner (X: {xPos}pt, Y: {yPos}pt)",
       "barcodeTypeLabel": "Barcode Symbology",
       "barcodeTypeQr": "QR Code",
@@ -450,7 +447,7 @@
       "processButton": "Extract High-Fidelity Stamp",
       "successMessage": "Signature and seal background purged successfully!",
       "previewTitle": "Signature Stamp Extraction Deck",
-      "clearButton": "खाली गर्नुहोस्",
+      "clearButton": "साफ़ करें",
       "emptyStateDescription": "Slide purification factors to bleach grey sheet shadow pixels and emphasize high fidelity red stamps.",
       "optimizerTypeLabel": "Signature / Seal Target Category",
       "optimizerTypeAuto": "Auto-boost chromatic features",
@@ -466,7 +463,7 @@
       "processButton": "Initiate Link Diagnosis",
       "successMessage": "Dead links diagnosed and overridden successfully!",
       "previewTitle": "Interactive Hyperlinks Diagnostic Tree Map",
-      "clearButton": "खाली गर्नुहोस्",
+      "clearButton": "साफ़ करें",
       "detectingText": "Probing URL reachability status...",
       "idleText": "Click the trigger button to scan global hyperlink nodes.",
       "pageNumberLabel": "Page {page}",
@@ -480,7 +477,7 @@
       "processButton": "Inject Two-Way Interactive TOC",
       "successMessage": "Interactive Table of Contents front page stitched successfully!",
       "previewTitle": "Interactive TOC Folded Simulation Preview",
-      "clearButton": "खाली गर्नुहोस्",
+      "clearButton": "साफ़ करें",
       "emptyStateDescription": "Build elegant, linkable table of contents sheet while anchoring 'Back to TOC' jumping pointer guides on sheet margins.",
       "tocTitleLabel": "TOC Front Page Title Text",
       "insertPageLabel": "Insertion Index Page Offset (0 for start)"
@@ -551,7 +548,7 @@
       "progressRunningDiff": "Running CJK semantic alignment and paragraph diffing...",
       "errorDiffFailed": "Algorithm exception occurred during semantic comparison.",
       "originalPdfTitle": "Original PDF (Left Version)",
-      "removeButton": "हटाउनुहोस्",
+      "removeButton": "हटाएं",
       "originalPdfLabel": "Upload Original PDF",
       "originalPdfDesc": "Serves as the baseline/original layout",
       "modifiedPdfTitle": "Modified PDF (Right Version)",
@@ -567,7 +564,7 @@
       "filterMoved": "Shifted Paragraphs",
       "resetButton": "Reset Comparison",
       "prevPage": "Previous",
-      "nextPage": "अगाडि",
+      "nextPage": "आगे",
       "prevPair": "Prev Page Pair",
       "pagePairIndex": "Page {current} of {total}",
       "insertedPage": "📂 Inserted Page",
@@ -591,7 +588,7 @@
     },
     "compress": {
       "waitingFiles": "Pending Files ({count})",
-      "clearAll": "सबै खाली गर्नुहोस्",
+      "clearAll": "सभी साफ़ करें",
       "sliderTooltip": "Drag the slider to compare original vs optimized quality (Page 1)",
       "qualityCompare": "Left: Original (100%) | Right: Compressed ({quality})",
       "sizeShrink": "Volume Reduction (Light)",
@@ -632,7 +629,7 @@
       "successDesc": "Wiped all XMP metadata, edit records, PieceInfo, and optional visible content layers (OCG). The xref table was fully reconstructed."
     },
     "editPdf": {
-      "saveBtn": "बचत गर्नुहोस्",
+      "saveBtn": "सहेजें",
       "annCloud": "Cloud",
       "annRectangle": "Rectangle",
       "annCircle": "Circle",
@@ -748,7 +745,7 @@
       "errorUpload": "Please upload a target PDF first.",
       "progressInjecting": "Injecting page label catalog records...",
       "errorInjecting": "Failed to inject page labels.",
-      "errorUnknown": "अज्ञात त्रुटि देखा पर्यो।",
+      "errorUnknown": "एक अज्ञात त्रुटि हुई।",
       "uploadLabel": "1. Upload Document (PDF)",
       "uploadSuccess": "{count} page(s) • {size} MB",
       "uploadButton": "Upload PDF",
@@ -879,7 +876,7 @@
       "clickToDelete": "Click to delete page",
       "pageNumber": "Page {page}",
       "entropyLabel": "Entropy: {entropy}",
-      "forceDelete": "हटाउनुहोस्",
+      "forceDelete": "हटाएं",
       "forceKeep": "Retain",
       "blankBadge": "Blank"
     },
@@ -888,7 +885,7 @@
       "optionsHelp": "Select pages below and use the dials/slider to align or rotate pages.",
       "selectedPages": "Selected {selected} / {total} page(s)",
       "selectAll": "Select All",
-      "clearAll": "खाली गर्नुहोस्",
+      "clearAll": "साफ़ करें",
       "quickRotate": "Quick Rotation Angles",
       "fineRotate": "Fine-Grained Alignment Dial",
       "rotateLeft90": "Rotate Left 90°",
@@ -970,7 +967,7 @@
       "viewOnGithub": "View on GitHub",
       "skipVersion": "Skip this version",
       "remindLater": "Remind me later",
-      "close": "बन्द गर्नुहोस्",
+      "close": "बंद करें",
       "newVersionBadge": "New Version",
       "toastPrompt": "A new version is available with improved stability and performance. Update now for the best experience.",
       "viewDetails": "Update Now / View Details",
@@ -983,38 +980,36 @@
       "linkCopied": "Download link copied to clipboard!"
     },
     "categories": {
-      "organize": "व्यवस्थित गर्नुहोस्",
-      "optimize": "अनुकूलन गर्नुहोस्",
-      "convertFrom": "PDF बाट रूपान्तरण",
-      "convertTo": "PDF मा रूपान्तरण",
-      "edit": "सम्पादन गर्नुहोस्",
+      "organize": "व्यवस्थित करें",
+      "optimize": "अनुकूलित करें",
+      "convertFrom": "PDF से बदलें",
+      "convertTo": "PDF में बदलें",
+      "edit": "संपादित करें",
       "security": "सुरक्षा"
     }
   },
   "toolsPage": {
-    "title": "सबै PDF उपकरणहरू",
-    "subtitle": "तपाईंको उत्पादकता बढाउन ६७+ व्यावसायिक उपकरणहरू। १००% निःशुल्क र सुरक्षित।",
-    "filters": "फिल्टरहरू",
-    "allTools": "सबै उपकरणहरू",
-    "clearAll": "सबै हटाउनुहोस्",
-    "clearFilters": "फिल्टरहरू खाली गर्नुहोस्",
-    "showingAll": "सबै {count} उपकरणहरू देखाउँदै",
-    "showingFiltered": "{total} मध्ये {filtered} उपकरणहरू देखाउँदै",
+    "title": "Professional PDF Tools",
+    "subtitle": "{count}+ free, secure, and easy-to-use tools for all your PDF needs.",
+    "filters": "फ़िल्टर",
+    "allTools": "सभी टूल्स",
+    "clearAll": "सभी साफ़ करें",
+    "clearFilters": "फ़िल्टर साफ़ करें",
+    "showingAll": "सभी {count} टूल्स दिखाए जा रहे हैं",
+    "showingFiltered": "{total} में से {filtered} टूल्स दिखाए जा रहे हैं",
     "forQuery": "for \"{query}\"",
     "inCategory": "in {category}",
-    "noToolsFound": "कुनै उपकरण फेला परेन",
-    "searchPlaceholder": "उपकरण खोज्नुहोस् (जस्तै: मर्ज, कम्प्रेस, हस्ताक्षर)...",
-    "noResults": "कुनै उपकरण फेला परेन"
+    "noToolsFound": "कोई टूल नहीं मिला"
   },
   "faqPage": {
-    "title": "प्रायः सोधिने प्रश्नहरू (FAQ)",
-    "subtitle": "iCreatePDF सम्बन्धी सम्पूर्ण जिज्ञासा र जानकारी",
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to common questions about {brand}",
     "searchPlaceholder": "Search FAQs...",
     "noResults": "No FAQs found matching your search.",
     "expandAll": "Expand All",
     "collapseAll": "Collapse All",
     "categories": {
-      "all": "सबै",
+      "all": "सभी",
       "general": "General",
       "privacy": "Privacy & Security",
       "features": "Features",
@@ -1104,7 +1099,7 @@
     }
   },
   "aboutPage": {
-    "title": "iCreatePDF को बारेमा",
+    "title": "About {brand}",
     "description": "{brand} is a free, privacy-focused PDF toolkit that runs entirely in your browser. With {count}+ professional tools, you can edit, convert, merge, split, and secure your PDF files without ever uploading them to a server.",
     "mission": {
       "title": "Our Mission",
@@ -1131,7 +1126,7 @@
         "description": "PDFCraft is completely free to use with no hidden costs, no registration required, and no limits on usage."
       },
       "openSource": {
-        "title": "खुला स्रोत (Open Source)",
+        "title": "ओपन सोर्स (Open Source)",
         "description": "Built with transparency in mind. Our code is open source, allowing anyone to verify our privacy claims."
       },
       "community": {
@@ -1155,8 +1150,7 @@
       "title": "Ready to Get Started?",
       "description": "Explore our {count}+ PDF tools and see what {brand} can do for you.",
       "button": "Browse All Tools"
-    },
-    "subtitle": "गोपनीयता-प्रथम, सुरक्षित र शक्तिशाली PDF समाधान"
+    }
   },
   "contactPage": {
     "hero": {
@@ -1223,9 +1217,7 @@
       "title": "Looking for Quick Answers?",
       "description": "Check out our FAQ page for answers to common questions about {brand}.",
       "button": "View FAQ"
-    },
-    "title": "हामीलाई सम्पर्क गर्नुहोस्",
-    "subtitle": "कुनै सुझाव, प्रतिक्रिया वा प्रश्न छ? हामीलाई सन्देश पठाउनुहोस्।"
+    }
   },
   "errors": {
     "pageError": "Something went wrong",
@@ -1255,18 +1247,18 @@
   },
   "home": {
     "hero": {
-      "title": "निःशुल्क, सुरक्षित र ब्राउजर-आधारित PDF उपकरणहरू",
+      "title": "Professional PDF Tools",
       "highlight": "Professional Tools",
-      "subtitle": "कुनै सर्भर अपलोड बिना आफ्नो ब्राउजरमै PDF फाइलहरू मर्ज, स्प्लिट, कम्प्रेस र सम्पादन गर्नुहोस्। १००% निजी, छिटो र पूर्ण रूपमा निःशुल्क।",
-      "cta": "सबै उपकरणहरू हेर्नुहोस्"
+      "subtitle": "Free, private, and powerful PDF processing in your browser",
+      "cta": "Get Started"
     },
     "features": {
       "privacy": {
-        "title": "१००% निजी तथा सुरक्षित",
+        "title": "100% निजी एवं सुरक्षित",
         "description": "All processing happens in your browser. Your files never leave your device."
       },
       "free": {
-        "title": "पूर्ण रूपमा निःशुल्क",
+        "title": "पूरी तरह से मुफ़्त",
         "description": "No registration, no limits, no hidden costs."
       },
       "powerful": {
@@ -1275,23 +1267,22 @@
       }
     },
     "popularTools": {
-      "badge": "सबैभन्दा लोकप्रिय",
-      "title": "लाखौं प्रयोगकर्ताहरूद्वारा रुचाइएको",
-      "description": "सुरक्षित र अफलाइन PDF सम्पादनका लागि iCreatePDF रोज्ने प्रयोगकर्ताहरू",
-      "subtitle": "विश्वभरका प्रयोगकर्ताहरूद्वारा सबैभन्दा बढी रुचाइएका PDF उपकरणहरू"
+      "badge": "सबसे लोकप्रिय",
+      "title": "लाखों उपयोगकर्ताओं द्वारा पसंद किया गया",
+      "description": "सुरक्षित ऑफ़लाइन PDF संपादन के लिए iCreatePDF चुनें"
     },
     "categoriesSection": {
-      "title": "सबै उपकरण कोटीहरू अन्वेषण गर्नुहोस्",
-      "description": "कोटी अनुसार व्यवस्थित गरिएका ६७+ व्यावसायिक PDF उपकरणहरू",
-      "toolsCount": "{count} उपकरणहरू"
+      "title": "सभी टूल श्रेणियों को देखें",
+      "description": "श्रेणी के अनुसार व्यवस्थित 67+ पेशेवर PDF टूल्स",
+      "toolsCount": "{count} टूल्स"
     },
     "categoriesDescription": {
-      "editAnnotate": "PDF सामग्री सम्पादन गर्नुहोस्, टिप्पणी थप्नुहोस् र परिमार्जन गर्नुहोस्",
-      "convertToPdf": "विभिन्न ढाँचाहरूलाई PDF मा रूपान्तरण गर्नुहोस्",
-      "convertFromPdf": "PDF लाई अन्य ढाँचाहरूमा रूपान्तरण गर्नुहोस्",
-      "organizeManage": "PDF पृष्ठहरू व्यवस्थित, मर्ज, विभाजन र व्यवस्थापन गर्नुहोस्",
-      "optimizeRepair": "PDF फाइलहरू कम्प्रेस, अनुकूलन र मर्मत गर्नुहोस्",
-      "securePdf": "PDF फाइलहरू इन्क्रिप्ट, अनलक र सुरक्षित गर्नुहोस्"
+      "editAnnotate": "PDF सामग्री संपादित करें, एनोटेट करें और संशोधित करें",
+      "convertToPdf": "विभिन्न फ़ॉर्मेट्स को PDF में बदलें",
+      "convertFromPdf": "PDF को अन्य फ़ॉर्मेट्स में बदलें",
+      "organizeManage": "PDF पेजों को व्यवस्थित, मर्ज और विभाजित करें",
+      "optimizeRepair": "PDF फ़ाइलों को कंप्रेस, ऑप्टिमाइज़ और रिपेयर करें",
+      "securePdf": "PDF फ़ाइलों को एन्क्रिप्ट और सुरक्षित करें"
     },
     "stats": {
       "pdfTools": "PDF Tools",
@@ -1300,20 +1291,20 @@
       "filesUploaded": "Files Uploaded"
     },
     "categories": {
-      "all": "सबै उपकरणहरू",
+      "all": "सभी टूल्स",
       "popular": "लोकप्रिय",
-      "organizeManage": "व्यवस्थापन र संगठन",
-      "optimizeRepair": "अनुकूलन र मर्मत",
-      "convertToPdf": "PDF मा रूपान्तरण",
-      "convertFromPdf": "PDF बाट रूपान्तरण",
-      "editAnnotate": "सम्पादन र टिप्पणी",
-      "securePdf": "सुरक्षा र लक",
-      "organize": "व्यवस्थित गर्नुहोस्",
-      "convert": "रूपान्तरण गर्नुहोस्",
-      "edit": "सम्पादन गर्नुहोस्",
+      "organizeManage": "प्रबंधन और संगठन",
+      "optimizeRepair": "अनुकूलन और मरम्मत",
+      "convertToPdf": "PDF में बदलें",
+      "convertFromPdf": "PDF से बदलें",
+      "editAnnotate": "संपादन और टिप्पणी",
+      "securePdf": "सुरक्षा और लॉक",
+      "organize": "व्यवस्थित करें",
+      "convert": "कन्वर्ट करें",
+      "edit": "संपादित करें",
       "security": "सुरक्षा",
-      "optimize": "अनुकूलन गर्नुहोस्",
-      "advanced": "उन्नत उपकरणहरू"
+      "optimize": "अनुकूलित करें",
+      "advanced": "उन्नत टूल्स"
     }
   },
   "workflow": {
@@ -1324,12 +1315,12 @@
     "toolbox": "Tool Box",
     "dragToAdd": "Drag or double-click a tool to add it to the workflow",
     "addToWorkflowHint": "Drag or double-click to add to workflow",
-    "searchTools": "उपकरणहरू खोज्नुहोस्...",
+    "searchTools": "टूल्स खोजें...",
     "toolsAvailable": "tools available",
     "templates": "Templates",
     "saved": "Saved",
     "favorites": "Favorites",
-    "allCategories": "सबै",
+    "allCategories": "सभी",
     "common": "Common",
     "conversion": "Conversion",
     "optimization": "Optimization",
@@ -1338,14 +1329,14 @@
     "pdfInput": "PDF Input",
     "imageInput": "Image Input",
     "fileInput": "File Input",
-    "downloadPdf": "PDF डाउनलोड गर्नुहोस्",
+    "downloadPdf": "PDF डाउनलोड करें",
     "downloadZip": "Download as ZIP",
     "outputCategory": "Output & Export",
     "noSavedWorkflows": "No saved workflows yet",
     "saveWorkflowHint": "Create and save your first workflow",
     "noFavorites": "No favorite workflows",
     "favoriteHint": "Star workflows to add them here",
-    "selectFiles": "फाइलहरू छान्नुहोस्",
+    "selectFiles": "फ़ाइलें चुनें",
     "filesSelected": "files selected",
     "execute": "Execute",
     "running": "Running",
@@ -1359,7 +1350,7 @@
     "retry": "Retry",
     "nodes": "nodes",
     "import": "Import",
-    "clear": "खाली गर्नुहोस्",
+    "clear": "साफ़ करें",
     "saveWorkflow": "Save Workflow",
     "workflowName": "Workflow Name",
     "enterName": "Enter workflow name...",
@@ -1374,9 +1365,9 @@
     "undo": "Undo",
     "redo": "Redo",
     "noSettings": "No configurable settings for this tool",
-    "reset": "रिसेट गर्नुहोस्",
-    "cancel": "रद्द गर्नुहोस्",
-    "apply": "लागू गर्नुहोस्",
+    "reset": "रीसेट करें",
+    "cancel": "रद्द करें",
+    "apply": "लागू करें",
     "preview": "Preview",
     "showPreview": "Show Preview",
     "noFilesForPreview": "Select files to see preview",
@@ -1387,8 +1378,8 @@
     "viewEditFiles": "View/Edit Files",
     "moveUp": "Move Up",
     "moveDown": "Move Down",
-    "removeFile": "हटाउनुहोस्",
-    "clearAll": "सबै खाली गर्नुहोस्",
+    "removeFile": "हटाएं",
+    "clearAll": "सभी साफ़ करें",
     "previewNotAvailable": "Preview not available for this file type",
     "confirm": "Confirm",
     "collapseSidebar": "Collapse sidebar",
@@ -1517,7 +1508,7 @@
   },
   "tools": {
     "search": {
-      "placeholder": "उपकरणहरू खोज्नुहोस्...",
+      "placeholder": "टूल्स खोजें...",
       "noResults": "No tools found for \"{query}\""
     },
     "relatedTools": "You May Also Like",
@@ -1648,7 +1639,7 @@
       "pageRangesPlaceholder": "e.g., 1-3, 5, 7-9",
       "modeEveryNPages": "Every N Pages",
       "pagePreviewTitle": "Select Pages",
-      "splitButton": "PDF विभाजन गर्नुहोस्",
+      "splitButton": "PDF विभाजित करें",
       "resultsTitle": "Split Results",
       "successMessage": "PDF split successfully! Click the download buttons to save your files.",
       "modeVisualShort": "Visual Select",
@@ -1775,8 +1766,8 @@
       "uploadLabel": "Upload PDF Files",
       "uploadDescription": "Drag and drop PDF files here, or click to browse. You can upload multiple files.",
       "addMoreFiles": "Add More PDF Files",
-      "organize": "व्यवस्थित",
-      "delete": "हटाउनुहोस्",
+      "organize": "व्यवस्थित करें",
+      "delete": "हटाएं",
       "rotate": "Rotate",
       "duplicate": "Duplicate",
       "addBlank": "Add Blank",
@@ -1784,7 +1775,7 @@
       "deleteHint": "Click pages to mark them for deletion.",
       "rotateHint": "Click rotation buttons on pages, or rotate all:",
       "duplicateHint": "Click the duplicate button on pages to copy them.",
-      "reset": "रिसेट गर्नुहोस्",
+      "reset": "रीसेट करें",
       "undo": "Undo",
       "redo": "Redo",
       "selectAll": "Select All",
@@ -1793,11 +1784,11 @@
       "rotateRight": "Right",
       "exportPDF": "Export PDF",
       "downloadSelected": "Download Selected",
-      "clearAll": "सबै खाली गर्नुहोस्",
+      "clearAll": "सभी साफ़ करें",
       "addBlankPageTitle": "Add Blank Pages",
       "numberOfPages": "Number of pages",
       "insertPosition": "Insert at position",
-      "processButton": "परिवर्तन लागू गर्नुहोस्",
+      "processButton": "परिवर्तन लागू करें",
       "successMessage": "PDF processed successfully! Click the download button to save your file."
     },
     "viewMetadata": {
@@ -1838,7 +1829,7 @@
       "creatorPlaceholder": "Enter creator application",
       "producer": "PDF Producer",
       "producerPlaceholder": "Enter PDF producer",
-      "resetButton": "रिसेट गर्नुहोस्",
+      "resetButton": "रीसेट करें",
       "saveButton": "Save Metadata",
       "editAnother": "Edit Another PDF",
       "modificationNote": "The modification date will be updated automatically when you save.",
@@ -1979,7 +1970,7 @@
       "zoomIn": "Zoom In",
       "zoomOut": "Zoom Out",
       "resetZoom": "Reset Zoom",
-      "reset": "रिसेट गर्नुहोस्",
+      "reset": "रीसेट करें",
       "fullscreen": "Fullscreen",
       "exitFullscreen": "Exit Fullscreen",
       "marginTop": "Margin Top",
@@ -1997,10 +1988,10 @@
       "resetOrder": "Reset Order",
       "reorderHint": "Drag and drop pages to reorder them. Use the arrows to move pages up or down.",
       "orderChanged": "Page order has been changed. Click \"Apply Changes\" to save.",
-      "applyButton": "परिवर्तन लागू गर्नुहोस्",
+      "applyButton": "परिवर्तन लागू करें",
       "successMessage": "PDF pages reorganized successfully! Click the download button to save your file.",
       "duplicatePage": "Duplicate",
-      "deletePage": "हटाउनुहोस्",
+      "deletePage": "हटाएं",
       "cannotDeleteLast": "Cannot delete the last page"
     },
     "repairPdf": {
@@ -2029,7 +2020,7 @@
       "filesTitle": "Selected Files",
       "extractButton": "Extract Attachments",
       "extractedTitle": "Extracted Attachments",
-      "downloadAll": "सबै डाउनलोड गर्नुहोस्",
+      "downloadAll": "सभी डाउनलोड करें",
       "successMessage": "Attachments extracted successfully!"
     },
     "extractImages": {
@@ -2043,7 +2034,7 @@
       "minSizeKB": "Min Size (KB)",
       "extractButton": "Extract Images",
       "extractedTitle": "Extracted Images",
-      "downloadAll": "सबै डाउनलोड गर्नुहोस्",
+      "downloadAll": "सभी डाउनलोड करें",
       "downloadZip": "Download as ZIP",
       "page": "Page",
       "successMessage": "Images extracted successfully! Click to download individual images or use \"Download as ZIP\".",
@@ -2196,7 +2187,7 @@
       "selectedCount": "{count} attachment(s) selected for removal",
       "selectAtLeastOne": "Please select at least one attachment to remove.",
       "attachmentCount": "attachment(s)",
-      "saveButton": "परिवर्तनहरू बचत गर्नुहोस्",
+      "saveButton": "परिवर्तन सहेजें",
       "successMessage": "Attachments removed successfully! Click the download button to save your file."
     },
     "comparePdfs": {
@@ -2765,7 +2756,7 @@
       "checkboxTool": "Checkbox",
       "dropdownTool": "Dropdown",
       "radioTool": "Radio",
-      "deleteTool": "हटाउनुहोस्",
+      "deleteTool": "हटाएं",
       "pageNavigation": "Page {current} / {total}",
       "selectHint": "Click a field to select, drag to move, use corner to resize",
       "addFieldHint": "Click on the PDF to add a {type} field",
@@ -2792,7 +2783,7 @@
       "saveProject": "Save Project",
       "savedProjects": "Saved Projects",
       "loadProject": "Load",
-      "deleteProject": "हटाउनुहोस्",
+      "deleteProject": "हटाएं",
       "saveProjectTitle": "Save Project",
       "projectName": "Project Name",
       "projectNamePlaceholder": "Enter project name...",
@@ -2831,12 +2822,12 @@
       "properties": "Properties",
       "fieldsTab": "Fields",
       "optionsTab": "Options",
-      "addField": "थप्नुहोस्",
+      "addField": "जोड़ें",
       "clickToAdd": "Click on PDF to add field",
       "pages": "pages",
-      "processingButton": "प्रशोधन हुँदैछ...",
-      "cancelButton": "रद्द गर्नुहोस्",
-      "saveButton": "बचत गर्नुहोस्",
+      "processingButton": "प्रोसेसिंग जारी है...",
+      "cancelButton": "रद्द करें",
+      "saveButton": "सहेजें",
       "orCreateBlank": "Or",
       "createBlankPdf": "Create Blank PDF",
       "createBlankPdfTitle": "Create Blank PDF",
