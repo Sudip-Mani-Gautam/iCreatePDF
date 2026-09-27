@@ -162,6 +162,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
           tabIndex={-1}
           className={`
             relative z-10 w-full ${sizeStyles[size]}
+            max-h-[calc(100vh-2.5rem)] flex flex-col
             bg-[hsl(var(--color-card))]
             rounded-[var(--radius-lg)]
             shadow-[var(--shadow-xl)]
@@ -171,10 +172,10 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
           {...props}
         >
           {/* Header */}
-          <div className="flex items-center justify-between p-4 border-b border-[hsl(var(--color-border))]">
+          <div className="flex items-center justify-between p-3.5 sm:p-4 border-b border-[hsl(var(--color-border))] shrink-0">
             <h2
               id="modal-title"
-              className="text-lg font-semibold text-[hsl(var(--color-card-foreground))]"
+              className="text-base sm:text-lg font-semibold text-[hsl(var(--color-card-foreground))]"
             >
               {title}
             </h2>
@@ -210,7 +211,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
           </div>
 
           {/* Content */}
-          <div className="p-4 text-[hsl(var(--color-card-foreground))]">
+          <div className="p-3.5 sm:p-4 text-[hsl(var(--color-card-foreground))] overflow-y-auto flex-1 overscroll-contain">
             {children}
           </div>
         </div>

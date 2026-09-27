@@ -44,6 +44,7 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({
 }) => {
   const t = useTranslations('common');
   const [showAllAssets, setShowAllAssets] = useState(false);
+  const [showReleaseNotes, setShowReleaseNotes] = useState(false);
   const [copiedUrl, setCopiedUrl] = useState<string | null>(null);
   const [downloadNotice, setDownloadNotice] = useState<{
     status: 'opening' | 'success' | 'failed';
@@ -201,10 +202,10 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({
       isOpen={isOpen}
       onClose={onClose}
       title={getMsg('title', 'Software Update')}
-      size="xl"
-      className="max-w-2xl rounded-3xl overflow-hidden border border-zinc-200/90 dark:border-zinc-800 shadow-2xl bg-white dark:bg-zinc-950"
+      size="lg"
+      className="max-w-lg rounded-2xl border border-zinc-200/90 dark:border-zinc-800 shadow-2xl bg-white dark:bg-zinc-950"
     >
-      <div className="space-y-5 py-1">
+      <div className="space-y-3.5">
         {/* State: Loading */}
         {loading && (
           <div className="flex flex-col items-center justify-center py-12 space-y-4">
@@ -288,37 +289,37 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({
 
         {/* State: Update available */}
         {!loading && !result?.error && result?.hasUpdate && (
-          <div className="space-y-4.5">
-            {/* High-End Hero Version Banner */}
-            <div className="rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-gradient-to-br from-zinc-50 via-white to-red-50/20 dark:from-zinc-900/90 dark:via-zinc-900 dark:to-red-950/15 p-4.5 shadow-xs">
-              <div className="flex items-start justify-between gap-3">
-                <div className="flex items-center gap-3.5">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-red-500 to-rose-600 text-white flex items-center justify-center shadow-lg shadow-red-500/25 shrink-0">
-                    <Sparkles className="w-6 h-6" />
+          <div className="space-y-3">
+            {/* Compact Hero Version Banner */}
+            <div className="rounded-xl border border-zinc-200/90 dark:border-zinc-800 bg-gradient-to-br from-zinc-50 via-white to-red-50/20 dark:from-zinc-900/90 dark:via-zinc-900 dark:to-red-950/15 p-3 shadow-xs">
+              <div className="flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-red-500 to-rose-600 text-white flex items-center justify-center shadow-md shadow-red-500/20 shrink-0">
+                    <Sparkles className="w-4.5 h-4.5" />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <h3 className="font-extrabold text-base text-zinc-950 dark:text-white tracking-tight">
+                      <h3 className="font-extrabold text-sm text-zinc-950 dark:text-white tracking-tight">
                         {getMsg('available', 'New Version Available')}
                       </h3>
-                      <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                         {result.latestVersion}
                       </span>
                     </div>
-                    <div className="flex items-center gap-2.5 text-xs text-zinc-500 dark:text-zinc-400 mt-1.5 flex-wrap">
-                      <span className="flex items-center gap-1">
+                    <div className="flex items-center gap-2 text-xs text-zinc-500 dark:text-zinc-400 mt-0.5 flex-wrap">
+                      <span className="flex items-center gap-1 text-[11px]">
                         {getMsg('currentVersion', 'Current')}:
-                        <code className="font-mono font-medium text-[11px] bg-zinc-200/70 dark:bg-zinc-800 px-1.5 py-0.5 rounded text-zinc-700 dark:text-zinc-300">
+                        <code className="font-mono text-[10px] bg-zinc-200/70 dark:bg-zinc-800 px-1 py-0.5 rounded text-zinc-700 dark:text-zinc-300">
                           {result.currentVersion}
                         </code>
                       </span>
-                      <ArrowRight className="w-3 h-3 text-zinc-400" />
-                      <span className="font-semibold text-emerald-600 dark:text-emerald-400">
+                      <ArrowRight className="w-2.5 h-2.5 text-zinc-400" />
+                      <span className="font-semibold text-xs text-emerald-600 dark:text-emerald-400">
                         {result.latestVersion}
                       </span>
                       {result.release?.publishedAt && (
-                        <span className="text-[11px] text-zinc-400 flex items-center gap-1 ml-1 pl-2 border-l border-zinc-200 dark:border-zinc-800">
+                        <span className="text-[10px] text-zinc-400 flex items-center gap-1 ml-1 pl-1.5 border-l border-zinc-200 dark:border-zinc-800">
                           <Calendar className="w-3 h-3" />
                           {new Date(result.release.publishedAt).toLocaleDateString()}
                         </span>
@@ -329,71 +330,82 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({
               </div>
             </div>
 
-            {/* Formatted Rich Markdown Release Notes */}
+            {/* Collapsible Rich Markdown Release Notes */}
             {releaseNotesHtml && (
-              <div className="space-y-1.5">
-                <div className="flex items-center justify-between text-[11px] font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500 px-1">
-                  <span>{getMsg('releaseNotes', 'Release Notes')}</span>
-                  <span className="font-normal normal-case text-zinc-400">Changelog & Improvements</span>
-                </div>
-                <div
-                  className="max-h-48 overflow-y-auto rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/60 dark:bg-zinc-900/40 p-4 text-xs text-zinc-700 dark:text-zinc-300 leading-relaxed scrollbar-thin
-                    [&_h2]:text-sm [&_h2]:font-bold [&_h2]:text-zinc-950 dark:[&_h2]:text-white [&_h2]:mb-2 [&_h2]:mt-1
-                    [&_h3]:text-xs [&_h3]:font-bold [&_h3]:text-zinc-900 dark:[&_h3]:text-zinc-200 [&_h3]:mb-1.5 [&_h3]:mt-3
-                    [&_ul]:list-disc [&_ul]:pl-4 [&_ul]:space-y-1.5 [&_ul]:my-2
-                    [&_li]:text-xs [&_li]:text-zinc-600 dark:[&_li]:text-zinc-300
-                    [&_strong]:font-semibold [&_strong]:text-zinc-950 dark:[&_strong]:text-white
-                    [&_code]:font-mono [&_code]:text-[11px] [&_code]:bg-zinc-200/80 dark:[&_code]:bg-zinc-800 [&_code]:text-red-600 dark:[&_code]:text-red-400 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded-md
-                    [&_p]:my-1.5
-                  "
-                  dangerouslySetInnerHTML={{ __html: releaseNotesHtml }}
-                />
+              <div className="rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/30 overflow-hidden">
+                <button
+                  type="button"
+                  onClick={() => setShowReleaseNotes(!showReleaseNotes)}
+                  className="w-full flex items-center justify-between px-3 py-2 text-left text-xs font-semibold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100/60 dark:hover:bg-zinc-800/50 transition-colors cursor-pointer"
+                >
+                  <span className="flex items-center gap-1.5 font-bold uppercase tracking-wider text-[10px] text-zinc-500 dark:text-zinc-400">
+                    {getMsg('releaseNotes', 'Release Notes')}
+                  </span>
+                  <span className="flex items-center gap-1 text-[11px] text-zinc-400 dark:text-zinc-500 font-normal">
+                    {showReleaseNotes ? 'Hide changelog' : 'View changelog'}
+                    {showReleaseNotes ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                  </span>
+                </button>
+                {showReleaseNotes && (
+                  <div
+                    className="max-h-36 overflow-y-auto px-3.5 pb-3 pt-1 border-t border-zinc-200/60 dark:border-zinc-800/60 text-xs text-zinc-700 dark:text-zinc-300 leading-relaxed scrollbar-thin
+                      [&_h2]:text-xs [&_h2]:font-bold [&_h2]:text-zinc-950 dark:[&_h2]:text-white [&_h2]:mb-1 [&_h2]:mt-1
+                      [&_h3]:text-[11px] [&_h3]:font-bold [&_h3]:text-zinc-900 dark:[&_h3]:text-zinc-200 [&_h3]:mb-1 [&_h3]:mt-2
+                      [&_ul]:list-disc [&_ul]:pl-4 [&_ul]:space-y-1 [&_ul]:my-1.5
+                      [&_li]:text-[11px] [&_li]:text-zinc-600 dark:[&_li]:text-zinc-300
+                      [&_strong]:font-semibold [&_strong]:text-zinc-950 dark:[&_strong]:text-white
+                      [&_code]:font-mono [&_code]:text-[10px] [&_code]:bg-zinc-200/80 dark:[&_code]:bg-zinc-800 [&_code]:text-red-600 dark:[&_code]:text-red-400 [&_code]:px-1 [&_code]:py-0.2 [&_code]:rounded
+                      [&_p]:my-1 [&_p]:text-[11px]
+                    "
+                    dangerouslySetInnerHTML={{ __html: releaseNotesHtml }}
+                  />
+                )}
               </div>
             )}
 
             {/* Download Action Cards */}
-            <div className="space-y-2.5 pt-1">
+            <div className="space-y-2 pt-0.5">
               {/* Primary Download Card */}
               {result.matchedAssets.primary && (
-                <div className="rounded-2xl border border-red-500/25 bg-red-50/30 dark:bg-red-950/20 p-3.5 flex items-center justify-between gap-3 shadow-xs">
-                  <div className="flex items-center gap-3 min-w-0">
-                    <div className="w-10 h-10 rounded-xl bg-red-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-red-600/30">
-                      <Download className="w-5 h-5" />
+                <div className="rounded-xl border border-red-500/25 bg-red-50/30 dark:bg-red-950/20 p-2.5 px-3 flex items-center justify-between gap-3 shadow-xs">
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <div className="w-8 h-8 rounded-lg bg-red-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-red-600/30">
+                      <Download className="w-4 h-4" />
                     </div>
                     <div className="min-w-0">
-                      <div className="flex items-center gap-2">
-                        <span className="font-bold text-sm text-zinc-950 dark:text-white whitespace-nowrap">
+                      <div className="flex items-center gap-1.5">
+                        <span className="font-bold text-xs sm:text-sm text-zinc-950 dark:text-white whitespace-nowrap">
                           {getAssetLabel(result.matchedAssets.primary)}
                         </span>
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-red-600 text-white shrink-0 shadow-xs">
+                        <span className="px-1.5 py-0.2 rounded-full text-[9px] font-extrabold uppercase tracking-wider bg-red-600 text-white shrink-0 shadow-xs">
                           Recommended
                         </span>
                       </div>
-                      <p className="text-xs text-zinc-500 dark:text-zinc-400 truncate mt-0.5">
+                      <p className="text-[11px] text-zinc-500 dark:text-zinc-400 truncate mt-0.5">
                         {cleanAssetName(result.matchedAssets.primary.name)} • {formatFileSize(result.matchedAssets.primary.size)}
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 shrink-0">
+                  <div className="flex items-center gap-1.5 shrink-0">
                     <button
                       type="button"
                       onClick={() => handleCopyLink(result.matchedAssets.primary!.browserDownloadUrl)}
-                      className="p-2.5 rounded-xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors cursor-pointer"
+                      className="p-2 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors cursor-pointer"
                       title={getMsg('copyLink', 'Copy download link')}
                       aria-label="Copy direct download link"
                     >
                       {copiedUrl === result.matchedAssets.primary!.browserDownloadUrl ? (
-                        <Check className="w-4 h-4 text-emerald-600" />
+                        <Check className="w-3.5 h-3.5 text-emerald-600" />
                       ) : (
-                        <Copy className="w-4 h-4" />
+                        <Copy className="w-3.5 h-3.5" />
                       )}
                     </button>
                     <button
                       type="button"
                       onClick={() => handleDownload(result.matchedAssets.primary!)}
-                      className="px-4.5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 active:scale-98 text-white font-bold text-sm shadow-md shadow-red-600/30 transition-all flex items-center gap-2 cursor-pointer"
+                      className="px-3.5 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 active:scale-98 text-white font-bold text-xs shadow-md shadow-red-600/30 transition-all flex items-center gap-1.5 cursor-pointer"
                     >
-                      <Download className="w-4 h-4" />
+                      <Download className="w-3.5 h-3.5" />
                       <span>Download</span>
                     </button>
                   </div>
@@ -402,40 +414,40 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({
 
               {/* Secondary Download Card (e.g. Windows Installer) */}
               {result.matchedAssets.secondary && (
-                <div className="rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-3.5 flex items-center justify-between gap-3 shadow-xs">
-                  <div className="flex items-center gap-3 min-w-0">
-                    <div className="w-10 h-10 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center shrink-0">
-                      <Package className="w-5 h-5" />
+                <div className="rounded-xl border border-zinc-200/90 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-2.5 px-3 flex items-center justify-between gap-3 shadow-xs">
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <div className="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center shrink-0">
+                      <Package className="w-4 h-4" />
                     </div>
                     <div className="min-w-0">
-                      <span className="font-bold text-sm text-zinc-950 dark:text-white block whitespace-nowrap">
+                      <span className="font-bold text-xs sm:text-sm text-zinc-950 dark:text-white block whitespace-nowrap">
                         {getAssetLabel(result.matchedAssets.secondary)}
                       </span>
-                      <p className="text-xs text-zinc-500 dark:text-zinc-400 truncate mt-0.5">
+                      <p className="text-[11px] text-zinc-500 dark:text-zinc-400 truncate mt-0.5">
                         {cleanAssetName(result.matchedAssets.secondary.name)} • {formatFileSize(result.matchedAssets.secondary.size)}
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 shrink-0">
+                  <div className="flex items-center gap-1.5 shrink-0">
                     <button
                       type="button"
                       onClick={() => handleCopyLink(result.matchedAssets.secondary!.browserDownloadUrl)}
-                      className="p-2.5 rounded-xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors cursor-pointer"
+                      className="p-2 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors cursor-pointer"
                       title={getMsg('copyLink', 'Copy download link')}
                       aria-label="Copy installer download link"
                     >
                       {copiedUrl === result.matchedAssets.secondary!.browserDownloadUrl ? (
-                        <Check className="w-4 h-4 text-emerald-600" />
+                        <Check className="w-3.5 h-3.5 text-emerald-600" />
                       ) : (
-                        <Copy className="w-4 h-4" />
+                        <Copy className="w-3.5 h-3.5" />
                       )}
                     </button>
                     <button
                       type="button"
                       onClick={() => handleDownload(result.matchedAssets.secondary!)}
-                      className="px-4 py-2.5 rounded-xl border border-zinc-300 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-800 active:scale-98 font-semibold text-sm transition-all flex items-center gap-2 text-zinc-900 dark:text-white cursor-pointer"
+                      className="px-3 py-1.5 rounded-lg border border-zinc-300 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-800 active:scale-98 font-semibold text-xs transition-all flex items-center gap-1.5 text-zinc-900 dark:text-white cursor-pointer"
                     >
-                      <Download className="w-4 h-4" />
+                      <Download className="w-3.5 h-3.5" />
                       <span>Download</span>
                     </button>
                   </div>
@@ -445,7 +457,7 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({
               {/* Status Feedback Notification */}
               {downloadNotice && (
                 <div
-                  className={`p-3 rounded-xl text-xs flex items-center gap-2.5 animate-in fade-in slide-in-from-top-1 duration-200 ${
+                  className={`p-2 rounded-lg text-xs flex items-center gap-2 animate-in fade-in slide-in-from-top-1 duration-200 ${
                     downloadNotice.status === 'success'
                       ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800'
                       : downloadNotice.status === 'failed'
@@ -454,22 +466,22 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({
                   }`}
                 >
                   {downloadNotice.status === 'success' ? (
-                    <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
+                    <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-600 dark:text-emerald-400" />
                   ) : downloadNotice.status === 'failed' ? (
-                    <AlertCircle className="h-4 w-4 shrink-0 text-amber-600 dark:text-amber-400" />
+                    <AlertCircle className="h-3.5 w-3.5 shrink-0 text-amber-600 dark:text-amber-400" />
                   ) : (
-                    <RefreshCw className="h-4 w-4 shrink-0 animate-spin text-red-600" />
+                    <RefreshCw className="h-3.5 w-3.5 shrink-0 animate-spin text-red-600 dark:text-red-400" />
                   )}
-                  <span className="flex-1 leading-snug font-medium">{downloadNotice.text}</span>
+                  <span className="flex-1 font-medium">{downloadNotice.text}</span>
                 </div>
               )}
 
               {/* Fast Mirror Download Strip */}
               {result.matchedAssets.primary?.mirrorDownloadUrl && (
-                <div className="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-zinc-100/70 dark:bg-zinc-900 text-xs border border-zinc-200/60 dark:border-zinc-800/60">
-                  <div className="flex items-center gap-2 text-zinc-600 dark:text-zinc-400">
-                    <span className="text-amber-500 font-bold">⚡</span>
-                    <span className="font-medium">{getMsg('mirrorDownload', 'High-Speed Fast Mirror Download')}</span>
+                <div className="flex items-center justify-between px-3 py-1.5 rounded-lg bg-zinc-100/70 dark:bg-zinc-900/40 text-[11px] text-zinc-500">
+                  <div className="flex items-center gap-1.5 text-zinc-700 dark:text-zinc-300 font-medium">
+                    <Sparkles className="w-3 h-3 text-amber-500" />
+                    <span>Fast Mirror</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <button
@@ -477,7 +489,7 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({
                       onClick={() => handleCopyLink(result.matchedAssets.primary!.mirrorDownloadUrl!)}
                       className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors cursor-pointer flex items-center gap-1"
                     >
-                      <Copy className="w-3.5 h-3.5" />
+                      <Copy className="w-3 h-3" />
                       <span>{getMsg('copyMirrorLink', 'Copy mirror link')}</span>
                     </button>
                     <span className="text-zinc-300 dark:text-zinc-700">|</span>
@@ -498,30 +510,30 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({
                   <button
                     type="button"
                     onClick={() => setShowAllAssets(!showAllAssets)}
-                    className="flex items-center gap-1.5 text-xs font-semibold text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors cursor-pointer py-1"
+                    className="flex items-center gap-1 text-[11px] font-semibold text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors cursor-pointer py-0.5"
                   >
                     <span>{getMsg('allDownloads', 'View all platform downloads')}</span>
                     {showAllAssets ? (
-                      <ChevronUp className="h-3.5 w-3.5" />
+                      <ChevronUp className="h-3 w-3" />
                     ) : (
-                      <ChevronDown className="h-3.5 w-3.5" />
+                      <ChevronDown className="h-3 w-3" />
                     )}
                   </button>
 
                   {showAllAssets && (
-                    <div className="mt-2 space-y-2 rounded-2xl border border-zinc-200 dark:border-zinc-800 p-3 bg-zinc-50/70 dark:bg-zinc-900/50">
+                    <div className="mt-1.5 space-y-1.5 rounded-xl border border-zinc-200 dark:border-zinc-800 p-2 bg-zinc-50/70 dark:bg-zinc-900/50 max-h-40 overflow-y-auto">
                       {result.matchedAssets.all.map((asset) => (
                         <div
                           key={asset.name}
-                          className="flex items-center justify-between py-2 px-3 hover:bg-white dark:hover:bg-zinc-800/70 rounded-xl transition-colors text-xs border border-transparent hover:border-zinc-200 dark:hover:border-zinc-700/60"
+                          className="flex items-center justify-between py-1.5 px-2.5 hover:bg-white dark:hover:bg-zinc-800/70 rounded-lg transition-colors text-xs border border-transparent hover:border-zinc-200 dark:hover:border-zinc-700/60"
                         >
-                          <div className="flex items-center gap-2.5 min-w-0">
+                          <div className="flex items-center gap-2 min-w-0">
                             {getPlatformIcon(asset.platformType)}
                             <div className="min-w-0">
-                              <span className="font-mono font-medium truncate block max-w-[240px] text-zinc-800 dark:text-zinc-200">
+                              <span className="font-mono font-medium truncate block max-w-[200px] sm:max-w-[260px] text-zinc-800 dark:text-zinc-200 text-[11px]">
                                 {cleanAssetName(asset.name)}
                               </span>
-                              <span className="text-[11px] text-zinc-400">
+                              <span className="text-[10px] text-zinc-400">
                                 {formatFileSize(asset.size)}
                               </span>
                             </div>
@@ -529,22 +541,22 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({
                           <div className="flex items-center gap-1.5 shrink-0">
                             <button
                               type="button"
-                              className="p-1.5 rounded-lg text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer"
+                              className="p-1 rounded-md text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer"
                               title={getMsg('copyLink', 'Copy link')}
                               onClick={() => handleCopyLink(asset.browserDownloadUrl)}
                             >
                               {copiedUrl === asset.browserDownloadUrl ? (
-                                <Check className="h-3.5 w-3.5 text-emerald-600" />
+                                <Check className="h-3 w-3 text-emerald-600" />
                               ) : (
-                                <Copy className="h-3.5 w-3.5" />
+                                <Copy className="h-3 w-3" />
                               )}
                             </button>
                             <button
                               type="button"
-                              className="px-2.5 py-1.5 rounded-lg bg-zinc-200/70 hover:bg-red-600 hover:text-white dark:bg-zinc-800 dark:hover:bg-red-600 font-semibold text-[11px] text-zinc-800 dark:text-zinc-200 transition-colors flex items-center gap-1 cursor-pointer"
+                              className="px-2 py-1 rounded-md bg-zinc-200/70 hover:bg-red-600 hover:text-white dark:bg-zinc-800 dark:hover:bg-red-600 font-semibold text-[10px] text-zinc-800 dark:text-zinc-200 transition-colors flex items-center gap-1 cursor-pointer"
                               onClick={() => handleDownload(asset)}
                             >
-                              <Download className="h-3 w-3" />
+                              <Download className="h-2.5 w-2.5" />
                               <span>Get</span>
                             </button>
                           </div>
@@ -556,29 +568,29 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({
               )}
             </div>
 
-            {/* Executive Footer Bar */}
-            <div className="flex items-center justify-between pt-3.5 border-t border-zinc-200/80 dark:border-zinc-800 text-xs">
+            {/* Compact Executive Footer Bar */}
+            <div className="flex items-center justify-between pt-2.5 border-t border-zinc-200/80 dark:border-zinc-800 text-xs">
               <button
                 type="button"
                 onClick={handleOpenGitHub}
-                className="inline-flex items-center gap-1.5 text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors cursor-pointer font-medium"
+                className="inline-flex items-center gap-1 text-[11px] text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors cursor-pointer font-medium"
               >
                 <span>{getMsg('viewOnGithub', 'View on GitHub')}</span>
-                <ExternalLink className="h-3.5 w-3.5" />
+                <ExternalLink className="h-3 w-3" />
               </button>
 
               <div className="flex items-center gap-2">
                 <button
                   type="button"
                   onClick={handleSkipVersion}
-                  className="px-3 py-1.5 rounded-xl text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors text-xs font-medium cursor-pointer"
+                  className="px-2.5 py-1 rounded-lg text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors text-[11px] font-medium cursor-pointer"
                 >
                   {getMsg('skipVersion', 'Skip this version')}
                 </button>
                 <button
                   type="button"
                   onClick={onClose}
-                  className="px-4 py-2 rounded-xl bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-900 dark:text-white text-xs font-bold transition-colors cursor-pointer"
+                  className="px-3.5 py-1.5 rounded-lg bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-900 dark:text-white text-xs font-bold transition-colors cursor-pointer"
                 >
                   {getMsg('remindLater', 'Remind me later')}
                 </button>
