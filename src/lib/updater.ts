@@ -7,11 +7,11 @@ import {
   UpdateSettings,
 } from '@/types/updater';
 
-export const GITHUB_REPO = 'PDFCraftTool/pdfcraft';
+export const GITHUB_REPO = 'Sudip-Mani-Gautam/iCreatePDF';
 export const DEFAULT_CURRENT_VERSION =
   process.env.NEXT_PUBLIC_APP_VERSION || '0.1.0';
 
-const STORAGE_KEY = 'pdfcraft_update_settings';
+const STORAGE_KEY = 'icreatepdf_update_settings';
 const DEFAULT_CHECK_INTERVAL_HOURS = 24;
 
 /**

@@ -84,15 +84,15 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({
   const getAssetLabel = (asset: ReleaseAsset): string => {
     switch (asset.platformType) {
       case 'windows-portable':
-        return getMsg('downloadPortable', 'Windows 便携版 (ZIP)');
+        return getMsg('downloadPortable', 'Windows Portable (ZIP)');
       case 'windows-installer':
-        return getMsg('downloadInstaller', 'Windows 安装包 (.exe / .msi)');
+        return getMsg('downloadInstaller', 'Windows Installer (.exe / .msi)');
       case 'macos-dmg':
-        return getMsg('downloadMac', 'macOS 安装包 (.dmg)');
+        return getMsg('downloadMac', 'macOS (.dmg)');
       case 'linux-appimage':
-        return getMsg('downloadAppImage', 'Linux AppImage (便携版)');
+        return getMsg('downloadAppImage', 'Linux AppImage (Portable)');
       case 'linux-deb':
-        return getMsg('downloadDeb', 'Linux Debian 安装包 (.deb)');
+        return getMsg('downloadDeb', 'Linux Debian (.deb)');
       default:
         return asset.name;
     }
@@ -102,7 +102,7 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({
     const url = useMirror && asset.mirrorDownloadUrl ? asset.mirrorDownloadUrl : asset.browserDownloadUrl;
     setDownloadNotice({
       status: 'opening',
-      text: getMsg('openingBrowser', '正在打开系统浏览器...'),
+      text: getMsg('openingBrowser', 'Opening default browser...'),
     });
 
     const success = await openExternalUrl(url);
@@ -111,7 +111,7 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({
         status: 'success',
         text: getMsg(
           'downloadStartedNotice',
-          '已唤起浏览器开始下载！若未自动弹出，可点击右侧按钮复制直链并在浏览器中粘贴。'
+          'Download opened in your browser! If not started, click copy to paste link manually.'
         ),
       });
     } else {
@@ -119,7 +119,7 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({
         status: 'failed',
         text: getMsg(
           'downloadFailedNotice',
-          '无法自动打开浏览器，请点击复制按钮手动在浏览器中粘贴下载。'
+          'Could not open browser automatically. Please click copy to paste link manually.'
         ),
       });
     }
@@ -143,7 +143,7 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({
       setTimeout(() => setCopiedUrl(null), 2500);
       setDownloadNotice({
         status: 'success',
-        text: getMsg('linkCopied', '下载链接已复制到剪贴板！'),
+        text: getMsg('linkCopied', 'Download link copied to clipboard!'),
       });
     } catch {
       // fallback
@@ -167,7 +167,7 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      title={getMsg('title', '软件更新')}
+      title={getMsg('title', 'Software Update')}
       size="lg"
     >
       <div className="space-y-5 py-2">
@@ -176,7 +176,7 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({
           <div className="flex flex-col items-center justify-center py-10 space-y-4">
             <RefreshCw className="h-9 w-9 animate-spin text-[hsl(var(--color-primary))]" />
             <p className="text-sm text-[hsl(var(--color-muted-foreground))]">
-              {getMsg('checking', '正在检查更新...')}
+              {getMsg('checking', 'Checking for updates...')}
             </p>
           </div>
         )}
@@ -189,7 +189,7 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({
             </div>
             <div className="space-y-1">
               <h3 className="font-semibold text-[hsl(var(--color-foreground))]">
-                {getMsg('errorTitle', '无法检查更新')}
+                {getMsg('errorTitle', 'Unable to check for updates')}
               </h3>
               <p className="text-xs text-[hsl(var(--color-muted-foreground))] max-w-sm">
                 {result.error}
@@ -198,7 +198,7 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({
             <div className="flex flex-wrap items-center justify-center gap-2.5 pt-1">
               <Button variant="outline" size="sm" onClick={onRetry} className="gap-2">
                 <RefreshCw className="h-4 w-4" />
-                {getMsg('retry', '重试')}
+                {getMsg('retry', 'Retry')}
               </Button>
               <Button
                 variant="primary"
@@ -207,7 +207,7 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({
                 onClick={handleOpenGitHub}
               >
                 <ExternalLink className="h-3.5 w-3.5" />
-                <span>{getMsg('viewOnGithub', '前往 GitHub 查看')}</span>
+                <span>{getMsg('viewOnGithub', 'View on GitHub')}</span>
               </Button>
             </div>
           </div>
@@ -226,7 +226,7 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({
               <p className="text-sm text-[hsl(var(--color-muted-foreground))]">
                 {getMsg(
                   'latestDesc',
-                  'PDFCraft is currently at the latest version ({version}).',
+                  'iCreatePDF is currently at the latest version ({version}).',
                   { version: result?.currentVersion || '' }
                 )}
               </p>
@@ -371,7 +371,7 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({
                     onClick={() => handleDownload(result.matchedAssets.primary!, true)}
                     className="text-[hsl(var(--color-primary))] hover:underline inline-flex items-center gap-1 font-medium py-1 px-2 rounded hover:bg-[hsl(var(--color-primary))/0.08] transition-colors"
                   >
-                    <span>{getMsg('mirrorDownload', '⚡ 国内高速镜像通道下载')}</span>
+                    <span>{getMsg('mirrorDownload', '⚡ Fast Mirror Download')}</span>
                   </button>
                   <span className="text-[hsl(var(--color-border))]">|</span>
                   <button
@@ -380,7 +380,7 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({
                     className="text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))] hover:underline inline-flex items-center gap-1 py-1 px-1.5 transition-colors"
                   >
                     <Copy className="h-3 w-3" />
-                    <span>{getMsg('copyMirrorLink', '复制镜像直链')}</span>
+                    <span>{getMsg('copyMirrorLink', 'Copy mirror link')}</span>
                   </button>
                 </div>
               )}
@@ -393,7 +393,7 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({
                     onClick={() => setShowAllAssets(!showAllAssets)}
                     className="flex items-center gap-1 text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))] transition-colors"
                   >
-                    <span>{getMsg('allDownloads', '查看所有平台下载')}</span>
+                    <span>{getMsg('allDownloads', 'View all platform downloads')}</span>
                     {showAllAssets ? (
                       <ChevronUp className="h-3.5 w-3.5" />
                     ) : (
@@ -416,7 +416,7 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({
                               variant="ghost"
                               size="sm"
                               className="h-7 px-2 text-xs text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]"
-                              title={getMsg('copyLink', '复制链接')}
+                              title={getMsg('copyLink', 'Copy link')}
                               onClick={() => handleCopyLink(asset.browserDownloadUrl)}
                             >
                               {copiedUrl === asset.browserDownloadUrl ? (
@@ -450,7 +450,7 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({
                 onClick={handleOpenGitHub}
                 className="inline-flex items-center gap-1 text-[hsl(var(--color-primary))] hover:underline cursor-pointer bg-transparent border-0 p-0 text-xs"
               >
-                <span>{getMsg('viewOnGithub', '前往 GitHub 查看')}</span>
+                <span>{getMsg('viewOnGithub', 'View on GitHub')}</span>
                 <ExternalLink className="h-3 w-3" />
               </button>
 
