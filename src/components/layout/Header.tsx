@@ -379,7 +379,7 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
       }`}
       role="banner"
     >
-      <div className="container mx-auto px-4 md:px-8">
+      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between gap-4">
           {/* Logo and Brand + Desktop Navigation (together on the left, NOT centered) */}
           <div className="flex items-center gap-6 lg:gap-8">
