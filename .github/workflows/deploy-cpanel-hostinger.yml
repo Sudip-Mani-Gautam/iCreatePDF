@@ -13,7 +13,7 @@ concurrency:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    name: Build & FTP Deploy to Hostinger/cPanel
+    name: Build & Fast Deploy to Hostinger
     steps:
       - name: ⬇️ Checkout Repository
         uses: actions/checkout@v4
@@ -35,15 +35,41 @@ jobs:
           NODE_ENV: production
           NEXT_PUBLIC_BASE_PATH: ''
 
-      - name: 📂 Verify Build & .htaccess
+      - name: 📂 Verify Build & Prepare Archive
         run: |
           test -d out || (echo "Error: out directory not found" && exit 1)
           test -f out/.htaccess || cp .htaccess out/.htaccess
-          echo "Build completed successfully. Total files:"
-          find out -type f | wc -l
+          echo "Compressing build into high-speed deploy.zip..."
+          cd out
+          zip -q -r ../deploy.zip .
+          cd ..
+          ls -lh deploy.zip
+          cat << 'EOF' > deploy-extract.php
+          <?php
+          $token = isset($_GET['token']) ? $_GET['token'] : '';
+          if ($token !== 'icreatepdf_deploy_secret_2026') {
+              http_response_code(403);
+              die("FORBIDDEN");
+          }
+          if (!file_exists('deploy.zip')) {
+              http_response_code(404);
+              die("DEPLOY_ZIP_NOT_FOUND");
+          }
+          $zip = new ZipArchive;
+          if ($zip->open('deploy.zip') === TRUE) {
+              $zip->extractTo(__DIR__);
+              $zip->close();
+              @unlink('deploy.zip');
+              @unlink(__FILE__);
+              echo "DEPLOY_SUCCESS";
+          } else {
+              http_response_code(500);
+              echo "EXTRACT_FAILED";
+          }
+          EOF
 
-      - name: 🌐 Deploy to Hostinger via Resilient FTP Script
-        run: node scripts/deploy-ftp.mjs
+      - name: 🌐 Upload & Extract on Hostinger (Blazing Fast)
+        run: node scripts/deploy-zip.mjs
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
