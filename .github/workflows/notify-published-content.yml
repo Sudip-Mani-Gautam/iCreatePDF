@@ -43,6 +43,8 @@ jobs:
           node-version: 22
 
       - name: 🔔 Run Content Detection & Notification
+        continue-on-error: true
+        if: env.NOTIFICATION_WORKER_URL != ''
         run: |
           ARGS=""
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
