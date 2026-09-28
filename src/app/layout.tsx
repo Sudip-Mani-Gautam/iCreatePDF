@@ -6,6 +6,9 @@ import { siteConfig } from '@/config/site';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
+  other: {
+    'google-adsense-account': 'ca-pub-4841042792929065',
+  },
   icons: {
     icon: [
       { url: '/favicon.ico' },
@@ -26,6 +29,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <meta name="google-adsense-account" content="ca-pub-4841042792929065" />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4841042792929065"
+          crossOrigin="anonymous"
+        />
         <meta name="color-scheme" content="light dark" />
         <style dangerouslySetInnerHTML={{ __html: 'html{scrollbar-gutter:stable}' }} />
         <script

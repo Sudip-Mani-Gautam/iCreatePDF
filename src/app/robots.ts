@@ -24,6 +24,8 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: [
           'Googlebot',
+          'Mediapartners-Google',
+          'AdsBot-Google',
           'Bingbot',
           'Applebot',
           'DuckDuckBot',
