@@ -19,11 +19,31 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
         disallow: [
           '/api/',
-          '/_next/',
-          '/static/',
+        ],
+      },
+      {
+        userAgent: [
+          'Googlebot',
+          'Bingbot',
+          'Applebot',
+          'DuckDuckBot',
+          'YandexBot',
+          'Baiduspider',
+          'GPTBot',
+          'ChatGPT-User',
+          'PerplexityBot',
+          'ClaudeBot',
+          'anthropic-ai',
+          'Google-Extended',
+          'cohere-ai',
+        ],
+        allow: '/',
+        disallow: [
+          '/api/',
         ],
       },
     ],
     sitemap: `${siteConfig.url}/sitemap.xml`,
+    host: siteConfig.url,
   };
 }

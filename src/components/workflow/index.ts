@@ -11,3 +11,4 @@ export { WorkflowEditor } from './WorkflowEditor';
 export { WorkflowHistory } from './WorkflowHistory';
 export { NodeSettingsPanel } from './NodeSettingsPanel';
 export { WorkflowPreview } from './WorkflowPreview';
+export { WorkflowShowcase } from './WorkflowShowcase';

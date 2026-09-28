@@ -1054,7 +1054,7 @@
           "question": "¿Por qué el procesamiento de archivos grandes es lento?",
           "answer": "Dado que todo el procesamiento se realiza en su navegador, el rendimiento depende de las capacidades de su dispositivo. Los archivos grandes requieren más memoria y potencia de procesamiento. Para obtener mejores resultados, cierre otras pestañas y aplicaciones del navegador."
         },
-        "offline": {
+        "Offline": {
           "question": "¿iCreatePDF funciona sin conexión?",
           "answer": "Actualmente, iCreatePDF requiere una conexión a Internet para cargar la aplicación. Sin embargo, una vez cargado, el procesamiento del PDF se realiza localmente y no requiere conexión."
         }

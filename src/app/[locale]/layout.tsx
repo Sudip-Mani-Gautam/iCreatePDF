@@ -1,3 +1,4 @@
+import React, { Suspense } from 'react';
 import type { Viewport } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
@@ -6,6 +7,9 @@ import { localeConfig, type Locale, locales } from '@/lib/i18n/config';
 import { fontVariables } from '@/lib/fonts';
 import { SkipLink } from '@/components/common/SkipLink';
 import { LanguageSuggestionBanner } from '@/components/common/LanguageSuggestionBanner';
+import { CookieConsentBanner } from '@/components/common/CookieConsentBanner';
+import { AnalyticsPageViewTracker } from '@/components/analytics';
+import { NotificationPrompt } from '@/components/notifications/NotificationPrompt';
 import '@/app/globals.css';
 
 export function generateStaticParams() {
@@ -51,10 +55,20 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `document.documentElement.lang = ${JSON.stringify(locale)}; document.documentElement.dir = ${JSON.stringify(direction)};`,
+        }}
+      />
       <div lang={locale} dir={direction} suppressHydrationWarning className={`${fontVariables} min-h-screen bg-background text-foreground antialiased font-sans`}>
         <SkipLink targetId="main-content">Skip to main content</SkipLink>
+        <Suspense fallback={null}>
+          <AnalyticsPageViewTracker />
+        </Suspense>
         {children}
         <LanguageSuggestionBanner currentLocale={locale as Locale} />
+        <CookieConsentBanner locale={locale as Locale} />
+        <NotificationPrompt />
       </div>
     </NextIntlClientProvider>
   );

@@ -7,6 +7,7 @@ import { addRecentFile } from '@/lib/storage/recent-files';
 import { useToolContext } from '@/lib/contexts/ToolContext';
 import { sanitizeFilename } from '@/lib/utils/sanitize';
 import { isTauri, saveBlobFile } from '@/lib/tauri-bridge';
+import { analytics } from '@/lib/analytics';
 
 export interface DownloadButtonProps extends Omit<ButtonProps, 'onClick' | 'children'> {
   /** Blob data to download */
@@ -100,6 +101,12 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({
 
     // Sanitize filename to prevent path traversal
     const safeFilename = sanitizeFilename(filename, 'download.pdf');
+
+    // Track download anonymously (format only, never sensitive info)
+    analytics.fileDownload({
+      tool_name: toolSlug || 'pdf-tool',
+      output_format: safeFilename.split('.').pop()?.toLowerCase() || 'pdf',
+    });
 
     // Desktop (Tauri) environment: prompt native Save File dialog and write directly to disk
     if (isTauri()) {

@@ -1054,7 +1054,7 @@
           "question": "Pourquoi le traitement est-il lent pour les fichiers volumineux ?",
           "answer": "Étant donné que tout le traitement s'effectue dans votre navigateur, les performances dépendent des capacités de votre appareil. Les fichiers volumineux nécessitent plus de mémoire et de puissance de traitement. Pour de meilleurs résultats, fermez les autres onglets et applications du navigateur."
         },
-        "offline": {
+        "Offline": {
           "question": "iCreatePDF fonctionne-t-il hors ligne ?",
           "answer": "Actuellement, iCreatePDF nécessite une connexion Internet pour charger l'application. Cependant, une fois chargé, le traitement PDF lui-même s'effectue localement et ne nécessite pas de connexion."
         }

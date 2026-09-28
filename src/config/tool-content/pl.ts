@@ -648,7 +648,7 @@ export const toolContentPl: Record<string, ToolContent> = {
       { step: 3, title: "Konwertuj i pobierz", description: "Kliknij Konwertuj, aby utworzyć plik PDF." },
     ],
     useCases: [
-      { title: "Archiwizacja treści internetowych", description: "Konwertuj obrazy internetowe na format PDF w celu archiwizacji w trybie offline.", icon: 'globe' },
+      { title: "Archiwizacja treści internetowych", description: "Konwertuj obrazy internetowe na format PDF w celu archiwizacji w trybie Offline.", icon: 'globe' },
       { title: "Przygotowanie do druku", description: "Konwertuj obrazy WebP na format PDF w celu drukowania.", icon: 'printer' },
       { title: "Standaryzacja formatu", description: "Konwertuj nowoczesny WebP na uniwersalnie kompatybilny plik PDF.", icon: 'file-check' },
     ],
@@ -2270,12 +2270,12 @@ export const toolContentPl: Record<string, ToolContent> = {
     title: "Czytnik PDF",
     metaDescription: "Bezpłatny internetowy czytnik plików PDF. Przeglądaj, nawiguj, powiększaj, obracaj i drukuj dokumenty PDF bezpośrednio w przeglądarce.",
     keywords: ["czytnik PDF", "przeglądarka plików PDF", "przeglądaj pdf online", "przeczytaj pdf", "przeglądarka plików PDF"],
-    description: "\n      <p>Czytnik PDF to w pełni funkcjonalna przeglądarka plików PDF, która umożliwia czytanie dokumentów PDF i nawigowanie w nich bezpośrednio w przeglądarce. Nie jest wymagana instalacja oprogramowania — po prostu prześlij plik PDF i zacznij czytać.</p>\n      <p>Nawiguj między stronami, powiększaj i pomniejszaj, obracaj widok i korzystaj z trybu pełnoekranowego, aby czytać bez rozpraszania uwagi. Możesz także wydrukować dokumenty lub pobrać je w celu uzyskania dostępu offline.</p>\n      <p>Całe przeglądanie odbywa się lokalnie w Twojej przeglądarce. Twoje dokumenty nigdy nie są przesyłane na żaden serwer, co zapewnia całkowitą prywatność.</p>\n    ",
+    description: "\n      <p>Czytnik PDF to w pełni funkcjonalna przeglądarka plików PDF, która umożliwia czytanie dokumentów PDF i nawigowanie w nich bezpośrednio w przeglądarce. Nie jest wymagana instalacja oprogramowania — po prostu prześlij plik PDF i zacznij czytać.</p>\n      <p>Nawiguj między stronami, powiększaj i pomniejszaj, obracaj widok i korzystaj z trybu pełnoekranowego, aby czytać bez rozpraszania uwagi. Możesz także wydrukować dokumenty lub pobrać je w celu uzyskania dostępu Offline.</p>\n      <p>Całe przeglądanie odbywa się lokalnie w Twojej przeglądarce. Twoje dokumenty nigdy nie są przesyłane na żaden serwer, co zapewnia całkowitą prywatność.</p>\n    ",
     howToUse: [
       { step: 1, title: "Otwórz swój plik PDF", description: "Kliknij, aby przesłać lub przeciągnij i upuść plik PDF, aby otworzyć go w czytniku." },
       { step: 2, title: "Nawiguj po stronach", description: "Użyj elementów sterujących strony, aby przejść do poprzedniej lub następnej strony albo przejść do określonego numeru strony." },
       { step: 3, title: "Dostosuj widok", description: "Powiększ lub pomniejsz, obróć widok lub przejdź do trybu pełnoekranowego, aby wygodnie czytać." },
-      { step: 4, title: "Wydrukuj lub pobierz", description: "Wydrukuj dokument lub pobierz go, aby uzyskać dostęp w trybie offline, jeśli zajdzie taka potrzeba." },
+      { step: 4, title: "Wydrukuj lub pobierz", description: "Wydrukuj dokument lub pobierz go, aby uzyskać dostęp w trybie Offline, jeśli zajdzie taka potrzeba." },
     ],
     useCases: [
       { title: "Przegląd dokumentów", description: "Szybko przeglądaj dokumenty PDF bez instalowania żadnego oprogramowania.", icon: 'book-open' },
@@ -2729,7 +2729,7 @@ export const toolContentPl: Record<string, ToolContent> = {
       { title: "Audyt zakupów transgranicznych", description: "Przetłumacz kolumny faktur i wyizoluj prawdziwy koszt towarów e-commerce.", icon: 'credit-card' },
       { title: "Międzynarodowa księgowość przedsiębiorstw", description: "Dodawaj spójne tabele przeliczeń na fakturach korporacyjnych, aby usprawnić audyty na koniec roku.", icon: 'folder-open' },
     ],
-     faq: [
+    faq: [
       { question: "Jak wykrywa kwoty faktur?", answer: "Skanuje strumienie znaków pod kątem symboli walut i analizuje nagłówki semantyczne, takie jak „Suma” lub „Należność”, aby zlokalizować końcową kwotę faktury." },
       { question: "Czy kursy walut są pobierane w czasie rzeczywistym?", answer: "Tak. Domyślnie pobiera stawki podstawowe ze standardowych finansowych interfejsów API. Możesz także określić niestandardowe stawki za audyty wewnętrzne." },
       { question: "Czy tabela kursów zasłoni ważne dane faktury?", answer: "Silnik skanuje margines strony, aby znaleźć optymalne położenie. Tabela kursów jest także półprzezroczysta, dzięki czemu dobrze współgra z układem dokumentu." },

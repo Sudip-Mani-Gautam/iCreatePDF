@@ -4,6 +4,8 @@ import { TOOL_CATEGORIES, type ToolCategory } from '@/types/tool';
 import CategoryPageClient from './CategoryPageClient';
 import { notFound } from 'next/navigation';
 
+import { generateCategoryMetadata } from '@/lib/seo';
+
 export function generateStaticParams() {
     return locales.flatMap((locale) =>
         TOOL_CATEGORIES.map((category) => ({
@@ -14,17 +16,19 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string; category: string }> }) {
-    const { category } = await params;
+    const { category, locale } = await params;
 
     const formattedCategory = category
         .split('-')
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ');
 
-    return {
-        title: `${formattedCategory} Tools - PDFCraft`,
-        description: `Free online ${formattedCategory} tools. Secure, fast, and easy to use.`,
-    };
+    return generateCategoryMetadata(
+        locale as Locale,
+        category,
+        formattedCategory,
+        `Free online ${formattedCategory} PDF tools. 100% private, client-side processing directly in your browser with iCreatePDF.`
+    );
 }
 
 export default async function CategoryPage({ params }: { params: Promise<{ locale: string; category: string }> }) {

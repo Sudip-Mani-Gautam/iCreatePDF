@@ -19,7 +19,7 @@ export default function LicensePageClient({ locale }: LicensePageClientProps) {
     <div className="min-h-screen flex flex-col bg-[hsl(var(--color-background))] text-[hsl(var(--color-foreground))]">
       <Header locale={locale} />
 
-      <main className="flex-1 pt-16 pb-16">
+      <main className="flex-1 pt-20 sm:pt-22 md:pt-24 pb-16">
         {/* Hero Section */}
         <section className="pt-4 pb-10 border-b border-[hsl(var(--color-border))/0.5] bg-gradient-to-b from-[hsl(var(--color-primary)/0.05)] to-transparent">
           <div className="container mx-auto px-4 max-w-4xl text-center">

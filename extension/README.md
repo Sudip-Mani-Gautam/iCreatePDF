@@ -1,29 +1,29 @@
-# PDFCraft Chrome Extension
+# iCreatePDF Chrome Extension
 
-A simple Chrome extension for quick access to PDFCraft's 72+ PDF tools.
+A lightweight, powerful Chrome extension for instant access to iCreatePDF's 132+ free Offline PDF tools.
 
 ## Features
 
-- 🚀 **Quick Access Popup**: Click the extension icon to see popular tools
-- 📋 **Right-Click Menu**: Access PDFCraft tools from any webpage
-- 🎨 **Modern UI**: Beautiful dark theme with gradient effects
-- ⚡ **Fast**: Lightweight extension with no background processing
+- 🚀 **Quick Access Popup**: Click the extension icon to access popular PDF tools instantly
+- 📋 **Right-Click Context Menu**: Merge, compress, or convert PDFs directly from any webpage
+- 🎨 **Modern UI**: Sleek dark theme with vibrant iCreatePDF design
+- ⚡ **100% Private & Fast**: Process files locally in your browser. Zero server uploads.
 
 ## Installation
 
 ### From Source (Developer Mode)
 
-1. Download or clone this repository
+1. Download or clone this repository (or unzip `icreatepdf-extension.zip`)
 2. Open Chrome and navigate to `chrome://extensions/`
-3. Enable **Developer mode** (toggle in top-right corner)
+3. Enable **Developer mode** (toggle in the top-right corner)
 4. Click **Load unpacked**
 5. Select the `extension` folder from this repository
-6. The PDFCraft icon should appear in your toolbar!
+6. The iCreatePDF icon will appear in your toolbar!
 
 ### Usage
 
-- **Click the icon** in your toolbar to see quick links to popular PDF tools
-- **Right-click** on any webpage and select "Open with PDFCraft" to access tools
+- **Click the extension icon** in your toolbar to see quick access cards for top PDF tools
+- **Right-click** on any webpage or link and select "Open with iCreatePDF" to jump right into the toolkit
 
 ## Tools Included
 
@@ -35,22 +35,22 @@ The popup provides quick access to:
 - JPG to PDF
 - PDF to JPG
 - Sign PDF
-- Encrypt PDF
+- Protect PDF (Encrypt)
 
-And 64+ more tools via the "Open PDFCraft" button!
+And 120+ more tools via the "Open iCreatePDF →" button!
 
-## Privacy
+## Privacy & Security
 
 This extension:
-- ✅ Does NOT collect any data
-- ✅ Does NOT track browsing activity
-- ✅ Only opens PDFCraft website when you click
+- ✅ Does **NOT** collect any user data
+- ✅ Does **NOT** track browsing activity
+- ✅ Operates 100% locally in your browser
 
 ## Links
 
-- Website: [pdfcraft.devtoolcafe.com](https://pdfcraft.devtoolcafe.com)
-- GitHub: [github.com/PDFCraftTool/pdfcraft](https://github.com/PDFCraftTool/pdfcraft)
+- Website: [icreatepdf.com](https://icreatepdf.com)
+- GitHub: [github.com/Sudip-Mani-Gautam/iCreatePDF](https://github.com/Sudip-Mani-Gautam/iCreatePDF)
 
 ## License
 
-MIT License - see the main project for details.
+AGPL-3.0 License - see the main project for details.

@@ -1,14 +1,18 @@
 import type { Metadata } from 'next';
 import '@/app/globals.css';
+import { GoogleTagManager, GoogleTagManagerNoScript } from '@/components/analytics';
 
 import { siteConfig } from '@/config/site';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   icons: {
-    icon: '/favicon.svg',
-    shortcut: '/favicon.svg',
-    apple: '/favicon.svg',
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
   },
 };
 
@@ -62,8 +66,10 @@ export default function RootLayout({
           data-coi="true"
           async
         />
+        <GoogleTagManager />
       </head>
       <body suppressHydrationWarning className="min-h-screen bg-background text-foreground antialiased">
+        <GoogleTagManagerNoScript />
         {children}
       </body>
     </html>

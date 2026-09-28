@@ -114,7 +114,7 @@ export const toolContentEn: Record<string, ToolContent> = {
     ],
     faq: [
       { question: 'How is this different from N-Up?', answer: 'N-Up takes pages from ONE PDF and puts them on a sheet. Grid Combine takes MULTIPLE DIFFERENT PDF files and puts them on a sheet.' },
-      { question: 'How many files can I combine?', answer: 'You can combine up to 100 files depending on your browser memory, but layouts like 4x4 accommodate up to 16 files per page.' },
+      { question: 'How many files can I combine?', answer: 'You can combine up to 100 files depending Offline memory, but layouts like 4x4 accommodate up to 16 files per page.' },
       { question: 'Can I add borders?', answer: 'Yes, you can add borders around each PDF file and customize the border color.' },
     ],
   },
@@ -764,7 +764,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       { step: 3, title: 'Convert and Download', description: 'Click Convert to create your PDF.' },
     ],
     useCases: [
-      { title: 'Web Content Archiving', description: 'Convert web images to PDF for offline archiving.', icon: 'globe' },
+      { title: 'Web Content Archiving', description: 'Convert web images to PDF for Offline archiving.', icon: 'globe' },
       { title: 'Print Preparation', description: 'Convert WebP images to PDF for printing purposes.', icon: 'printer' },
       { title: 'Format Standardization', description: 'Convert modern WebP to universally compatible PDF.', icon: 'file-check' },
     ],
@@ -2677,14 +2677,14 @@ export const toolContentEn: Record<string, ToolContent> = {
     keywords: ['pdf reader', 'pdf viewer', 'view pdf online', 'read pdf', 'pdf browser viewer'],
     description: `
       <p>PDF Reader is a full-featured PDF viewer that lets you read and navigate PDF documents directly in your browser. No software installation required - just upload your PDF and start reading.</p>
-      <p>Navigate between pages, zoom in and out, rotate the view, and use fullscreen mode for distraction-free reading. You can also print documents or download them for offline access.</p>
+      <p>Navigate between pages, zoom in and out, rotate the view, and use fullscreen mode for distraction-free reading. You can also print documents or download them for Offline access.</p>
       <p>All viewing happens locally in your browser. Your documents are never uploaded to any server, ensuring complete privacy.</p>
     `,
     howToUse: [
       { step: 1, title: 'Open Your PDF', description: 'Click to upload or drag and drop a PDF file to open it in the reader.' },
       { step: 2, title: 'Navigate Pages', description: 'Use the page controls to go to the previous or next page, or jump to a specific page number.' },
       { step: 3, title: 'Adjust View', description: 'Zoom in or out, rotate the view, or enter fullscreen mode for comfortable reading.' },
-      { step: 4, title: 'Print or Download', description: 'Print the document or download it for offline access when needed.' },
+      { step: 4, title: 'Print or Download', description: 'Print the document or download it for Offline access when needed.' },
     ],
     useCases: [
       { title: 'Document Review', description: 'Quickly review PDF documents without installing any software.', icon: 'book-open' },
@@ -3222,7 +3222,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       { title: 'Cross-border shopping audit', description: 'Translate invoice columns and isolate the true cost of e-commerce goods.', icon: 'credit-card' },
       { title: 'International business bookkeeping', description: 'Stamp consistent conversion ledgers on corporate invoices to streamline year-end audits.', icon: 'folder-open' },
     ],
-     faq: [
+    faq: [
       { question: 'How does it detect invoice amounts?', answer: 'It scans character streams for currency symbols and analyzes semantic headings like "Total" or "Due" to locate the invoice final sum.' },
       { question: 'Are exchange rates fetched in real-time?', answer: 'Yes. By default, it retrieves base rates from standard financial APIs. You can also specify custom rates for internal audits.' },
       { question: 'Will the stamped ledger cover important invoice details?', answer: 'The engine scans the page margin to find optimal positioning. The ledger is also semi-transparent, aligning elegantly with your layouts.' },

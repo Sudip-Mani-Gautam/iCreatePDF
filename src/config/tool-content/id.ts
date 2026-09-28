@@ -763,7 +763,7 @@ export const toolContentId: Record<string, ToolContent> = {
       { step: 3, title: 'Konversi dan Unduh', description: 'Klik Konversi untuk membuat PDF Anda.' },
     ],
     useCases: [
-      { title: 'Pengarsipan Konten Web', description: 'Konversi gambar web menjadi PDF untuk pengarsipan offline.', icon: 'globe' },
+      { title: 'Pengarsipan Konten Web', description: 'Konversi gambar web menjadi PDF untuk pengarsipan Offline.', icon: 'globe' },
       { title: 'Persiapan Cetak', description: 'Konversi gambar WebP ke PDF untuk keperluan pencetakan.', icon: 'printer' },
       { title: 'Standardisasi Format', description: 'Konversi WebP modern menjadi format PDF yang kompatibel secara universal.', icon: 'file-check' },
     ],
@@ -1767,7 +1767,7 @@ export const toolContentId: Record<string, ToolContent> = {
       { question: 'Apakah hasilnya bagus jika dicetak?', answer: 'Hasilnya jauh lebih optimal untuk dilihat di layar perangkat. Jika ingin dicetak, lebih baik gunakan alat "N-Up PDF".' },
     ],
   },
-'view-metadata': {
+  'view-metadata': {
     title: 'Lihat Metadata',
     metaDescription: 'Lihat properti dokumen PDF. Lihat penulis, judul, tanggal, dan metadata lainnya.',
     keywords: ['metadata pdf', 'properti dokumen', 'info pdf', 'lihat detail pdf'],
@@ -2539,14 +2539,14 @@ export const toolContentId: Record<string, ToolContent> = {
     keywords: ['pembaca pdf', 'pdf reader', 'penampil pdf', 'lihat pdf online', 'baca pdf', 'browser pdf viewer'],
     description: `
       <p>Pembaca PDF adalah sebuah alat penampil PDF berfitur lengkap yang memudahkan Anda untuk membaca dan melakukan navigasi pada dokumen PDF langsung dari dalam web browser. Tanpa perlu menginstal perangkat lunak pihak ketiga, cukup unggah PDF Anda dan Anda sudah bisa langsung membacanya.</p>
-      <p>Navigasi di antara halamannya dengan lincah, atur tingkat perbesaran (zoom), putar arah tampilan (rotate), atau gunakan fitur layar penuh (fullscreen) agar nyaman dibaca bebas dari berbagai gangguan antarmuka. Anda bahkan dapat mencetak dokumennya langsung atau mengunduhnya kembali untuk akses secara offline.</p>
+      <p>Navigasi di antara halamannya dengan lincah, atur tingkat perbesaran (zoom), putar arah tampilan (rotate), atau gunakan fitur layar penuh (fullscreen) agar nyaman dibaca bebas dari berbagai gangguan antarmuka. Anda bahkan dapat mencetak dokumennya langsung atau mengunduhnya kembali untuk akses secara Offline.</p>
       <p>Seluruh proses peninjauan ini berjalan murni di lokal perangkat/browser komputer Anda. File dokumen PDF Anda sama sekali tidak pernah diunggah menuju server di internet, memastikannya privasi dan keamanannya 100% mutlak.</p>
     `,
     howToUse: [
       { step: 1, title: 'Buka PDF Anda', description: 'Klik tautan untuk mengunggah atau langsung tarik dan lepas file PDF-nya untuk menampilkannya di jendela pembaca (reader) ini.' },
       { step: 2, title: 'Navigasi Halaman', description: 'Manfaatkan fitur kontrol pada menu pembaca untuk berpindah ke halaman berikut/sebelumnya secara teratur, atau langsung melompat masuk ke angka halaman tertentu dengan seketika.' },
       { step: 3, title: 'Sesuaikan Tampilan', description: 'Gunakan fitur perbesar (zoom in), perkecil (zoom out), atau bahkan ubah rotasi arah pandang teksnya untuk posisi posisi yang nyaman, hingga opsi mode layar penuh (fullscreen).' },
-      { step: 4, title: 'Cetak atau Unduh Kembali', description: 'Lakukan proses mencetak (print) secara presisi, maupun unduh file-nya kembali guna diakses saat status perangkat tanpa jaringan (offline).' },
+      { step: 4, title: 'Cetak atau Unduh Kembali', description: 'Lakukan proses mencetak (print) secara presisi, maupun unduh file-nya kembali guna diakses saat status perangkat tanpa jaringan (Offline).' },
     ],
     useCases: [
       { title: 'Meninjau Dokumen', description: 'Meninjau cepat sebuah dokumen atau berkas file PDF dengan instan tanpa harus menginstal software tambahan apa pun ke perangkat PC/HP.', icon: 'book-open' },
@@ -2617,128 +2617,128 @@ export const toolContentId: Record<string, ToolContent> = {
     "title": "Desain Logika Formulir",
     "metaDescription": "Rancang perilaku dinamis menggunakan kanvas simpul glassmorphism dan injeksikan logika interaktif AcroJS ke dalam formulir PDF.",
     "keywords": [
-        "logika formulir PDF",
-        "injeksi AcroJS",
-        "alur simpul",
-        "PDF interaktif",
-        "dependensi bidang"
+      "logika formulir PDF",
+      "injeksi AcroJS",
+      "alur simpul",
+      "PDF interaktif",
+      "dependensi bidang"
     ],
     "description": "\n        <p>Desainer Logika Formulir Interaktif adalah alat pelopor yang mengisi celah besar dalam kemampuan PDF: membuat bidang aktif dan responsif, bukan formulir yang datar dan statis.</p>\n        <p>Melalui kanvas visual kami yang menampilkan \"simpul glassmorphism menyala\" (dibangun di atas React Flow), bidang formulir direpresentasikan sebagai modul yang terhubung. Anda dapat menyeret tautan untuk menentukan hubungan: misal, saat kotak centang dicentang ➜ aktifkan input teks ➜ hitung nilai secara otomatis dan perbarui bidang total.</p>\n        <p>Setelah dirancang, mesin AcroJS menyusun logika tersebut ke dalam Acrobat JavaScript resmi dan menginjeksikannya ke dalam kamus '/AA' (Tindakan Tambahan) dari AcroForm. Perilaku interaktif tersebut kemudian dijalankan secara asli di dalam pembaca PDF standar apa pun.</p>\n      ",
     "howToUse": [
-        {
-            "step": 1,
-            "title": "Unggah PDF Interaktif",
-            "description": "Sediakan file PDF yang sudah memiliki bidang formulir aktif (AcroForm)."
-        },
-        {
-            "step": 2,
-            "title": "Petakan Logika di Kanvas",
-            "description": "Hubungkan bidang sebagai simpul. Tautkan peristiwa output (ubah, blur) ke tindakan target (tampilkan, sembunyikan, hitung, nonaktifkan)."
-        },
-        {
-            "step": 3,
-            "title": "Kompilasi dan Injeksikan",
-            "description": "Injeksikan logika JavaScript yang dikompilasi ke dalam kamus PDF dan simpan dokumen pintar terakhir."
-        }
+      {
+        "step": 1,
+        "title": "Unggah PDF Interaktif",
+        "description": "Sediakan file PDF yang sudah memiliki bidang formulir aktif (AcroForm)."
+      },
+      {
+        "step": 2,
+        "title": "Petakan Logika di Kanvas",
+        "description": "Hubungkan bidang sebagai simpul. Tautkan peristiwa output (ubah, blur) ke tindakan target (tampilkan, sembunyikan, hitung, nonaktifkan)."
+      },
+      {
+        "step": 3,
+        "title": "Kompilasi dan Injeksikan",
+        "description": "Injeksikan logika JavaScript yang dikompilasi ke dalam kamus PDF dan simpan dokumen pintar terakhir."
+      }
     ],
     "useCases": [
-        {
-            "title": "Kontrak Bisnis Pintar",
-            "description": "Tampilkan atau sembunyikan bidang input tambahan secara dinamis berdasarkan ketentuan yang dipilih klien.",
-            "icon": "file-signature"
-        },
-        {
-            "title": "Formulir Pengeluaran Otomatis",
-            "description": "Jumlahkan beberapa baris pengeluaran dan hitung pajak secara dinamis tanpa penghitungan manual.",
-            "icon": "calculator"
-        },
-        {
-            "title": "Kuesioner Interaktif",
-            "description": "Lewati pertanyaan yang tidak relevan berdasarkan jawaban sebelumnya, memberikan pengalaman pengisian seluler yang lebih bersih.",
-            "icon": "form-input"
-        }
+      {
+        "title": "Kontrak Bisnis Pintar",
+        "description": "Tampilkan atau sembunyikan bidang input tambahan secara dinamis berdasarkan ketentuan yang dipilih klien.",
+        "icon": "file-signature"
+      },
+      {
+        "title": "Formulir Pengeluaran Otomatis",
+        "description": "Jumlahkan beberapa baris pengeluaran dan hitung pajak secara dinamis tanpa penghitungan manual.",
+        "icon": "calculator"
+      },
+      {
+        "title": "Kuesioner Interaktif",
+        "description": "Lewati pertanyaan yang tidak relevan berdasarkan jawaban sebelumnya, memberikan pengalaman pengisian seluler yang lebih bersih.",
+        "icon": "form-input"
+      }
     ],
     "faq": [
-        {
-            "question": "Apakah saya memerlukan PDF dengan bidang yang sudah ada sebelumnya?",
-            "answer": "Ya. Alat ini dirancang untuk mengikat aturan logika ke bidang yang ada. Jika PDF Anda tidak memiliki bidang interaktif, gunakan alat Pembuat Formulir kami terlebih dahulu untuk menambahkan input dan kotak centang."
-        },
-        {
-            "question": "Apakah logika ini akan berjalan di semua pembaca PDF?",
-            "answer": "Ini berjalan pada semua pembaca PDF yang mematuhi standar Adobe PDF dan mendukung Acrobat JavaScript (seperti Adobe Acrobat Reader, Foxit Reader, dan peramban web utama). Pembaca seluler minimalis mungkin hanya mendukung tindakan dasar."
-        },
-        {
-            "question": "Apakah ini memengaruhi pencetakan kertas?",
-            "answer": "Sama sekali tidak. Skrip yang diinjeksikan hanya berjalan di layar selama pengisian formulir. Saat mencetak, status bidang saat ini dicetak secara statis tanpa visualisasi simpul."
-        }
+      {
+        "question": "Apakah saya memerlukan PDF dengan bidang yang sudah ada sebelumnya?",
+        "answer": "Ya. Alat ini dirancang untuk mengikat aturan logika ke bidang yang ada. Jika PDF Anda tidak memiliki bidang interaktif, gunakan alat Pembuat Formulir kami terlebih dahulu untuk menambahkan input dan kotak centang."
+      },
+      {
+        "question": "Apakah logika ini akan berjalan di semua pembaca PDF?",
+        "answer": "Ini berjalan pada semua pembaca PDF yang mematuhi standar Adobe PDF dan mendukung Acrobat JavaScript (seperti Adobe Acrobat Reader, Foxit Reader, dan peramban web utama). Pembaca seluler minimalis mungkin hanya mendukung tindakan dasar."
+      },
+      {
+        "question": "Apakah ini memengaruhi pencetakan kertas?",
+        "answer": "Sama sekali tidak. Skrip yang diinjeksikan hanya berjalan di layar selama pengisian formulir. Saat mencetak, status bidang saat ini dicetak secara statis tanpa visualisasi simpul."
+      }
     ]
-},
+  },
 
   'global-invoice-parser': {
     "title": "Terjemah & Konversi Faktur",
     "metaDescription": "Ekstrak total mata uang dari faktur multi-nasional, jalankan perhitungan, dan cetak stempel buku besar nilai tukar glassmorphism interaktif.",
     "keywords": [
-        "terjemahkan faktur",
-        "konverter mata uang faktur",
-        "kalkulator nilai tukar pdf",
-        "stempel mata uang lokal",
-        "alat faktur global"
+      "terjemahkan faktur",
+      "konverter mata uang faktur",
+      "kalkulator nilai tukar pdf",
+      "stempel mata uang lokal",
+      "alat faktur global"
     ],
     "description": "\n        <p>Penerjemah Faktur Global memberikan kejelasan maksimal bagi tim keuangan internasional dan pembeli global.</p>\n        <p>Menangani faktur dalam berbagai mata uang ($, €, ¥) sering kali melibatkan perhitungan manual yang menjemukan. Alat ini memungkinkan <strong>terjemahan label di tempat dan konversi nilai tukar waktu nyata</strong>.</p>\n        <p>Ini memindai dokumen untuk total harga, menjalankan perhitungan berdasarkan tolok ukur mata uang, dan secara fisik mencetak stempel \"Exchange Rate ledger\" glassmorphism semi-transparan yang elegan di margin halaman. Ini merender dengan efek visual numerik mesin slot berputar yang menawan, membawa kontrol mutlak pada penagihan global.</p>\n      ",
     "howToUse": [
-        {
-            "step": 1,
-            "title": "Unggah Faktur PDF",
-            "description": "Impor faktur apa pun yang ditagih dalam mata uang asing (misalnya USD, EUR, JPY)."
-        },
-        {
-            "step": 2,
-            "title": "Pilih Mata Uang Lokal",
-            "description": "Pilih mata uang lokal Anda (misalnya IDR) dan tentukan nilai tukar kustom atau waktu nyata."
-        },
-        {
-            "step": 3,
-            "title": "Terapkan Stempel Buku Besar",
-            "description": "Klik jalankan untuk melapisi stempel buku besar nilai tukar yang siap untuk akuntansi."
-        }
+      {
+        "step": 1,
+        "title": "Unggah Faktur PDF",
+        "description": "Impor faktur apa pun yang ditagih dalam mata uang asing (misalnya USD, EUR, JPY)."
+      },
+      {
+        "step": 2,
+        "title": "Pilih Mata Uang Lokal",
+        "description": "Pilih mata uang lokal Anda (misalnya IDR) dan tentukan nilai tukar kustom atau waktu nyata."
+      },
+      {
+        "step": 3,
+        "title": "Terapkan Stempel Buku Besar",
+        "description": "Klik jalankan untuk melapisi stempel buku besar nilai tukar yang siap untuk akuntansi."
+      }
     ],
     "useCases": [
-        {
-            "title": "Reimbursement Perjalanan Bisnis Asing",
-            "description": "Konversikan tagihan perjalanan ke mata uang lokal dan cetak stempel detail konversi, memudahkan alur kerja akuntansi.",
-            "icon": "plane"
-        },
-        {
-            "title": "Audit Belanja Lintas Batas",
-            "description": "Terjemahkan kolom faktur dan isolasi biaya sebenarnya dari barang-barang e-commerce.",
-            "icon": "credit-card"
-        },
-        {
-            "title": "Pembukuan Bisnis Internasional",
-            "description": "Cetak stempel buku besar konversi yang konsisten pada faktur perusahaan untuk merampingkan audit akhir tahun.",
-            "icon": "folder-open"
-        }
+      {
+        "title": "Reimbursement Perjalanan Bisnis Asing",
+        "description": "Konversikan tagihan perjalanan ke mata uang lokal dan cetak stempel detail konversi, memudahkan alur kerja akuntansi.",
+        "icon": "plane"
+      },
+      {
+        "title": "Audit Belanja Lintas Batas",
+        "description": "Terjemahkan kolom faktur dan isolasi biaya sebenarnya dari barang-barang e-commerce.",
+        "icon": "credit-card"
+      },
+      {
+        "title": "Pembukuan Bisnis Internasional",
+        "description": "Cetak stempel buku besar konversi yang konsisten pada faktur perusahaan untuk merampingkan audit akhir tahun.",
+        "icon": "folder-open"
+      }
     ],
     "faq": [
-        {
-            "question": "Bagaimana cara mendeteksi jumlah faktur?",
-            "answer": "Ini memindai aliran karakter untuk simbol mata uang dan menganalisis tajuk semantik seperti \"Total\" atau \"Jatuh Tempo\" untuk menemukan jumlah akhir faktur."
-        },
-        {
-            "question": "Apakah nilai tukar diambil secara waktu nyata?",
-            "answer": "Ya. Secara default, ini mengambil kurs dasar dari API keuangan standar. Anda juga dapat menentukan kurs kustom untuk audit internal."
-        },
-        {
-            "question": "Apakah stempel tersebut akan menutupi detail faktur yang penting?",
-            "answer": "Mesin memindai margin halaman untuk menemukan posisi optimal. Stempel tersebut semi-transparan, sejajar dengan elegan dengan tata letak Anda."
-        }
+      {
+        "question": "Bagaimana cara mendeteksi jumlah faktur?",
+        "answer": "Ini memindai aliran karakter untuk simbol mata uang dan menganalisis tajuk semantik seperti \"Total\" atau \"Jatuh Tempo\" untuk menemukan jumlah akhir faktur."
+      },
+      {
+        "question": "Apakah nilai tukar diambil secara waktu nyata?",
+        "answer": "Ya. Secara default, ini mengambil kurs dasar dari API keuangan standar. Anda juga dapat menentukan kurs kustom untuk audit internal."
+      },
+      {
+        "question": "Apakah stempel tersebut akan menutupi detail faktur yang penting?",
+        "answer": "Mesin memindai margin halaman untuk menemukan posisi optimal. Stempel tersebut semi-transparan, sejajar dengan elegan dengan tata letak Anda."
+      }
     ]
-},
+  },
 
   'pdf-to-cbz': {
     title: 'PDF ke CBZ',
     metaDescription: 'Konversi file PDF ke arsip komik CBZ. Mempertahankan urutan dan kualitas gambar.',
-    keywords: ["pdf ke cbz","konversi komik","konverter cbz"],
+    keywords: ["pdf ke cbz", "konversi komik", "konverter cbz"],
     description: toolContentEn['pdf-to-cbz'].description,
     howToUse: toolContentEn['pdf-to-cbz'].howToUse,
     useCases: toolContentEn['pdf-to-cbz'].useCases,
@@ -2748,7 +2748,7 @@ export const toolContentId: Record<string, ToolContent> = {
   'overlay-pdf': {
     title: 'Hamparan PDF',
     metaDescription: 'Tumpuk dua halaman PDF menjadi satu halaman. Sempurna untuk menyematkan stempel, latar belakang, dan tanda air.',
-    keywords: ["hamparan pdf","pdf overlay","stempel pdf"],
+    keywords: ["hamparan pdf", "pdf overlay", "stempel pdf"],
     description: toolContentEn['overlay-pdf'].description,
     howToUse: toolContentEn['overlay-pdf'].howToUse,
     useCases: toolContentEn['overlay-pdf'].useCases,
@@ -2758,7 +2758,7 @@ export const toolContentId: Record<string, ToolContent> = {
   'timestamp-pdf': {
     title: 'Stempel Waktu PDF',
     metaDescription: 'Sematkan stempel waktu aman RFC 3161 pada dokumen PDF untuk membuktikan waktu pembuatan dan integritas data.',
-    keywords: ["stempel waktu pdf","rfc 3161","bukti waktu digital"],
+    keywords: ["stempel waktu pdf", "rfc 3161", "bukti waktu digital"],
     description: toolContentEn['timestamp-pdf'].description,
     howToUse: toolContentEn['timestamp-pdf'].howToUse,
     useCases: toolContentEn['timestamp-pdf'].useCases,
@@ -2768,7 +2768,7 @@ export const toolContentId: Record<string, ToolContent> = {
   'add-page-labels': {
     title: 'Tambah Label Halaman',
     metaDescription: 'Atur label halaman kustom (misal, I, II untuk kata pengantar, 1, 2 untuk isi). Meningkatkan navigasi pembaca.',
-    keywords: ["label halaman","nomor halaman logis","navigasi pdf"],
+    keywords: ["label halaman", "nomor halaman logis", "navigasi pdf"],
     description: toolContentEn['add-page-labels'].description,
     howToUse: toolContentEn['add-page-labels'].howToUse,
     useCases: toolContentEn['add-page-labels'].useCases,
@@ -2778,7 +2778,7 @@ export const toolContentId: Record<string, ToolContent> = {
   'ai-pdf-reflower': {
     title: 'Aliran Ulang PDF AI',
     metaDescription: 'Tata ulang dokumen PDF menjadi tata letak responsif untuk seluler. Mendukung ekspor ke Markdown dan EPUB.',
-    keywords: ["aliran ulang pdf","pdf responsif","pdf ke markdown","ekspor epub"],
+    keywords: ["aliran ulang pdf", "pdf responsif", "pdf ke markdown", "ekspor epub"],
     description: toolContentEn['ai-pdf-reflower'].description,
     howToUse: toolContentEn['ai-pdf-reflower'].howToUse,
     useCases: toolContentEn['ai-pdf-reflower'].useCases,
@@ -2788,7 +2788,7 @@ export const toolContentId: Record<string, ToolContent> = {
   'citation-linker': {
     title: 'Aktivator Tautan Sitasi',
     metaDescription: 'Pindai dan aktifkan tanda kutipan dalam PDF menjadi tautan DOI eksternal atau lompatan halaman internal.',
-    keywords: ["tautan sitasi","hiperlink pdf","pencocokan doi","pdf akademis"],
+    keywords: ["tautan sitasi", "hiperlink pdf", "pencocokan doi", "pdf akademis"],
     description: toolContentEn['citation-linker'].description,
     howToUse: toolContentEn['citation-linker'].howToUse,
     useCases: toolContentEn['citation-linker'].useCases,
@@ -2798,7 +2798,7 @@ export const toolContentId: Record<string, ToolContent> = {
   'vector-extractor': {
     title: 'Ekstraktor Vektor PDF',
     metaDescription: 'Konversi PDF ke SVG presisi tinggi. Pilih dan ekstrak jalur vektor, diagram, dan logo secara mulus.',
-    keywords: ["ekstrak vektor pdf","ekspor svg","ekstrak logo","grafis vektor"],
+    keywords: ["ekstrak vektor pdf", "ekspor svg", "ekstrak logo", "grafis vektor"],
     description: toolContentEn['vector-extractor'].description,
     howToUse: toolContentEn['vector-extractor'].howToUse,
     useCases: toolContentEn['vector-extractor'].useCases,
@@ -2808,7 +2808,7 @@ export const toolContentId: Record<string, ToolContent> = {
   'deep-sanitize': {
     title: 'Pembersihan Metadata Mendalam',
     metaDescription: 'Hapus total info pembuat, riwayat edit, lapisan tersembunyi, dan objek tidak terpakai pada file PDF untuk keamanan.',
-    keywords: ["pembersihan metadata","anonymize pdf","keamanan berkas","hapus jejak pdf"],
+    keywords: ["pembersihan metadata", "anonymize pdf", "keamanan berkas", "hapus jejak pdf"],
     description: toolContentEn['deep-sanitize'].description,
     howToUse: toolContentEn['deep-sanitize'].howToUse,
     useCases: toolContentEn['deep-sanitize'].useCases,
@@ -2818,7 +2818,7 @@ export const toolContentId: Record<string, ToolContent> = {
   'booklet-folding-simulator': {
     title: 'Simulator Lipat Buku 3D',
     metaDescription: 'Atur imposisi halaman PDF ke lembar besar dan simulasikan proses melipat serta menjilid kawat dalam visual 3D.',
-    keywords: ["imposisi 3d","lipat kertas","jilid kawat","layout percetakan"],
+    keywords: ["imposisi 3d", "lipat kertas", "jilid kawat", "layout percetakan"],
     description: toolContentEn['booklet-folding-simulator'].description,
     howToUse: toolContentEn['booklet-folding-simulator'].howToUse,
     useCases: toolContentEn['booklet-folding-simulator'].useCases,
@@ -2828,7 +2828,7 @@ export const toolContentId: Record<string, ToolContent> = {
   'pdf-to-slide': {
     title: 'PDF ke Slide',
     metaDescription: 'Analisis garis besar PDF untuk mengekstrak teks penting serta diagram vektor ke dokumen presentasi PPTX yang dapat diedit.',
-    keywords: ["pdf ke ppt","rekonstruksi slide","ekstrak diagram","file pptx"],
+    keywords: ["pdf ke ppt", "rekonstruksi slide", "ekstrak diagram", "file pptx"],
     description: toolContentEn['pdf-to-slide'].description,
     howToUse: toolContentEn['pdf-to-slide'].howToUse,
     useCases: toolContentEn['pdf-to-slide'].useCases,
@@ -2838,7 +2838,7 @@ export const toolContentId: Record<string, ToolContent> = {
   'eink-optimizer': {
     title: 'Pengoptimal Pembaca e-Ink',
     metaDescription: 'Optimalkan PDF untuk layar tinta elektronik melalui pembersihan latar belakang, binarisasi Otsu, dan penebalan goresan teks.',
-    keywords: ["optimasi eink","binarisasi otsu","tebalkan tulisan","baca e-reader"],
+    keywords: ["optimasi eink", "binarisasi otsu", "tebalkan tulisan", "baca e-reader"],
     description: toolContentEn['eink-optimizer'].description,
     howToUse: toolContentEn['eink-optimizer'].howToUse,
     useCases: toolContentEn['eink-optimizer'].useCases,
@@ -2848,7 +2848,7 @@ export const toolContentId: Record<string, ToolContent> = {
   'cert-cryptor': {
     title: 'Enkripsi Sertifikat',
     metaDescription: 'Enkripsi PDF dengan sertifikat kunci publik, tanda tangan PKCS#7, serta cetakan segel lilin fisik 3D emas mewah.',
-    keywords: ["enkripsi sertifikat","segel lilin 3d","tanda tangan digital","pkcs7"],
+    keywords: ["enkripsi sertifikat", "segel lilin 3d", "tanda tangan digital", "pkcs7"],
     description: toolContentEn['cert-cryptor'].description,
     howToUse: toolContentEn['cert-cryptor'].howToUse,
     useCases: toolContentEn['cert-cryptor'].useCases,
@@ -2858,7 +2858,7 @@ export const toolContentId: Record<string, ToolContent> = {
   'passport-id-composer': {
     title: 'Salin ID Dua Sisi',
     metaDescription: 'Gabungkan sisi depan dan belakang KTP/Paspor secara presisi pada satu halaman A4 dengan tanda air pengaman.',
-    keywords: ["salinan ktp","ktp bolak balik a4","salinan paspor","watermark ktp"],
+    keywords: ["salinan ktp", "ktp bolak balik a4", "salinan paspor", "watermark ktp"],
     description: toolContentEn['passport-id-composer'].description,
     howToUse: toolContentEn['passport-id-composer'].howToUse,
     useCases: toolContentEn['passport-id-composer'].useCases,
@@ -2868,7 +2868,7 @@ export const toolContentId: Record<string, ToolContent> = {
   'annotation-exporter': {
     title: 'Ekspor Catatan',
     metaDescription: 'Ekstrak coretan stabilo, catatan kaki, dan komentar dari dokumen PDF Anda ke catatan ringkas berformat Markdown.',
-    keywords: ["ekstrak anotasi pdf","ekspor highlight","catatan bacaan","file markdown"],
+    keywords: ["ekstrak anotasi pdf", "ekspor highlight", "catatan bacaan", "file markdown"],
     description: toolContentEn['annotation-exporter'].description,
     howToUse: toolContentEn['annotation-exporter'].howToUse,
     useCases: toolContentEn['annotation-exporter'].useCases,
@@ -2878,7 +2878,7 @@ export const toolContentId: Record<string, ToolContent> = {
   'batch-watermark-remover': {
     title: 'Hapus Tanda Air',
     metaDescription: 'Analisis aliran instruksi PDF untuk menghapus tanda air berupa teks atau gambar (XObject) tanpa merusak tata letak tulisan.',
-    keywords: ["hapus watermark pdf","bersihkan logo halaman","pengeditan dokumen"],
+    keywords: ["hapus watermark pdf", "bersihkan logo halaman", "pengeditan dokumen"],
     description: toolContentEn['batch-watermark-remover'].description,
     howToUse: toolContentEn['batch-watermark-remover'].howToUse,
     useCases: toolContentEn['batch-watermark-remover'].useCases,
@@ -2888,7 +2888,7 @@ export const toolContentId: Record<string, ToolContent> = {
   'smart-data-redactor': {
     title: 'Redaksi Data Sensitif',
     metaDescription: 'Deteksi otomatis email, nomor telepon, dan nomor kartu identitas lalu tutup dengan kotak hitam permanen dan hapus teksnya.',
-    keywords: ["redaksi data pdf","masking data sensitif","keamanan informasi"],
+    keywords: ["redaksi data pdf", "masking data sensitif", "keamanan informasi"],
     description: toolContentEn['smart-data-redactor'].description,
     howToUse: toolContentEn['smart-data-redactor'].howToUse,
     useCases: toolContentEn['smart-data-redactor'].useCases,
@@ -2898,7 +2898,7 @@ export const toolContentId: Record<string, ToolContent> = {
   'bookmarks-auto-generator': {
     title: 'Buat Buku Petunjuk',
     metaDescription: 'Analisis ukuran font dan tingkat hierarki tulisan untuk menyusun pohon navigasi buku petunjuk (bookmark) secara otomatis.',
-    keywords: ["bookmark otomatis pdf","pohon navigasi","struktur dokumen"],
+    keywords: ["bookmark otomatis pdf", "pohon navigasi", "struktur dokumen"],
     description: toolContentEn['bookmarks-auto-generator'].description,
     howToUse: toolContentEn['bookmarks-auto-generator'].howToUse,
     useCases: toolContentEn['bookmarks-auto-generator'].useCases,
@@ -2908,7 +2908,7 @@ export const toolContentId: Record<string, ToolContent> = {
   'batch-barcode-injector': {
     title: 'Suntik Barcode Massal',
     metaDescription: 'Masukkan QR Code atau Barcode (Code128) pada koordinat spesifik di seluruh halaman file PDF secara massal.',
-    keywords: ["suntik qr pdf","barcode massal","penomoran dokumen"],
+    keywords: ["suntik qr pdf", "barcode massal", "penomoran dokumen"],
     description: toolContentEn['batch-barcode-injector'].description,
     howToUse: toolContentEn['batch-barcode-injector'].howToUse,
     useCases: toolContentEn['batch-barcode-injector'].useCases,
@@ -2918,7 +2918,7 @@ export const toolContentId: Record<string, ToolContent> = {
   'signature-ink-optimizer': {
     title: 'Ekstrak Tanda Tangan',
     metaDescription: 'Ekstrak tanda tangan dan cap stempel dari dokumen scan, hilangkan latar kertas menjadi gambar PNG transparan bersih.',
-    keywords: ["ekstrak tanda tangan","stempel transparan","bersihkan coretan kertas"],
+    keywords: ["ekstrak tanda tangan", "stempel transparan", "bersihkan coretan kertas"],
     description: toolContentEn['signature-ink-optimizer'].description,
     howToUse: toolContentEn['signature-ink-optimizer'].howToUse,
     useCases: toolContentEn['signature-ink-optimizer'].useCases,
@@ -2928,7 +2928,7 @@ export const toolContentId: Record<string, ToolContent> = {
   'dead-link-debugger': {
     title: 'Perbaiki Tautan Rusak',
     metaDescription: 'Pindai dokumen PDF untuk memeriksa tautan eksternal (/URI) yang mati dan perbaiki alamat URL-nya secara instan.',
-    keywords: ["tautan rusak pdf","perbaiki link pdf","edit url dokumen"],
+    keywords: ["tautan rusak pdf", "perbaiki link pdf", "edit url dokumen"],
     description: toolContentEn['dead-link-debugger'].description,
     howToUse: toolContentEn['dead-link-debugger'].howToUse,
     useCases: toolContentEn['dead-link-debugger'].useCases,
@@ -2938,7 +2938,7 @@ export const toolContentId: Record<string, ToolContent> = {
   'interactive-toc-generator': {
     title: 'Daftar Isi Interaktif',
     metaDescription: 'Sisipkan halaman daftar isi interaktif yang dapat diklik ke bab tujuan, lengkap dengan tombol kembali (↩) di setiap halaman.',
-    keywords: ["daftar isi interaktif","toc generator","kembali ke daftar isi"],
+    keywords: ["daftar isi interaktif", "toc generator", "kembali ke daftar isi"],
     description: toolContentEn['interactive-toc-generator'].description,
     howToUse: toolContentEn['interactive-toc-generator'].howToUse,
     useCases: toolContentEn['interactive-toc-generator'].useCases,
@@ -2948,7 +2948,7 @@ export const toolContentId: Record<string, ToolContent> = {
   'pdf-deskew-aligner': {
     title: 'Koreksi Kemiringan Scan',
     metaDescription: 'Deteksi otomatis sudut kemiringan pada PDF hasil scan atau foto dan luruskan halamannya ke posisi horizontal sempurna.',
-    keywords: ["luruskan scan pdf","koreksi miring dokumen","deskew otomatis"],
+    keywords: ["luruskan scan pdf", "koreksi miring dokumen", "deskew otomatis"],
     description: toolContentEn['pdf-deskew-aligner'].description,
     howToUse: toolContentEn['pdf-deskew-aligner'].howToUse,
     useCases: toolContentEn['pdf-deskew-aligner'].useCases,
@@ -2958,7 +2958,7 @@ export const toolContentId: Record<string, ToolContent> = {
   'pdf-two-column-reflower': {
     title: 'Aliran Ulang Dua Kolom',
     metaDescription: 'Ubah tata letak artikel dua kolom menjadi aliran satu kolom yang nyaman dibaca dengan membagi batas halaman secara presisi.',
-    keywords: ["makalah dua kolom","pdf satu kolom","split cropbox halaman"],
+    keywords: ["makalah dua kolom", "pdf satu kolom", "split cropbox halaman"],
     description: toolContentEn['pdf-two-column-reflower'].description,
     howToUse: toolContentEn['pdf-two-column-reflower'].howToUse,
     useCases: toolContentEn['pdf-two-column-reflower'].useCases,
@@ -2968,7 +2968,7 @@ export const toolContentId: Record<string, ToolContent> = {
   'pdf-page-resizer-uniform': {
     title: 'Seragamkan Ukuran Halaman',
     metaDescription: 'Skala halaman PDF yang memiliki ukuran berbeda-beda (misal A3 & A4) agar seragam di atas ukuran target tertentu.',
-    keywords: ["seragamkan ukuran pdf","skala halaman a4","pusatkan isi halaman"],
+    keywords: ["seragamkan ukuran pdf", "skala halaman a4", "pusatkan isi halaman"],
     description: toolContentEn['pdf-page-resizer-uniform'].description,
     howToUse: toolContentEn['pdf-page-resizer-uniform'].howToUse,
     useCases: toolContentEn['pdf-page-resizer-uniform'].useCases,
@@ -2978,7 +2978,7 @@ export const toolContentId: Record<string, ToolContent> = {
   'handwriting-ink-contrast-booster': {
     title: 'Tingkatkan Kontras Tulisan',
     metaDescription: 'Bersihkan noda kuning dan bayangan kertas, buat tulisan pena biru/hitam dan cap merah menjadi sangat tajam.',
-    keywords: ["pertajam tanda tangan","hilangkan bayangan kertas","peningkat kontras tinta"],
+    keywords: ["pertajam tanda tangan", "hilangkan bayangan kertas", "peningkat kontras tinta"],
     description: toolContentEn['handwriting-ink-contrast-booster'].description,
     howToUse: toolContentEn['handwriting-ink-contrast-booster'].howToUse,
     useCases: toolContentEn['handwriting-ink-contrast-booster'].useCases,
@@ -2988,7 +2988,7 @@ export const toolContentId: Record<string, ToolContent> = {
   'pdf-spine-bookbinder': {
     title: 'Hitung Lebar Punggung Buku',
     metaDescription: 'Hitung tebal punggung (spine) buku dalam milimeter berdasarkan jumlah halaman dan berat kertas (GSM) untuk cetak cover.',
-    keywords: ["hitung punggung buku","desain cover buku","ketebalan jilid lem"],
+    keywords: ["hitung punggung buku", "desain cover buku", "ketebalan jilid lem"],
     description: toolContentEn['pdf-spine-bookbinder'].description,
     howToUse: toolContentEn['pdf-spine-bookbinder'].howToUse,
     useCases: toolContentEn['pdf-spine-bookbinder'].useCases,
@@ -2998,7 +2998,7 @@ export const toolContentId: Record<string, ToolContent> = {
   'pdf-signature-anchor-helper': {
     title: 'Panduan Posisi Tanda Tangan',
     metaDescription: 'Suntikkan ikon petunjuk pena dan tautan navigasi langsung di tempat-tempat yang membutuhkan tanda tangan.',
-    keywords: ["jangkar tanda tangan","petunjuk tanda tangan","link tanda tangan"],
+    keywords: ["jangkar tanda tangan", "petunjuk tanda tangan", "link tanda tangan"],
     description: toolContentEn['pdf-signature-anchor-helper'].description,
     howToUse: toolContentEn['pdf-signature-anchor-helper'].howToUse,
     useCases: toolContentEn['pdf-signature-anchor-helper'].useCases,
@@ -3008,7 +3008,7 @@ export const toolContentId: Record<string, ToolContent> = {
   'pdf-lossless-slicer': {
     title: 'Potong Gambar Tanpa Rusak',
     metaDescription: 'Potong bagian gambar proyek atau peta besar dengan memodifikasi MediaBox & CropBox tanpa merusak data vektor.',
-    keywords: ["potong gambar pdf","crop gambar cetak","vektor crop tanpa rusak"],
+    keywords: ["potong gambar pdf", "crop gambar cetak", "vektor crop tanpa rusak"],
     description: toolContentEn['pdf-lossless-slicer'].description,
     howToUse: toolContentEn['pdf-lossless-slicer'].howToUse,
     useCases: toolContentEn['pdf-lossless-slicer'].useCases,
@@ -3018,7 +3018,7 @@ export const toolContentId: Record<string, ToolContent> = {
   'pdf-scratchpad-canvas': {
     title: 'Kanvas Kertas Buram',
     metaDescription: 'Perlebar dimensi halaman PDF dan sambungkan area coretan kertas bergaris atau kotak-kotak di bagian samping berkas.',
-    keywords: ["kertas buram pdf","tambah catatan samping","halaman kotak kotak"],
+    keywords: ["kertas buram pdf", "tambah catatan samping", "halaman kotak kotak"],
     description: toolContentEn['pdf-scratchpad-canvas'].description,
     howToUse: toolContentEn['pdf-scratchpad-canvas'].howToUse,
     useCases: toolContentEn['pdf-scratchpad-canvas'].useCases,
@@ -3028,7 +3028,7 @@ export const toolContentId: Record<string, ToolContent> = {
   'photo-tiling-prepress': {
     title: 'Cetak Pas Foto Mandiri',
     metaDescription: 'Susun pas foto tunggal ke dalam matriks cetak ukuran kertas foto 5 atau 6 inci, lengkap dengan batas potong.',
-    keywords: ["cetak pas foto","layout kertas foto","batas gunting foto"],
+    keywords: ["cetak pas foto", "layout kertas foto", "batas gunting foto"],
     description: toolContentEn['photo-tiling-prepress'].description,
     howToUse: toolContentEn['photo-tiling-prepress'].howToUse,
     useCases: toolContentEn['photo-tiling-prepress'].useCases,

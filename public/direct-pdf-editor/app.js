@@ -9428,16 +9428,23 @@ async function saveFile() {
   } catch (e) {
     console.warn('tag surgery skipped:', e);
   }
-  const blob = new Blob([bytes], { type: 'application/pdf' });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = state.fileName;
-  a.click();
-  URL.revokeObjectURL(a.href);
   state.dirty = false;
   const savedKb = (bytes.length / 1024) | 0;
-  if (onSaved) onSaved(savedKb, state.fileName);
-  else toast('Saved ' + savedKb + ' KB');
+  const isEmbedded = typeof window !== 'undefined' && window.parent && window.parent !== window;
+
+  if (isEmbedded) {
+    if (onSaved) onSaved(savedKb, state.fileName, bytes);
+    else toast('Saved ' + savedKb + ' KB');
+  } else {
+    const blob = new Blob([bytes], { type: 'application/pdf' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = state.fileName;
+    a.click();
+    URL.revokeObjectURL(a.href);
+    if (onSaved) onSaved(savedKb, state.fileName, bytes);
+    else toast('Saved ' + savedKb + ' KB');
+  }
 }
 
 let onSaved = null;

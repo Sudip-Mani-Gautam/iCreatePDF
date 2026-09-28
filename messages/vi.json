@@ -1054,7 +1054,7 @@
           "question": "Tại sao quá trình xử lý tệp lớn lại chậm?",
           "answer": "Vì tất cả quá trình xử lý đều diễn ra trong trình duyệt của bạn, hiệu suất phụ thuộc vào khả năng thiết bị của bạn. Các tệp lớn yêu cầu nhiều bộ nhớ và sức mạnh xử lý hơn. Để có kết quả tốt nhất, hãy đóng các tab trình duyệt và ứng dụng khác."
         },
-        "offline": {
+        "Offline": {
           "question": "iCreatePDF có hoạt động ngoại tuyến không?",
           "answer": "Hiện tại, iCreatePDF yêu cầu kết nối internet để tải ứng dụng. Tuy nhiên, sau khi đã tải xong, quá trình xử lý PDF tự nó diễn ra cục bộ và không cần kết nối."
         }

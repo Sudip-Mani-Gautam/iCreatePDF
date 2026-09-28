@@ -1742,7 +1742,7 @@ export const toolContentIt: Record<string, ToolContent> = {
     "useCases": [
       {
         "title": "Archivio contenuti web",
-        "description": "Converti immagini dal web in PDF per l’archiviazione offline.",
+        "description": "Converti immagini dal web in PDF per l’archiviazione Offline.",
         "icon": "globe"
       },
       {
@@ -5751,7 +5751,7 @@ export const toolContentIt: Record<string, ToolContent> = {
       "leggi pdf",
       "viewer pdf browser"
     ],
-    "description": "\n      <p>Lettore PDF è un visualizzatore completo che ti consente di leggere e navigare documenti PDF direttamente nel browser. Nessuna installazione richiesta: carica il PDF e inizia a leggere.</p>\n      <p>Passa tra le pagine, esegui zoom in/out, ruota la vista e usa la modalità a schermo intero per una lettura senza distrazioni. Puoi anche stampare o scaricare i documenti per l’accesso offline.</p>\n      <p>Tutta la visualizzazione avviene localmente nel tuo browser. I tuoi documenti non vengono mai caricati su alcun server, garantendo massima privacy.</p>\n    ",
+    "description": "\n      <p>Lettore PDF è un visualizzatore completo che ti consente di leggere e navigare documenti PDF direttamente nel browser. Nessuna installazione richiesta: carica il PDF e inizia a leggere.</p>\n      <p>Passa tra le pagine, esegui zoom in/out, ruota la vista e usa la modalità a schermo intero per una lettura senza distrazioni. Puoi anche stampare o scaricare i documenti per l’accesso Offline.</p>\n      <p>Tutta la visualizzazione avviene localmente nel tuo browser. I tuoi documenti non vengono mai caricati su alcun server, garantendo massima privacy.</p>\n    ",
     "howToUse": [
       {
         "step": 1,
@@ -5771,7 +5771,7 @@ export const toolContentIt: Record<string, ToolContent> = {
       {
         "step": 4,
         "title": "Stampa o scarica",
-        "description": "Stampa il documento o scaricalo per l’accesso offline quando necessario."
+        "description": "Stampa il documento o scaricalo per l’accesso Offline quando necessario."
       }
     ],
     "useCases": [

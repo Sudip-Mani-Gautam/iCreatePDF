@@ -33,6 +33,9 @@ function resolveAppVersion() {
 const nextConfig = {
   // Enable static export for deployment flexibility
   output: 'export',
+
+  // Disable production browser source maps to prevent exposing source code
+  productionBrowserSourceMaps: false,
   
   // Support deployment under a subpath (e.g., /pdfcraft/)
   // Use BASE_PATH or NEXT_PUBLIC_BASE_PATH environment variable

@@ -36,7 +36,7 @@
   },
   "common": {
     "brand": "iCreatePDF",
-    "tagline": "Setul complet de instrumente PDF offline. 100% privat, fără încărcări, rapid și bazat pe browser.",
+    "tagline": "Setul complet de instrumente PDF Offline. 100% privat, fără încărcări, rapid și bazat pe browser.",
     "navigation": {
       "home": "Acasă",
       "tools": "Instrumente",
@@ -97,7 +97,7 @@
       "resources": "Resurse",
       "company": "Companie",
       "legal": "Legal",
-      "tagline": "Setul complet de instrumente PDF offline. 100% privat, fără încărcări, rapid și bazat pe browser."
+      "tagline": "Setul complet de instrumente PDF Offline. 100% privat, fără încărcări, rapid și bazat pe browser."
     },
     "recentFiles": {
       "title": "Fișiere Recente",
@@ -1054,8 +1054,8 @@
           "question": "De ce este procesarea lentă pentru fișierele mari?",
           "answer": "Deoarece toată procesarea are loc în browser, performanța depinde de capacitățile dispozitivului dumneavoastră. Fișierele mari necesită mai multă memorie și putere de procesare. Pentru cele mai bune rezultate, închideți alte file de browser și aplicații."
         },
-        "offline": {
-          "question": "iCreatePDF funcționează offline?",
+        "Offline": {
+          "question": "iCreatePDF funcționează Offline?",
           "answer": "În prezent, iCreatePDF necesită o conexiune la internet pentru a încărca aplicația. Cu toate acestea, odată încărcată, procesarea PDF în sine are loc local și nu necesită o conexiune."
         }
       },

@@ -180,11 +180,11 @@ export function WorkflowLibrary({
     }
 
     return (
-        <div className="w-80 h-full bg-[hsl(var(--color-background))] border-l border-[hsl(var(--color-border))] flex flex-col">
+        <div className="w-[340px] sm:w-[380px] lg:w-[400px] shrink-0 h-full bg-[hsl(var(--color-background))] border-l border-[hsl(var(--color-border))] flex flex-col">
             {/* Collapse button header */}
             <div className="flex items-center justify-between px-4 py-2 border-b border-[hsl(var(--color-border))]">
-                <span className="text-sm font-medium text-[hsl(var(--color-foreground))]">
-                    {tWorkflow('templates') || 'Library'}
+                <span className="text-sm font-semibold text-[hsl(var(--color-foreground))]">
+                    {tWorkflow('templates') || 'Workflow Library'}
                 </span>
                 <button
                     onClick={onToggleCollapse}
@@ -196,7 +196,7 @@ export function WorkflowLibrary({
             </div>
 
             {/* Tabs */}
-            <div className="flex border-b border-[hsl(var(--color-border))]">
+            <div className="grid grid-cols-4 border-b border-[hsl(var(--color-border))] bg-[hsl(var(--color-muted)/0.2)]">
                 {tabs.map(tab => {
                     const Icon = tab.icon;
                     return (
@@ -204,15 +204,15 @@ export function WorkflowLibrary({
                             key={tab.id}
                             onClick={() => setActiveTab(tab.id)}
                             className={`
-                flex-1 flex items-center justify-center gap-2 py-3 text-sm font-medium transition-colors
-                ${activeTab === tab.id
-                                    ? 'text-[hsl(var(--color-primary))] border-b-2 border-[hsl(var(--color-primary))]'
+                                flex items-center justify-center gap-1.5 py-2.5 px-1 text-xs font-medium whitespace-nowrap transition-colors
+                                ${activeTab === tab.id
+                                    ? 'text-[hsl(var(--color-primary))] border-b-2 border-[hsl(var(--color-primary))] bg-[hsl(var(--color-background))]'
                                     : 'text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))]'
                                 }
-              `}
+                            `}
                         >
-                            <Icon className="w-4 h-4" />
-                            {tab.label}
+                            <Icon className="w-3.5 h-3.5 shrink-0" />
+                            <span>{tab.label}</span>
                         </button>
                     );
                 })}
@@ -224,7 +224,7 @@ export function WorkflowLibrary({
                 {activeTab === 'templates' && (
                     <div className="p-4">
                         {/* Category Filter */}
-                        <div className="flex flex-wrap gap-2 mb-4">
+                        <div className="flex flex-wrap gap-1.5 mb-4">
                             {templateCategories.map(cat => {
                                 const Icon = cat.icon;
                                 return (
@@ -232,15 +232,15 @@ export function WorkflowLibrary({
                                         key={cat.id}
                                         onClick={() => setSelectedCategory(cat.id)}
                                         className={`
-                      flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-xs font-medium transition-colors
-                      ${selectedCategory === cat.id
-                                                ? 'bg-[hsl(var(--color-primary))] text-white'
-                                                : 'bg-[hsl(var(--color-muted))] text-[hsl(var(--color-muted-foreground))] hover:bg-[hsl(var(--color-muted)/0.8)]'
+                                            flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium transition-colors shrink-0
+                                            ${selectedCategory === cat.id
+                                                ? 'bg-[hsl(var(--color-primary))] text-white shadow-sm'
+                                                : 'bg-[hsl(var(--color-muted))] text-[hsl(var(--color-muted-foreground))] hover:bg-[hsl(var(--color-muted)/0.8)] hover:text-[hsl(var(--color-foreground))]'
                                             }
-                    `}
+                                        `}
                                     >
-                                        <Icon className="w-3 h-3" />
-                                        {cat.label}
+                                        <Icon className="w-3 h-3 shrink-0" />
+                                        <span>{cat.label}</span>
                                     </button>
                                 );
                             })}

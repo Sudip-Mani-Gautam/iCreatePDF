@@ -52,7 +52,7 @@ const CREDITS: ProjectCredit[] = [
   {
     name: 'LibreOffice WASM',
     category: 'Document Conversion',
-    description: 'WebAssembly port of LibreOffice engine enabling offline document conversions (DOCX, XLSX, PPTX to PDF).',
+    description: 'WebAssembly port of LibreOffice engine enabling Offline document conversions (DOCX, XLSX, PPTX to PDF).',
     license: 'MPL 2.0',
     url: 'https://www.libreoffice.org/',
   },
@@ -100,7 +100,7 @@ export default function AcknowledgementsPageClient({ locale }: AcknowledgementsP
     <div className="min-h-screen flex flex-col bg-[hsl(var(--color-background))] text-[hsl(var(--color-foreground))]">
       <Header locale={locale} />
 
-      <main className="flex-1 pt-16 pb-16">
+      <main className="flex-1 pt-20 sm:pt-22 md:pt-24 pb-16">
         {/* Hero Section */}
         <section className="pt-4 pb-10 border-b border-[hsl(var(--color-border))/0.5] bg-gradient-to-b from-[hsl(var(--color-primary)/0.05)] to-transparent">
           <div className="container mx-auto px-4 max-w-4xl text-center">

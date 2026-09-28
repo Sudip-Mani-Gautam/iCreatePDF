@@ -27,13 +27,13 @@ let workerConfigured = false;
 
 /**
  * Configure PDF.js worker source
- * Uses the worker bundled locally for offline support
+ * Uses the worker bundled locally for Offline support
  */
 export function configurePdfjsWorker(pdfjsLib: PDFJSModule): void {
   if (workerConfigured) return;
 
   if (typeof window !== 'undefined') {
-    // Use the local worker file for offline support
+    // Use the local worker file for Offline support
     // The worker file is located in public/workers/pdf.worker.min.js
     pdfjsLib.GlobalWorkerOptions.workerSrc = withBasePath('/workers/pdf.worker.min.js');
     workerConfigured = true;

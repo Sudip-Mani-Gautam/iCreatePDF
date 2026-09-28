@@ -54,12 +54,14 @@ export async function generateMetadata({
       modifiedTime: post.updatedAt || post.publishedAt,
       authors: [post.author.name],
       tags: post.tags,
+      images: post.coverImage ? [{ url: `${siteConfig.url}${post.coverImage}`, alt: post.title }] : undefined,
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.description,
       site: siteConfig.seo.twitterHandle,
+      images: post.coverImage ? [`${siteConfig.url}${post.coverImage}`] : undefined,
     },
     alternates: {
       canonical: url,

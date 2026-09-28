@@ -3,6 +3,8 @@ import { setRequestLocale } from 'next-intl/server';
 import { locales, type Locale } from '@/lib/i18n/config';
 import CookiesPageClient from './CookiesPageClient';
 
+import { generateCookiesMetadata } from '@/lib/seo';
+
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
@@ -13,10 +15,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  return {
-    title: 'Cookie Policy - iCreatePDF',
-    description: 'Learn about our cookie-free, privacy-first client-side architecture.',
-  };
+  return generateCookiesMetadata(locale as Locale);
 }
 
 interface CookiesPageProps {

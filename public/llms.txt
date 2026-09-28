@@ -1,0 +1,51 @@
+# iCreatePDF
+
+> Free, 100% private, client-side PDF suite and visual automation studio. All document processing runs locally in browser WebAssembly memory without uploading files to any server.
+
+iCreatePDF (https://icreatepdf.com) provides 132+ professional web tools to manipulate, convert, optimize, redact, sign, and automate PDF documents with zero cloud uploads, zero account requirements, and complete privacy.
+
+## Core Capabilities
+- [Visual Workflow Automation](https://icreatepdf.com/en/workflow): Node-based drag-and-drop studio to chain multiple PDF tools (e.g., input -> watermark -> compress -> AES-256 encrypt -> export) in an automated local pipeline.
+- [All PDF Tools Directory](https://icreatepdf.com/en/tools): Complete master directory of 132+ client-side PDF tools.
+- [Merge PDF](https://icreatepdf.com/en/tools/merge-pdf): Combine multiple PDF documents in custom sequence locally without size limits.
+- [Compress PDF](https://icreatepdf.com/en/tools/compress-pdf): Reduce PDF file size up to 80% while retaining vector crispness and text layers.
+- [Split PDF](https://icreatepdf.com/en/tools/split-pdf): Extract custom page ranges or split documents into separate single-page files.
+- [Edit PDF](https://icreatepdf.com/en/tools/edit-pdf): Visual canvas editor for adding annotations, text, images, and shapes to existing PDFs.
+- [Protect PDF](https://icreatepdf.com/en/tools/protect-pdf): Secure documents with AES-256 password protection and permission locks.
+- [Unlock PDF](https://icreatepdf.com/en/tools/unlock-pdf): Remove passwords and permissions from encrypted PDF documents locally.
+- [PDF to Word (DOCX)](https://icreatepdf.com/en/tools/pdf-to-docx): Convert PDF files into editable Microsoft Word documents.
+- [Word to PDF](https://icreatepdf.com/en/tools/word-to-pdf): Convert DOC and DOCX files into standardized PDF documents.
+- [JPG to PDF](https://icreatepdf.com/en/tools/jpg-to-pdf): Convert images (JPG, PNG, WebP) into compiled multi-page PDFs.
+- [PDF to JPG](https://icreatepdf.com/en/tools/pdf-to-jpg): Export PDF pages as high-resolution image files.
+- [OCR PDF](https://icreatepdf.com/en/tools/ocr-pdf): Extract text and make scanned documents searchable using Tesseract.js WebAssembly.
+- [Sign PDF](https://icreatepdf.com/en/tools/sign-pdf): Apply draw, type, or image-based electronic signatures without cloud storage.
+- [Watermark PDF](https://icreatepdf.com/en/tools/watermark-pdf): Stamp custom confidential text or image watermarks with precise opacity and angle.
+- [Find & Redact](https://icreatepdf.com/en/tools/find-and-redact): Permanently black out confidential numbers, names, and sensitive patterns.
+
+## Tool Categories
+- [Organize & Manage](https://icreatepdf.com/en/tools/category/organize-manage): Tools for merging, splitting, rotating, deleting, and reordering pages.
+- [Optimize & Repair](https://icreatepdf.com/en/tools/category/optimize-repair): Tools for compression, grayscale conversion, flattening, and corruption repair.
+- [Convert to PDF](https://icreatepdf.com/en/tools/category/convert-to-pdf): Convert Office documents, images, markdown, and text to PDF.
+- [Convert from PDF](https://icreatepdf.com/en/tools/category/convert-from-pdf): Convert PDF files to images, DOCX, XLSX, PPTX, and HTML.
+- [Edit & Annotate](https://icreatepdf.com/en/tools/category/edit-annotate): Annotations, page numbering, Bates stamping, redaction, and cropping.
+- [Security & Privacy](https://icreatepdf.com/en/tools/category/secure-pdf): AES encryption, password removal, electronic signatures, and certificate seals.
+
+## Guides & Tutorials
+- [How to Merge PDF Files Free](https://icreatepdf.com/en/blog/how-to-merge-pdf-files-online-free): Complete step-by-step guide on assembling multi-file documents.
+- [Compress PDF Without Quality Loss](https://icreatepdf.com/en/blog/how-to-compress-pdf-without-losing-quality): Technical guide on vector preservation and DPI optimization.
+- [Complete PDF Security Guide](https://icreatepdf.com/en/blog/complete-guide-to-pdf-security-and-password-protection): Understanding AES-256 encryption, permissions, and metadata sanitization.
+- [Offline PDF Privacy Architecture](https://icreatepdf.com/en/blog/offline-pdf-tools-privacy-guide): Why browser-based WebAssembly is safer than cloud file converters.
+
+## Company & Trust
+- [About iCreatePDF](https://icreatepdf.com/en/about): Company mission, founder background, and open-source principles.
+- [Founder Profile](https://icreatepdf.com/en/about/founder): Sudip Mani Gautam, Founder & Creator of iCreatePDF.
+- [Security Architecture](https://icreatepdf.com/en/security): In-depth security whitepaper on client-side memory isolation.
+- [Privacy Policy](https://icreatepdf.com/en/privacy): GDPR and CCPA zero-data retention disclosures.
+- [Terms & Conditions](https://icreatepdf.com/en/terms): Usage policies and service terms.
+- [Contact Support](https://icreatepdf.com/en/contact): Official contact and feedback channels.
+- [Help & FAQ](https://icreatepdf.com/en/help): Searchable troubleshooting guides and keyboard shortcuts.
+
+## Optional
+- [Full LLM Specification](https://icreatepdf.com/llms-full.txt): Deep technical dump for AI systems, agents, and search engines.
+- [Sitemap](https://icreatepdf.com/sitemap.xml): Complete XML sitemap containing all 17,500+ localized URLs.
+- [Robots Configuration](https://icreatepdf.com/robots.txt): Crawler rules and sitemap indices.

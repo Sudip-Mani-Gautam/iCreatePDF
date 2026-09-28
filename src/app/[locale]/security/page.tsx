@@ -3,6 +3,8 @@ import { setRequestLocale } from 'next-intl/server';
 import { locales, type Locale } from '@/lib/i18n/config';
 import SecurityPageClient from './SecurityPageClient';
 
+import { generateSecurityMetadata } from '@/lib/seo';
+
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
@@ -13,10 +15,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  return {
-    title: 'Security Architecture - iCreatePDF',
-    description: 'Learn how iCreatePDF provides zero-upload, 100% client-side local PDF processing security.',
-  };
+  return generateSecurityMetadata(locale as Locale);
 }
 
 interface SecurityPageProps {

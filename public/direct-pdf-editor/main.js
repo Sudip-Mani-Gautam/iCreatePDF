@@ -485,13 +485,14 @@ function setupHostBridge() {
 // Save Callback
 function setupSaveCallback() {
   if (typeof appModule.setOnSaved === 'function') {
-    appModule.setOnSaved((kb, fileName) => {
+    appModule.setOnSaved((kb, fileName, bytes) => {
       console.log('[DirectEditor] File saved:', fileName, kb, 'KB');
       if (window.parent && window.parent !== window) {
         window.parent.postMessage({
           type: 'PDFCRAFT_SAVE_SUCCESS',
           fileName: fileName || 'edited-document.pdf',
-          sizeKb: kb
+          sizeKb: kb,
+          bytes: bytes || null
         }, '*');
       }
     });

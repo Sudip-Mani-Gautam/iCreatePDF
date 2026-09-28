@@ -6,6 +6,7 @@ import { FileUploader } from '../FileUploader';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { LegacyAnnotatorTool } from './LegacyAnnotatorTool';
+import { saveBlobFile } from '@/lib/tauri-bridge';
 
 export interface EditPDFToolProps {
   className?: string;
@@ -161,8 +162,13 @@ export function EditPDFTool({ className = '' }: EditPDFToolProps) {
       } else if (type === 'PDFCRAFT_LOADED_SUCCESS') {
         setIsEditorReady(true);
       } else if (type === 'PDFCRAFT_SAVE_SUCCESS') {
+        const safeName = fileName || (file ? file.name.replace(/\.pdf$/i, ' (edited).pdf') : 'edited-document.pdf');
+        if (event.data?.bytes) {
+          const blob = new Blob([event.data.bytes], { type: 'application/pdf' });
+          saveBlobFile(blob, safeName);
+        }
         setSavedNotice(
-          `${fileName || 'Document'} saved successfully! (${sizeKb ? sizeKb + ' KB' : 'downloaded'})`
+          `${safeName} saved successfully! (${sizeKb ? sizeKb + ' KB' : 'downloaded'})`
         );
         setTimeout(() => setSavedNotice(null), 6000);
       } else if (type === 'PDFCRAFT_EXIT_EDITOR') {
@@ -296,8 +302,8 @@ export function EditPDFTool({ className = '' }: EditPDFToolProps) {
                 src={`/direct-pdf-editor/index.html?lang=${encodeURIComponent(locale || 'en')}`}
                 className="w-full h-[820px] border-0"
                 title="PDF Editor"
-                sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads"
                 allow="local-fonts"
+                sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads"
                 onLoad={handleIframeLoad}
               />
               {!isEditorReady && (

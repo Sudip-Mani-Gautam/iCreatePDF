@@ -4,6 +4,8 @@ import React, { useCallback, useRef, useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { UploadCloud, File, Plus, X, Lock, Loader2 } from 'lucide-react';
 import { isTauri } from '@/lib/tauri-bridge';
+import { useToolContext } from '@/lib/contexts/ToolContext';
+import { analytics } from '@/lib/analytics';
 
 export interface FileUploaderProps {
   /** Accepted file types (MIME types or extensions) */
@@ -49,6 +51,7 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
 }) => {
   const t = useTranslations('common');
   const tErrors = useTranslations('errors');
+  const toolContext = useToolContext();
 
   // Encryption & Decryption states
   const [encryptPendingFiles, setEncryptPendingFiles] = useState<File[]>([]);
@@ -239,6 +242,15 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
         }
       }
 
+      // Track file selection anonymously (generic extension only)
+      valid.forEach((file) => {
+        const ext = file.name.split('.').pop()?.toLowerCase() || 'pdf';
+        analytics.fileSelected({
+          tool_name: toolContext?.toolSlug || 'pdf-tool',
+          file_type: ext,
+        });
+      });
+
       if (encryptedList.length > 0) {
         // Initialize the decryption state machine queue
         setEncryptPendingFiles(encryptedList);
@@ -251,7 +263,7 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
         onFilesSelected(valid);
       }
     }
-  }, [disabled, validateFiles, onError, onFilesSelected]);
+  }, [disabled, validateFiles, onError, onFilesSelected, toolContext?.toolSlug]);
 
   const handleDragEnter = useCallback((e: React.DragEvent) => {
     e.preventDefault();
@@ -482,7 +494,8 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
   const baseStyles = `
     relative flex flex-col items-center justify-center
     w-full min-h-[250px] p-10
-    border-2 border-dashed
+    border-2 border-solid
+    border-black dark:border-white/80
     rounded-[2rem]
     transition-all duration-300
     cursor-pointer
@@ -491,16 +504,15 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
 
   // Dynamic styles based on state
   const stateStyles = disabled
-    ? 'border-[hsl(var(--color-muted))] bg-[hsl(var(--color-muted)/0.3)] cursor-not-allowed opacity-50'
+    ? 'border-gray-400 bg-[hsl(var(--color-muted)/0.3)] cursor-not-allowed opacity-50'
     : isDragging
-      ? 'border-[hsl(var(--color-primary))] bg-[hsl(var(--color-primary)/0.05)] scale-[1.01] shadow-2xl shadow-primary/10'
+      ? 'border-black dark:border-white bg-[hsl(var(--color-primary)/0.05)] scale-[1.01] shadow-2xl shadow-primary/10 ring-4 ring-black/10 dark:ring-white/10'
       : `
-      border-[hsl(var(--color-border))] 
-      bg-[hsl(var(--color-card)/0.5)] 
-      hover:border-[hsl(var(--color-primary))] 
+      border-black dark:border-white/80 
+      bg-[hsl(var(--color-card))] 
+      hover:border-black dark:hover:border-white 
       hover:bg-[hsl(var(--color-background))] 
-      hover:shadow-xl hover:shadow-[hsl(var(--color-primary)/0.05)]
-      glass-card
+      hover:shadow-xl hover:shadow-black/5
     `;
 
   return (

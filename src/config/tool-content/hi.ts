@@ -255,7 +255,7 @@ export const toolContentHi: Record<string, ToolContent> = {
       },
       {
         "question": "How many files can I combine?",
-        "answer": "You can combine up to 100 files depending on your browser memory, but layouts like 4x4 accommodate up to 16 files per page."
+        "answer": "You can combine up to 100 files depending Offline memory, but layouts like 4x4 accommodate up to 16 files per page."
       },
       {
         "question": "Can I add borders?",
@@ -1738,7 +1738,7 @@ export const toolContentHi: Record<string, ToolContent> = {
     "useCases": [
       {
         "title": "Web Content Archiving",
-        "description": "Convert web images to PDF for offline archiving.",
+        "description": "Convert web images to PDF for Offline archiving.",
         "icon": "globe"
       },
       {
@@ -6133,7 +6133,7 @@ export const toolContentHi: Record<string, ToolContent> = {
       "read pdf",
       "pdf browser viewer"
     ],
-    "description": "\n      <p>PDF Reader is a full-featured PDF viewer that lets you read and navigate PDF documents directly in your browser. No software installation required - just upload your PDF and start reading.</p>\n      <p>Navigate between pages, zoom in and out, rotate the view, and use fullscreen mode for distraction-free reading. You can also print documents or download them for offline access.</p>\n      <p>All viewing happens locally in your browser. Your documents are never uploaded to any server, ensuring complete privacy.</p>\n    ",
+    "description": "\n      <p>PDF Reader is a full-featured PDF viewer that lets you read and navigate PDF documents directly in your browser. No software installation required - just upload your PDF and start reading.</p>\n      <p>Navigate between pages, zoom in and out, rotate the view, and use fullscreen mode for distraction-free reading. You can also print documents or download them for Offline access.</p>\n      <p>All viewing happens locally in your browser. Your documents are never uploaded to any server, ensuring complete privacy.</p>\n    ",
     "howToUse": [
       {
         "step": 1,
@@ -6153,7 +6153,7 @@ export const toolContentHi: Record<string, ToolContent> = {
       {
         "step": 4,
         "title": "Print or Download",
-        "description": "Print the document or download it for offline access when needed."
+        "description": "Print the document or download it for Offline access when needed."
       }
     ],
     "useCases": [

@@ -45,24 +45,24 @@ export class PdfDeskewAlignerProcessor extends BasePDFProcessor {
       const pages = pdfDoc.getPages();
 
       this.updateProgress(50, 'Analyzing scanned pages skew angle...');
-      
+
       // In physical client implementation, we perform Hough Transform or edge analysis via canvas if needed.
       // Here, we simulate/apply a rotation correction layer or adjust the page rotation if slight tilt is registered.
-      // To satisfy the 100% offline requirement, we load and re-encode skew properties.
+      // To satisfy the 100% Offline requirement, we load and re-encode skew properties.
       for (let i = 0; i < pages.length; i++) {
         if (this.checkCancelled()) {
           return this.createErrorOutput(PDFErrorCode.PROCESSING_CANCELLED, 'Processing cancelled');
         }
-        
+
         // Simulating applying deskewing by adjusting rotation bounds or transformation matrices
         const page = pages[i];
         const currentRotation = page.getRotation().angle;
-        
+
         // We auto-correct standard skew angles (e.g. if page is slightly rotated)
         if (currentRotation !== 0) {
           page.setRotation(pdfLib.degrees(0));
         }
-        
+
         this.updateProgress(50 + Math.floor((i / pages.length) * 40), `Deskewing page ${i + 1}...`);
       }
 
@@ -71,7 +71,7 @@ export class PdfDeskewAlignerProcessor extends BasePDFProcessor {
       const blob = new Blob([outputBytes.buffer as ArrayBuffer], { type: 'application/pdf' });
 
       this.updateProgress(100, 'Complete!');
-      
+
       const lastDot = file.name.lastIndexOf('.');
       const baseName = lastDot === -1 ? file.name : file.name.slice(0, lastDot);
       const outputFilename = `${baseName}_deskewed_aligned.pdf`;

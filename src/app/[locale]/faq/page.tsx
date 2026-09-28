@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { locales, type Locale } from '@/lib/i18n/config';
-import { 
-  generateFaqMetadata, 
-  generateFAQPageSchema, 
-  generateBreadcrumbSchema, 
-  serializeStructuredData 
+import {
+  generateFaqMetadata,
+  generateFAQPageSchema,
+  generateBreadcrumbSchema,
+  serializeStructuredData
 } from '@/lib/seo';
 import { FAQ_ITEMS } from '@/config/faqs';
 import FAQPageClient from './FAQPageClient';
@@ -24,7 +24,7 @@ export async function generateMetadata({
 
   const baseMeta = generateFaqMetadata(validLocale, {
     title: 'Frequently Asked Questions (FAQ) | 100% Private Offline PDF Tools - iCreatePDF',
-    description: 'Find answers to common questions about iCreatePDF. Learn about our 100% client-side privacy, zero server uploads, offline capabilities, file size limits, and 67+ free tools.',
+    description: 'Find answers to common questions about iCreatePDF. Learn about our 100% client-side privacy, zero server uploads, Offline capabilities, file size limits, and 132+ free tools.',
   });
 
   return {
@@ -33,11 +33,11 @@ export async function generateMetadata({
       'PDF FAQ',
       'frequently asked questions',
       'private PDF tools',
-      'offline PDF editor',
+      'Offline PDF editor',
       'zero upload PDF',
       'free PDF converter',
       'client-side WebAssembly',
-      'merge PDF offline',
+      'merge PDF Offline',
       'compress PDF without losing quality',
       'GDPR compliant PDF editor',
       'HIPAA compliant PDF'

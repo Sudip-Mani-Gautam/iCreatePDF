@@ -1,7 +1,7 @@
 /**
  * Tools configuration file
- * Contains all 67 PDF tools with their properties, categories, and related tools
- * Migrated from BentoPDF and enhanced for PDFCraft
+ * Contains all 132+ PDF tools with their properties, categories, and related tools
+ * Configured for iCreatePDF
  */
 
 import { Tool, ToolCategory } from '@/types/tool';

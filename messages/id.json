@@ -36,7 +36,7 @@
   },
   "common": {
     "brand": "iCreatePDF",
-    "tagline": "Toolkit PDF offline lengkap Anda. 100% privat, tanpa unggahan, cepat dan berbasis browser.",
+    "tagline": "Toolkit PDF Offline lengkap Anda. 100% privat, tanpa unggahan, cepat dan berbasis browser.",
     "navigation": {
       "home": "Rumah",
       "tools": "Alat",
@@ -97,7 +97,7 @@
       "resources": "Sumber Daya",
       "company": "Perusahaan",
       "legal": "Hukum",
-      "tagline": "Toolkit PDF offline lengkap Anda. 100% privat, tanpa unggahan, cepat dan berbasis browser."
+      "tagline": "Toolkit PDF Offline lengkap Anda. 100% privat, tanpa unggahan, cepat dan berbasis browser."
     },
     "recentFiles": {
       "title": "File Terbaru",
@@ -1054,8 +1054,8 @@
           "question": "Mengapa pemrosesan lambat untuk file besar?",
           "answer": "Karena semua pemrosesan terjadi di browser Anda, kinerja bergantung pada kemampuan perangkat Anda. File besar memerlukan lebih banyak memori dan daya pemrosesan. Untuk hasil terbaik, tutup tab browser dan aplikasi lain."
         },
-        "offline": {
-          "question": "Apakah iCreatePDF berfungsi offline?",
+        "Offline": {
+          "question": "Apakah iCreatePDF berfungsi Offline?",
           "answer": "Saat ini, iCreatePDF memerlukan koneksi internet untuk memuat aplikasi. Namun, setelah dimuat, pemrosesan PDF itu sendiri terjadi secara lokal dan tidak memerlukan koneksi."
         }
       },

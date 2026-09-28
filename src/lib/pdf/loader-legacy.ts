@@ -23,13 +23,13 @@ let legacyWorkerConfigured = false;
 
 /**
  * Configure legacy PDF.js worker source
- * Uses the worker bundled locally for offline support
+ * Uses the worker bundled locally for Offline support
  */
 function configureLegacyWorker(pdfjsLib: PDFJSLegacyModule): void {
     if (legacyWorkerConfigured) return;
 
     if (typeof window !== 'undefined') {
-        // Use the local worker file for offline support
+        // Use the local worker file for Offline support
         // The worker file is located in public/workers/pdf.worker.legacy.min.js
         pdfjsLib.GlobalWorkerOptions.workerSrc = '/workers/pdf.worker.legacy.min.js';
         legacyWorkerConfigured = true;

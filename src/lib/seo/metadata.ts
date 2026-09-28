@@ -101,13 +101,19 @@ export function generateBaseMetadata(options: PageMetadataOptions): Metadata {
         'max-video-preview': -1,
       },
     icons: {
-      icon: '/favicon.svg',
-      shortcut: '/favicon.svg',
-      apple: '/favicon.svg',
+      icon: [
+        { url: '/favicon.ico' },
+        { url: '/favicon.svg', type: 'image/svg+xml' },
+      ],
+      shortcut: '/favicon.ico',
+      apple: '/favicon.ico',
     },
     alternates: {
       canonical: canonicalUrl,
       languages: getAlternateUrls(path),
+    },
+    verification: {
+      google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.trim() || undefined,
     },
     openGraph: {
       type: 'website',
@@ -132,11 +138,6 @@ export function generateBaseMetadata(options: PageMetadataOptions): Metadata {
       description: optimizedDescription,
       images: [ogImage.startsWith('http') ? ogImage : `${siteConfig.url}${ogImage}`],
       creator: siteConfig.creator,
-    },
-    verification: {
-      // Add verification tags if needed
-      // google: 'google-site-verification-code',
-      // yandex: 'yandex-verification-code',
     },
     category: 'technology',
   };
@@ -193,8 +194,91 @@ export function generateToolsListMetadata(locale: Locale, translations?: { title
     locale,
     path: '/tools',
     title: translations?.title || 'All PDF Tools',
-    description: translations?.description || 'Browse all 67+ professional PDF tools. Merge, split, compress, convert, edit, and secure your PDF files for free.',
+    description: translations?.description || 'Browse all 132+ professional PDF tools. Merge, split, compress, convert, edit, and secure your PDF files for free directly in your browser.',
     keywords: ['PDF tools', 'all PDF tools', 'PDF editor', 'PDF converter', 'PDF merger', 'PDF splitter'],
+  });
+}
+
+/**
+ * Generate metadata for a category page
+ */
+export function generateCategoryMetadata(
+  locale: Locale,
+  category: string,
+  categoryTitle: string,
+  description?: string
+): Metadata {
+  return generateBaseMetadata({
+    locale,
+    path: `/tools/category/${category}`,
+    title: `${categoryTitle} Tools`,
+    description: description || `Free online ${categoryTitle} PDF tools. Private, fast, and 100% client-side processing in your browser with ${siteConfig.name}.`,
+    keywords: [`${categoryTitle} PDF tools`, category, 'PDF tools', 'free PDF tools', 'online PDF editor'],
+  });
+}
+
+/**
+ * Generate metadata for the workflow page
+ */
+export function generateWorkflowMetadata(locale: Locale): Metadata {
+  return generateBaseMetadata({
+    locale,
+    path: '/workflow',
+    title: 'PDF Workflow Builder',
+    description: `Automate multi-step PDF tasks with our visual pipeline builder on ${siteConfig.name}. Chain together merge, compress, protect, watermark, and conversion tools directly in your browser.`,
+    keywords: ['PDF workflow', 'PDF automation', 'batch PDF processing', 'PDF pipeline', 'workflow builder'],
+  });
+}
+
+/**
+ * Generate metadata for the terms page
+ */
+export function generateTermsMetadata(locale: Locale): Metadata {
+  return generateBaseMetadata({
+    locale,
+    path: '/terms',
+    title: 'Terms of Service',
+    description: `Terms and conditions for using ${siteConfig.name} client-side PDF tools and document processing utilities.`,
+    keywords: ['terms of service', 'terms and conditions', 'legal', siteConfig.name],
+  });
+}
+
+/**
+ * Generate metadata for the security page
+ */
+export function generateSecurityMetadata(locale: Locale): Metadata {
+  return generateBaseMetadata({
+    locale,
+    path: '/security',
+    title: 'Security Architecture',
+    description: `Learn how ${siteConfig.name} provides zero-upload, 100% client-side local PDF processing security and sandbox isolation.`,
+    keywords: ['security', 'PDF security', 'client-side privacy', 'zero upload', 'WebAssembly security'],
+  });
+}
+
+/**
+ * Generate metadata for the cookie policy page
+ */
+export function generateCookiesMetadata(locale: Locale): Metadata {
+  return generateBaseMetadata({
+    locale,
+    path: '/cookies',
+    title: 'Cookie Policy',
+    description: `Learn about ${siteConfig.name}'s cookie-free, privacy-first client-side architecture. No tracking cookies or advertising pixels.`,
+    keywords: ['cookie policy', 'cookies', 'privacy', 'no tracking'],
+  });
+}
+
+/**
+ * Generate metadata for the press & media kit page
+ */
+export function generatePressMetadata(locale: Locale): Metadata {
+  return generateBaseMetadata({
+    locale,
+    path: '/press',
+    title: 'Press & Media Kit',
+    description: `Press releases, brand assets, logos, and media resources for ${siteConfig.name}.`,
+    keywords: ['press kit', 'media kit', 'brand assets', 'logos', siteConfig.name],
   });
 }
 
@@ -208,6 +292,19 @@ export function generateAboutMetadata(locale: Locale, translations?: { title: st
     title: translations?.title || 'About',
     description: translations?.description || `Learn about ${siteConfig.name} - your free, private, and powerful PDF toolkit. All processing happens in your browser.`,
     keywords: ['about', 'PDF tools', 'privacy', 'browser-based'],
+  });
+}
+
+/**
+ * Generate metadata for the founder profile page
+ */
+export function generateFounderMetadata(locale: Locale): Metadata {
+  return generateBaseMetadata({
+    locale,
+    path: '/about/founder',
+    title: 'Meet the Founder - Sudip Mani Gautam',
+    description: `Learn about Sudip Mani Gautam, the software engineer  behind ${siteConfig.name}, building 100% client-side WebAssembly PDF utilities.`,
+    keywords: ['Sudip Mani Gautam', 'founder', 'iCreatePDF founder', 'privacy advocate', 'open source', 'WebAssembly engineer'],
   });
 }
 

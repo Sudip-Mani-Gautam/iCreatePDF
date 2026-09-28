@@ -1,0 +1,26 @@
+[
+  {
+    "id": "pdf-multi-tool",
+    "name": "PDF Multi-Tool",
+    "url": "https://icreatepdf.com/en/tools/pdf-multi-tool",
+    "description": "All-in-one browser workspace to merge, split, rotate, delete, and organize PDF pages client-side.",
+    "releasedAt": "2026-09-20T00:00:00Z",
+    "status": "published"
+  },
+  {
+    "id": "merge-pdf",
+    "name": "Merge PDF",
+    "url": "https://icreatepdf.com/en/tools/merge-pdf",
+    "description": "Combine multiple PDF documents into a single unified file in seconds without file uploads.",
+    "releasedAt": "2026-09-21T00:00:00Z",
+    "status": "published"
+  },
+  {
+    "id": "compress-pdf",
+    "name": "Compress PDF",
+    "url": "https://icreatepdf.com/en/tools/compress-pdf",
+    "description": "Significantly reduce PDF file size while preserving high visual quality and readable text.",
+    "releasedAt": "2026-09-22T00:00:00Z",
+    "status": "published"
+  }
+]

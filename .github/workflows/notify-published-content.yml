@@ -1,0 +1,59 @@
+name: Notify Published Blog & Tools
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/config/blog-posts.ts'
+      - 'content/releases/tools.json'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Simulate dispatch without sending real push notifications'
+        required: true
+        type: boolean
+        default: true
+      force:
+        description: 'Force resend even if previously recorded in ledger'
+        required: false
+        type: boolean
+        default: false
+
+concurrency:
+  group: 'notification-dispatch'
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    name: Detect & Send Push Notifications
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2 # Fetch previous commit to compare newly added items
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: 🔔 Run Content Detection & Notification
+        run: |
+          ARGS=""
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            if [ "${{ inputs.dry_run }}" = "true" ]; then
+              ARGS="$ARGS --dry-run"
+            fi
+            if [ "${{ inputs.force }}" = "true" ]; then
+              ARGS="$ARGS --force"
+            fi
+          fi
+          node scripts/detect-new-content.mjs $ARGS
+        env:
+          NOTIFICATION_WORKER_URL: ${{ secrets.NOTIFICATION_WORKER_URL }}
+          WORKER_API_SECRET: ${{ secrets.WORKER_API_SECRET }}

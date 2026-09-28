@@ -7794,7 +7794,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       "ler pdf",
       "visualizador pdf navegador"
     ],
-    "description": "\n      <p>O Leitor de PDF é um visualizador completo que permite ler e navegar por documentos PDF diretamente no seu navegador. Nenhuma instalação de software é necessária - basta carregar seu PDF e começar a ler.</p>\n      <p>Navegue entre as páginas, amplie e reduza o zoom, rotacione a visualização e use o modo de tela cheia para uma leitura sem distrações. Você também pode imprimir documentos ou baixá-los para acesso offline.</p>\n      <p>Toda a visualização ocorre localmente no seu navegador. Seus documentos nunca são enviados para qualquer servidor, garantindo privacidade total.</p>\n    ",
+    "description": "\n      <p>O Leitor de PDF é um visualizador completo que permite ler e navegar por documentos PDF diretamente no seu navegador. Nenhuma instalação de software é necessária - basta carregar seu PDF e começar a ler.</p>\n      <p>Navegue entre as páginas, amplie e reduza o zoom, rotacione a visualização e use o modo de tela cheia para uma leitura sem distrações. Você também pode imprimir documentos ou baixá-los para acesso Offline.</p>\n      <p>Toda a visualização ocorre localmente no seu navegador. Seus documentos nunca são enviados para qualquer servidor, garantindo privacidade total.</p>\n    ",
     "howToUse": [
       {
         "step": 1,
@@ -7814,7 +7814,7 @@ export const toolContentPt: Record<string, ToolContent> = {
       {
         "step": 4,
         "title": "Imprimir ou Baixar",
-        "description": "Imprima o documento ou baixe-o para acesso offline quando necessário."
+        "description": "Imprima o documento ou baixe-o para acesso Offline quando necessário."
       }
     ],
     "useCases": [

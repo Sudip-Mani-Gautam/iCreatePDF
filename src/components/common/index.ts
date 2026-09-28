@@ -11,3 +11,5 @@ export * from './PdfLibraryLoader';
 export * from './UpdateCheckButton';
 export * from './UpdateModal';
 export * from './UpdateNotificationToast';
+export * from './LanguageSuggestionBanner';
+export * from './CookieConsentBanner';

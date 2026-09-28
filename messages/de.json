@@ -1054,8 +1054,8 @@
           "question": "Warum ist die Verarbeitung bei großen Dateien langsam?",
           "answer": "Da die Verarbeitung vollständig in Ihrem Browser erfolgt, hängt die Leistung von den Kapazitäten Ihres Geräts ab. Große Dateien erfordern mehr Arbeitsspeicher und Rechenleistung. Schließen Sie für optimale Ergebnisse andere Browser-Tabs und Anwendungen."
         },
-        "offline": {
-          "question": "Funktioniert iCreatePDF offline?",
+        "Offline": {
+          "question": "Funktioniert iCreatePDF Offline?",
           "answer": "Derzeit benötigt iCreatePDF eine Internetverbindung, um die Anwendung zu laden. Sobald diese jedoch geladen ist, findet die PDF-Verarbeitung selbst lokal statt und benötigt keine Verbindung mehr."
         }
       },

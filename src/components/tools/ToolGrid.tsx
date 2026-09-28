@@ -4,6 +4,15 @@ import React, { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import { Tool, ToolCategory, CATEGORY_INFO } from '@/types/tool';
 import { ToolCard } from './ToolCard';
+import {
+  PenTool,
+  FilePlus,
+  FileOutput,
+  Layers,
+  Zap,
+  ShieldCheck,
+  Search,
+} from 'lucide-react';
 
 export interface ToolGridProps {
   /** Array of tools to display */
@@ -18,17 +27,28 @@ export interface ToolGridProps {
   showCategoryHeaders?: boolean;
   /** Optional additional CSS classes */
   className?: string;
-  /** localized tool content */
+  /** Localized tool content */
   localizedToolContent?: Record<string, { title: string; description: string }>;
 }
 
-/**
- * ToolGrid component displays a responsive grid of tool cards.
- * Supports filtering by category and responsive layout (1-4 columns).
- * 
- * Requirements: 6.1 - Organize tools into 7 categories
- * Requirements: 6.4 - Responsive grid layout adapting to screen sizes
- */
+const categoryIcons: Record<ToolCategory, React.ComponentType<{ className?: string }>> = {
+  'edit-annotate': PenTool,
+  'convert-to-pdf': FilePlus,
+  'convert-from-pdf': FileOutput,
+  'organize-manage': Layers,
+  'optimize-repair': Zap,
+  'secure-pdf': ShieldCheck,
+};
+
+const categoryBadgeStyles: Record<ToolCategory, { iconBg: string; iconColor: string }> = {
+  'edit-annotate': { iconBg: 'bg-blue-500/10', iconColor: 'text-blue-600 dark:text-blue-400' },
+  'convert-to-pdf': { iconBg: 'bg-emerald-500/10', iconColor: 'text-emerald-600 dark:text-emerald-400' },
+  'convert-from-pdf': { iconBg: 'bg-amber-500/10', iconColor: 'text-amber-600 dark:text-amber-400' },
+  'organize-manage': { iconBg: 'bg-purple-500/10', iconColor: 'text-purple-600 dark:text-purple-400' },
+  'optimize-repair': { iconBg: 'bg-cyan-500/10', iconColor: 'text-cyan-600 dark:text-cyan-400' },
+  'secure-pdf': { iconBg: 'bg-rose-500/10', iconColor: 'text-rose-600 dark:text-rose-400' },
+};
+
 export function ToolGrid({
   tools,
   locale,
@@ -54,12 +74,12 @@ export function ToolGrid({
     let result = tools;
 
     if (category) {
-      result = result.filter(tool => tool.category === category);
+      result = result.filter((tool) => tool.category === category);
     }
 
     if (searchQuery && searchQuery.trim()) {
       const query = searchQuery.toLowerCase().trim();
-      result = result.filter(tool => {
+      result = result.filter((tool) => {
         // Search in localized content if available
         if (localizedToolContent && localizedToolContent[tool.id]) {
           const { title, description } = localizedToolContent[tool.id];
@@ -69,7 +89,7 @@ export function ToolGrid({
         }
 
         const toolName = tool.id.replace(/-/g, ' ').toLowerCase();
-        const features = tool.features.map(f => f.replace(/-/g, ' ').toLowerCase()).join(' ');
+        const features = tool.features.map((f) => f.replace(/-/g, ' ').toLowerCase()).join(' ');
         return toolName.includes(query) || features.includes(query);
       });
     }
@@ -93,7 +113,9 @@ export function ToolGrid({
     };
 
     for (const tool of filteredTools) {
-      groups[tool.category].push(tool);
+      if (groups[tool.category]) {
+        groups[tool.category].push(tool);
+      }
     }
 
     return groups;
@@ -102,11 +124,15 @@ export function ToolGrid({
   if (filteredTools.length === 0) {
     return (
       <div
-        className={`text-center py-12 ${className}`}
+        className={`text-center py-16 px-4 rounded-2xl border border-dashed border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] ${className}`}
         data-testid="tool-grid-empty"
       >
-        <p className="text-[hsl(var(--color-muted-foreground))]">
+        <Search className="w-10 h-10 mx-auto text-[hsl(var(--color-muted-foreground))] mb-3 opacity-50" />
+        <p className="text-base font-semibold text-[hsl(var(--color-foreground))] mb-1">
           No tools found
+        </p>
+        <p className="text-sm text-[hsl(var(--color-muted-foreground))]">
+          Try searching with different terms or selecting another category.
         </p>
       </div>
     );
@@ -115,25 +141,48 @@ export function ToolGrid({
   // Render grouped by category
   if (showCategoryHeaders && groupedTools) {
     return (
-      <div className={`space-y-8 ${className}`} data-testid="tool-grid">
+      <div className={`space-y-14 ${className}`} data-testid="tool-grid">
         {Object.entries(groupedTools).map(([cat, categoryTools]) => {
           if (categoryTools.length === 0) return null;
 
-          const categoryInfo = CATEGORY_INFO[cat as ToolCategory];
-          const categoryName = t(`home.categories.${categoryTranslationKeys[cat as ToolCategory]}`);
+          const categoryKey = cat as ToolCategory;
+          const categoryInfo = CATEGORY_INFO[categoryKey];
+          const categoryName = t(`home.categories.${categoryTranslationKeys[categoryKey]}`);
+          const CategoryIcon = categoryIcons[categoryKey] || Layers;
+          const catStyle = categoryBadgeStyles[categoryKey] || categoryBadgeStyles['edit-annotate'];
 
           return (
-            <section key={cat} data-testid={`tool-grid-category-${cat}`}>
-              <div className="mb-4">
-                <h2 className="text-xl font-semibold text-[hsl(var(--color-foreground))]">
-                  {categoryName}
-                </h2>
-                <p className="text-sm text-[hsl(var(--color-muted-foreground))]">
-                  {categoryInfo.description}
-                </p>
+            <section
+              key={cat}
+              id={`category-${cat}`}
+              className="scroll-mt-36"
+              data-testid={`tool-grid-category-${cat}`}
+            >
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-4 border-b border-[hsl(var(--color-border))]">
+                <div className="flex items-center gap-3.5">
+                  <div
+                    className={`w-11 h-11 rounded-2xl flex items-center justify-center shadow-sm flex-shrink-0 ${catStyle.iconBg} ${catStyle.iconColor}`}
+                  >
+                    <CategoryIcon className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2.5">
+                      <h2 className="text-xl md:text-2xl font-extrabold text-[hsl(var(--color-foreground))] tracking-tight">
+                        {categoryName}
+                      </h2>
+                      <span className="px-2.5 py-0.5 text-xs font-bold rounded-full bg-[hsl(var(--color-muted))] text-[hsl(var(--color-muted-foreground))]">
+                        {categoryTools.length} tools
+                      </span>
+                    </div>
+                    <p className="text-xs md:text-sm text-[hsl(var(--color-muted-foreground))] mt-0.5">
+                      {categoryInfo.description}
+                    </p>
+                  </div>
+                </div>
               </div>
+
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                {categoryTools.map(tool => (
+                {categoryTools.map((tool) => (
                   <ToolCard
                     key={tool.id}
                     tool={tool}
@@ -155,7 +204,7 @@ export function ToolGrid({
       className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 ${className}`}
       data-testid="tool-grid"
     >
-      {filteredTools.map(tool => (
+      {filteredTools.map((tool) => (
         <ToolCard
           key={tool.id}
           tool={tool}

@@ -36,7 +36,7 @@
   },
   "common": {
     "brand": "iCreatePDF",
-    "tagline": "Seu kit de ferramentas PDF offline completo. 100% privado, sem uploads, rápido e no navegador.",
+    "tagline": "Seu kit de ferramentas PDF Offline completo. 100% privado, sem uploads, rápido e no navegador.",
     "navigation": {
       "home": "Início",
       "tools": "Ferramentas",
@@ -97,7 +97,7 @@
       "resources": "Recursos",
       "company": "Empresa",
       "legal": "Legal",
-      "tagline": "Seu kit de ferramentas PDF offline completo. 100% privado, sem uploads, rápido e no navegador."
+      "tagline": "Seu kit de ferramentas PDF Offline completo. 100% privado, sem uploads, rápido e no navegador."
     },
     "recentFiles": {
       "title": "Arquivos Recentes",
@@ -1054,7 +1054,7 @@
           "question": "Por que o processamento de arquivos grandes é lento?",
           "answer": "Como todo o processamento ocorre no seu navegador, o desempenho depende das capacidades do seu dispositivo. Arquivos grandes requerem mais memória e poder de processamento. Para obter melhores resultados, feche outras guias e aplicativos do navegador."
         },
-        "offline": {
+        "Offline": {
           "question": "O iCreatePDF funciona off-line?",
           "answer": "Atualmente, o iCreatePDF requer uma conexão com a internet para carregar o aplicativo. No entanto, uma vez carregado, o processamento do PDF ocorre localmente e não requer conexão."
         }

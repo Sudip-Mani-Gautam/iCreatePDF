@@ -3,16 +3,16 @@
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { 
-  ChevronDown, 
-  Search, 
+import {
+  ChevronDown,
+  Search,
   X,
-  HelpCircle, 
-  ShieldCheck, 
-  Layers, 
-  Cpu, 
-  Globe, 
-  Mail, 
+  HelpCircle,
+  ShieldCheck,
+  Layers,
+  Cpu,
+  Globe,
+  Mail,
   Sparkles,
   Info,
   Wrench,
@@ -51,7 +51,7 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
       // Extract translated questions from messages
       Object.entries(rawSections).forEach(([catKey, sectionMap]) => {
         if (!sectionMap || typeof sectionMap !== 'object') return;
-        
+
         let catLabel = catKey;
         try {
           catLabel = t(`categories.${catKey}` as any);
@@ -152,7 +152,7 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
     <div className="min-h-screen flex flex-col bg-[hsl(var(--color-background))] text-[hsl(var(--color-foreground))] font-sans antialiased">
       <Header locale={locale} />
 
-      <main className="flex-1 pt-16 pb-16">
+      <main className="flex-1 pt-20 sm:pt-22 md:pt-24 pb-16">
         {/* Hero Section */}
         <section className="relative overflow-hidden pt-3 pb-8 text-center">
           {/* Subtle warm backdrop glow */}
@@ -184,7 +184,7 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
 
             {/* Subtitle */}
             <p className="text-base sm:text-lg text-[hsl(var(--color-muted-foreground))] max-w-2xl mx-auto leading-relaxed mb-8">
-              {t('subtitle', { brand: 'iCreatePDF' }) || 'Find answers to common questions about iCreatePDF, client-side privacy, and offline capabilities.'}
+              {t('subtitle', { brand: 'iCreatePDF' }) || 'Find answers to common questions about iCreatePDF, client-side privacy, and Offline capabilities.'}
             </p>
 
             {/* Search Input Bar */}
@@ -219,19 +219,17 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
                   <button
                     key={cat.key}
                     onClick={() => setSelectedCategory(cat.key)}
-                    className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
-                      isActive
-                        ? 'bg-red-600 text-white shadow-md shadow-red-500/25 scale-105'
-                        : 'bg-[hsl(var(--color-card))] text-[hsl(var(--color-muted-foreground))] border border-[hsl(var(--color-border))] hover:bg-[hsl(var(--color-muted))] hover:text-[hsl(var(--color-foreground))]'
-                    }`}
+                    className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${isActive
+                      ? 'bg-red-600 text-white shadow-md shadow-red-500/25 scale-105'
+                      : 'bg-[hsl(var(--color-card))] text-[hsl(var(--color-muted-foreground))] border border-[hsl(var(--color-border))] hover:bg-[hsl(var(--color-muted))] hover:text-[hsl(var(--color-foreground))]'
+                      }`}
                   >
                     <Icon className="w-3.5 h-3.5" />
                     <span>{cat.label}</span>
-                    <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${
-                      isActive 
-                        ? 'bg-white/20 text-white' 
-                        : 'bg-[hsl(var(--color-muted))] text-[hsl(var(--color-muted-foreground))]'
-                    }`}>
+                    <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${isActive
+                      ? 'bg-white/20 text-white'
+                      : 'bg-[hsl(var(--color-muted))] text-[hsl(var(--color-muted-foreground))]'
+                      }`}>
                       {count}
                     </span>
                   </button>
@@ -242,9 +240,9 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
         </section>
 
         {/* FAQ Accordion Section with Microdata Markup */}
-        <section 
+        <section
           className="container mx-auto px-4 max-w-4xl mt-4 mb-20"
-          itemScope 
+          itemScope
           itemType="https://schema.org/FAQPage"
         >
           {/* Header row with count & expand/collapse buttons */}
@@ -300,11 +298,10 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
                 return (
                   <article
                     key={faq.id}
-                    className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
-                      isOpen
-                        ? 'bg-[hsl(var(--color-card))] border-red-300 dark:border-red-900/60 shadow-md'
-                        : 'bg-[hsl(var(--color-card))] border-[hsl(var(--color-border))] hover:border-zinc-300 dark:hover:border-zinc-700 shadow-xs'
-                    }`}
+                    className={`rounded-2xl border transition-all duration-200 overflow-hidden ${isOpen
+                      ? 'bg-[hsl(var(--color-card))] border-red-300 dark:border-red-900/60 shadow-md'
+                      : 'bg-[hsl(var(--color-card))] border-[hsl(var(--color-border))] hover:border-zinc-300 dark:hover:border-zinc-700 shadow-xs'
+                      }`}
                     itemScope
                     itemProp="mainEntity"
                     itemType="https://schema.org/Question"
@@ -319,7 +316,7 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
                         <span className="inline-block text-[10px] font-extrabold uppercase tracking-wider text-red-600 dark:text-red-400 px-2 py-0.5 rounded-full bg-red-50 dark:bg-red-950/60">
                           {faq.categoryLabel}
                         </span>
-                        <h2 
+                        <h2
                           className="font-bold text-base text-[hsl(var(--color-foreground))] leading-snug"
                           itemProp="name"
                         >
@@ -327,17 +324,16 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
                         </h2>
                       </div>
 
-                      <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-200 ${
-                        isOpen
-                          ? 'bg-red-600 text-white rotate-180'
-                          : 'bg-[hsl(var(--color-muted))] text-[hsl(var(--color-muted-foreground))]'
-                      }`}>
+                      <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-200 ${isOpen
+                        ? 'bg-red-600 text-white rotate-180'
+                        : 'bg-[hsl(var(--color-muted))] text-[hsl(var(--color-muted-foreground))]'
+                        }`}>
                         <ChevronDown className="w-4 h-4" />
                       </div>
                     </button>
 
                     {isOpen && (
-                      <div 
+                      <div
                         id={`faq-answer-${faq.id}`}
                         className="px-5 pb-5 pt-1 text-sm text-[hsl(var(--color-muted-foreground))] leading-relaxed border-t border-[hsl(var(--color-border)/0.6)] mt-1 animate-in fade-in duration-150"
                         itemScope
@@ -367,7 +363,7 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
                 {t('cta.title') || 'Still have questions?'}
               </h2>
               <p className="text-sm sm:text-base text-white/90 leading-relaxed">
-                {t('cta.description') || "Can't find the answer you are looking for? Contact our community support team or explore our offline toolkit."}
+                {t('cta.description') || "Can't find the answer you are looking for? Contact our community support team or explore our Offline toolkit."}
               </p>
               <div className="pt-3 flex flex-wrap items-center justify-center gap-3">
                 <Link

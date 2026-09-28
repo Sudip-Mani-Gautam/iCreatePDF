@@ -8,8 +8,8 @@ import { WorkflowTemplate } from '@/types/workflow';
 export const workflowTemplates: WorkflowTemplate[] = [
     {
         id: 'secure-contract-vault',
-        name: '合同安全加水印与加密归档 (Secure Contract Publishing)',
-        description: '从 PDF 输入开始，依次添加水印、敏感信息脱敏、高强度密码加密，并直接提供下载产物',
+        name: 'Secure Contract Publishing',
+        description: 'Add confidential watermark, redact sensitive data, encrypt with AES password, and export secure PDF.',
         category: 'security',
         nodes: [
             {
@@ -18,7 +18,7 @@ export const workflowTemplates: WorkflowTemplate[] = [
                 position: { x: 50, y: 180 },
                 data: {
                     toolId: 'pdf-input',
-                    label: 'PDF 源文档输入',
+                    label: 'Source Document Input',
                     icon: 'file-text',
                     category: 'input',
                     acceptedFormats: ['.pdf'],
@@ -33,7 +33,7 @@ export const workflowTemplates: WorkflowTemplate[] = [
                 position: { x: 380, y: 180 },
                 data: {
                     toolId: 'add-watermark',
-                    label: '添加防伪水印',
+                    label: 'Add Confidential Watermark',
                     icon: 'droplets',
                     category: 'edit-annotate',
                     acceptedFormats: ['.pdf'],
@@ -41,7 +41,7 @@ export const workflowTemplates: WorkflowTemplate[] = [
                     status: 'idle',
                     progress: 0,
                     settings: {
-                        text: '机密文档 仅供参考',
+                        text: 'CONFIDENTIAL',
                         opacity: 0.25,
                         rotation: 45,
                         fontSize: 32,
@@ -54,7 +54,7 @@ export const workflowTemplates: WorkflowTemplate[] = [
                 position: { x: 680, y: 180 },
                 data: {
                     toolId: 'encrypt-pdf',
-                    label: '设置访问密码',
+                    label: 'Set Password Protection',
                     icon: 'lock',
                     category: 'secure-pdf',
                     acceptedFormats: ['.pdf'],
@@ -72,7 +72,7 @@ export const workflowTemplates: WorkflowTemplate[] = [
                 position: { x: 980, y: 180 },
                 data: {
                     toolId: 'download-pdf',
-                    label: '下载安全合同 PDF',
+                    label: 'Download Secure Contract',
                     icon: 'file-down',
                     category: 'output',
                     acceptedFormats: ['.pdf'],
@@ -95,8 +95,8 @@ export const workflowTemplates: WorkflowTemplate[] = [
     },
     {
         id: 'scan-cleanup-enhance',
-        name: '扫描件净化纠偏与增强 (Scanned Cleanup & Optimize)',
-        description: '自动对倾斜扫描件进行矫正、智能检测并删除空白页、进行快速线性化压缩优化',
+        name: 'Scanned Document Cleanup & Optimize',
+        description: 'Auto deskew tilted scans, detect and delete blank pages, and apply fast web linearization optimization.',
         category: 'optimization',
         nodes: [
             {
@@ -105,7 +105,7 @@ export const workflowTemplates: WorkflowTemplate[] = [
                 position: { x: 50, y: 180 },
                 data: {
                     toolId: 'pdf-input',
-                    label: '扫描件原稿输入',
+                    label: 'Scanned Document Input',
                     icon: 'file-text',
                     category: 'input',
                     acceptedFormats: ['.pdf'],
@@ -120,7 +120,7 @@ export const workflowTemplates: WorkflowTemplate[] = [
                 position: { x: 380, y: 180 },
                 data: {
                     toolId: 'deskew-pdf',
-                    label: '自动倾斜校正',
+                    label: 'Auto Deskew & Align',
                     icon: 'compass',
                     category: 'edit-annotate',
                     acceptedFormats: ['.pdf'],
@@ -135,7 +135,7 @@ export const workflowTemplates: WorkflowTemplate[] = [
                 position: { x: 680, y: 180 },
                 data: {
                     toolId: 'remove-blank-pages',
-                    label: '移除空白扫描页',
+                    label: 'Remove Blank Pages',
                     icon: 'file-x',
                     category: 'edit-annotate',
                     acceptedFormats: ['.pdf'],
@@ -150,7 +150,7 @@ export const workflowTemplates: WorkflowTemplate[] = [
                 position: { x: 980, y: 180 },
                 data: {
                     toolId: 'linearize-pdf',
-                    label: 'Web 快视优化',
+                    label: 'Fast Web Linearization',
                     icon: 'zap',
                     category: 'optimize-repair',
                     acceptedFormats: ['.pdf'],
@@ -165,7 +165,7 @@ export const workflowTemplates: WorkflowTemplate[] = [
                 position: { x: 1280, y: 180 },
                 data: {
                     toolId: 'download-pdf',
-                    label: '导出高清净化 PDF',
+                    label: 'Export Cleaned PDF',
                     icon: 'file-down',
                     category: 'output',
                     acceptedFormats: ['.pdf'],
@@ -189,8 +189,8 @@ export const workflowTemplates: WorkflowTemplate[] = [
     },
     {
         id: 'invoice-batch-archiver',
-        name: '电子发票首页提取与归档 ZIP (Invoice Batch Archiver)',
-        description: '批量提取电子发票的首页有效凭证，执行中等质量压缩，并将全部发票打包为 ZIP 归档',
+        name: 'Invoice First-Page Extractor & ZIP Archiver',
+        description: 'Batch extract first-page invoice receipts, apply balanced compression, and bundle all files into a ZIP archive.',
         category: 'common',
         nodes: [
             {
@@ -199,7 +199,7 @@ export const workflowTemplates: WorkflowTemplate[] = [
                 position: { x: 50, y: 180 },
                 data: {
                     toolId: 'pdf-input',
-                    label: '发票原件批量输入',
+                    label: 'Batch Invoices Input',
                     icon: 'file-text',
                     category: 'input',
                     acceptedFormats: ['.pdf'],
@@ -214,7 +214,7 @@ export const workflowTemplates: WorkflowTemplate[] = [
                 position: { x: 380, y: 180 },
                 data: {
                     toolId: 'extract-pages',
-                    label: '提取发票首页',
+                    label: 'Extract Invoice Cover Page',
                     icon: 'ungroup',
                     category: 'organize-manage',
                     acceptedFormats: ['.pdf'],
@@ -232,7 +232,7 @@ export const workflowTemplates: WorkflowTemplate[] = [
                 position: { x: 680, y: 180 },
                 data: {
                     toolId: 'compress-pdf',
-                    label: '平衡质量压缩',
+                    label: 'Balanced Quality Compression',
                     icon: 'zap',
                     category: 'optimize-repair',
                     acceptedFormats: ['.pdf'],
@@ -250,7 +250,7 @@ export const workflowTemplates: WorkflowTemplate[] = [
                 position: { x: 980, y: 180 },
                 data: {
                     toolId: 'download-zip',
-                    label: '打包发票为 ZIP 归档',
+                    label: 'Package Invoices as ZIP',
                     icon: 'archive',
                     category: 'output',
                     acceptedFormats: ['*'],
@@ -273,8 +273,8 @@ export const workflowTemplates: WorkflowTemplate[] = [
     },
     {
         id: 'images-to-booklet-album',
-        name: '相册多图转双面折页小册子 (Photo Album Booklet)',
-        description: '上传多张图片合成 PDF，自动重排为可直接对折骑马钉装订的小册子并加上页码',
+        name: 'Photo Album to Saddle-Stitch Booklet',
+        description: 'Upload multiple images into PDF, automatically reorder into a foldable booklet layout, and add centered page numbers.',
         category: 'conversion',
         nodes: [
             {
@@ -283,7 +283,7 @@ export const workflowTemplates: WorkflowTemplate[] = [
                 position: { x: 50, y: 180 },
                 data: {
                     toolId: 'image-input',
-                    label: '批量图片输入',
+                    label: 'Batch Images Input',
                     icon: 'images',
                     category: 'input',
                     acceptedFormats: ['.jpg', '.jpeg', '.png', '.webp', '.bmp', '.tiff', '.tif', '.svg', '.heic'],
@@ -298,7 +298,7 @@ export const workflowTemplates: WorkflowTemplate[] = [
                 position: { x: 380, y: 180 },
                 data: {
                     toolId: 'image-to-pdf',
-                    label: '图片转 PDF',
+                    label: 'Convert Images to PDF',
                     icon: 'images',
                     category: 'convert-to-pdf',
                     acceptedFormats: ['.jpg', '.jpeg', '.png', '.webp', '.bmp', '.tiff', '.tif', '.svg', '.heic'],
@@ -313,7 +313,7 @@ export const workflowTemplates: WorkflowTemplate[] = [
                 position: { x: 680, y: 180 },
                 data: {
                     toolId: 'pdf-booklet',
-                    label: '双面折页小册子重排',
+                    label: 'Double-Sided Booklet Layout',
                     icon: 'book-open',
                     category: 'organize-manage',
                     acceptedFormats: ['.pdf'],
@@ -328,7 +328,7 @@ export const workflowTemplates: WorkflowTemplate[] = [
                 position: { x: 980, y: 180 },
                 data: {
                     toolId: 'page-numbers',
-                    label: '添加底部居中页码',
+                    label: 'Add Centered Page Numbers',
                     icon: 'list-ordered',
                     category: 'edit-annotate',
                     acceptedFormats: ['.pdf'],
@@ -347,7 +347,7 @@ export const workflowTemplates: WorkflowTemplate[] = [
                 position: { x: 1280, y: 180 },
                 data: {
                     toolId: 'download-pdf',
-                    label: '下载可印刷小册子 PDF',
+                    label: 'Download Printable Booklet PDF',
                     icon: 'file-down',
                     category: 'output',
                     acceptedFormats: ['.pdf'],

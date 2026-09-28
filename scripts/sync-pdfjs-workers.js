@@ -2,7 +2,7 @@
  * Sync PDF.js worker files to public/workers directory
  * 
  * This script copies the worker files from node_modules to public/workers
- * to ensure offline availability of PDF.js functionality.
+ * to ensure Offline availability of PDF.js functionality.
  * 
  * Run this script after installing/updating pdfjs-dist packages:
  * - npm run postinstall

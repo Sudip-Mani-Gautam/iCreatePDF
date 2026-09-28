@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
-import { setRequestLocale, getTranslations } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 import { locales, type Locale } from '@/lib/i18n/config';
-import { generateBaseMetadata } from '@/lib/seo';
+import { generateWorkflowMetadata } from '@/lib/seo';
 import WorkflowPageClient from './WorkflowPageClient';
 
 export function generateStaticParams() {
@@ -15,14 +15,7 @@ interface WorkflowPageProps {
 export async function generateMetadata({ params }: WorkflowPageProps): Promise<Metadata> {
     const { locale } = await params;
     const validLocale = locales.includes(locale as Locale) ? (locale as Locale) : 'en';
-    const t = await getTranslations({ locale: validLocale, namespace: 'common' });
-
-    return generateBaseMetadata({
-        locale: validLocale,
-        path: '/workflow',
-        title: t('navigation.workflow') || 'Workflow',
-        description: t('tagline') || 'Professional, secure, and free PDF tools for everyone.',
-    });
+    return generateWorkflowMetadata(validLocale);
 }
 
 export default async function WorkflowPage({ params }: WorkflowPageProps) {

@@ -3,20 +3,22 @@
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { useTranslations, useMessages } from 'next-intl';
-import { 
-  Search, 
-  X, 
-  ArrowRight, 
-  Star, 
-  ShieldCheck, 
-  Sparkles, 
-  Lock, 
-  Zap, 
+import {
+  Search,
+  X,
+  ArrowRight,
+  Star,
+  ShieldCheck,
+  Sparkles,
+  Lock,
+  Zap,
   FileText,
   ChevronRight
 } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { WorkflowShowcase } from '@/components/workflow';
+import { TestimonialsSection } from '@/components/home/TestimonialsSection';
 import { getAllTools } from '@/config/tools';
 import { getToolIcon } from '@/config/icons';
 import { type Locale } from '@/lib/i18n/config';
@@ -27,7 +29,264 @@ interface HomePageClientProps {
   localizedToolContent?: Record<string, { title: string; description: string }>;
 }
 
-type FilterCategory = 'all' | 'organize' | 'optimize' | 'convert' | 'edit' | 'security';
+type FilterCategory = 'all' | 'organize' | 'optimize' | 'convert' | 'edit' | 'security' | 'ai';
+
+export const CATEGORY_CARD_THEMES: Record<
+  ToolCategory,
+  {
+    iconBg: string;
+    iconColor: string;
+    hoverBorder: string;
+    hoverTitle: string;
+    badgeBg: string;
+    badgeText: string;
+  }
+> = {
+  'organize-manage': {
+    iconBg: 'bg-rose-50 dark:bg-rose-950/50 text-rose-600 dark:text-rose-400 group-hover:bg-rose-100 dark:group-hover:bg-rose-900/40',
+    iconColor: 'text-rose-600 dark:text-rose-400',
+    hoverBorder: 'hover:border-rose-400/70 dark:hover:border-rose-700/70',
+    hoverTitle: 'group-hover:text-rose-600 dark:group-hover:text-rose-400',
+    badgeBg: 'bg-rose-50 dark:bg-rose-950/80',
+    badgeText: 'text-rose-600 dark:text-rose-400 border border-rose-200/60 dark:border-rose-800/50',
+  },
+  'optimize-repair': {
+    iconBg: 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 group-hover:bg-emerald-100 dark:group-hover:bg-emerald-900/40',
+    iconColor: 'text-emerald-600 dark:text-emerald-400',
+    hoverBorder: 'hover:border-emerald-400/70 dark:hover:border-emerald-700/70',
+    hoverTitle: 'group-hover:text-emerald-600 dark:group-hover:text-emerald-400',
+    badgeBg: 'bg-emerald-50 dark:bg-emerald-950/80',
+    badgeText: 'text-emerald-600 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-800/50',
+  },
+  'convert-to-pdf': {
+    iconBg: 'bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/40',
+    iconColor: 'text-blue-600 dark:text-blue-400',
+    hoverBorder: 'hover:border-blue-400/70 dark:hover:border-blue-700/70',
+    hoverTitle: 'group-hover:text-blue-600 dark:group-hover:text-blue-400',
+    badgeBg: 'bg-blue-50 dark:bg-blue-950/80',
+    badgeText: 'text-blue-600 dark:text-blue-400 border border-blue-200/60 dark:border-blue-800/50',
+  },
+  'convert-from-pdf': {
+    iconBg: 'bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 group-hover:bg-amber-100 dark:group-hover:bg-amber-900/40',
+    iconColor: 'text-amber-600 dark:text-amber-400',
+    hoverBorder: 'hover:border-amber-400/70 dark:hover:border-amber-700/70',
+    hoverTitle: 'group-hover:text-amber-600 dark:group-hover:text-amber-400',
+    badgeBg: 'bg-amber-50 dark:bg-amber-950/80',
+    badgeText: 'text-amber-600 dark:text-amber-400 border border-amber-200/60 dark:border-amber-800/50',
+  },
+  'edit-annotate': {
+    iconBg: 'bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 group-hover:bg-purple-100 dark:group-hover:bg-purple-900/40',
+    iconColor: 'text-purple-600 dark:text-purple-400',
+    hoverBorder: 'hover:border-purple-400/70 dark:hover:border-purple-700/70',
+    hoverTitle: 'group-hover:text-purple-600 dark:group-hover:text-purple-400',
+    badgeBg: 'bg-purple-50 dark:bg-purple-950/80',
+    badgeText: 'text-purple-600 dark:text-purple-400 border border-purple-200/60 dark:border-purple-800/50',
+  },
+  'secure-pdf': {
+    iconBg: 'bg-teal-50 dark:bg-teal-950/50 text-teal-600 dark:text-teal-400 group-hover:bg-teal-100 dark:group-hover:bg-teal-900/40',
+    iconColor: 'text-teal-600 dark:text-teal-400',
+    hoverBorder: 'hover:border-teal-400/70 dark:hover:border-teal-700/70',
+    hoverTitle: 'group-hover:text-teal-600 dark:group-hover:text-teal-400',
+    badgeBg: 'bg-teal-50 dark:bg-teal-950/80',
+    badgeText: 'text-teal-600 dark:text-teal-400 border border-teal-200/60 dark:border-teal-800/50',
+  },
+};
+
+// Core high-demand most popular tools
+const TOP_POPULAR_IDS = new Set([
+  'merge-pdf',
+  'compress-pdf',
+  'split-pdf',
+  'pdf-to-docx',
+  'jpg-to-pdf',
+  'word-to-pdf',
+  'edit-pdf',
+  'pdf-to-jpg',
+  'ocr-pdf',
+  'sign-pdf',
+]);
+
+// AI & Advanced tools
+const AI_TOOL_IDS = new Set([
+  'ocr-pdf',
+  'ai-pdf-reflower',
+  'citation-linker',
+  'vector-extractor',
+  'deep-sanitize',
+  'booklet-folding-simulator',
+  'pdf-to-slide',
+  'form-logic-designer',
+  'eink-optimizer',
+  'cert-cryptor',
+  'passport-id-composer',
+  'annotation-exporter',
+  'batch-watermark-remover',
+  'smart-data-redactor',
+  'bookmarks-auto-generator',
+  'batch-barcode-injector',
+  'signature-ink-optimizer',
+  'dead-link-debugger',
+  'interactive-toc-generator',
+  'global-invoice-parser',
+  'pdf-deskew-aligner',
+  'pdf-two-column-reflower',
+  'pdf-page-resizer-uniform',
+  'handwriting-ink-contrast-booster',
+  'pdf-spine-bookbinder',
+  'pdf-signature-anchor-helper',
+  'pdf-lossless-slicer',
+  'pdf-scratchpad-canvas',
+  'photo-tiling-prepress',
+]);
+
+// Market-demand practical ordering requested by user
+const MARKET_DEMAND_TOOL_ORDER: string[] = [
+  // Tier 1 — Core high-demand tools
+  'merge-pdf',
+  'compress-pdf',
+  'split-pdf',
+  'pdf-to-docx',
+  'jpg-to-pdf',
+  'word-to-pdf',
+  'edit-pdf',
+  'pdf-to-jpg',
+  'ocr-pdf',
+  'sign-pdf',
+  'organize-pdf',
+  'extract-pages',
+  'excel-to-pdf',
+  'pdf-to-excel',
+  'rotate-pdf',
+  'delete-pages',
+  'add-watermark',
+  'encrypt-pdf',
+  'redact-pdf',
+  'page-numbers',
+
+  // Tier 2 — Very useful/common tools
+  'image-to-pdf',
+  'pdf-to-pptx',
+  'pptx-to-pdf',
+  'pdf-to-png',
+  'png-to-pdf',
+  'crop-pdf',
+  'repair-pdf',
+  'form-filler',
+  'remove-blank-pages',
+  'flatten-pdf',
+  'add-blank-page',
+  'reverse-pages',
+  'pdf-multi-tool',
+  'add-stamps',
+  'remove-annotations',
+  'edit-metadata',
+  'remove-metadata',
+  'compare-pdfs',
+  'pdf-reader',
+  'extract-images',
+
+  // Tier 3 — Specialized conversion tools
+  'webp-to-pdf',
+  'heic-to-pdf',
+  'svg-to-pdf',
+  'tiff-to-pdf',
+  'bmp-to-pdf',
+  'txt-to-pdf',
+  'markdown-to-pdf',
+  'json-to-pdf',
+  'rtf-to-pdf',
+  'epub-to-pdf',
+  'mobi-to-pdf',
+  'djvu-to-pdf',
+  'fb2-to-pdf',
+  'psd-to-pdf',
+  'xps-to-pdf',
+  'pdf-to-webp',
+  'pdf-to-tiff',
+  'pdf-to-bmp',
+  'pdf-to-svg',
+  'pdf-to-markdown',
+
+  // Tier 4 — Advanced PDF utilities
+  'pdf-to-pdfa',
+  'pdf-to-greyscale',
+  'deskew-pdf',
+  'rasterize-pdf',
+  'sanitize-pdf',
+  'linearize-pdf',
+  'fix-page-size',
+  'page-dimensions',
+  'n-up-pdf',
+  'overlay-pdf',
+  'add-page-labels',
+  'view-metadata',
+  'change-permissions',
+  'decrypt-pdf',
+  'remove-restrictions',
+  'digital-sign-pdf',
+  'validate-signature',
+  'timestamp-pdf',
+  'pdf-booklet',
+  'posterize-pdf',
+
+  // Tier 5 — Niche / advanced features
+  'extract-tables',
+  'pdf-to-json',
+  'pdf-to-slide',
+  'bookmarks-auto-generator',
+  'interactive-toc-generator',
+  'table-of-contents',
+  'bookmark',
+  'add-attachments',
+  'extract-attachments',
+  'edit-attachments',
+  'divide-pages',
+  'combine-single-page',
+  'grid-combine',
+  'alternate-merge',
+  'pdf-to-zip',
+  'email-to-pdf',
+  'cbz-to-pdf',
+  'pdf-to-cbz',
+  'font-to-outline',
+  'ocg-manager',
+
+  // AI & Experimental tools
+  'ai-pdf-reflower',
+  'citation-linker',
+  'vector-extractor',
+  'deep-sanitize',
+  'booklet-folding-simulator',
+  'form-logic-designer',
+  'eink-optimizer',
+  'cert-cryptor',
+  'passport-id-composer',
+  'annotation-exporter',
+  'batch-watermark-remover',
+  'smart-data-redactor',
+  'batch-barcode-injector',
+  'signature-ink-optimizer',
+  'dead-link-debugger',
+  'global-invoice-parser',
+  'pdf-deskew-aligner',
+  'pdf-two-column-reflower',
+  'pdf-page-resizer-uniform',
+  'handwriting-ink-contrast-booster',
+  'pdf-spine-bookbinder',
+  'pdf-signature-anchor-helper',
+  'pdf-lossless-slicer',
+  'pdf-scratchpad-canvas',
+  'photo-tiling-prepress',
+
+  // Additional utilities
+  'header-footer',
+  'invert-colors',
+  'background-color',
+  'text-color',
+  'form-creator',
+  'rotate-custom',
+  'find-and-redact',
+];
 
 export default function HomePageClient({ locale, localizedToolContent }: HomePageClientProps) {
   const messages = useMessages();
@@ -45,14 +304,14 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
       if (text && !text.includes('toolsPage.searchPlaceholder') && !text.includes('searchPlaceholder')) {
         return text;
       }
-    } catch {}
+    } catch { }
     return locale === 'ne'
       ? 'उपकरणहरू खोज्नुहोस् (जस्तै: मर्ज, कम्प्रेस, हस्ताक्षर)...'
       : locale === 'hi'
-      ? 'टूल्स खोजें (जैसे: मर्ज, कंप्रेस, साइन)...'
-      : locale === 'ms'
-      ? 'Cari alatan (cth: gabung, mampat, tandatangan)...'
-      : 'Search for tools (e.g., merge, compress, sign)...';
+        ? 'टूल्स खोजें (जैसे: मर्ज, कंप्रेस, साइन)...'
+        : locale === 'ms'
+          ? 'Cari alatan (cth: gabung, mampat, tandatangan)...'
+          : 'Search for tools (e.g., merge, compress, sign)...';
   })();
 
   // Filter tools based on category pill and search query
@@ -70,6 +329,8 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
         matchesCategory = tool.category === 'edit-annotate';
       } else if (activeCategory === 'security') {
         matchesCategory = tool.category === 'secure-pdf';
+      } else if (activeCategory === 'ai') {
+        matchesCategory = AI_TOOL_IDS.has(tool.id);
       }
 
       // Search match
@@ -88,25 +349,14 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
     });
   }, [allTools, activeCategory, searchQuery, localizedToolContent]);
 
-  // Priority curated tools to showcase like the screenshot
-  const priorityOrder = [
-    'merge-pdf', 'split-pdf', 'remove-pages', 'extract-pages', 'organize-pdf',
-    'scan-pdf', 'compress-pdf', 'repair-pdf', 'ocr-pdf', 'jpg-to-pdf',
-    'word-to-pdf', 'powerpoint-to-pdf', 'excel-to-pdf', 'html-to-pdf', 'pdf-to-jpg',
-    'pdf-to-word', 'pdf-to-powerpoint', 'pdf-to-excel', 'pdf-to-pdfa', 'rotate-pdf',
-    'page-numbers', 'watermark', 'crop-pdf', 'edit-pdf', 'fill-form',
-    'unlock-pdf', 'protect-pdf', 'sign-pdf', 'redact-pdf', 'compare-pdf',
-    'pdf-multi-tool', 'alternate-merge', 'extract-images', 'grayscale-pdf', 'flatten-pdf'
-  ];
-
-  // Sort tools to match screenshot order when on 'all'
+  // Sort tools to match market-demand ranking when on 'all'
   const displayTools = useMemo(() => {
     if (activeCategory !== 'all' || searchQuery.trim() !== '') {
       return filteredTools;
     }
     return [...filteredTools].sort((a, b) => {
-      const indexA = priorityOrder.indexOf(a.id);
-      const indexB = priorityOrder.indexOf(b.id);
+      const indexA = MARKET_DEMAND_TOOL_ORDER.indexOf(a.id);
+      const indexB = MARKET_DEMAND_TOOL_ORDER.indexOf(b.id);
       if (indexA !== -1 && indexB !== -1) return indexA - indexB;
       if (indexA !== -1) return -1;
       if (indexB !== -1) return 1;
@@ -114,175 +364,34 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
     });
   }, [filteredTools, activeCategory, searchQuery]);
 
-  const categoriesList: { id: FilterCategory; label: string }[] = useMemo(() => [
-    { id: 'all', label: tCommon('navigation.tools') || 'All Tools' },
-    { id: 'organize', label: tHome('categories.organizeManage') || 'Organize' },
-    { id: 'optimize', label: tHome('categories.optimizeRepair') || 'Optimize' },
-    { id: 'convert', label: tHome('categories.convertToPdf') || 'Convert' },
-    { id: 'edit', label: tHome('categories.editAnnotate') || 'Edit' },
-    { id: 'security', label: tHome('categories.securePdf') || 'Security' },
+  const categoriesList: { id: FilterCategory; label: string; activeColor: string }[] = useMemo(() => [
+    { id: 'all', label: tCommon('navigation.tools') || 'All Tools', activeColor: 'bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow-sm' },
+    { id: 'organize', label: tHome('categories.organizeManage') || 'Organize', activeColor: 'bg-rose-600 text-white shadow-md shadow-rose-500/25' },
+    { id: 'optimize', label: tHome('categories.optimizeRepair') || 'Optimize', activeColor: 'bg-emerald-600 text-white shadow-md shadow-emerald-500/25' },
+    { id: 'convert', label: tHome('categories.convertToPdf') || 'Convert', activeColor: 'bg-blue-600 text-white shadow-md shadow-blue-500/25' },
+    { id: 'edit', label: tHome('categories.editAnnotate') || 'Edit', activeColor: 'bg-purple-600 text-white shadow-md shadow-purple-500/25' },
+    { id: 'security', label: tHome('categories.securePdf') || 'Security', activeColor: 'bg-teal-600 text-white shadow-md shadow-teal-500/25' },
+    { id: 'ai', label: 'AI & Advanced', activeColor: 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md shadow-purple-500/25' },
   ], [tCommon, tHome]);
-
-  const testimonials = useMemo(() => {
-    const rawItems = (messages as any)?.home?.testimonials;
-    if (Array.isArray(rawItems) && rawItems.length > 0) {
-      const colors = [
-        'bg-rose-100 text-rose-600',
-        'bg-red-100 text-red-600',
-        'bg-orange-100 text-orange-600',
-        'bg-pink-100 text-pink-600',
-      ];
-      return rawItems.map((item: any, idx: number) => ({
-        ...item,
-        color: colors[idx % colors.length],
-      }));
-    }
-
-    if (locale === 'ne') {
-      return [
-        {
-          quote: "मैले प्रयोग गरेको सबैभन्दा छिटो र सुरक्षित PDF सम्पादक। सबै प्रशोधन कुनै गोपनीयता जोखिम बिना सिधै उपकरणमा हुन्छ।",
-          author: "Sarah Jenkins",
-          role: "सुरक्षा परीक्षक",
-          initials: "SJ",
-          color: "bg-rose-100 text-rose-600"
-        },
-        {
-          quote: "१००% अफलाइन प्रशोधन। हाम्रा संवेदनशील कानुनी कागजातहरू कहिल्यै स्थानीय उपकरणबाट बाहिर जाँदैनन्। शून्य अपलोड र उच्च गति।",
-          author: "Michael Davis",
-          role: "अनुपालन अधिकारी",
-          initials: "MD",
-          color: "bg-red-100 text-red-600"
-        },
-        {
-          quote: "हाम्रो सम्पूर्ण टोलीका लागि महँगो मासिक सदस्यता खर्च हटायो। फाइलहरू तुरुन्तै मर्ज, कम्प्रेस र हस्ताक्षर गर्नुहोस्।",
-          author: "Emily Duran",
-          role: "परियोजना प्रबन्धक",
-          initials: "ED",
-          color: "bg-orange-100 text-orange-600"
-        },
-        {
-          quote: "उत्कृष्ट दृश्य ब्याच कार्यप्रवाह र शून्य-सर्भर प्रविधिले हाम्रो इन्जिनियरिङ टोलीको हरेक महिना दर्जनौं घण्टा बचत गर्यो।",
-          author: "David Chen",
-          role: "सञ्चालन निर्देशक",
-          initials: "DC",
-          color: "bg-pink-100 text-pink-600"
-        }
-      ];
-    } else if (locale === 'hi') {
-      return [
-        {
-          quote: "अब तक का सबसे तेज़ और सुरक्षित PDF संपादक। सभी प्रोसेसिंग बिना किसी सर्वर जोखिम के स्थानीय रूप से होती है।",
-          author: "Sarah Jenkins",
-          role: "सुरक्षा लेखा परीक्षक",
-          initials: "SJ",
-          color: "bg-rose-100 text-rose-600"
-        },
-        {
-          quote: "100% ऑफ़लाइन प्रोसेसिंग। हमारे संवेदनशील कानूनी दस्तावेज़ कभी स्थानीय डिवाइस से बाहर नहीं जाते। शून्य अपलोड।",
-          author: "Michael Davis",
-          role: "अनुपालन अधिकारी",
-          initials: "MD",
-          color: "bg-red-100 text-red-600"
-        },
-        {
-          quote: "हमारी पूरी टीम के लिए महंगे सब्सक्रिप्शन खर्च को समाप्त कर दिया। फाइलें तुरंत मर्ज, कंप्रेस और साइन करें।",
-          author: "Emily Duran",
-          role: "प्रोजेक्ट मैनेजर",
-          initials: "ED",
-          color: "bg-orange-100 text-orange-600"
-        },
-        {
-          quote: "शानदार बैच वर्कफ़्लो और ज़ीरो-सर्वर तकनीक ने हमारी इंजीनियरिंग टीम के हर महीने दर्जनों घंटे बचाए।",
-          author: "David Chen",
-          role: "संचालन निदेशक",
-          initials: "DC",
-          color: "bg-pink-100 text-pink-600"
-        }
-      ];
-    } else if (locale === 'ms') {
-      return [
-        {
-          quote: "Editor PDF terpantas dan paling selamat yang pernah saya gunakan. Semua pemprosesan berlaku setempat tanpa risiko privasi.",
-          author: "Sarah Jenkins",
-          role: "Juruaudit Keselamatan",
-          initials: "SJ",
-          color: "bg-rose-100 text-rose-600"
-        },
-        {
-          quote: "100% pemprosesan luar talian. Audit undang-undang sensitif kami tidak pernah meninggalkan memori setempat.",
-          author: "Michael Davis",
-          role: "Pegawai Pematuhan",
-          initials: "MD",
-          color: "bg-red-100 text-red-600"
-        },
-        {
-          quote: "Menghapuskan kos langganan mahal untuk seluruh pasukan kami. Gabung, mampat dan tandatangan fail serta-merta.",
-          author: "Emily Duran",
-          role: "Pengurus Projek",
-          initials: "ED",
-          color: "bg-orange-100 text-orange-600"
-        },
-        {
-          quote: "Aliran kerja kelompok visual dan seni bina sifar pelayan menjimatkan puluhan jam pasukan kejuruteraan kami.",
-          author: "David Chen",
-          role: "Pengarah Operasi",
-          initials: "DC",
-          color: "bg-pink-100 text-pink-600"
-        }
-      ];
-    }
-
-    return [
-      {
-        quote: "The fastest and safest PDF editor I've ever used. All processing occurs locally without risking confidential client documents.",
-        author: 'Sarah Jenkins',
-        role: 'Security Auditor',
-        initials: 'SJ',
-        color: 'bg-rose-100 text-rose-600',
-      },
-      {
-        quote: "100 percent offline processing. Our sensitive legal audits never leave our local memory. Zero uploads and total speed.",
-        author: 'Michael Davis',
-        role: 'Compliance Officer',
-        initials: 'MD',
-        color: 'bg-red-100 text-red-600',
-      },
-      {
-        quote: "Eliminated expensive recurring subscription costs for our entire team. Merge, compress, and sign files instantly.",
-        author: 'Emily Duran',
-        role: 'Project Manager',
-        initials: 'ED',
-        color: 'bg-orange-100 text-orange-600',
-      },
-      {
-        quote: "The visual batch workflows and zero-server architecture saved our engineering team dozens of hours every month.",
-        author: 'David Chen',
-        role: 'Operations Director',
-        initials: 'DC',
-        color: 'bg-pink-100 text-pink-600',
-      },
-    ];
-  }, [messages, locale]);
 
   return (
     <div suppressHydrationWarning className="min-h-screen flex flex-col bg-[hsl(var(--color-background))] text-[hsl(var(--color-foreground))] font-sans antialiased">
       <Header locale={locale} />
 
-      <main className="flex-1 pt-16 pb-16">
+      <main className="flex-1 pt-20 sm:pt-24 md:pt-28 pb-16">
         {/* Hero Section */}
-        <section className="relative overflow-hidden pt-3 pb-8 text-center">
+        <section className="relative overflow-hidden pt-1 pb-2 text-center">
           {/* Subtle warm backdrop glow */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-red-100/40 via-rose-50/20 to-transparent dark:from-red-950/20 dark:via-rose-950/10 blur-3xl -z-10 pointer-events-none" />
 
           <div className="container mx-auto px-4 max-w-4xl">
             {/* Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[hsl(var(--color-foreground))] leading-tight mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[hsl(var(--color-foreground))] leading-tight mb-2.5">
               {locale === 'en' ? (
                 <>
                   Every PDF Tool You Need, <br />
                   <span className="text-red-600 bg-gradient-to-r from-red-600 via-rose-600 to-red-500 bg-clip-text text-transparent">
-                    Run Privately Offline
+                    Run Privately On Your Browser
                   </span>
                 </>
               ) : (
@@ -296,21 +405,21 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
             </h1>
 
             {/* Subtitle */}
-            <p className="text-base sm:text-lg text-[hsl(var(--color-muted-foreground))] max-w-2xl mx-auto leading-relaxed mb-8">
+            <p className="text-base sm:text-lg text-[hsl(var(--color-muted-foreground))] max-w-3xl lg:max-w-4xl mx-auto leading-relaxed mb-4.5 md:whitespace-nowrap">
               {locale === 'en'
-                ? 'Process your files locally in your browser. No server uploads, no privacy risks. Complete speed and peace of mind.'
+                ? 'Process your files locally in your browser. Complete speed and peace of mind.'
                 : (tHome('hero.subtitle') || tHome('features.privacy.description'))}
             </p>
 
             {/* Search Input Bar */}
-            <div className="relative max-w-xl mx-auto mb-6">
+            <div className="relative max-w-xl mx-auto mb-3.5">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-[hsl(var(--color-muted-foreground))]" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={searchPlaceholder}
-                className="w-full pl-11 pr-10 py-3.5 rounded-full border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] text-sm shadow-xs hover:shadow-md focus:shadow-md focus:border-red-500 focus:outline-none focus:ring-4 focus:ring-red-500/10 transition-all placeholder:text-[hsl(var(--color-muted-foreground))] text-[hsl(var(--color-foreground))]"
+                className="w-full pl-11 pr-10 py-2.5 sm:py-3 rounded-full border border-[hsl(var(--color-border))] bg-[hsl(var(--color-card))] text-sm shadow-xs hover:shadow-md focus:shadow-md focus:border-red-500 focus:outline-none focus:ring-4 focus:ring-red-500/10 transition-all placeholder:text-[hsl(var(--color-muted-foreground))] text-[hsl(var(--color-foreground))]"
               />
               {searchQuery && (
                 <button
@@ -324,18 +433,17 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
             </div>
 
             {/* Category Filter Pills */}
-            <div className="flex flex-wrap items-center justify-center gap-2 max-w-2xl mx-auto">
+            <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 max-w-2xl mx-auto">
               {categoriesList.map((cat) => {
                 const isActive = activeCategory === cat.id;
                 return (
                   <button
                     key={cat.id}
                     onClick={() => setActiveCategory(cat.id)}
-                    className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
-                      isActive
-                        ? 'bg-red-600 text-white shadow-md shadow-red-500/25 scale-105'
-                        : 'bg-[hsl(var(--color-card))] border border-[hsl(var(--color-border))] text-[hsl(var(--color-muted-foreground))] hover:bg-[hsl(var(--color-muted))] hover:text-[hsl(var(--color-foreground))]'
-                    }`}
+                    className={`px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${isActive
+                      ? `${cat.activeColor} scale-105`
+                      : 'bg-[hsl(var(--color-card))] border border-[hsl(var(--color-border))] text-[hsl(var(--color-muted-foreground))] hover:bg-[hsl(var(--color-muted))] hover:text-[hsl(var(--color-foreground))]'
+                      }`}
                   >
                     {cat.label}
                   </button>
@@ -353,7 +461,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
         </section>
 
         {/* 5-Column Tools Grid Section */}
-        <section className="w-full max-w-[1440px] mx-auto px-6 mt-4 mb-20">
+        <section className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 mt-2 mb-16">
           {displayTools.length === 0 ? (
             <div className="text-center py-20 bg-[hsl(var(--color-card))] rounded-3xl border border-dashed border-[hsl(var(--color-border))] max-w-xl mx-auto">
               <FileText className="w-12 h-12 text-[hsl(var(--color-muted-foreground))] mx-auto mb-3 opacity-60" />
@@ -380,35 +488,38 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                 const localized = localizedToolContent?.[tool.id];
                 const toolName = localized?.title || tool.slug;
                 const description = localized?.description || '';
-                const isPopular = ['merge-pdf', 'split-pdf', 'compress-pdf', 'pdf-to-word', 'word-to-pdf', 'edit-pdf', 'sign-pdf', 'protect-pdf', 'jpg-to-pdf', 'ocr-pdf'].includes(tool.id);
-                const isAI = ['ocr-pdf', 'summarize-pdf'].includes(tool.id);
+                const isPopular = TOP_POPULAR_IDS.has(tool.id);
+                const isAI = AI_TOOL_IDS.has(tool.id);
+                const theme = CATEGORY_CARD_THEMES[tool.category] || CATEGORY_CARD_THEMES['edit-annotate'];
 
                 return (
                   <Link
                     key={tool.id}
                     href={`/${locale}/tools/${tool.slug}`}
-                    className="group relative flex flex-col justify-between p-6 rounded-2xl bg-[hsl(var(--color-card))] border border-[hsl(var(--color-border))] hover:border-red-300 dark:hover:border-red-900 shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all duration-200 cursor-pointer min-h-[225px]"
+                    className={`group relative flex flex-col justify-between p-6 rounded-2xl bg-[hsl(var(--color-card))] border border-[hsl(var(--color-border))] ${theme.hoverBorder} shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all duration-200 cursor-pointer min-h-[225px]`}
                   >
                     <div>
                       {/* Top icon and badge */}
                       <div className="flex items-center justify-between mb-4">
-                        <div className="w-11 h-11 rounded-xl bg-red-50 dark:bg-red-950/50 flex items-center justify-center text-red-600 dark:text-red-400 group-hover:scale-110 transition-transform">
+                        <div className={`w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-200 group-hover:scale-110 ${theme.iconBg}`}>
                           <IconComponent className="w-5 h-5" />
                         </div>
-                        {isPopular && (
-                          <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-red-50 dark:bg-red-950 text-red-600 dark:text-red-400">
-                            {tHome('popularTools.badge') || 'Hot'}
-                          </span>
-                        )}
-                        {isAI && (
-                          <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-50 dark:bg-amber-950 text-amber-600 dark:text-amber-400">
-                            AI
-                          </span>
-                        )}
+                        <div className="flex items-center gap-1.5">
+                          {isPopular && (
+                            <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${theme.badgeBg} ${theme.badgeText}`}>
+                              {tHome('popularTools.badge') || 'MOST POPULAR'}
+                            </span>
+                          )}
+                          {isAI && (
+                            <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-gradient-to-r from-purple-500/15 to-pink-500/15 text-purple-700 dark:text-pink-300 border border-purple-200/60 dark:border-purple-800/40">
+                              AI
+                            </span>
+                          )}
+                        </div>
                       </div>
 
                       {/* Tool Title */}
-                      <h3 className="font-bold text-[16px] leading-snug text-[hsl(var(--color-foreground))] group-hover:text-red-600 transition-colors mb-2 line-clamp-1">
+                      <h3 className={`font-bold text-[16px] leading-snug text-[hsl(var(--color-foreground))] ${theme.hoverTitle} transition-colors mb-2 line-clamp-1`}>
                         {toolName}
                       </h3>
 
@@ -419,7 +530,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                     </div>
 
                     {/* Bottom Action Arrow */}
-                    <div className="pt-2 flex items-center justify-end text-[hsl(var(--color-muted-foreground))] group-hover:text-red-600 transition-colors mt-auto">
+                    <div className={`pt-2 flex items-center justify-end text-[hsl(var(--color-muted-foreground))] ${theme.hoverTitle} transition-colors mt-auto`}>
                       <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                     </div>
                   </Link>
@@ -429,56 +540,11 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
           )}
         </section>
 
-        {/* Loved by Millions (Testimonials Section) */}
-        <section suppressHydrationWarning className="py-16 bg-[hsl(var(--color-muted)/0.4)] border-y border-[hsl(var(--color-border))]">
-          <div className="w-full max-w-[1440px] mx-auto px-6">
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <h2 className="text-2xl sm:text-3xl font-bold text-[hsl(var(--color-foreground))] tracking-tight mb-3">
-                {tHome('popularTools.title') || 'Loved by Millions'}
-              </h2>
-              <p className="text-sm sm:text-base text-[hsl(var(--color-muted-foreground))]">
-                {tHome('popularTools.description') || 'See why users choose iCreatePDF for secure offline editing'}
-              </p>
-            </div>
+        {/* Visual Workflow Automation Section */}
+        <WorkflowShowcase locale={locale} />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {testimonials.map((item, idx) => (
-                <div
-                  key={idx}
-                  className="p-6 rounded-2xl bg-[hsl(var(--color-card))] border border-[hsl(var(--color-border))] shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between"
-                >
-                  <div>
-                    {/* 5 Stars */}
-                    <div className="flex gap-1 text-amber-400 mb-4">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                      ))}
-                    </div>
-
-                    <p className="text-xs sm:text-sm text-[hsl(var(--color-foreground))] leading-relaxed italic mb-6">
-                      &ldquo;{item.quote}&rdquo;
-                    </p>
-                  </div>
-
-                  {/* Author */}
-                  <div className="flex items-center gap-3 pt-4 border-t border-[hsl(var(--color-border))]">
-                    <div className={`w-8 h-8 rounded-full ${item.color} flex items-center justify-center font-bold text-xs flex-shrink-0`}>
-                      {item.initials}
-                    </div>
-                    <div>
-                      <div className="text-xs font-bold text-[hsl(var(--color-foreground))] leading-tight">
-                        {item.author}
-                      </div>
-                      <div className="text-[11px] text-[hsl(var(--color-muted-foreground))]">
-                        {item.role}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* Dynamic Global Testimonials Section */}
+        <TestimonialsSection locale={locale} />
 
         {/* Feature Pillars: 100% Client-Side */}
         <section className="py-20 w-full max-w-[1440px] mx-auto px-6">

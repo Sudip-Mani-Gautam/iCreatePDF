@@ -36,7 +36,7 @@ export default function CategoryPageClient({ locale, category, localizedToolCont
         <div className="min-h-screen flex flex-col bg-[hsl(var(--color-background))]">
             <Header locale={locale} />
 
-            <main className="flex-1 pt-16">
+            <main className="flex-1 pt-20 sm:pt-22 md:pt-24 pb-16">
                 <div className="container mx-auto px-4 pt-4 pb-8">
                     {/* Breadcrumb Navigation */}
                     <nav aria-label="Breadcrumb" className="mb-4 flex items-center text-sm text-[hsl(var(--color-muted-foreground))] animate-in fade-in slide-in-from-top-4 duration-500 delay-100">

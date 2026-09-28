@@ -48,7 +48,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     category: 'general',
     categoryLabel: 'General',
     question: 'How does iCreatePDF compare to services like Smallpdf, Adobe Acrobat, or iLovePDF?',
-    answer: 'Traditional tools like Smallpdf or iLovePDF require uploading your private files over the internet to centralized cloud servers, which introduces privacy liabilities, bandwidth latency, and strict upload file size caps. iCreatePDF processes your files on your device hardware via WebAssembly. It is faster (no waiting for uploads or downloads), completely private, offline-capable, and has no daily file limits.',
+    answer: 'Traditional tools like Smallpdf or iLovePDF require uploading your private files over the internet to centralized cloud servers, which introduces privacy liabilities, bandwidth latency, and strict upload file size caps. iCreatePDF processes your files on your device hardware via WebAssembly. It is faster (no waiting for uploads or downloads), completely private, Offline-capable, and has no daily file limits.',
     keywords: ['smallpdf alternative', 'ilovepdf alternative', 'adobe acrobat alternative', 'privacy comparison'],
   },
   {
@@ -152,14 +152,14 @@ export const FAQ_ITEMS: FAQItem[] = [
     keywords: ['workflow editor', 'batch pdf processing', 'pdf automation', 'pipeline'],
   },
 
-  // --- TECHNICAL & OFFLINE ---
+  // --- TECHNICAL & Offline ---
   {
-    id: 'technical-works-offline',
+    id: 'technical-works-Offline',
     category: 'technical',
     categoryLabel: 'Technical & Offline',
-    question: 'Can I use iCreatePDF completely offline without an active internet connection?',
+    question: 'Can I use iCreatePDF completely Offline without an active internet connection?',
     answer: 'Yes! Once you have loaded iCreatePDF in your browser, our Progressive Web App (PWA) Service Worker caches all necessary scripts, icons, and WebAssembly compilation modules. You can disconnect your internet, board an airplane, or work in low-connectivity areas with zero interruption.',
-    keywords: ['offline pdf editor', 'airplane mode', 'no internet required', 'pwa offline'],
+    keywords: ['Offline pdf editor', 'airplane mode', 'no internet required', 'pwa Offline'],
   },
   {
     id: 'technical-max-file-size',

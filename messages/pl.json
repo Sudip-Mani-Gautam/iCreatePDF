@@ -36,7 +36,7 @@
   },
   "common": {
     "brand": "iCreatePDF",
-    "tagline": "Kompletny zestaw narzędzi PDF offline. 100% prywatności, bez przesyłania na serwer, szybki i w przeglądarce.",
+    "tagline": "Kompletny zestaw narzędzi PDF Offline. 100% prywatności, bez przesyłania na serwer, szybki i w przeglądarce.",
     "navigation": {
       "home": "Strona główna",
       "tools": "Narzędzia",
@@ -51,7 +51,8 @@
       "press": "Prasa",
       "license": "Licencja (AGPL-3.0)",
       "acknowledgements": "Podziękowania",
-      "blog": "Blog"
+      "blog": "Blog",
+      "allTools": "Wszystkie narzędzia PDF"
     },
     "buttons": {
       "upload": "Prześlij pliki",
@@ -79,7 +80,8 @@
       "rotateAllLeft": "Obróć wszystko w lewo",
       "rotateAllRight": "Obróć wszystko w prawo",
       "confirm": "Potwierdź",
-      "add": "Dodaj"
+      "add": "Dodaj",
+      "more": "Więcej"
     },
     "status": {
       "idle": "Gotowy",
@@ -97,7 +99,7 @@
       "resources": "Zasoby",
       "company": "Firma",
       "legal": "Prawne",
-      "tagline": "Kompletny zestaw narzędzi PDF offline. 100% prywatności, bez przesyłania na serwer, szybki i w przeglądarce."
+      "tagline": "Kompletny zestaw narzędzi PDF Offline. 100% prywatności, bez przesyłania na serwer, szybki i w przeglądarce."
     },
     "recentFiles": {
       "title": "Najnowsze pliki",
@@ -976,6 +978,14 @@
       "downloadStartedNotice": "Pobieranie rozpoczęte w przeglądarce! Jeśli nie ruszyło, skopiuj link i wklej w przeglądarce.",
       "downloadFailedNotice": "Nie udało się otworzyć przeglądarki. Skopiuj link i wklej ręcznie w przeglądarce.",
       "linkCopied": "Link do pobrania skopiowany do schowka!"
+    },
+    "categories": {
+      "organize": "ORGANIZUJ",
+      "optimize": "OPTYMALIZUJ",
+      "convertFrom": "KONWERTUJ Z",
+      "convertTo": "KONWERTUJ NA",
+      "edit": "EDYTUJ PDF",
+      "security": "BEZPIECZEŃSTWO"
     }
   },
   "toolsPage": {
@@ -1068,8 +1078,8 @@
           "question": "Dlaczego przetwarzanie dużych plików jest powolne?",
           "answer": "Ponieważ całe przetwarzanie odbywa się w Twojej przeglądarce, wydajność zależy od możliwości Twojego urządzenia. Duże pliki wymagają więcej pamięci i mocy obliczeniowej. Aby uzyskać najlepsze wyniki, zamknij inne karty i aplikacje przeglądarki."
         },
-        "offline": {
-          "question": "Czy iCreatePDF działa w trybie offline?",
+        "Offline": {
+          "question": "Czy iCreatePDF działa w trybie Offline?",
           "answer": "Obecnie iCreatePDF wymaga połączenia internetowego, aby załadować aplikację. Jednak po załadowaniu samo przetwarzanie odbywa się lokalnie i nie wymaga połączenia."
         }
       },
@@ -1485,7 +1495,11 @@
     "conditionGateway": "Bramka warunkowa",
     "downloadPdf": "Pobierz PDF",
     "outputCategory": "Wyjście i Eksport",
-    "filenameLabel": "Nazwa pliku wyjściowego"
+    "filenameLabel": "Nazwa pliku wyjściowego",
+    "inputCategory": "Źródła wejściowe",
+    "pdfInput": "Wejście PDF",
+    "imageInput": "Wejście obrazu",
+    "fileInput": "Wejście pliku"
   },
   "tools": {
     "search": {

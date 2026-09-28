@@ -4,6 +4,11 @@ export interface BlogAuthor {
   avatar?: string;
 }
 
+export interface BlogPostFAQ {
+  question: string;
+  answer: string;
+}
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -16,5 +21,9 @@ export interface BlogPost {
   readingTime: string;
   featured?: boolean;
   coverGradient?: string;
+  coverImage?: string; // Path relative to public (e.g. /images/blog/how-to-merge.webp)
   content: string; // Rich markdown or structured paragraphs
+  faq?: BlogPostFAQ[]; // Post-specific FAQs
+  draft?: boolean; // When true, excluded from notifications and production lists
 }
+

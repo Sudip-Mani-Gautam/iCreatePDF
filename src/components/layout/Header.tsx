@@ -2,12 +2,12 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { 
-  Menu, 
-  X, 
-  ChevronDown, 
+import {
+  Menu,
+  X,
+  ChevronDown,
   ArrowRight,
   ImageIcon,
   PenTool,
@@ -50,16 +50,23 @@ import {
   Languages,
   Search,
   Github,
-  ShieldCheck
+  ShieldCheck,
+  Gauge
 } from 'lucide-react';
-import { type Locale } from '@/lib/i18n/config';
+import { type Locale, locales, localeConfig, getLocalizedPath } from '@/lib/i18n/config';
+import dynamic from 'next/dynamic';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
-import { LanguageSelector } from './LanguageSelector';
+const NotificationBell = dynamic(
+  () => import('@/components/notifications/NotificationBell').then((mod) => mod.NotificationBell),
+  { ssr: false }
+);
+import { LanguageSelector, saveLanguagePreference } from './LanguageSelector';
 import { RecentFilesDropdown } from '@/components/common/RecentFilesDropdown';
 import { UpdateCheckButton } from '@/components/common/UpdateCheckButton';
 import { searchTools, SearchResult } from '@/lib/utils/search';
 import { tools } from '@/config/tools';
 import { getToolContent } from '@/config/tool-content';
+import { getToolIcon as getLucideToolIcon } from '@/config/icons';
 
 export interface HeaderProps {
   locale: Locale;
@@ -84,10 +91,17 @@ interface CategoryGroup {
 export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => {
   const t = useTranslations('common');
   const router = useRouter();
+  const pathname = usePathname();
   const [isToolsDropdownOpen, setIsToolsDropdownOpen] = useState(false);
   const [isProductsMenuOpen, setIsProductsMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const handleLocaleChange = (newLocale: Locale) => {
+    saveLanguagePreference(newLocale);
+    const newPath = getLocalizedPath(pathname, newLocale);
+    router.push(newPath);
+  };
 
   // Search state
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -100,12 +114,15 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
 
   // Localized tool titles
   const mergeTitle = getToolContent(locale, 'merge-pdf')?.title || 'Merge PDF';
+  const splitTitle = getToolContent(locale, 'split-pdf')?.title || 'Split PDF';
+  const compressTitle = getToolContent(locale, 'compress-pdf')?.title || 'Compress PDF';
+  const editTitle = getToolContent(locale, 'edit-pdf')?.title || 'Edit PDF';
 
   const allToolsLabel = (() => {
     try {
       const text = t('navigation.allTools');
       if (text && !text.includes('navigation.allTools') && !text.includes('common.')) return text;
-    } catch {}
+    } catch { }
     return locale === 'ne' ? 'सबै PDF उपकरणहरू' : locale === 'hi' ? 'सभी PDF टूल्स' : locale === 'ms' ? 'Semua Alatan PDF' : 'All PDF Tools';
   })();
 
@@ -229,26 +246,56 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
     });
   }, []);
 
-  const getToolIcon = (category: string) => {
-    const icons: Record<string, string> = {
-      'edit-annotate': '✏️',
-      'convert-to-pdf': '📄',
-      'convert-from-pdf': '🖼️',
-      'organize-manage': '📁',
-      'optimize-repair': '🔧',
-      'secure-pdf': '🔒',
-    };
-    return icons[category] || '📄';
+  const getCategoryBadge = (category: string) => {
+    switch (category) {
+      case 'edit-annotate':
+        return {
+          bg: 'bg-rose-500/10 text-rose-600 dark:text-rose-400',
+          badge: 'bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 border-rose-200 dark:border-rose-900/40',
+          label: 'Edit',
+        };
+      case 'convert-to-pdf':
+      case 'convert-from-pdf':
+        return {
+          bg: 'bg-blue-500/10 text-blue-600 dark:text-blue-400',
+          badge: 'bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 border-blue-200 dark:border-blue-900/40',
+          label: 'Convert',
+        };
+      case 'organize-manage':
+        return {
+          bg: 'bg-amber-500/10 text-amber-600 dark:text-amber-400',
+          badge: 'bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 border-amber-200 dark:border-amber-900/40',
+          label: 'Organize',
+        };
+      case 'optimize-repair':
+        return {
+          bg: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
+          badge: 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border-emerald-200 dark:border-emerald-900/40',
+          label: 'Optimize',
+        };
+      case 'secure-pdf':
+        return {
+          bg: 'bg-violet-500/10 text-violet-600 dark:text-violet-400',
+          badge: 'bg-violet-50 dark:bg-violet-950/40 text-violet-600 dark:text-violet-400 border-violet-200 dark:border-violet-900/40',
+          label: 'Security',
+        };
+      default:
+        return {
+          bg: 'bg-zinc-500/10 text-zinc-600 dark:text-zinc-400',
+          badge: 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border-zinc-200 dark:border-zinc-700',
+          label: 'PDF',
+        };
+    }
   };
 
   const searchPlaceholder =
     locale === 'ne'
       ? 'उपकरणहरू खोज्नुहोस्...'
       : locale === 'hi'
-      ? 'टूल्स खोजें...'
-      : locale === 'ms'
-      ? 'Cari alatan...'
-      : 'Search tools...';
+        ? 'टूल्स खोजें...'
+        : locale === 'ms'
+          ? 'Cari alatan...'
+          : 'Search tools...';
 
   // Close dropdowns when clicking outside
   useEffect(() => {
@@ -299,6 +346,8 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
         { label: 'Compress PDF', toolId: 'compress-pdf', href: `/${locale}/tools/compress-pdf`, icon: Minimize2 },
         { label: 'Repair PDF', toolId: 'repair-pdf', href: `/${locale}/tools/repair-pdf`, icon: Wrench },
         { label: 'OCR PDF', toolId: 'ocr-pdf', href: `/${locale}/tools/ocr-pdf`, icon: ScanText },
+        { label: 'Flatten PDF', toolId: 'flatten-pdf', href: `/${locale}/tools/flatten-pdf`, icon: Layers },
+        { label: 'Linearize PDF', toolId: 'linearize-pdf', href: `/${locale}/tools/linearize-pdf`, icon: Gauge },
       ],
     },
     {
@@ -350,21 +399,21 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
       category: '✦ AI',
       isAi: true,
       tools: [
-        { 
-          label: locale === 'ne' ? 'AI सारांशकर्ता' : locale === 'hi' ? 'AI सारांशकर्ता' : locale === 'ms' ? 'Penyusun AI' : 'AI Summarizer', 
+        {
+          label: locale === 'ne' ? 'AI सारांशकर्ता' : locale === 'hi' ? 'AI सारांशकर्ता' : locale === 'ms' ? 'Penyusun AI' : 'AI Summarizer',
           toolId: 'ai-pdf-reflower',
-          href: `/${locale}/tools/ai-pdf-reflower`, 
-          icon: Sparkles, 
-          color: 'text-amber-500 hover:text-amber-600 dark:text-amber-400 dark:hover:text-amber-300 font-semibold', 
-          iconColor: 'text-amber-500 dark:text-amber-400' 
+          href: `/${locale}/tools/ai-pdf-reflower`,
+          icon: Sparkles,
+          color: 'text-amber-500 hover:text-amber-600 dark:text-amber-400 dark:hover:text-amber-300 font-semibold',
+          iconColor: 'text-amber-500 dark:text-amber-400'
         },
-        { 
-          label: locale === 'ne' ? 'PDF पाठक' : locale === 'hi' ? 'PDF पाठक' : locale === 'ms' ? 'Pembaca PDF' : 'Translate PDF', 
+        {
+          label: locale === 'ne' ? 'PDF पाठक' : locale === 'hi' ? 'PDF पाठक' : locale === 'ms' ? 'Pembaca PDF' : 'Translate PDF',
           toolId: 'pdf-reader',
-          href: `/${locale}/tools/pdf-reader`, 
-          icon: Languages, 
-          color: 'text-emerald-500 hover:text-emerald-600 dark:text-emerald-400 dark:hover:text-emerald-300 font-semibold', 
-          iconColor: 'text-emerald-500 dark:text-emerald-400' 
+          href: `/${locale}/tools/pdf-reader`,
+          icon: Languages,
+          color: 'text-emerald-500 hover:text-emerald-600 dark:text-emerald-400 dark:hover:text-emerald-300 font-semibold',
+          iconColor: 'text-emerald-500 dark:text-emerald-400'
         },
       ],
     },
@@ -372,45 +421,39 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
 
   return (
     <header
-      className={`fixed top-0 z-50 w-full transition-all duration-200 ${
-        scrolled
-          ? 'bg-white/95 dark:bg-zinc-950/95 backdrop-blur-md border-b border-zinc-200/80 dark:border-zinc-800 shadow-xs'
-          : 'bg-white dark:bg-zinc-950 border-b border-zinc-100 dark:border-zinc-900'
-      }`}
+      className={`fixed top-0 z-50 w-full transition-all duration-200 ${scrolled
+        ? 'bg-white/95 dark:bg-zinc-950/95 backdrop-blur-md border-b border-zinc-200/80 dark:border-zinc-800 shadow-xs'
+        : 'bg-white dark:bg-zinc-950 border-b border-zinc-100 dark:border-zinc-900'
+        }`}
       role="banner"
     >
-      <div className="w-full max-w-[1440px] mx-auto px-6">
-        <div className="flex h-16 items-center justify-between gap-4">
+      <div className="w-full max-w-[1440px] mx-auto px-3.5 sm:px-6">
+        <div className="flex h-16 sm:h-18 md:h-20 items-center justify-between gap-2 sm:gap-4">
           {/* Logo and Brand + Desktop Navigation (together on the left, NOT centered) */}
-          <div className="flex items-center gap-6 lg:gap-8">
+          <div className="flex items-center gap-3 sm:gap-6 lg:gap-8 min-w-0">
             <Link
               href={`/${locale}`}
-              className="group flex items-center gap-2 text-xl font-bold hover:opacity-95 transition-opacity flex-shrink-0"
+              className="group flex items-center hover:opacity-90 transition-opacity flex-shrink-0"
               aria-label="iCreatePDF - Home"
             >
-              <div className="relative flex h-8.5 w-8.5 items-center justify-center rounded-xl bg-red-600 text-white shadow-md shadow-red-500/25 transition-transform group-hover:scale-105">
-                <svg
-                  className="h-5 w-5 text-white"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
-                  <polyline points="14 2 14 8 20 8" />
-                </svg>
-              </div>
-              <span className="text-xl font-extrabold tracking-tight flex items-center" data-testid="brand-name">
-                <span className="text-zinc-950 dark:text-white">iCreate</span>
-                <span className="text-white bg-red-600 px-1.5 py-0.5 rounded-md ml-1 text-xs font-black shadow-sm">PDF</span>
+              <span className="flex items-center" data-testid="brand-name">
+                <img
+                  src="/images/logo-light.png"
+                  alt="iCreatePDF"
+                  className="h-8.5 sm:h-11 md:h-14 w-auto max-w-[140px] sm:max-w-none dark:hidden object-contain"
+                />
+                <img
+                  src="/images/logo-dark.png"
+                  alt="iCreatePDF"
+                  className="h-8.5 sm:h-11 md:h-14 w-auto max-w-[140px] sm:max-w-none hidden dark:block object-contain"
+                />
+                <span className="sr-only">iCreatePDF</span>
               </span>
             </Link>
 
             {/* Desktop Navigation Links */}
             <nav
-              className="hidden md:flex items-center gap-5 lg:gap-6 text-sm font-semibold"
+              className="hidden md:flex items-center gap-4 lg:gap-6 text-sm font-semibold"
               role="navigation"
               aria-label="Main navigation"
             >
@@ -454,11 +497,15 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-5">
                       {organizedCategories.map((col) => (
                         <div key={col.category} className="flex flex-col">
-                          {/* Column Header with bottom line */}
-                          <div className={`text-[11px] font-bold uppercase tracking-wider pb-2 mb-3 border-b border-zinc-100 dark:border-zinc-800/80 ${
-                            col.isAi ? 'text-amber-500 dark:text-amber-400' : 'text-zinc-400 dark:text-zinc-500'
-                          }`}>
-                            {col.category}
+                          {/* Column Header with bottom line - Disambiguated category title */}
+                          <div
+                            className={`text-[11px] font-extrabold uppercase tracking-widest pb-2 mb-2.5 border-b select-none cursor-default ${
+                              col.isAi
+                                ? 'text-amber-600 dark:text-amber-400 border-amber-300/70 dark:border-amber-800/60'
+                                : 'text-zinc-800 dark:text-zinc-200 border-zinc-200 dark:border-zinc-700/80'
+                            }`}
+                          >
+                            <span>{col.category}</span>
                           </div>
 
                           {/* Tools List */}
@@ -473,12 +520,10 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
                                     onClick={() => setIsToolsDropdownOpen(false)}
                                     className="group flex items-center gap-2.5 py-1.5 px-2 -mx-2 rounded-lg text-[13px] font-medium transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-800/60"
                                   >
-                                    <IconComponent className={`w-4 h-4 flex-shrink-0 transition-colors ${
-                                      item.iconColor || 'text-zinc-400 dark:text-zinc-500 group-hover:text-red-600 dark:group-hover:text-red-400'
-                                    }`} />
-                                    <span className={`transition-colors whitespace-nowrap ${
-                                      item.color || 'text-zinc-700 dark:text-zinc-200 group-hover:text-red-600 dark:group-hover:text-red-400'
-                                    }`}>
+                                    <IconComponent className={`w-4 h-4 flex-shrink-0 transition-colors ${item.iconColor || 'text-zinc-400 dark:text-zinc-500 group-hover:text-red-600 dark:group-hover:text-red-400'
+                                      }`} />
+                                    <span className={`transition-colors whitespace-nowrap ${item.color || 'text-zinc-700 dark:text-zinc-200 group-hover:text-red-600 dark:group-hover:text-red-400'
+                                      }`}>
                                       {localizedTitle}
                                     </span>
                                   </Link>
@@ -492,6 +537,13 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
                   </div>
                 )}
               </div>
+
+              <Link
+                href={`/${locale}/workflow`}
+                className="text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-500 transition-colors"
+              >
+                {t('navigation.workflow') || 'Workflow'}
+              </Link>
 
               <Link
                 href={`/${locale}/blog`}
@@ -518,7 +570,7 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
                         onChange={(e) => setSearchQuery(e.target.value)}
                         onKeyDown={handleKeyDown}
                         placeholder={searchPlaceholder}
-                        className="w-full pl-9 pr-9 py-2 text-sm rounded-xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                        className="w-full pl-9 pr-9 py-2 text-sm rounded-xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-green-700 focus:border-green-700"
                         aria-label="Search tools"
                         autoComplete="off"
                       />
@@ -533,36 +585,47 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
 
                       {/* Search Results Dropdown */}
                       {searchResults.length > 0 && (
-                        <div className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-xl overflow-hidden animate-in fade-in slide-in-from-top-2 duration-150 max-h-[60vh] overflow-y-auto z-50">
-                          <ul className="py-2" role="listbox">
+                        <div className="absolute top-full left-0 right-0 mt-2.5 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-xl border border-zinc-200/90 dark:border-zinc-800 rounded-2xl shadow-2xl overflow-hidden animate-in fade-in slide-in-from-top-2 duration-150 max-h-[65vh] overflow-y-auto z-50">
+                          <div className="px-3.5 py-2 border-b border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between text-[11px] text-zinc-400 font-medium">
+                            <span>{searchResults.length} {searchResults.length === 1 ? 'tool' : 'tools'}</span>
+                            <span className="hidden sm:inline">Use ↑ ↓ to navigate</span>
+                          </div>
+                          <ul className="p-1.5 space-y-0.5" role="listbox">
                             {searchResults.map((result, index) => {
                               const localized = localizedTools[result.tool.id];
                               const toolName = localized?.title || result.tool.id.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
                               const toolDescription = localized?.description || result.tool.features.slice(0, 3).join(' • ');
+                              const ToolIcon = getLucideToolIcon(result.tool.icon || result.tool.id);
+                              const style = getCategoryBadge(result.tool.category);
 
                               return (
                                 <li key={result.tool.id}>
                                   <button
                                     onClick={() => navigateToTool(result.tool.slug)}
                                     onMouseEnter={() => setSelectedIndex(index)}
-                                    className={`w-full px-4 py-2.5 text-left flex items-center gap-3 transition-colors ${
-                                      index === selectedIndex
-                                        ? 'bg-red-50 dark:bg-red-950/40 text-red-600 dark:text-red-400'
-                                        : 'hover:bg-zinc-50 dark:hover:bg-zinc-800 text-zinc-800 dark:text-zinc-200'
-                                    }`}
+                                    className={`w-full px-3 py-2.5 text-left rounded-xl flex items-center gap-3 transition-all group cursor-pointer ${index === selectedIndex
+                                      ? 'bg-red-50/80 dark:bg-red-950/30 text-zinc-950 dark:text-white shadow-xs'
+                                      : 'hover:bg-zinc-100/70 dark:hover:bg-zinc-800/70 text-zinc-800 dark:text-zinc-200'
+                                      }`}
                                     role="option"
                                     aria-selected={index === selectedIndex}
                                   >
-                                    <span className="text-xl filter grayscale group-hover:grayscale-0">
-                                      {getToolIcon(result.tool.category)}
-                                    </span>
+                                    <div className={`w-8.5 h-8.5 rounded-lg ${style.bg} flex items-center justify-center shrink-0 transition-transform group-hover:scale-105 shadow-xs`}>
+                                      <ToolIcon className="w-4.5 h-4.5" />
+                                    </div>
                                     <div className="flex-1 min-w-0">
-                                      <div className="font-semibold text-sm truncate">
+                                      <div className="font-semibold text-sm text-zinc-900 dark:text-white group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors truncate">
                                         {toolName}
                                       </div>
-                                      <div className="text-xs text-zinc-500 dark:text-zinc-400 truncate">
+                                      <div className="text-xs text-zinc-500 dark:text-zinc-400 truncate mt-0.5">
                                         {toolDescription}
                                       </div>
+                                    </div>
+                                    <div className="flex items-center gap-1.5 shrink-0">
+                                      <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md border ${style.badge}`}>
+                                        {style.label}
+                                      </span>
+                                      <ArrowRight className="w-3.5 h-3.5 text-zinc-400 group-hover:text-red-600 dark:group-hover:text-red-400 group-hover:translate-x-0.5 transition-all" />
                                     </div>
                                   </button>
                                 </li>
@@ -589,26 +652,30 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
               </div>
             )}
 
-            {/* Recent Files Dropdown */}
-            <RecentFilesDropdown
-              locale={locale}
-              translations={{
-                title: t('recentFiles.title') || (locale === 'ne' ? 'भर्खरका फाइलहरू' : 'Recent Files'),
-                empty: t('recentFiles.empty') || (locale === 'ne' ? 'कुनै भर्खरका फाइलहरू छैनन्' : 'No recent files'),
-                clearAll: t('recentFiles.clearAll') || (locale === 'ne' ? 'सबै हटाउनुहोस्' : 'Clear all'),
-                processedWith: t('recentFiles.processedWith') || (locale === 'ne' ? 'सँग प्रशोधित' : 'Processed with'),
-              }}
-            />
+            {/* Recent Files Dropdown - desktop only */}
+            <div className="hidden md:block">
+              <RecentFilesDropdown
+                locale={locale}
+                translations={{
+                  title: t('recentFiles.title') || (locale === 'ne' ? 'भर्खरका फाइलहरू' : 'Recent Files'),
+                  empty: t('recentFiles.empty') || (locale === 'ne' ? 'कुनै भर्खरका फाइलहरू छैनन्' : 'No recent files'),
+                  clearAll: t('recentFiles.clearAll') || (locale === 'ne' ? 'सबै हटाउनुहोस्' : 'Clear all'),
+                  processedWith: t('recentFiles.processedWith') || (locale === 'ne' ? 'सँग प्रशोधित' : 'Processed with'),
+                }}
+              />
+            </div>
 
-            {/* Update Check Button */}
-            <UpdateCheckButton />
+            {/* Update Check Button - large desktop only */}
+            <div className="hidden lg:block">
+              <UpdateCheckButton />
+            </div>
 
             {/* GitHub Repository Link */}
             <a
               href="https://github.com/Sudip-Mani-Gautam/iCreatePDF"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex items-center justify-center w-8.5 h-8.5 rounded-lg text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+              className="hidden lg:flex items-center justify-center w-8.5 h-8.5 rounded-lg text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
               aria-label="GitHub Repository"
               title="GitHub Repository"
             >
@@ -616,7 +683,7 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
             </a>
 
             {/* Apps 4-Square Red Icon (Ecosystem Menu Popup) */}
-            <div className="relative" ref={productsMenuRef}>
+            <div className="relative hidden sm:block" ref={productsMenuRef}>
               <button
                 onClick={() => {
                   setIsProductsMenuOpen(!isProductsMenuOpen);
@@ -770,7 +837,7 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
                             {locale === 'ne' ? 'डेस्कटप एप' : locale === 'hi' ? 'डेस्कटॉप ऐप' : locale === 'ms' ? 'Aplikasi Desktop' : 'Desktop App'}
                           </span>
                           <span className="text-[10px] text-zinc-400 dark:text-zinc-500 block truncate">
-                            {locale === 'ne' ? 'म्याक र विन्डोज अफलाइन' : locale === 'hi' ? 'Mac और Windows ऑफ़लाइन' : locale === 'ms' ? 'Luar talian Mac & Win' : 'Mac & Windows offline'}
+                            {locale === 'ne' ? 'म्याक र विन्डोज अफलाइन' : locale === 'hi' ? 'Mac और Windows ऑफ़लाइन' : locale === 'ms' ? 'Luar talian Mac & Win' : 'Mac & Windows Offline'}
                           </span>
                         </div>
                       </a>
@@ -843,11 +910,11 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
                       </Link>
                       <span className="text-zinc-300 dark:text-zinc-700">•</span>
                       <Link
-                        href={`/${locale}/faq`}
+                        href={`/${locale}/help`}
                         onClick={() => setIsProductsMenuOpen(false)}
                         className="hover:text-zinc-950 dark:hover:text-white transition-colors"
                       >
-                        {t('navigation.faq') || 'Help & FAQ'}
+                        {t('navigation.faq') || 'Help Center'}
                       </Link>
                       <span className="text-zinc-300 dark:text-zinc-700">•</span>
                       <Link
@@ -868,8 +935,13 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
               )}
             </div>
 
-            {/* Language Selector (Flag/Globe dropdown) */}
-            <LanguageSelector currentLocale={locale} />
+            {/* Language Selector (Flag/Globe dropdown) - tablet & desktop */}
+            <div className="hidden sm:block">
+              <LanguageSelector currentLocale={locale} />
+            </div>
+
+            {/* Notification Subscription Bell */}
+            <NotificationBell />
 
             {/* Dark Mode Toggle */}
             <ThemeToggle />
@@ -879,6 +951,7 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 md:hidden rounded-lg text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
               aria-label={isMobileMenuOpen ? 'Close Menu' : 'Open Menu'}
+              aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -887,42 +960,178 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
 
         {/* Mobile Navigation Drawer */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 space-y-2">
-            <Link
-              href={`/${locale}`}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="block px-4 py-2.5 text-sm font-semibold text-zinc-900 dark:text-white hover:bg-zinc-50 dark:hover:bg-zinc-900 rounded-lg"
-            >
-              {t('navigation.home') || 'Home'}
-            </Link>
-            <Link
-              href={`/${locale}/tools`}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="block px-4 py-2.5 text-sm font-semibold text-zinc-900 dark:text-white hover:bg-zinc-50 dark:hover:bg-zinc-900 rounded-lg"
-            >
-              {t('navigation.tools') || 'Tools'}
-            </Link>
-            <Link
-              href={`/${locale}/tools/merge-pdf`}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="block px-4 py-2.5 text-sm font-semibold text-zinc-900 dark:text-white hover:bg-zinc-50 dark:hover:bg-zinc-900 rounded-lg"
-            >
-              {mergeTitle}
-            </Link>
-            <Link
-              href={`/${locale}/tools`}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="block px-4 py-2.5 text-sm font-semibold text-red-600 hover:bg-zinc-50 dark:hover:bg-zinc-900 rounded-lg"
-            >
-              {allToolsLabel} →
-            </Link>
-            <Link
-              href={`/${locale}/blog`}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="block px-4 py-2.5 text-sm font-semibold text-zinc-900 dark:text-white hover:bg-zinc-50 dark:hover:bg-zinc-900 rounded-lg"
-            >
-              {t('navigation.blog') || 'Blog'}
-            </Link>
+          <div className="md:hidden py-4 px-1 border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 max-h-[calc(100vh-4.5rem)] overflow-y-auto space-y-4 animate-in slide-in-from-top-2 duration-200">
+            {/* Mobile Search Input */}
+            <div className="relative">
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400" />
+              <input
+                type="search"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder={searchPlaceholder}
+                className="w-full pl-10 pr-4 py-2.5 text-sm rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-500"
+                aria-label="Search tools"
+              />
+            </div>
+
+            {/* Mobile Search Results (if searching) */}
+            {searchQuery.trim().length > 0 && searchResults.length > 0 && (
+              <div className="bg-zinc-50 dark:bg-zinc-900/60 rounded-xl p-2 border border-zinc-200 dark:border-zinc-800 max-h-60 overflow-y-auto">
+                <div className="text-[11px] font-bold uppercase tracking-wider text-zinc-400 px-2 py-1">
+                  Search Results ({searchResults.length})
+                </div>
+                <div className="space-y-1">
+                  {searchResults.slice(0, 6).map((result) => {
+                    const localized = localizedTools[result.tool.id];
+                    const toolName = localized?.title || result.tool.id.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+                    const ToolIcon = getLucideToolIcon(result.tool.icon || result.tool.id);
+                    const style = getCategoryBadge(result.tool.category);
+                    return (
+                      <button
+                        key={result.tool.id}
+                        onClick={() => {
+                          setIsMobileMenuOpen(false);
+                          navigateToTool(result.tool.slug);
+                        }}
+                        className="w-full px-2.5 py-2 text-left rounded-lg text-sm text-zinc-800 dark:text-zinc-200 hover:bg-white dark:hover:bg-zinc-800 flex items-center gap-2.5 transition-colors"
+                      >
+                        <div className={`w-7 h-7 rounded-md ${style.bg} flex items-center justify-center shrink-0`}>
+                          <ToolIcon className="w-3.5 h-3.5" />
+                        </div>
+                        <span className="font-medium truncate flex-1">{toolName}</span>
+                        <ArrowRight className="w-3.5 h-3.5 text-zinc-400" />
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* Primary Nav Links */}
+            <div className="grid grid-cols-2 gap-2">
+              <Link
+                href={`/${locale}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="p-3 rounded-xl border border-zinc-100 dark:border-zinc-800 bg-zinc-50/70 dark:bg-zinc-900/50 hover:bg-zinc-100 dark:hover:bg-zinc-800 font-semibold text-sm text-zinc-900 dark:text-white flex items-center justify-between"
+              >
+                <span>{t('navigation.home') || 'Home'}</span>
+              </Link>
+              <Link
+                href={`/${locale}/tools`}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="p-3 rounded-xl border border-red-500/20 bg-red-50/50 dark:bg-red-950/20 hover:bg-red-100/50 dark:hover:bg-red-950/40 font-semibold text-sm text-red-600 dark:text-red-400 flex items-center justify-between"
+              >
+                <span>{t('navigation.tools') || 'All Tools'}</span>
+                <span className="text-[10px] bg-red-600 text-white font-bold px-1.5 py-0.5 rounded-full">132+</span>
+              </Link>
+            </div>
+
+            {/* Popular Tools Quick Grid */}
+            <div className="pt-1">
+              <div className="text-xs font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500 mb-2 px-1">
+                {locale === 'ne' ? 'लोकप्रिय उपकरणहरू' : locale === 'hi' ? 'लोकप्रिय उपकरण' : locale === 'ms' ? 'Alatan Popular' : 'Popular Tools'}
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                <Link
+                  href={`/${locale}/tools/merge-pdf`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex items-center gap-2 p-2.5 rounded-xl border border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40 text-xs font-medium text-zinc-800 dark:text-zinc-200 hover:border-red-500/30"
+                >
+                  <Layers className="w-4 h-4 text-red-500 shrink-0" />
+                  <span className="truncate">{mergeTitle}</span>
+                </Link>
+                <Link
+                  href={`/${locale}/tools/split-pdf`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex items-center gap-2 p-2.5 rounded-xl border border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40 text-xs font-medium text-zinc-800 dark:text-zinc-200 hover:border-red-500/30"
+                >
+                  <Scissors className="w-4 h-4 text-orange-500 shrink-0" />
+                  <span className="truncate">{splitTitle}</span>
+                </Link>
+                <Link
+                  href={`/${locale}/tools/compress-pdf`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex items-center gap-2 p-2.5 rounded-xl border border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40 text-xs font-medium text-zinc-800 dark:text-zinc-200 hover:border-red-500/30"
+                >
+                  <Minimize2 className="w-4 h-4 text-emerald-500 shrink-0" />
+                  <span className="truncate">{compressTitle}</span>
+                </Link>
+                <Link
+                  href={`/${locale}/tools/edit-pdf`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex items-center gap-2 p-2.5 rounded-xl border border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40 text-xs font-medium text-zinc-800 dark:text-zinc-200 hover:border-red-500/30"
+                >
+                  <FileEdit className="w-4 h-4 text-blue-500 shrink-0" />
+                  <span className="truncate">{editTitle}</span>
+                </Link>
+              </div>
+            </div>
+
+            {/* Other Navigation Links */}
+            <div className="space-y-1">
+              <Link
+                href={`/${locale}/workflow`}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-900"
+              >
+                <span>{t('navigation.workflow') || 'Workflow Editor'}</span>
+                <span className="text-[10px] bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold px-1.5 py-0.5 rounded">PRO</span>
+              </Link>
+              <Link
+                href={`/${locale}/blog`}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-900"
+              >
+                <span>{t('navigation.blog') || 'Blog'}</span>
+              </Link>
+            </div>
+
+            {/* Mobile Language Switcher */}
+            <div className="pt-2 border-t border-zinc-200 dark:border-zinc-800 sm:hidden">
+              <div className="text-xs font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500 mb-2 px-1 flex items-center gap-1.5">
+                <Globe className="w-3.5 h-3.5" />
+                <span>{locale === 'ne' ? 'भाषा' : locale === 'hi' ? 'भाषा' : locale === 'ms' ? 'Bahasa' : 'Language'}</span>
+              </div>
+              <div className="grid grid-cols-2 gap-1.5 max-h-36 overflow-y-auto p-1 bg-zinc-50 dark:bg-zinc-900/50 rounded-xl border border-zinc-100 dark:border-zinc-800">
+                {locales.map((loc) => {
+                  const config = localeConfig[loc];
+                  const isActive = loc === locale;
+                  return (
+                    <button
+                      key={loc}
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        handleLocaleChange(loc);
+                      }}
+                      className={`px-2.5 py-1.5 rounded-lg text-xs font-medium text-left truncate flex items-center justify-between ${isActive
+                        ? 'bg-red-600 text-white font-bold'
+                        : 'text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-800'
+                        }`}
+                    >
+                      <span className="truncate">{config.nativeName}</span>
+                      {isActive && <span className="text-[10px] ml-1">✓</span>}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Mobile Security & Privacy Bar */}
+            <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800 flex items-center justify-between gap-2 text-xs text-zinc-500 dark:text-zinc-400">
+              <div className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-semibold text-[11px]">
+                <ShieldCheck className="w-4 h-4 shrink-0" />
+                <span>100% Private Offline</span>
+              </div>
+              <a
+                href="https://github.com/Sudip-Mani-Gautam/iCreatePDF"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 hover:text-zinc-900 dark:hover:text-white"
+              >
+                <Github className="w-3.5 h-3.5" />
+                <span>GitHub</span>
+              </a>
+            </div>
           </div>
         )}
       </div>
