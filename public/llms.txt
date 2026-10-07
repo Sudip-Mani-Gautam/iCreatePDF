@@ -35,6 +35,12 @@ iCreatePDF (https://icreatepdf.com) provides 132+ professional web tools to mani
 - [Compress PDF Without Quality Loss](https://icreatepdf.com/en/blog/how-to-compress-pdf-without-losing-quality): Technical guide on vector preservation and DPI optimization.
 - [Complete PDF Security Guide](https://icreatepdf.com/en/blog/complete-guide-to-pdf-security-and-password-protection): Understanding AES-256 encryption, permissions, and metadata sanitization.
 - [Offline PDF Privacy Architecture](https://icreatepdf.com/en/blog/offline-pdf-tools-privacy-guide): Why browser-based WebAssembly is safer than cloud file converters.
+- [How to Edit PDF Text Online](https://icreatepdf.com/en/blog/how-to-edit-pdf-text-and-images-online-free): Tutorial on modifying existing text, images, and shapes in PDF.
+- [How to Sign PDF Documents](https://icreatepdf.com/en/blog/how-to-electronically-sign-pdf-documents-online): E-signing contracts and forms with legal validity client-side.
+- [How to OCR Scanned PDFs](https://icreatepdf.com/en/blog/how-to-ocr-scanned-pdf-to-searchable-text): Making scanned documents searchable using client-side OCR.
+- [How to Convert Images to PDF](https://icreatepdf.com/en/blog/how-to-convert-jpg-and-images-to-pdf): Combining JPG/PNG photos into structured PDF documents.
+- [Permanently Redact PDF Info](https://icreatepdf.com/en/blog/how-to-permanently-redact-sensitive-info-in-pdf): Irreversibly blacking out confidential numbers and text.
+- [PDF Multi-Tool Master Guide](https://icreatepdf.com/en/blog/mastering-the-all-in-one-pdf-multi-tool-workspace): All-in-one visual studio for merging, splitting, and organizing.
 
 ## Company & Trust
 - [About iCreatePDF](https://icreatepdf.com/en/about): Company mission, founder background, and open-source principles.
