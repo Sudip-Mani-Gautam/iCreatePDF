@@ -41,6 +41,9 @@ iCreatePDF (https://icreatepdf.com) provides 132+ professional web tools to mani
 - [How to Convert Images to PDF](https://icreatepdf.com/en/blog/how-to-convert-jpg-and-images-to-pdf): Combining JPG/PNG photos into structured PDF documents.
 - [Permanently Redact PDF Info](https://icreatepdf.com/en/blog/how-to-permanently-redact-sensitive-info-in-pdf): Irreversibly blacking out confidential numbers and text.
 - [PDF Multi-Tool Master Guide](https://icreatepdf.com/en/blog/mastering-the-all-in-one-pdf-multi-tool-workspace): All-in-one visual studio for merging, splitting, and organizing.
+- [Remove Blank Pages from Scanned PDFs](https://icreatepdf.com/en/blog/how-to-automatically-remove-blank-pages-from-pdf): Intelligent client-side removal of empty scan sheets.
+- [Extract Images from PDF Files](https://icreatepdf.com/en/blog/how-to-extract-images-from-pdf-files): Export original-resolution photos and diagrams from documents.
+- [Convert Color PDF to Grayscale](https://icreatepdf.com/en/blog/how-to-convert-color-pdf-to-grayscale-black-and-white): Monochrome conversion to save printer toner and compress files.
 
 ## Company & Trust
 - [About iCreatePDF](https://icreatepdf.com/en/about): Company mission, founder background, and open-source principles.

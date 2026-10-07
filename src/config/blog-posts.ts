@@ -2,6 +2,183 @@ import { BlogPost } from '@/types/blog';
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "how-to-automatically-remove-blank-pages-from-pdf",
+    title: "How to Automatically Remove Blank Pages from Scanned PDFs",
+    description: "Eliminate wasted white pages from double-sided scans and multi-page receipts with intelligent client-side blank page detection.",
+    publishedAt: "2026-10-07",
+    author: {
+      name: "Sarah Chen",
+      role: "Senior Digital Media Specialist",
+    },
+    category: "Productivity",
+    tags: ["Remove Blank Pages", "Clean PDF", "Scan Optimizer", "Productivity"],
+    readingTime: "4 min read",
+    featured: true,
+    coverGradient: "from-teal-600 to-cyan-700",
+    coverImage: "/images/blog/how-to-automatically-remove-blank-pages-from-pdf.webp",
+    faq: [
+      {
+        question: "How does the tool distinguish between blank pages and pages with tiny text?",
+        answer: "The tool uses configurable pixel density and luminance thresholds. You can set sensitivity levels so faint scanner bleed-through or stray dust specks are ignored while genuine text pages are kept safe.",
+      },
+      {
+        question: "Can I preview detected blank pages before deleting them?",
+        answer: "Yes. Every candidate blank page is visually marked with a warning badge, allowing you to uncheck any page you wish to retain before finalizing the document.",
+      },
+      {
+        question: "Will removing blank pages mess up page numbering or bookmarks?",
+        answer: "No. iCreatePDF dynamically repairs the internal outline tree and destination tables so remaining pages maintain uninterrupted navigation.",
+      }
+    ],
+    content: `When feeding a stack of double-sided paper documents into an automatic document feeder (ADF) scanner, single-sided receipts and letterheads invariably produce dozens of completely empty pages.
+
+Printing or sharing documents filled with random blank pages looks unprofessional, confuses clients, and wastes expensive office paper.
+
+With **iCreatePDF**, you can detect and strip empty pages automatically without manually inspecting hundreds of pages one by one.
+
+### The Pitfall of Manual Blank Page Hunting
+In a 75-page contract or academic dissertation, hunting for empty filler sheets by scrolling through a PDF viewer takes tedious minutes. If you accidentally delete a vital page with only a signature line, you risk invalidating the agreement.
+
+Our intelligent **Remove Blank Pages** tool scans visual page entropy and pixel variance in milliseconds, flagging truly empty sheets while safeguarding pages with low text density.
+
+---
+
+### Step-by-Step: Removing Blank Pages
+
+#### Step 1: Open the Tool
+Launch the [Remove Blank Pages](/tools/remove-blank-pages) utility on iCreatePDF.
+
+#### Step 2: Upload Your Document
+Drop your multi-page scan or book draft into the browser.
+
+#### Step 3: Set Sensitivity & Inspect
+- **Threshold Level**: Choose **Normal (Recommended)**, **Strict** (flags pages with minor scanner noise), or **Conservative** (only completely pure white sheets).
+- **Visual Review**: Review the flagged pages highlighted with red trash indicators. Click any page to deselect it if you prefer to keep it.
+
+#### Step 4: Download Your Streamlined PDF
+Click **Purge Blank Pages**. Your document is instantly cleaned up and downloaded with zero blank sheets.
+
+---
+
+### Pro Tips for Pristine Document Scans
+1. **Combine with Deskew**: If your scanner skewed pages, run the [Deskew PDF](/tools/deskew-pdf) tool before blank page removal for optimal geometry.
+2. **Compress the Output**: Removing blank pages drops file weight, but running [Compress PDF](/tools/compress-pdf) afterwards reduces it by another 40%.`,
+  },
+  {
+    slug: "how-to-extract-images-from-pdf-files",
+    title: "How to Extract Embedded Images and Photos from PDF Files",
+    description: "Extract every JPEG, PNG, and vector graphic stored inside your PDF documents at original resolution without screenshot degradation.",
+    publishedAt: "2026-10-07",
+    author: {
+      name: "David Okonkwo",
+      role: "Document Systems Engineer",
+    },
+    category: "Tutorials",
+    tags: ["Extract Images", "PDF Photos", "Export Graphics", "Design"],
+    readingTime: "4 min read",
+    featured: false,
+    coverGradient: "from-fuchsia-600 to-pink-700",
+    coverImage: "/images/blog/how-to-extract-images-from-pdf-files.webp",
+    faq: [
+      {
+        question: "Why shouldn't I just take a screenshot of images inside a PDF?",
+        answer: "Screenshots are limited by your computer monitor resolution (usually 72 to 96 DPI), causing blurry pixelation. Extracting pulls the raw, uncompressed master image streams at their authentic original camera resolution (often 300 to 600 DPI).",
+      },
+      {
+        question: "What formats are extracted images saved in?",
+        answer: "Images are extracted in their native embedded formats\u2014primarily high-fidelity JPEG and PNG\u2014and bundled into a single organized .zip archive.",
+      },
+      {
+        question: "Can I extract small icons, logos, and vector illustrations?",
+        answer: "Yes. The extractor lists every image object stream discovered in the document catalog, from full-page hero photos down to corporate logos and signatures.",
+      }
+    ],
+    content: `Have you ever received a PDF brochure, academic paper, or real estate flyer containing gorgeous photos or charts that you need to reuse in a presentation—only to find you can't right-click and save them?
+
+Taking a desktop screenshot is a terrible workaround. It degrades image resolution, captures unwanted background borders, and produces blurry results on high-DPI screens.
+
+The [Extract Images](/tools/extract-images) tool on **iCreatePDF** accesses the binary object streams of your PDF and extracts every embedded photograph at 100% original quality.
+
+### How PDF Image Extraction Works
+PDF files don't store pages as single giant snapshots. Instead, they act as digital containers holding independent text coordinates, vector drawing paths, and discrete raster image objects (XObjects).
+
+Our extractor parses the PDF dictionary tree, locates every \`/Subtype /Image\` stream, and decompresses the raw pixel buffers directly into standalone JPG and PNG files.
+
+---
+
+### Step-by-Step: Extracting Images on iCreatePDF
+
+#### Step 1: Open the Image Extractor
+Navigate to the [Extract Images](/tools/extract-images) tool.
+
+#### Step 2: Upload Your PDF
+Drag and drop your PDF into the extractor zone.
+
+#### Step 3: Automatic Asset Discovery
+The engine scans all pages, displaying thumbnail previews of every discovered photo, diagram, and graphic alongside its original dimensions and file format.
+
+#### Step 4: Download Selected or All Images
+- Click on any specific picture to download it individually.
+- Or click **Download All as ZIP** to retrieve every asset in a clean, organized folder.
+`,
+  },
+  {
+    slug: "how-to-convert-color-pdf-to-grayscale-black-and-white",
+    title: "How to Convert Color PDFs to Grayscale and Black & White",
+    description: "Save money on expensive color printer toner and shrink file sizes by converting multi-color documents to clean monochrome grayscale.",
+    publishedAt: "2026-10-07",
+    author: {
+      name: "Priya Sharma",
+      role: "Content Productivity Expert",
+    },
+    category: "Guides",
+    tags: ["PDF to Grayscale", "Black and White", "Print Prep", "Save Toner"],
+    readingTime: "4 min read",
+    featured: false,
+    coverGradient: "from-zinc-600 to-neutral-900",
+    coverImage: "/images/blog/how-to-convert-color-pdf-to-grayscale-black-and-white.webp",
+    faq: [
+      {
+        question: "Does converting to grayscale reduce PDF file size?",
+        answer: "Yes! Color images use 3 to 4 color channels (RGB or CMYK, requiring 24 to 32 bits per pixel). Grayscale uses only a single 8-bit channel, reducing image data footprint by up to 60%.",
+      },
+      {
+        question: "Will yellow highlights or colored text become illegible?",
+        answer: "Our conversion applies standard perceptual luminance weighting (Y = 0.299R + 0.587G + 0.114B), ensuring high-contrast tonal separation so light text and dark backgrounds remain easily readable.",
+      },
+      {
+        question: "Can I convert only specific color pages while keeping others in full color?",
+        answer: "Yes. You can select individual page ranges or convert the entire document uniformly.",
+      }
+    ],
+    content: `Printing a 100-page color document on an office or university printer can cost a small fortune in color toner. Worse, if your document has colorful graphics or dark saturated backgrounds, sending it to a standard monochrome laser printer often yields muddy, unreadable gray smudges.
+
+Converting your PDF to standardized **Grayscale** beforehand ensures crisp, high-contrast black-and-white output while slashing file size.
+
+### Why You Should Convert Color PDFs to Grayscale
+1. **Dramatically Lower Printing Costs**: Color printer clicks cost 5x to 10x more than monochrome black toner.
+2. **Reduced File Size**: Converting 24-bit RGB pixel data to 8-bit DeviceGray strips unnecessary color channels, shrinking documents for email attachments.
+3. **Archival & Legal Compliance**: Many government agencies and municipal courts require clean black-and-white records without color embellishments.
+
+---
+
+### Step-by-Step: Converting to Grayscale on iCreatePDF
+
+#### Step 1: Open the Grayscale Tool
+Visit the [PDF to Grayscale](/tools/pdf-to-greyscale) tool on iCreatePDF.
+
+#### Step 2: Upload Your Color Document
+Drag your colorful presentation, invoice, or booklet into the uploader.
+
+#### Step 3: Configure Grayscale Mode
+- **Standard Grayscale**: Smooth tonal gradients across photographs and charts.
+- **High-Contrast Monochrome**: Ideal for architectural schematics, sheet music, and black-ink legal briefs.
+
+#### Step 4: Convert and Download
+Click **Convert to Grayscale**. The client-side graphics engine processes every page in memory and provides your print-ready document immediately.
+`,
+  },
+  {
     slug: "how-to-edit-pdf-text-and-images-online-free",
     title: "How to Edit PDF Text and Images Online for Free",
     description: "Learn how to edit existing text, add annotations, insert shapes, and modify images in any PDF directly in your browser with iCreatePDF.",
