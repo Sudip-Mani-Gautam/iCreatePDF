@@ -1,4 +1,4 @@
-{
+﻿{
   "metadata": {
     "home": {
       "title": "iCreatePDF - Công cụ PDF Chuyên nghiệp",
@@ -515,7 +515,7 @@
       "bronzeWax": "Đồng đỏ cổ xưa",
       "enableDoubleKey": "Bật mã hóa chứng thư hai khóa (Khóa bảo mật mạnh 256-bit)",
       "decryptPasswordHelp": "Thiết lập mật khẩu khóa giải mã PFX",
-      "passwordPlaceholder": "Mật khẩu mặc định: pdfcraft",
+      "passwordPlaceholder": "Mật khẩu mặc định: icreatepdf",
       "sealCoordinates": "Tọa độ dấu: X: {x}px, Y: {y}px",
       "clickToReposition": "Nhấp vào bất kỳ đâu để đặt lại vị trí dấu sáp"
     },

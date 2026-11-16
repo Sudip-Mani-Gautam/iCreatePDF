@@ -1,4 +1,4 @@
-{
+﻿{
   "metadata": {
     "home": {
       "title": "iCreatePDF - Instrumente PDF Profesionale",
@@ -515,7 +515,7 @@
       "bronzeWax": "Bronz stacojiu antic",
       "enableDoubleKey": "Activați criptarea cu cheie dublă a certificatului (Blocare puternică pe 256 de biți)",
       "decryptPasswordHelp": "Setați parola cheii de decriptare PFX",
-      "passwordPlaceholder": "Parola implicită: pdfcraft",
+      "passwordPlaceholder": "Parola implicită: icreatepdf",
       "sealCoordinates": "Coordonate sigiliu: X: {x}px, Y: {y}px",
       "clickToReposition": "Faceți clic oriunde pentru a repoziționa sigiliul de ceară"
     },

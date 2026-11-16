@@ -36,13 +36,18 @@ export async function generateMetadata({
     };
   }
 
+  const isEnglish = locale === 'en';
   const url = `${siteConfig.url}/${locale}/blog/${post.slug}`;
+  const canonicalUrl = `${siteConfig.url}/en/blog/${post.slug}`;
 
   return {
     title: `${post.title} | ${siteConfig.name} Blog`,
     description: post.description,
     keywords: [...post.tags, 'PDF tutorial', 'PDF guide', 'iCreatePDF'],
     authors: [{ name: post.author.name }],
+    robots: isEnglish
+      ? { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' }
+      : { index: false, follow: true },
     openGraph: {
       type: 'article',
       locale: locale === 'en' ? 'en_US' : locale,
@@ -64,7 +69,7 @@ export async function generateMetadata({
       images: post.coverImage ? [`${siteConfig.url}${post.coverImage}`] : undefined,
     },
     alternates: {
-      canonical: url,
+      canonical: canonicalUrl,
     },
   };
 }

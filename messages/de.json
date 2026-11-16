@@ -1,4 +1,4 @@
-{
+﻿{
   "metadata": {
     "home": {
       "title": "iCreatePDF - Professionelle PDF-Werkzeuge",
@@ -515,7 +515,7 @@
       "bronzeWax": "Antike Karmesin-Bronze",
       "enableDoubleKey": "Doppel-Schlüssel-Zertifikatsverschlüsselung aktivieren (256-Bit-Verschlüsselung)",
       "decryptPasswordHelp": "Passwort für PFX-Entschlüsselungsschlüssel festlegen",
-      "passwordPlaceholder": "Standardpasswort: pdfcraft",
+      "passwordPlaceholder": "Standardpasswort: icreatepdf",
       "sealCoordinates": "Siegel-Koordinaten: X: {x}px, Y: {y}px",
       "clickToReposition": "Klicken Sie auf eine beliebige Stelle, um das Siegel neu zu positionieren"
     },

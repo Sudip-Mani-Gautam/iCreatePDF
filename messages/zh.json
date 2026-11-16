@@ -1,4 +1,4 @@
-{
+﻿{
   "metadata": {
     "home": {
       "title": "iCreatePDF - 专业 PDF 工具",
@@ -515,7 +515,7 @@
       "bronzeWax": "古铜赤金",
       "enableDoubleKey": "启用证书双钥锁 (256位强加密)",
       "decryptPasswordHelp": "设置解密所持密码 (PFX 解密密钥)",
-      "passwordPlaceholder": "默认密码: pdfcraft",
+      "passwordPlaceholder": "默认密码: icreatepdf",
       "sealCoordinates": "数字证书盖印坐标: X: {x}px, Y: {y}px",
       "clickToReposition": "在白纸处点击以重定位印章"
     },

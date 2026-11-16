@@ -1,4 +1,4 @@
-{
+﻿{
   "metadata": {
     "home": {
       "title": "iCreatePDF - أدوات PDF احترافية",
@@ -515,7 +515,7 @@
       "bronzeWax": "برونزي قرمزي عتيق",
       "enableDoubleKey": "تمكين تشفير الشهادة بمفتاحين (قفل قوي 256 بت)",
       "decryptPasswordHelp": "تعيين كلمة مرور مفتاح فك تشفير PFX",
-      "passwordPlaceholder": "كلمة المرور الافتراضية: pdfcraft",
+      "passwordPlaceholder": "كلمة المرور الافتراضية: icreatepdf",
       "sealCoordinates": "إحداثيات الختم: X: {x}px, Y: {y}px",
       "clickToReposition": "انقر في أي مكان لإعادة تحديد موضع ختم الشمع"
     },

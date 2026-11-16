@@ -1,4 +1,4 @@
-{
+﻿{
   "metadata": {
     "home": {
       "title": "iCreatePDF - Strumenti PDF Professionali",
@@ -515,7 +515,7 @@
       "bronzeWax": "Bronzo cremisi antico",
       "enableDoubleKey": "Abilita crittografia certificato a doppia chiave (Blocco sicuro a 256 bit)",
       "decryptPasswordHelp": "Imposta password della chiave di decrittografia PFX",
-      "passwordPlaceholder": "Password predefinita: pdfcraft",
+      "passwordPlaceholder": "Password predefinita: icreatepdf",
       "sealCoordinates": "Coordinate del sigillo: X: {x}px, Y: {y}px",
       "clickToReposition": "Clicca in un punto qualsiasi per riposizionare il sigillo in ceralacca"
     },

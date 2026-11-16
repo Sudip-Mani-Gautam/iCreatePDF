@@ -260,7 +260,7 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-4 gap-y-2 text-xs">
-            <Link href={`/${locale}/blog`} className="text-zinc-400 hover:text-white transition-colors py-0.5">{t('navigation.blog') || 'Blog'}</Link>
+            <Link href="/en/blog" className="text-zinc-400 hover:text-white transition-colors py-0.5">{t('navigation.blog') || 'Blog'}</Link>
             <Link href={`/${locale}/privacy`} className="text-zinc-400 hover:text-white transition-colors py-0.5">{t('navigation.privacy') || 'Privacy'}</Link>
             <Link href={`/${locale}/license`} className="text-zinc-400 hover:text-white transition-colors py-0.5">{t('navigation.license') || 'License (AGPL-3.0)'}</Link>
             <Link href={`/${locale}/acknowledgements`} className="text-zinc-400 hover:text-white transition-colors py-0.5">{t('navigation.acknowledgements') || 'Acknowledgements'}</Link>

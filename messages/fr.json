@@ -1,4 +1,4 @@
-{
+﻿{
   "metadata": {
     "home": {
       "title": "iCreatePDF - Outils PDF Professionnels",
@@ -515,7 +515,7 @@
       "bronzeWax": "Bronze cramoisi antique",
       "enableDoubleKey": "Activer le chiffrement de certificat à double clé (Verrouillage fort 256 bits)",
       "decryptPasswordHelp": "Définir le mot de passe de la clé de déchiffrement PFX",
-      "passwordPlaceholder": "Mot de passe par défaut : pdfcraft",
+      "passwordPlaceholder": "Mot de passe par défaut : icreatepdf",
       "sealCoordinates": "Coordonnées du sceau : X : {x}px, Y : {y}px",
       "clickToReposition": "Cliquez n'importe où pour repositionner le sceau de cire"
     },

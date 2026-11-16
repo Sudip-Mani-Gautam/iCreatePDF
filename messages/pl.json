@@ -1,4 +1,4 @@
-{
+﻿{
   "metadata": {
     "home": {
       "title": "iCreatePDF — profesjonalne narzędzia PDF",
@@ -517,7 +517,7 @@
       "bronzeWax": "Antyczny karmazynowy brąz",
       "enableDoubleKey": "Włącz szyfrowanie podwójnym kluczem certyfikatu (256-bitowa silna blokada)",
       "decryptPasswordHelp": "Ustaw hasło klucza deszyfrującego PFX",
-      "passwordPlaceholder": "Domyślne hasło: pdfcraft",
+      "passwordPlaceholder": "Domyślne hasło: icreatepdf",
       "sealCoordinates": "Współrzędne pieczęci: X: {x}px, Y: {y}px",
       "clickToReposition": "Kliknij w dowolnym miejscu, aby zmienić położenie pieczęci woskowej"
     },

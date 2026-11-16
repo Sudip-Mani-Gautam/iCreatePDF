@@ -1,4 +1,4 @@
-{
+﻿{
   "metadata": {
     "home": {
       "title": "iCreatePDF - Ferramentas PDF Profissionais",
@@ -515,7 +515,7 @@
       "bronzeWax": "Bronze carmesim antigo",
       "enableDoubleKey": "Habilitar criptografia de chave dupla de certificado (Bloqueio forte de 256 bits)",
       "decryptPasswordHelp": "Definir senha da chave de descriptografia PFX",
-      "passwordPlaceholder": "Senha padrão: pdfcraft",
+      "passwordPlaceholder": "Senha padrão: icreatepdf",
       "sealCoordinates": "Coordenadas do selo: X: {x}px, Y: {y}px",
       "clickToReposition": "Clique em qualquer lugar para reposicionar o selo de lacre"
     },

@@ -78,20 +78,27 @@ export default function CookiesPageClient({ locale }: CookiesPageClientProps) {
       duration: 'Instant deletion on tab close',
       party: 'Never written to disk or sent online',
     },
+    {
+      key: '__gads, __gpi, IDE (Google AdSense)',
+      type: 'Third-Party Cookie',
+      purpose: 'Allows Google to serve non-intrusive ads on editorial pages to support our free client-side PDF tools.',
+      duration: 'Up to 13 months (Google policy standard)',
+      party: 'Google LLC (Advertising Partner)',
+    },
   ];
 
   const prohibitedTrackers = [
     {
-      name: 'Advertising & Remarketing Cookies',
-      desc: 'We never install Google AdSense, DoubleClick, or affiliate cookies to track your web browsing history.',
+      name: 'Intrusive Data Brokers & Profilers',
+      desc: 'We do not sell personal data, partner with unregulated data brokers, or conduct hidden behavioral profiling.',
     },
     {
       name: 'Social Media Pixels',
       desc: 'We do not embed Meta (Facebook) Pixels, TikTok beacons, or LinkedIn tracking tags on any page.',
     },
     {
-      name: 'Cross-Site Behavioral Profilers',
-      desc: 'We do not partner with data brokers or behavioral trackers to monitor user identity or habits.',
+      name: 'Document Content Surveillance',
+      desc: 'We do not scan, inspect, or log the text, images, or metadata inside the PDF files you process.',
     },
     {
       name: 'Hardware Fingerprinting',
@@ -152,7 +159,7 @@ export default function CookiesPageClient({ locale }: CookiesPageClientProps) {
           <div className="container mx-auto px-4 max-w-4xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50 dark:bg-amber-950/60 border border-amber-200/80 dark:border-amber-900/60 text-xs font-semibold text-amber-700 dark:text-amber-400 mb-6 shadow-xs">
               <Cookie className="w-3.5 h-3.5" />
-              <span>Zero-Tracking Policy • 100% Tracking-Free</span>
+              <span>Cookie & Storage Transparency</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[hsl(var(--color-foreground))] leading-tight mb-4">
@@ -163,7 +170,7 @@ export default function CookiesPageClient({ locale }: CookiesPageClientProps) {
             </h1>
 
             <p className="text-base sm:text-lg text-[hsl(var(--color-muted-foreground))] max-w-2xl mx-auto leading-relaxed mb-4">
-              Total transparency into what lives on your device. We use zero tracking cookies, zero ad trackers, and zero behavioral profilers.
+              Total transparency into what lives on your device. We operate with zero document uploads, full local privacy, and clear disclosures on functional storage and Google advertising cookies.
             </p>
 
             <span className="text-xs text-[hsl(var(--color-muted-foreground))] block">
@@ -314,6 +321,24 @@ export default function CookiesPageClient({ locale }: CookiesPageClientProps) {
                 </p>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Google AdSense & Advertising Cookies Disclosure */}
+        <section className="container mx-auto px-4 max-w-4xl mb-16">
+          <div className="p-8 rounded-3xl bg-[hsl(var(--color-card))] border border-[hsl(var(--color-border))] shadow-xs space-y-4">
+            <h2 className="text-xl sm:text-2xl font-bold text-[hsl(var(--color-foreground))]">
+              Google AdSense & Third-Party Advertising Disclosures
+            </h2>
+            <p className="text-xs sm:text-sm text-[hsl(var(--color-muted-foreground))] leading-relaxed">
+              To keep our client-side PDF tools 100% free without paid subscriptions, iCreatePDF partners with Google AdSense to serve ads on informational pages. In compliance with Google AdSense policies, please review the following disclosures:
+            </p>
+            <ul className="list-disc pl-5 space-y-2 text-xs sm:text-sm text-[hsl(var(--color-muted-foreground))]">
+              <li>Third-party vendors, including Google, use cookies (such as the DoubleClick cookie) to serve ads based on your prior visits to our website or other websites across the web.</li>
+              <li>Google&rsquo;s use of advertising cookies enables it and its advertising partners to serve personalized or contextual advertisements based on your visit to this and other sites.</li>
+              <li>You may opt out of personalized advertising at any time by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-amber-600 dark:text-amber-400 font-semibold underline">Google Ads Settings</a>.</li>
+              <li>You can also opt out of third-party advertising cookies by visiting the Digital Advertising Alliance&rsquo;s <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer" className="text-amber-600 dark:text-amber-400 font-semibold underline">Consumer Choice page</a>.</li>
+            </ul>
           </div>
         </section>
 

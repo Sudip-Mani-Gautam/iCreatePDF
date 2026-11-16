@@ -1,4 +1,4 @@
-{
+﻿{
   "metadata": {
     "home": {
       "title": "iCreatePDF - Professional PDF Tools",
@@ -517,7 +517,7 @@
       "bronzeWax": "Antique Crimson Bronze",
       "enableDoubleKey": "Enable Certificate Double-Key Encryption (256-bit Strong Lock)",
       "decryptPasswordHelp": "Set PFX Decryption Key Password",
-      "passwordPlaceholder": "Default password: pdfcraft",
+      "passwordPlaceholder": "Default password: icreatepdf",
       "sealCoordinates": "Seal Coordinates: X: {x}px, Y: {y}px",
       "clickToReposition": "Click anywhere to reposition the wax seal"
     },

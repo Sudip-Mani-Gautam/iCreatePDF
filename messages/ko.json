@@ -1,4 +1,4 @@
-{
+﻿{
   "metadata": {
     "home": {
       "title": "iCreatePDF - 전문 PDF 도구",
@@ -515,7 +515,7 @@
       "bronzeWax": "앤티크 크림슨 브론즈",
       "enableDoubleKey": "인증서 이중 키 암호화 활성화 (256비트 강력 잠금)",
       "decryptPasswordHelp": "PFX 암호 해독 키 비밀번호 설정",
-      "passwordPlaceholder": "기본 비밀번호: pdfcraft",
+      "passwordPlaceholder": "기본 비밀번호: icreatepdf",
       "sealCoordinates": "인감 좌표: X: {x}px, Y: {y}px",
       "clickToReposition": "임의의 위치를 클릭하여 실링 왁스 위치를 변경하십시오"
     },

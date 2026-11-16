@@ -41,9 +41,9 @@ export default function PrivacyPageClient({ locale }: PrivacyPageClientProps) {
       color: 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50',
     },
     {
-      icon: Cookie,
-      title: 'No Tracking Cookies',
-      desc: 'We do not profile your behavior, run advertising cookies, or deploy cross-site tracking pixels.',
+      icon: Shield,
+      title: 'Zero Document Tracking',
+      desc: 'We never view, inspect, or store your documents. All file transformations execute 100% locally in your browser memory.',
       color: 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/50',
     },
     {
@@ -89,6 +89,13 @@ export default function PrivacyPageClient({ locale }: PrivacyPageClientProps) {
       retention: 'Persistent on device until cleared by user',
       shared: 'Never transmitted to third parties',
     },
+    {
+      category: 'Third-Party Advertising Identifiers (Google AdSense)',
+      collected: false,
+      location: 'Processed directly by Google under standard AdSense cookies',
+      retention: 'Subject to Google Advertising Privacy & Terms',
+      shared: 'Used solely to serve non-intrusive ads that keep our tools free',
+    },
   ];
 
   const tableOfContents = [
@@ -96,9 +103,10 @@ export default function PrivacyPageClient({ locale }: PrivacyPageClientProps) {
     { id: 'section-2', title: '2. Information We Never Collect' },
     { id: 'section-3', title: '3. Local Storage & Client State' },
     { id: 'section-4', title: '4. Third-Party Infrastructure & CDN' },
-    { id: 'section-5', title: '5. GDPR, CCPA & Global Compliance' },
-    { id: 'section-6', title: '6. Your Rights & Data Sovereignty' },
-    { id: 'section-7', title: '7. Policy Updates & Contact' },
+    { id: 'section-5', title: '5. Advertising & Google AdSense Policy' },
+    { id: 'section-6', title: '6. GDPR, CCPA & Global Compliance' },
+    { id: 'section-7', title: '7. Your Rights & Data Sovereignty' },
+    { id: 'section-8', title: '8. Policy Updates & Contact' },
   ];
 
   return (
@@ -253,7 +261,7 @@ export default function PrivacyPageClient({ locale }: PrivacyPageClientProps) {
                   <li><strong>Document Content:</strong> Text, images, annotations, form field inputs, or metadata embedded within your PDFs.</li>
                   <li><strong>Encryption Keys & Passwords:</strong> Passwords entered to unlock or encrypt PDFs are evaluated locally using the browser&rsquo;s native WebCrypto APIs.</li>
                   <li><strong>Personally Identifiable Information (PII):</strong> We do not require account registration, email addresses, phone numbers, or billing info.</li>
-                  <li><strong>Third-Party Advertising IDs:</strong> We do not deploy advertising tracking scripts or behavioral profilers.</li>
+                  <li><strong>Third-Party Data Broker Profilers:</strong> We do not sell user behavioral data to data brokers or install hidden behavioral surveillance scripts.</li>
                 </ul>
               </div>
 
@@ -297,7 +305,27 @@ export default function PrivacyPageClient({ locale }: PrivacyPageClientProps) {
                   Section 05
                 </span>
                 <h2 className="text-xl sm:text-2xl font-bold text-[hsl(var(--color-foreground))]">
-                  5. Global Privacy Compliance (GDPR, CCPA, HIPAA)
+                  5. Third-Party Advertising & Google AdSense Policy
+                </h2>
+                <p className="text-sm text-[hsl(var(--color-muted-foreground))] leading-relaxed">
+                  To provide our complete suite of browser-based PDF tools free of charge and without requiring paid subscriptions, we partner with third-party advertising networks, including Google AdSense, to display non-intrusive advertisements on editorial and informational pages.
+                </p>
+                <ul className="list-disc pl-5 text-sm text-[hsl(var(--color-muted-foreground))] space-y-2">
+                  <li>Third-party vendors, including Google, use cookies (such as the DoubleClick cookie) to serve ads based on a user&rsquo;s prior visits to this website or other websites on the Internet.</li>
+                  <li>Google&rsquo;s use of advertising cookies enables it and its partners to serve ads to our users based on their visits to our site and/or other sites on the Internet.</li>
+                  <li>Users may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-emerald-600 dark:text-emerald-400 underline font-semibold">Google Ads Settings</a>.</li>
+                  <li>Alternatively, you can opt out of a third-party vendor&rsquo;s use of cookies for personalized advertising by visiting <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 dark:text-emerald-400 underline font-semibold">www.aboutads.info</a>.</li>
+                  <li>Advertising scripts run in an isolated browser context and have strictly zero access to your PDF documents or local cryptographic operations.</li>
+                </ul>
+              </div>
+
+              {/* Clause 6 */}
+              <div id="section-6" className="p-8 rounded-3xl bg-[hsl(var(--color-card))] border border-[hsl(var(--color-border))] shadow-xs scroll-mt-28 space-y-3">
+                <span className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+                  Section 06
+                </span>
+                <h2 className="text-xl sm:text-2xl font-bold text-[hsl(var(--color-foreground))]">
+                  6. Global Privacy Compliance (GDPR, CCPA, HIPAA)
                 </h2>
                 <p className="text-sm text-[hsl(var(--color-muted-foreground))] leading-relaxed">
                   Because iCreatePDF does not transmit, store, or process personal data on external servers:
@@ -324,26 +352,26 @@ export default function PrivacyPageClient({ locale }: PrivacyPageClientProps) {
                 </div>
               </div>
 
-              {/* Clause 6 */}
-              <div id="section-6" className="p-8 rounded-3xl bg-[hsl(var(--color-card))] border border-[hsl(var(--color-border))] shadow-xs scroll-mt-28 space-y-3">
-                <span className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
-                  Section 06
-                </span>
-                <h2 className="text-xl sm:text-2xl font-bold text-[hsl(var(--color-foreground))]">
-                  6. Your Rights & Data Sovereignty
-                </h2>
-                <p className="text-sm text-[hsl(var(--color-muted-foreground))] leading-relaxed">
-                  Under global privacy frameworks, you have rights to access, rectify, erase, or restrict processing of your data. Because iCreatePDF does not store user records or file contents, there is no centralized database to delete from — your data sovereignty is complete and maintained entirely in your own hands.
-                </p>
-              </div>
-
               {/* Clause 7 */}
               <div id="section-7" className="p-8 rounded-3xl bg-[hsl(var(--color-card))] border border-[hsl(var(--color-border))] shadow-xs scroll-mt-28 space-y-3">
                 <span className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
                   Section 07
                 </span>
                 <h2 className="text-xl sm:text-2xl font-bold text-[hsl(var(--color-foreground))]">
-                  7. Policy Inquiries & Data Protection Contact
+                  7. Your Rights & Data Sovereignty
+                </h2>
+                <p className="text-sm text-[hsl(var(--color-muted-foreground))] leading-relaxed">
+                  Under global privacy frameworks, you have rights to access, rectify, erase, or restrict processing of your data. Because iCreatePDF does not store user records or file contents, there is no centralized database to delete from — your data sovereignty is complete and maintained entirely in your own hands.
+                </p>
+              </div>
+
+              {/* Clause 8 */}
+              <div id="section-8" className="p-8 rounded-3xl bg-[hsl(var(--color-card))] border border-[hsl(var(--color-border))] shadow-xs scroll-mt-28 space-y-3">
+                <span className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+                  Section 08
+                </span>
+                <h2 className="text-xl sm:text-2xl font-bold text-[hsl(var(--color-foreground))]">
+                  8. Policy Inquiries & Data Protection Contact
                 </h2>
                 <p className="text-sm text-[hsl(var(--color-muted-foreground))] leading-relaxed">
                   For formal data protection queries, compliance verification, or questions regarding this Privacy Policy, please reach out to our team:

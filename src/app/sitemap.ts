@@ -50,7 +50,6 @@ const STATIC_PAGES = [
   { path: '', priority: PRIORITY.home, changeFrequency: CHANGE_FREQUENCY.home },
   { path: '/tools', priority: PRIORITY.tools, changeFrequency: CHANGE_FREQUENCY.tools },
   { path: '/workflow', priority: PRIORITY.workflow, changeFrequency: CHANGE_FREQUENCY.workflow },
-  { path: '/blog', priority: PRIORITY.blog, changeFrequency: CHANGE_FREQUENCY.blog },
   { path: '/about', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
   { path: '/about/founder', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
   { path: '/faq', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
@@ -107,19 +106,25 @@ function generateLocaleEntries(locale: Locale, lastModified: Date): MetadataRout
     });
   }
 
-  // Add blog posts
-  const blogPosts = getAllBlogPosts();
-  for (const post of blogPosts) {
-    const postPath = `/blog/${post.slug}`;
+  // Add blog page and blog posts ONLY for English to prevent duplicate content across non-English locales
+  if (locale === 'en') {
     entries.push({
-      url: `${siteConfig.url}/${locale}${postPath}`,
-      lastModified: new Date(post.updatedAt || post.publishedAt),
-      changeFrequency: CHANGE_FREQUENCY.blogPost,
-      priority: PRIORITY.blogPost,
-      alternates: {
-        languages: getAlternateLanguages(postPath),
-      },
+      url: `${siteConfig.url}/en/blog`,
+      lastModified,
+      changeFrequency: CHANGE_FREQUENCY.blog,
+      priority: PRIORITY.blog,
     });
+
+    const blogPosts = getAllBlogPosts();
+    for (const post of blogPosts) {
+      const postPath = `/blog/${post.slug}`;
+      entries.push({
+        url: `${siteConfig.url}/en${postPath}`,
+        lastModified: new Date(post.updatedAt || post.publishedAt),
+        changeFrequency: CHANGE_FREQUENCY.blogPost,
+        priority: PRIORITY.blogPost,
+      });
+    }
   }
   
   // Add tool pages

@@ -1,4 +1,4 @@
-{
+﻿{
   "metadata": {
     "home": {
       "title": "iCreatePDF - Alat PDF Profesional",
@@ -515,7 +515,7 @@
       "bronzeWax": "Perunggu Merah Kuno",
       "enableDoubleKey": "Aktifkan Dekripsi Kunci Ganda Sertifikat (Kunci Kuat 256-bit)",
       "decryptPasswordHelp": "Atur Kata Sandi Kunci Dekripsi PFX",
-      "passwordPlaceholder": "Kata sandi bawaan: pdfcraft",
+      "passwordPlaceholder": "Kata sandi bawaan: icreatepdf",
       "sealCoordinates": "Koordinat Segel: X: {x}px, Y: {y}px",
       "clickToReposition": "Klik di mana saja untuk memindahkan posisi segel lilin"
     },

@@ -546,7 +546,7 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
               </Link>
 
               <Link
-                href={`/${locale}/blog`}
+                href="/en/blog"
                 className="text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-500 transition-colors"
               >
                 {t('navigation.blog') || 'Blog'}
@@ -1078,7 +1078,7 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
                 <span className="text-[10px] bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold px-1.5 py-0.5 rounded">PRO</span>
               </Link>
               <Link
-                href={`/${locale}/blog`}
+                href="/en/blog"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-900"
               >
