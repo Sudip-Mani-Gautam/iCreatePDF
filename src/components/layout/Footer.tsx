@@ -195,6 +195,16 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
                 </Link>
               </li>
               <li>
+                <Link href={`/${locale}/dmca`} className="hover:text-white transition-colors py-0.5 block">
+                  DMCA Policy
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/disclaimer`} className="hover:text-white transition-colors py-0.5 block">
+                  Disclaimer
+                </Link>
+              </li>
+              <li>
                 <Link href={`/${locale}/cookies`} className="hover:text-white transition-colors py-0.5 block">
                   {t('navigation.cookies') || 'Cookies'}
                 </Link>
@@ -267,6 +277,9 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
           <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-4 gap-y-2 text-xs">
             <Link href="/en/blog" className="text-zinc-400 hover:text-white transition-colors py-0.5">{t('navigation.blog') || 'Blog'}</Link>
             <Link href={`/${locale}/privacy`} className="text-zinc-400 hover:text-white transition-colors py-0.5">{t('navigation.privacy') || 'Privacy'}</Link>
+            <Link href={`/${locale}/terms`} className="text-zinc-400 hover:text-white transition-colors py-0.5">{t('navigation.terms') || 'Terms'}</Link>
+            <Link href={`/${locale}/dmca`} className="text-zinc-400 hover:text-white transition-colors py-0.5">DMCA</Link>
+            <Link href={`/${locale}/disclaimer`} className="text-zinc-400 hover:text-white transition-colors py-0.5">Disclaimer</Link>
             <Link href={`/${locale}/license`} className="text-zinc-400 hover:text-white transition-colors py-0.5">{t('navigation.license') || 'License (AGPL-3.0)'}</Link>
             <Link href={`/${locale}/acknowledgements`} className="text-zinc-400 hover:text-white transition-colors py-0.5">{t('navigation.acknowledgements') || 'Acknowledgements'}</Link>
             <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors py-0.5">Sitemap</a>

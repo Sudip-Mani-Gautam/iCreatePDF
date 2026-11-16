@@ -19,6 +19,8 @@ export {
   generateTermsMetadata,
   generateSecurityMetadata,
   generateCookiesMetadata,
+  generateDmcaMetadata,
+  generateDisclaimerMetadata,
   generatePressMetadata,
   generateContactMetadata,
   getCanonicalUrl,

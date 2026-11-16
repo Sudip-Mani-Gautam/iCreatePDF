@@ -264,8 +264,34 @@ export function generateCookiesMetadata(locale: Locale): Metadata {
     locale,
     path: '/cookies',
     title: 'Cookie Policy',
-    description: `Learn about ${siteConfig.name}'s cookie-free, privacy-first client-side architecture. No tracking cookies or advertising pixels.`,
-    keywords: ['cookie policy', 'cookies', 'privacy', 'no tracking'],
+    description: `Learn about ${siteConfig.name}'s transparent cookie and storage disclosures, including Google AdSense compliance.`,
+    keywords: ['cookie policy', 'cookies', 'privacy', 'storage disclosures', siteConfig.name],
+  });
+}
+
+/**
+ * Generate metadata for the DMCA & Copyright page
+ */
+export function generateDmcaMetadata(locale: Locale): Metadata {
+  return generateBaseMetadata({
+    locale,
+    path: '/dmca',
+    title: 'DMCA & Copyright Compliance Policy',
+    description: `Digital Millennium Copyright Act (DMCA) and Intellectual Property compliance policy for ${siteConfig.name}.`,
+    keywords: ['dmca', 'copyright policy', 'intellectual property', 'takedown notices', siteConfig.name],
+  });
+}
+
+/**
+ * Generate metadata for the Disclaimer page
+ */
+export function generateDisclaimerMetadata(locale: Locale): Metadata {
+  return generateBaseMetadata({
+    locale,
+    path: '/disclaimer',
+    title: 'Disclaimer & Trademark Disclosures',
+    description: `Legal disclaimers, trademark attributions, and service warranties for ${siteConfig.name} PDF utilities.`,
+    keywords: ['disclaimer', 'trademarks', 'liability', 'legal notice', siteConfig.name],
   });
 }
 

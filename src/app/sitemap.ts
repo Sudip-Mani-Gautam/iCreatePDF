@@ -62,6 +62,8 @@ const STATIC_PAGES = [
   { path: '/acknowledgements', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
   { path: '/contact', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
   { path: '/help', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
+  { path: '/dmca', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
+  { path: '/disclaimer', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
 ];
 
 function getAlternateLanguages(path: string): Record<string, string> {

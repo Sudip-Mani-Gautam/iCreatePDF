@@ -51,6 +51,8 @@ export const navConfig = {
     { title: 'FAQ', href: '/faq' },
     { title: 'Privacy', href: '/privacy' },
     { title: 'License', href: '/license' },
+    { title: 'DMCA Policy', href: '/dmca' },
+    { title: 'Disclaimer', href: '/disclaimer' },
     { title: 'Acknowledgements', href: '/acknowledgements' },
     { title: 'Contact', href: '/contact' },
     { title: 'Sitemap', href: '/sitemap.xml' },
