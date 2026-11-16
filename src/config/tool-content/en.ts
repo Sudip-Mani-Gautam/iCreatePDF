@@ -13,55 +13,69 @@ import { ToolContent } from '@/types/tool';
 export const toolContentEn: Record<string, ToolContent> = {
   // ==================== POPULAR TOOLS ====================
   'pdf-multi-tool': {
-    title: 'PDF Multi Tool',
-    metaDescription: 'All-in-one PDF editor: merge, split, organize, delete, rotate, and extract pages in one powerful tool.',
-    keywords: ['pdf multi tool', 'pdf editor', 'merge pdf', 'split pdf', 'organize pdf', 'all in one pdf'],
+    title: 'Client-Side PDF Multi-Tool Workbench',
+    metaDescription: 'All-in-one browser-based PDF workbench. Merge, split, rotate, delete, and reorder PDF pages locally using client-side WebAssembly without cloud uploads.',
+    keywords: ['pdf multi tool', 'client side pdf editor', 'offline pdf workbench', 'browser pdf manipulation', 'private pdf tool'],
     description: `
-      <p>The PDF Multi Tool is your comprehensive solution for all PDF page management tasks. This powerful all-in-one tool combines multiple PDF operations into a single, intuitive interface, saving you time and effort.</p>
-      <p>Whether you need to merge multiple documents, split a large PDF into smaller files, reorganize pages, delete unwanted content, rotate pages, or extract specific sections, this tool handles it all without switching between different applications.</p>
-      <p>All processing happens directly in your browser, ensuring your documents remain private and secure. No files are uploaded to any server.</p>
+      <p>The <strong>iCreatePDF Multi-Tool Workbench</strong> combines document restructuring operations—including page concatenation, range extraction, canvas rotation, and structural reordering—into a unified, offline-first interface. Rather than jumping between separate utility screens, you can chain multiple operations within a single interactive session.</p>
+      <h3>Zero-Upload WebAssembly Architecture</h3>
+      <p>Traditional online PDF tools force you to upload sensitive files (such as legal contracts, tax returns, or internal memos) to remote third-party servers. The iCreatePDF Multi-Tool compiles low-level C++ and Rust PDF parsers directly to <strong>WebAssembly (WASM)</strong>. When you load a document, its binary stream is mapped directly into your browser's private memory heap.</p>
+      <p>All page tree manipulations, cross-reference table updates, and binary stream splices execute on your local CPU. When your task completes, the resulting binary is assembled into a client-side Blob for immediate download, and volatile memory buffers are garbage-collected.</p>
+      <h3>Key Engineering Advantages</h3>
+      <ul>
+        <li><strong>Instant Zero-Latency Execution:</strong> Because no file upload or server queueing occurs, multi-page operations execute instantly at local hardware speeds.</li>
+        <li><strong>ISO 32000-1 Compliance:</strong> Maintains the integrity of embedded font subsets, ICC color profiles, vector paths, and destination tables.</li>
+        <li><strong>Air-Gapped & Offline Ready:</strong> Once loaded, the workbench operates without an active internet connection, ideal for sensitive enterprise compliance workflows.</li>
+      </ul>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file into the upload area, or click to browse and select files from your device.' },
-      { step: 2, title: 'Choose Your Operation', description: 'Select from the available operations: merge, split, organize, delete pages, rotate, add blank pages, or extract pages.' },
-      { step: 3, title: 'Configure Options', description: 'Adjust settings specific to your chosen operation, such as page ranges, rotation angles, or merge order.' },
-      { step: 4, title: 'Process and Download', description: 'Click the process button and download your modified PDF once the operation completes.' },
+      { step: 1, title: 'Mount Document in Local Memory', description: 'Drag and drop your PDF or select files from your storage. The browser maps the raw binary buffers into memory without network transmission.' },
+      { step: 2, title: 'Select Operations Visually', description: 'Interact with visual page thumbnails to reorder pages via drag-and-drop, delete extraneous sheets, rotate skewed orientations, or inject blank dividers.' },
+      { step: 3, title: 'Configure Output Parameters', description: 'Specify custom page ranges, bookmark preservation modes, or concatenation hierarchies through the contextual controls.' },
+      { step: 4, title: 'Compile & Export', description: 'Click Process to trigger the client-side binary compilation. The synthesized PDF is delivered directly through your browser download manager.' },
     ],
     useCases: [
-      { title: 'Document Preparation', description: 'Prepare documents for submission by removing unnecessary pages, reordering content, and combining multiple files.', icon: 'file-check' },
-      { title: 'Report Assembly', description: 'Combine multiple report sections, add cover pages, and organize chapters into a single professional document.', icon: 'book-open' },
-      { title: 'Archive Management', description: 'Split large archive files into manageable sections, extract relevant pages, and reorganize historical documents.', icon: 'archive' },
+      { title: 'Confidential Legal Filings', description: 'Reorder discovery packets, redact sensitive exhibits, and insert title sheets without exposing privileged data to cloud vendors.', icon: 'file-check' },
+      { title: 'Academic Thesis Assembly', description: 'Merge disparate chapter PDFs, uniformize page orientations, and strip scanner artifacts into a cohesive publishing draft.', icon: 'book-open' },
+      { title: 'Financial Audit Consolidation', description: 'Consolidate bank statements, tax schedules, and receipt scans into a structured dossier suitable for regulatory review.', icon: 'archive' },
     ],
     faq: [
-      { question: 'How many PDFs can I process at once?', answer: 'You can upload and process up to 10 PDF files simultaneously, with a combined maximum size of 500MB.' },
-      { question: 'Will my bookmarks be preserved?', answer: 'Yes, when merging PDFs, the tool preserves existing bookmarks and can optionally combine them into a unified bookmark structure.' },
-      { question: 'Is there a page limit?', answer: 'There is no strict page limit. The tool can handle documents with hundreds of pages, though very large files may take longer to process.' },
+      { question: 'How does client-side PDF processing differ from server-upload tools?', answer: 'Server-upload tools transmit your complete PDF file across the internet to a third-party server where it is written to disk and processed. iCreatePDF downloads the processing logic (WebAssembly) to your browser once; all actual parsing, rendering, and rebuilding of the PDF binary happens entirely inside your local device RAM. Your document never touches external networks.' },
+      { question: 'What is the maximum file size supported by the client-side engine?', answer: 'Because processing occurs within your browser\'s WebAssembly memory space, practical limits depend on your computer\'s available RAM. Modern 64-bit browsers comfortably handle documents containing hundreds of pages and up to 500MB without performance degradation.' },
+      { question: 'Are document bookmarks, annotations, and outlines preserved?', answer: 'Yes. The underlying parser reads the Catalog dictionary, Names tree, and Outlines hierarchy. When reorganizing or extracting pages, valid pointer references are recalculated to ensure bookmarks remain functional in Adobe Acrobat and preview viewers.' },
     ],
   },
 
   'merge-pdf': {
-    title: 'Merge PDF',
-    metaDescription: 'Combine multiple PDF files into one document. Free online PDF merger with drag-and-drop reordering.',
-    keywords: ['merge pdf', 'combine pdf', 'join pdf', 'pdf merger', 'concatenate pdf'],
+    title: 'Private Client-Side PDF Merger',
+    metaDescription: 'Merge multiple PDF files into one document directly in your browser. Fast, private, and secure PDF combiner powered by local WebAssembly.',
+    keywords: ['merge pdf', 'combine pdf locally', 'client side pdf merger', 'browser pdf combiner', 'secure pdf joiner'],
     description: `
-      <p>Merge PDF allows you to combine multiple PDF documents into a single file quickly and easily. Whether you're consolidating reports, combining scanned documents, or assembling a presentation, this tool makes the process seamless.</p>
-      <p>Simply upload your files, arrange them in your desired order using drag-and-drop, and merge them into one cohesive document. The tool preserves the quality of your original files and can optionally maintain bookmarks from each source document.</p>
-      <p>All merging happens locally in your browser, ensuring complete privacy for your sensitive documents.</p>
+      <p>The <strong>iCreatePDF Merge Tool</strong> allows you to combine multiple PDF documents into a unified, publication-ready file entirely within your browser. Whether consolidating periodic financial reports, assembling legal exhibits, or binding multi-part lecture notes, our client-side engine performs the join without transferring files over the internet.</p>
+      <h3>How Browser-Based PDF Merging Works</h3>
+      <p>PDF documents are complex binary containers consisting of object streams, indirect cross-reference tables (XRef), embedded TrueType/OpenType font dictionaries, and content layout streams. When merging two or more files:</p>
+      <ul>
+        <li><strong>Object ID Re-indexing:</strong> To prevent collision between conflicting object IDs across disparate source documents, our engine parses each document\'s indirect object table and dynamically re-maps references in memory.</li>
+        <li><strong>Page Tree Synthesis:</strong> A new root <code>/Pages</code> tree dictionary is constructed, appending child page objects while retaining inherited resource attributes (such as <code>/ExtGState</code>, <code>/ColorSpace</code>, and <code>/Font</code>).</li>
+        <li><strong>Outline & Bookmark Stitching:</strong> Bookmarks from individual source files can be hierarchically stitched under parent headers or preserved as a continuous table of contents.</li>
+      </ul>
+      <p>Because all byte manipulations happen inside a dedicated browser Web Worker, your user interface remains fluid and responsive even when assembling massive multi-hundred-page files.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload PDF Files', description: 'Drag and drop multiple PDF files into the upload area, or click to select files from your device.' },
-      { step: 2, title: 'Arrange Order', description: 'Drag and drop the file thumbnails to arrange them in your desired order.' },
-      { step: 3, title: 'Merge and Download', description: 'Click the Merge button to combine all files, then download your merged PDF.' },
+      { step: 1, title: 'Import Source Documents', description: 'Drag multiple PDF files into the workbench. Thumbnails are rendered instantly via local canvas parsing.' },
+      { step: 2, title: 'Arrange Document Sequence', description: 'Drag and drop file tiles to arrange the exact reading order of your final composite file.' },
+      { step: 3, title: 'Execute Local Assembly', description: 'Click "Merge PDF". The WebAssembly engine resolves cross-references and synthesizes the binary locally.' },
+      { step: 4, title: 'Download Unified Document', description: 'Save the generated PDF instantly with original raster and vector fidelity completely intact.' },
     ],
     useCases: [
-      { title: 'Combine Reports', description: 'Merge monthly or quarterly reports into a single annual document for easier distribution and archiving.', icon: 'file-text' },
-      { title: 'Assemble Portfolios', description: 'Combine multiple project documents, certificates, or work samples into a professional portfolio.', icon: 'briefcase' },
-      { title: 'Consolidate Invoices', description: 'Merge multiple invoices or receipts into one document for accounting and record-keeping purposes.', icon: 'receipt' },
+      { title: 'Corporate Report Consolidation', description: 'Bind independent department reports, spreadsheets, and executive summaries into a cohesive annual report.', icon: 'file-text' },
+      { title: 'Bidding & Proposal Packets', description: 'Combine company profiles, compliance certificates, technical specifications, and cost schedules into a single submittal.', icon: 'briefcase' },
+      { title: 'Billing & Invoice Batches', description: 'Merge monthly client invoices with backing timesheets and receipts for streamlined accounts payable distribution.', icon: 'receipt' },
     ],
     faq: [
-      { question: 'How many PDFs can I merge?', answer: 'You can merge up to 100 PDF files at once, with a total combined size of up to 500MB.' },
-      { question: 'Will the merged PDF maintain the original quality?', answer: 'Yes, the merging process preserves the original quality of all documents without any compression or quality loss.' },
-      { question: 'Can I merge password-protected PDFs?', answer: 'Password-protected PDFs need to be decrypted first. Use our Decrypt PDF tool to remove the password before merging.' },
+      { question: 'Will merging degrade the image resolution or text sharpness of my files?', answer: 'Not at all. The merge operation operates at the structural binary level. It copies original compressed content streams (FlateDecode, DCTDecode, JPXDecode) byte-for-byte without recompressing or rasterizing vector text, guaranteeing 100% loss-free output.' },
+      { question: 'Can I merge password-protected PDFs?', answer: 'If a PDF has an open password, you must decrypt it first using our Decrypt PDF tool so the object streams can be read. PDFs with restricted permissions (e.g., printing or copying restrictions) can be merged directly since client-side processing does not require Adobe permission bypasses.' },
+      { question: 'Is there a limit on how many PDF files I can merge at once?', answer: 'You can merge dozens of PDF documents simultaneously. The only practical constraint is your device\'s system RAM, meaning typical desktop environments can easily merge 50+ files at once with zero cloud wait times.' },
     ],
   },
 
@@ -120,55 +134,68 @@ export const toolContentEn: Record<string, ToolContent> = {
   },
 
   'split-pdf': {
-    title: 'Split PDF',
-    metaDescription: 'Split PDF files into multiple documents. Extract specific pages or divide by page ranges.',
-    keywords: ['split pdf', 'divide pdf', 'separate pdf', 'extract pages', 'pdf splitter'],
+    title: 'High-Precision Client-Side PDF Splitter',
+    metaDescription: 'Split large PDF documents into individual pages or custom ranges locally. Fast, private WebAssembly PDF extractor with zero server uploads.',
+    keywords: ['split pdf', 'extract pdf pages', 'divide pdf client side', 'separate pdf pages', 'private pdf splitter'],
     description: `
-      <p>Split PDF enables you to divide a single PDF document into multiple smaller files. This is perfect for extracting specific chapters, separating combined documents, or creating individual files from a multi-page PDF.</p>
-      <p>You can split by specific page ranges, extract individual pages, or divide the document at regular intervals. The tool provides a visual preview of your pages, making it easy to select exactly what you need.</p>
-      <p>All processing is done locally in your browser, ensuring your documents remain private and secure.</p>
+      <p>The <strong>iCreatePDF Split Tool</strong> gives you granular control over dissecting large PDF files into discrete documents. Whether isolating individual contract clauses, breaking up scanned archival books, or extracting presentation slides, our client-side parser isolates target pages while maintaining structural metadata.</p>
+      <h3>Technical Architecture & Stream Pruning</h3>
+      <p>Splitting a PDF cleanly is more sophisticated than simply slicing binary bytes. A compliant split operation must:</p>
+      <ul>
+        <li><strong>Traverse Indirect Dependencies:</strong> Trace every resource dictionary referenced by the target page (embedded fonts, XObject images, shading patterns) and pull them into the child document.</li>
+        <li><strong>Prune Dead References:</strong> Discard unreferenced objects belonging to excluded pages to prevent bloated output file sizes.</li>
+        <li><strong>Rebuild Cross-Reference Tables:</strong> Construct fresh, contiguous XRef tables and trailer dictionaries compliant with ISO 32000-1 standards.</li>
+      </ul>
+      <p>Because these operations execute entirely in your local browser sandbox, you never have to wait for upload or download transfers over slow connections.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to browse and select the file you want to split.' },
-      { step: 2, title: 'Select Split Method', description: 'Choose how to split: by page ranges, extract specific pages, or split at regular intervals.' },
-      { step: 3, title: 'Define Page Ranges', description: 'Enter the page numbers or ranges you want to extract (e.g., 1-5, 8, 10-15).' },
-      { step: 4, title: 'Split and Download', description: 'Click Split to create your new PDF files and download them individually or as a ZIP archive.' },
+      { step: 1, title: 'Load Target Document', description: 'Select or drop your multi-page PDF into the tool. Visual thumbnails are generated locally in memory.' },
+      { step: 2, title: 'Define Extraction Ranges', description: 'Choose between bursting all pages into single-page PDFs, entering custom comma-separated ranges (e.g. 1-3, 5, 8-12), or selecting pages visually.' },
+      { step: 3, title: 'Choose Output Packaging', description: 'Download individual PDF files or package all extracted sub-documents into a single compressed ZIP archive.' },
+      { step: 4, title: 'Generate & Save', description: 'Click "Split PDF" to execute local stream extraction and save the clean output files instantly.' },
     ],
     useCases: [
-      { title: 'Extract Chapters', description: 'Split a book or manual into individual chapters for easier reading or distribution.', icon: 'book' },
-      { title: 'Separate Combined Scans', description: 'Divide a batch-scanned document into individual files for each original document.', icon: 'copy' },
-      { title: 'Create Handouts', description: 'Extract specific slides or pages from a presentation to create focused handouts.', icon: 'presentation' },
+      { title: 'Extracting Signed Addenda', description: 'Pull out specific signed signature pages or appendix schedules from 100+ page master agreements.', icon: 'book' },
+      { title: 'Archival Scan Segregation', description: 'Separate continuous multi-record scans into individual patient records, student dossiers, or vendor files.', icon: 'copy' },
+      { title: 'Focused Presentation Handouts', description: 'Extract selected keynote slides from an exhaustive deck to create customized meeting agendas.', icon: 'presentation' },
     ],
     faq: [
-      { question: 'Can I split a PDF into individual pages?', answer: 'Yes, you can split a PDF into individual single-page files by selecting the "Split every page" option.' },
-      { question: 'What happens to bookmarks when splitting?', answer: 'Bookmarks that fall within the extracted page range are preserved in the resulting PDF files.' },
-      { question: 'Can I split password-protected PDFs?', answer: 'You need to decrypt the PDF first using our Decrypt PDF tool before splitting.' },
+      { question: 'Will splitting a PDF reduce the visual quality of the extracted pages?', answer: 'No. The extracted pages maintain 100% of their original visual fidelity. Vector drawings, embedded typefaces, and high-resolution raster photographs are copied verbatim from the master object stream.' },
+      { question: 'How are extracted files packaged when splitting multiple ranges?', answer: 'You can choose to download individual PDF documents or bundle multiple generated files into a unified ZIP archive, all created directly in-memory using client-side compression.' },
+      { question: 'What happens to internal links and annotations during a split?', answer: 'Internal link annotations pointing to pages included within the extracted range remain active. Annotations referencing excluded pages are safely sanitized to prevent broken document destinations.' },
     ],
   },
 
   'compress-pdf': {
-    title: 'Compress PDF',
-    metaDescription: 'Reduce PDF file size while maintaining quality. Free online PDF compressor for smaller files.',
-    keywords: ['compress pdf', 'reduce pdf size', 'pdf compressor', 'shrink pdf', 'optimize pdf'],
+    title: 'Client-Side PDF Compression & Stream Optimizer',
+    metaDescription: 'Reduce PDF file size locally in your browser. Recompress embedded images, clean redundant objects, and optimize Flate streams with zero server uploads.',
+    keywords: ['compress pdf', 'reduce pdf size offline', 'client side pdf compressor', 'shrink pdf browser', 'optimize pdf streams'],
     description: `
-      <p>Compress PDF reduces the file size of your PDF documents while maintaining acceptable quality. This is essential for email attachments, web uploads, or saving storage space.</p>
-      <p>The tool offers multiple compression levels to balance between file size reduction and quality preservation. You can choose aggressive compression for maximum size reduction or light compression to maintain higher quality.</p>
-      <p>All compression happens in your browser, ensuring your documents never leave your device.</p>
+      <p>The <strong>iCreatePDF Compression Engine</strong> reduces document weight while keeping text crisp and legible. Most PDFs generated by scanners, virtual printers, or desktop publishing software carry substantial overhead—including uncompressed metadata, duplicate font descriptors, unreferenced object bloat, and oversized raster photography.</p>
+      <h3>How Local Stream Optimization Works</h3>
+      <p>Instead of sending your files to a cloud queue, our WebAssembly engine optimizes the PDF structure locally:</p>
+      <ul>
+        <li><strong>Adaptive Raster Downsampling & Re-encoding:</strong> Identifies high-DPI image XObjects and re-encodes them using modern DCT or WebP-compatible compression matrices balanced for screen or print.</li>
+        <li><strong>Deflate Stream Compression:</strong> Re-compresses text content streams, vector drawing operators, and font binary tables using optimal Flate/zlib compression levels.</li>
+        <li><strong>Structural Pruning:</strong> Strips redundant thumbnail caches, orphaned cross-reference entries, obsolete structural trees, and private application metadata tags.</li>
+      </ul>
+      <p>The result is a drastically smaller file ready for email attachments, web publishing, or portal submissions, without compromising your privacy.</p>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Your PDF', description: 'Drag and drop your PDF file or click to select the document you want to compress.' },
-      { step: 2, title: 'Choose Compression Level', description: 'Select your preferred compression level: Low (best quality), Medium (balanced), or High (smallest size).' },
-      { step: 3, title: 'Compress and Download', description: 'Click Compress to reduce the file size, then download your optimized PDF.' },
+      { step: 1, title: 'Upload Document to Optimizer', description: 'Drop your oversized PDF into the compressor. The engine immediately inspects object weights and stream proportions.' },
+      { step: 2, title: 'Select Compression Profile', description: 'Choose from Extreme (maximum shrinkage for quick emails), Recommended (optimal balance for screen reading and printing), or Low (gentle optimization for high-detail graphics).' },
+      { step: 3, title: 'Process Local Streams', description: 'Click "Compress PDF" to let your browser CPU optimize image streams and rebuild the cross-reference tables.' },
+      { step: 4, title: 'Inspect Reduction & Download', description: 'Review the exact percentage and byte reduction achieved, then download your streamlined PDF.' },
     ],
     useCases: [
-      { title: 'Email Attachments', description: 'Reduce PDF size to meet email attachment limits and ensure faster delivery.', icon: 'mail' },
-      { title: 'Web Publishing', description: 'Optimize PDFs for web download to improve page load times and user experience.', icon: 'globe' },
-      { title: 'Storage Optimization', description: 'Compress archived documents to save disk space while maintaining accessibility.', icon: 'hard-drive' },
+      { title: 'Strict Email Attachment Caps', description: 'Shrink 40MB scanner outputs below common 10MB or 25MB corporate email gatekeeper limits.', icon: 'mail' },
+      { title: 'Government & University Portals', description: 'Comply with strict file weight restrictions on municipal job applications, court electronic filing systems, and visa portals.', icon: 'globe' },
+      { title: 'Digital Archival Optimization', description: 'Reduce local storage footprints by up to 70% across long-term document repositories without losing textual fidelity.', icon: 'hard-drive' },
     ],
     faq: [
-      { question: 'How much can I reduce the file size?', answer: 'Compression results vary based on the PDF content. Image-heavy PDFs can often be reduced by 50-80%, while text-only PDFs may see smaller reductions.' },
-      { question: 'Will compression affect text quality?', answer: 'Text remains sharp and readable at all compression levels. Only images and graphics are affected by compression.' },
-      { question: 'Can I compress multiple PDFs at once?', answer: 'Yes, you can upload and compress up to 10 PDF files simultaneously.' },
+      { question: 'Does compressing a PDF make the text blurry or unreadable?', answer: 'Never. PDF text consists of vector glyph outlines and font metrics. Our compression engine optimizes raster image streams and stream encoding; it does not degrade or blur vector text, code snippets, or line art.' },
+      { question: 'Why do some PDFs reduce by 80% while others only reduce by 5%?', answer: 'PDFs containing high-resolution scanned pages or uncompressed camera photos yield dramatic 60% to 80% size drops because image data can be heavily optimized. Conversely, text-dense PDFs that already use Flate compression have very little redundant data to remove.' },
+      { question: 'Are my sensitive documents stored on your servers during compression?', answer: 'Zero bytes leave your computer. The compression algorithms run inside your browser using WebAssembly. All memory allocations are temporary and destroyed the moment you close or refresh the tab.' },
     ],
   },
 
@@ -1485,28 +1512,34 @@ export const toolContentEn: Record<string, ToolContent> = {
 
   // ==================== ORGANIZE & MANAGE ====================
   'ocr-pdf': {
-    title: 'OCR PDF',
-    metaDescription: 'Make scanned PDFs searchable with OCR. Extract text from images and scanned documents.',
-    keywords: ['ocr pdf', 'searchable pdf', 'text recognition', 'scan to text'],
+    title: 'Client-Side OCR PDF: Searchable Document Converter',
+    metaDescription: 'Convert scanned image PDFs into searchable, selectable text documents locally. Powered by in-browser Tesseract WebAssembly with complete privacy.',
+    keywords: ['ocr pdf', 'searchable pdf', 'client side ocr', 'browser tesseract ocr', 'convert scan to searchable text'],
     description: `
-      <p>OCR PDF uses Optical Character Recognition to extract text from scanned documents and images within PDFs. Convert image-based PDFs into searchable, selectable text documents.</p>
-      <p>Support for multiple languages ensures accurate text recognition regardless of the document's language. The original layout is preserved while adding a searchable text layer.</p>
-      <p>All OCR processing happens in your browser, ensuring your documents remain private.</p>
+      <p>The <strong>iCreatePDF OCR Engine</strong> transforms flat, non-selectable scanned PDFs into fully searchable, selectable, and indexable documents. If you have ever tried to search, highlight, or copy text from a scanned contract or receipt only to find that your cursor treats the page as an image, this tool solves the problem.</p>
+      <h3>Tesseract Neural OCR in WebAssembly</h3>
+      <p>Traditional OCR platforms require sending confidential scans to cloud data centers. iCreatePDF compiles the battle-tested <strong>Tesseract OCR</strong> neural network engine into client-side WebAssembly, running directly inside your browser:</p>
+      <ul>
+        <li><strong>Multi-Scale Bounding Box Detection:</strong> Analyzes raw scan pixels, identifies text baselines, word boundaries, and paragraph hierarchies.</li>
+        <li><strong>Invisible Searchable Text Layer Injection:</strong> Instead of altering your original scan, the engine synthesizes an invisible, perfectly aligned vector text layer placed directly behind or over the original pixels.</li>
+        <li><strong>Preserved Visual Authenticity:</strong> Your original signatures, stamps, paper textures, and letterheads look 100% identical, but you can now press <code>Ctrl+F</code> (or <code>Cmd+F</code>) to search for any keyword and copy-paste text effortlessly.</li>
+      </ul>
     `,
     howToUse: [
-      { step: 1, title: 'Upload Scanned PDF', description: 'Drag and drop your scanned PDF or click to select.' },
-      { step: 2, title: 'Select Language', description: 'Choose the document language for accurate recognition.' },
-      { step: 3, title: 'Process and Download', description: 'Click Process to run OCR and download the searchable PDF.' },
+      { step: 1, title: 'Import Scanned Document', description: 'Drag and drop your image-based PDF. The local viewer extracts page raster buffers into worker memory.' },
+      { step: 2, title: 'Select Recognition Language', description: 'Choose the primary language of your document (English, Spanish, German, French, etc.) to load specialized language neural models.' },
+      { step: 3, title: 'Execute Local Recognition', description: 'Click "Start OCR". WebAssembly Web Workers analyze pixel blocks and calculate character confidence matrices.' },
+      { step: 4, title: 'Download Searchable PDF', description: 'Save your enhanced document, complete with an embedded invisible text layer and full searchability in any PDF reader.' },
     ],
     useCases: [
-      { title: 'Digitize Archives', description: 'Make scanned document archives searchable.', icon: 'archive' },
-      { title: 'Document Search', description: 'Enable text search in scanned documents.', icon: 'search' },
-      { title: 'Text Extraction', description: 'Extract text from scanned documents for editing.', icon: 'type' },
+      { title: 'Archival Research & Historiography', description: 'Convert historic printed publications and archival records into fully searchable digital repositories.', icon: 'archive' },
+      { title: 'Legal Discovery & Evidence Search', description: 'Enable instantaneous keyword searching across hundreds of discovery exhibits and paper depositions.', icon: 'search' },
+      { title: 'Data Extraction & Accounting', description: 'Select and copy tabular figures, dates, and line items directly from scanned paper invoices into Excel.', icon: 'type' },
     ],
     faq: [
-      { question: 'What languages are supported?', answer: 'Over 100 languages are supported including English, Chinese, Japanese, Korean, and more.' },
-      { question: 'Will the original layout be preserved?', answer: 'Yes, the original visual layout is preserved with a searchable text layer added.' },
-      { question: 'How accurate is the OCR?', answer: 'Accuracy depends on scan quality but typically exceeds 95% for clear documents.' },
+      { question: 'Will running OCR alter the visual appearance of my scanned pages?', answer: 'No. The original scan image is preserved exactly as it was. The OCR engine generates a transparent vector text layer mapped to the exact geometric coordinates of each recognized word, allowing seamless text selection without altering your scan visually.' },
+      { question: 'Does OCR require an active internet connection to process files?', answer: 'The OCR engine loads the lightweight WebAssembly core and language dictionary once into your browser cache. All optical recognition thereafter computes completely offline on your local device CPU.' },
+      { question: 'How high must scan quality be for accurate character recognition?', answer: 'Documents scanned at 300 DPI or higher achieve 98%+ character accuracy. While 150–200 DPI scans generally recognize well, heavily degraded faxes or blurry smartphone photos with extreme shadows may require deskewing before running OCR.' },
     ],
   },
 
