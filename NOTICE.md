@@ -16,7 +16,7 @@ This program is free software: you can redistribute it and/or modify it under th
 
 In compliance with Section 13 of the GNU Affero General Public License, the complete and corresponding source code for this web application is freely available to all users at:
 
-**Source Code Repository**: [https://github.com/PDFCraftTool/pdfcraft](https://github.com/PDFCraftTool/pdfcraft) (and user deployment repository)
+**Source Code Repository**: [https://github.com/Sudip-Mani-Gautam/iCreatePDF](https://github.com/Sudip-Mani-Gautam/iCreatePDF) (upstream references: [PDFCraft](https://github.com/PDFCraftTool/pdfcraft) and [BentoPDF](https://github.com/alam00000/bentopdf))
 
 ### Acknowledgements & Attribution Statement
 

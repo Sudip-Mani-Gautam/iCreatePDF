@@ -835,7 +835,7 @@ export default function HelpPageClient({ locale }: HelpPageClientProps) {
                     <h3 className="font-bold text-sm text-[hsl(var(--color-foreground))] mb-1">About Us</h3>
                     <p className="text-xs text-[hsl(var(--color-muted-foreground))]">Our mission, technology & values.</p>
                   </Link>
-                  <a href="https://github.com/PDFCraftTool/pdfcraft" target="_blank" rel="noopener noreferrer" className="p-4 rounded-2xl bg-[hsl(var(--color-card))] border border-[hsl(var(--color-border))] hover:border-red-300 dark:hover:border-red-800 transition-colors group">
+                  <a href="https://github.com/Sudip-Mani-Gautam/iCreatePDF/issues" target="_blank" rel="noopener noreferrer" className="p-4 rounded-2xl bg-[hsl(var(--color-card))] border border-[hsl(var(--color-border))] hover:border-red-300 dark:hover:border-red-800 transition-colors group">
                     <ExternalLink className="w-5 h-5 text-[hsl(var(--color-muted-foreground))] group-hover:text-red-600 dark:group-hover:text-red-400 mb-2 transition-colors" />
                     <h3 className="font-bold text-sm text-[hsl(var(--color-foreground))] mb-1">GitHub Issues</h3>
                     <p className="text-xs text-[hsl(var(--color-muted-foreground))]">Report bugs or request features.</p>

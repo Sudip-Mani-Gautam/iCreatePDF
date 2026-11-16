@@ -18,7 +18,7 @@
 
 <div align="center">
 
-[![Website](https://img.shields.io/website?url=https%3A%2F%2Fpdfcraft.devtoolcafe.com%2Fen%2F)](https://pdfcraft.devtoolcafe.com/en/)
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Ficreatepdf.com%2F)](https://icreatepdf.com/)
 ![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)
 ![React](https://img.shields.io/badge/React-19-blue?style=flat-square&logo=react)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)
@@ -28,7 +28,7 @@
 
 ## 📖 About
 
-**PDFCraft** is a comprehensive suite of PDF tools designed for privacy and performance. Unlike many online converters, PDFCraft processes your files entirely within your browser using WebAssembly technology. Your documents **never** leave your device, ensuring maximum security for your sensitive data.
+**iCreatePDF** is a comprehensive suite of PDF tools designed for privacy and performance. Unlike many online converters, iCreatePDF processes your files entirely within your browser using WebAssembly technology. Your documents **never** leave your device, ensuring maximum security for your sensitive data.
 
 This project is built with modern web technologies to provide a slick, app-like experience directly in the browser.
 
@@ -216,8 +216,8 @@ To run this project locally, follow these steps:
 
 1.  **Clone the repository**
     ```bash
-    git clone https://github.com/PDFCraftTool/pdfcraft.git
-    cd pdfcraft
+    git clone https://github.com/Sudip-Mani-Gautam/iCreatePDF.git
+    cd iCreatePDF
     ```
 
 2.  **Install dependencies**
@@ -274,8 +274,8 @@ If you want to build from source or need to modify the code:
 
 ```bash
 # Clone the repository
-git clone https://github.com/PDFCraftTool/pdfcraft.git
-cd pdfcraft
+git clone https://github.com/Sudip-Mani-Gautam/iCreatePDF.git
+cd iCreatePDF
 
 # Development mode (with hot reload)
 docker compose --profile dev up

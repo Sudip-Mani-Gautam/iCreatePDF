@@ -126,23 +126,23 @@ export default function AcknowledgementsPageClient({ locale }: AcknowledgementsP
             </h2>
             <div className="p-4 rounded-xl bg-[hsl(var(--color-muted)/0.5)] border-l-4 border-[hsl(var(--color-primary))] text-sm text-[hsl(var(--color-foreground))] leading-relaxed italic space-y-3">
               <p>
-                &ldquo;<strong>PDFCraft stands on the shoulders of giants.</strong> We gratefully acknowledge{' '}
-                <a href="https://github.com/alam00000/bentopdf" target="_blank" rel="noopener noreferrer" className="font-semibold underline text-[hsl(var(--color-primary))] not-italic">
-                  BentoPDF
-                </a>{' '}
-                for their pioneering work in privacy-first, client-side PDF tools.
-              </p>
-              <p>
-                Their project served as a significant inspiration and reference for our core logic. While{' '}
+                &ldquo;<strong>iCreatePDF stands on the shoulders of giants.</strong> We gratefully acknowledge{' '}
                 <a href="https://github.com/PDFCraftTool/pdfcraft" target="_blank" rel="noopener noreferrer" className="font-semibold underline text-[hsl(var(--color-primary))] not-italic">
                   PDFCraft
                 </a>{' '}
-                has been re-engineered for the Next.js ecosystem and extends functionality with unique features like the <em>Workflow Editor</em>, we deeply respect the foundation laid by the BentoPDF team.&rdquo;
+                and{' '}
+                <a href="https://github.com/alam00000/bentopdf" target="_blank" rel="noopener noreferrer" className="font-semibold underline text-[hsl(var(--color-primary))] not-italic">
+                  BentoPDF
+                </a>{' '}
+                for their pioneering contributions to privacy-first, client-side PDF document manipulation.
+              </p>
+              <p>
+                iCreatePDF builds upon these open-source foundations with enhanced performance optimizations, updated WebAssembly tooling, and dedicated multilingual document workflows. We deeply respect the foundations laid by their developer communities.&rdquo;
               </p>
             </div>
             <p className="text-xs text-[hsl(var(--color-muted-foreground))]">
-              This project is licensed under the <strong>AGPL-3.0 License</strong> - see the{' '}
-              <a href="https://github.com/PDFCraftTool/pdfcraft/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" className="underline text-[hsl(var(--color-primary))] font-medium">
+              This project is licensed under the <strong>AGPL-3.0 License</strong> - see our{' '}
+              <a href="https://github.com/Sudip-Mani-Gautam/iCreatePDF/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" className="underline text-[hsl(var(--color-primary))] font-medium">
                 LICENSE
               </a>{' '}
               file for details.

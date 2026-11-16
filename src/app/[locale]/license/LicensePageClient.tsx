@@ -137,7 +137,7 @@ export default function LicensePageClient({ locale }: LicensePageClientProps) {
                 • <strong>Modified Distribution</strong>: iCreatePDF (<a href="https://icreatepdf.com" className="underline text-[hsl(var(--color-primary))]">icreatepdf.com</a>). Enhancements and modifications Copyright &copy; 2026 iCreatePDF Contributors.
               </p>
               <p>
-                • <strong>Complete Source Code (AGPL-3.0 Section 13)</strong>: The corresponding source code for this application is freely available at <a href="https://github.com/PDFCraftTool/pdfcraft" target="_blank" rel="noopener noreferrer" className="underline text-[hsl(var(--color-primary))]">https://github.com/PDFCraftTool/pdfcraft</a>.
+                • <strong>Complete Source Code (AGPL-3.0 Section 13)</strong>: The corresponding source code for this application is freely available at <a href="https://github.com/Sudip-Mani-Gautam/iCreatePDF" target="_blank" rel="noopener noreferrer" className="underline text-[hsl(var(--color-primary))]">https://github.com/Sudip-Mani-Gautam/iCreatePDF</a>.
               </p>
             </div>
 

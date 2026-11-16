@@ -65,8 +65,8 @@ export default function FAQPageClient({ locale }: FAQPageClientProps) {
               id: `${catKey}-${itemKey}`,
               category: catKey as any,
               categoryLabel: catLabel,
-              question: qa.question.replace(/PDFCraft/g, 'iCreatePDF'),
-              answer: qa.answer.replace(/PDFCraft/g, 'iCreatePDF'),
+              question: qa.question,
+              answer: qa.answer,
             });
           }
         });
