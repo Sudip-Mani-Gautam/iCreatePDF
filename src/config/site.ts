@@ -53,5 +53,6 @@ export const navConfig = {
     { title: 'License', href: '/license' },
     { title: 'Acknowledgements', href: '/acknowledgements' },
     { title: 'Contact', href: '/contact' },
+    { title: 'Sitemap', href: '/sitemap.xml' },
   ],
 };

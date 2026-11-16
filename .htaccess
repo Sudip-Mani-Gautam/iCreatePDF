@@ -19,6 +19,7 @@ RewriteRule ^([^\.]+)$ $1.html [NC,L]
 # ==========================================
 AddType application/wasm .wasm
 AddType application/javascript .mjs
+AddType application/xml .xsl
 AddType image/webp .webp
 AddType image/avif .avif
 AddType font/woff .woff

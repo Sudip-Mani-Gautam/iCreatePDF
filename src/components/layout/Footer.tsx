@@ -156,7 +156,7 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
                 </Link>
               </li>
               <li>
-                <Link href={`/${locale}/blog`} className="hover:text-white transition-colors py-0.5 block">
+                <Link href="/en/blog" className="hover:text-white transition-colors py-0.5 block">
                   {t('navigation.blog') || 'Blog'}
                 </Link>
               </li>
@@ -164,6 +164,11 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
                 <Link href={`/${locale}/press`} className="hover:text-white transition-colors py-0.5 block">
                   {t('navigation.press') || 'Press'}
                 </Link>
+              </li>
+              <li>
+                <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors py-0.5 block">
+                  Sitemap
+                </a>
               </li>
             </ul>
           </div>
@@ -264,6 +269,7 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
             <Link href={`/${locale}/privacy`} className="text-zinc-400 hover:text-white transition-colors py-0.5">{t('navigation.privacy') || 'Privacy'}</Link>
             <Link href={`/${locale}/license`} className="text-zinc-400 hover:text-white transition-colors py-0.5">{t('navigation.license') || 'License (AGPL-3.0)'}</Link>
             <Link href={`/${locale}/acknowledgements`} className="text-zinc-400 hover:text-white transition-colors py-0.5">{t('navigation.acknowledgements') || 'Acknowledgements'}</Link>
+            <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors py-0.5">Sitemap</a>
             <a href="https://github.com/Sudip-Mani-Gautam/iCreatePDF" target="_blank" rel="noopener noreferrer" className="text-red-400 hover:text-red-300 hover:underline font-medium py-0.5">
               {locale === 'ne' ? 'स्रोत कोड (GitHub)' : locale === 'hi' ? 'स्रोत कोड (GitHub)' : locale === 'ms' ? 'Kod Sumber (GitHub)' : 'Source Code (GitHub)'}
             </a>
