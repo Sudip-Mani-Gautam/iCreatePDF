@@ -58,8 +58,6 @@ const STATIC_PAGES = [
   { path: '/security', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
   { path: '/cookies', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
   { path: '/press', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
-  { path: '/license', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
-  { path: '/acknowledgements', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
   { path: '/contact', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
   { path: '/help', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
   { path: '/dmca', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },

@@ -247,7 +247,7 @@ export default function TermsPageClient({ locale }: TermsPageClientProps) {
 
                 <div className="p-3 rounded-xl bg-[hsl(var(--color-muted)/0.3)] border border-[hsl(var(--color-border))] space-y-1.5">
                   <p className="text-[10px] font-bold uppercase tracking-widest text-[hsl(var(--color-muted-foreground))]">Related</p>
-                  {[{ href: `/${locale}/privacy`, l: 'Privacy Policy' }, { href: `/${locale}/cookies`, l: 'Cookie Policy' }, { href: `/${locale}/security`, l: 'Security' }, { href: `/${locale}/license`, l: 'AGPL-3.0 License' }].map(({ href, l }) => (
+                  {[{ href: `/${locale}/privacy`, l: 'Privacy Policy' }, { href: `/${locale}/cookies`, l: 'Cookie Policy' }, { href: `/${locale}/security`, l: 'Security' }].map(({ href, l }) => (
                     <Link key={href} href={href} className="flex items-center gap-1 text-xs text-[hsl(var(--color-muted-foreground))] hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                       <ChevronRight className="w-3 h-3"/>{l}
                     </Link>
@@ -349,7 +349,7 @@ export default function TermsPageClient({ locale }: TermsPageClientProps) {
               <section id="g-nomod" className="scroll-mt-28 space-y-4">
                 <SH icon={<Ban className="w-5 h-5"/>} color="bg-rose-50 dark:bg-rose-950/50 text-rose-600 dark:text-rose-400" tag="General" title="Prohibition of Modification"/>
                 <p className={p}>You may not modify, adapt, translate, decompile, reverse-engineer, or create derivative works from the proprietary portions of iCreatePDF without express written consent. This clause applies to the iCreatePDF brand, trade dress, and any proprietary configuration layers not covered by the AGPL-3.0 open-source license.</p>
-                <Callout type="info">The open-source AGPL-3.0 code portions are separately governed by that license and may be modified in accordance with its terms. See the <Link href={`/${locale}/license`} className="underline font-medium">License page</Link> for details.</Callout>
+                <Callout type="info">The open-source AGPL-3.0 code portions are separately governed by that license and may be modified in accordance with its terms.</Callout>
                 <BList items={[
                   'You may not strip or obscure iCreatePDF attribution in publicly deployed forks.',
                   'You may not inject malicious code, backdoors, or trackers into self-hosted deployments distributed to others.',
@@ -794,7 +794,6 @@ export default function TermsPageClient({ locale }: TermsPageClientProps) {
                     </div>
                   ))}
                 </div>
-                <Link href={`/${locale}/acknowledgements`} className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-600 dark:text-emerald-400 hover:underline">Full acknowledgements & licenses <ArrowRight className="w-4 h-4"/></Link>
               </section>
 
               {/* Advertising */}

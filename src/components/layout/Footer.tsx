@@ -209,16 +209,6 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
                   {t('navigation.cookies') || 'Cookies'}
                 </Link>
               </li>
-              <li>
-                <Link href={`/${locale}/license`} className="hover:text-white transition-colors py-0.5 block">
-                  {t('navigation.license') || 'License (AGPL-3.0)'}
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${locale}/acknowledgements`} className="hover:text-white transition-colors py-0.5 block">
-                  {t('navigation.acknowledgements') || 'Acknowledgements'}
-                </Link>
-              </li>
             </ul>
           </div>
         </div>
@@ -255,23 +245,11 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
           </div>
         </div>
 
-        {/* Copyright & AGPL-3.0 Open Source Notice */}
+        {/* Copyright Notice */}
         <div className="pt-6 border-t border-zinc-700 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-          <div className="text-xs text-zinc-400 space-y-1">
+          <div className="text-xs text-zinc-400">
             <p>
-              &copy; {currentYear} {t('brand') || 'iCreatePDF'}. {locale === 'ne' ? 'इजाजतपत्र: ' : locale === 'hi' ? 'लाइसेंस: ' : locale === 'ms' ? 'Dilesenkan di bawah ' : 'Licensed under '}
-              <Link href={`/${locale}/license`} className="underline hover:text-white text-zinc-300">
-                GNU AGPLv3
-              </Link>.
-            </p>
-            <p className="text-[11px] text-zinc-400">
-              {locale === 'ne'
-                ? 'खुला स्रोत PDFCraft र BentoPDF मा आधारित। निःशुल्क र खुला स्रोत सफ्टवेयर।'
-                : locale === 'hi'
-                  ? 'ओपन-सोर्स PDFCraft और BentoPDF पर आधारित। निःशुल्क और खुला स्रोत सॉफ़्टवेयर।'
-                  : locale === 'ms'
-                    ? 'Berasaskan sumber terbuka PDFCraft & BentoPDF. Perisian percuma & sumber terbuka.'
-                    : 'Based on open-source PDFCraft & BentoPDF. Free & open-source software.'}
+              &copy; {currentYear} {t('brand') || 'iCreatePDF'}. {locale === 'ne' ? 'सबै अधिकार सुरक्षित।' : locale === 'hi' ? 'सर्वाधिकार सुरक्षित।' : locale === 'ms' ? 'Hak cipta terpelihara.' : 'All rights reserved.'}
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-4 gap-y-2 text-xs">
@@ -280,8 +258,6 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
             <Link href={`/${locale}/terms`} className="text-zinc-400 hover:text-white transition-colors py-0.5">{t('navigation.terms') || 'Terms'}</Link>
             <Link href={`/${locale}/dmca`} className="text-zinc-400 hover:text-white transition-colors py-0.5">DMCA</Link>
             <Link href={`/${locale}/disclaimer`} className="text-zinc-400 hover:text-white transition-colors py-0.5">Disclaimer</Link>
-            <Link href={`/${locale}/license`} className="text-zinc-400 hover:text-white transition-colors py-0.5">{t('navigation.license') || 'License (AGPL-3.0)'}</Link>
-            <Link href={`/${locale}/acknowledgements`} className="text-zinc-400 hover:text-white transition-colors py-0.5">{t('navigation.acknowledgements') || 'Acknowledgements'}</Link>
             <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors py-0.5">Sitemap</a>
             <a href="https://github.com/Sudip-Mani-Gautam/iCreatePDF" target="_blank" rel="noopener noreferrer" className="text-red-400 hover:text-red-300 hover:underline font-medium py-0.5">
               {locale === 'ne' ? 'स्रोत कोड (GitHub)' : locale === 'hi' ? 'स्रोत कोड (GitHub)' : locale === 'ms' ? 'Kod Sumber (GitHub)' : 'Source Code (GitHub)'}

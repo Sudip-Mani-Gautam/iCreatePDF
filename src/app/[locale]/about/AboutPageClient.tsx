@@ -671,16 +671,6 @@ export default function AboutPageClient({ locale }: AboutPageClientProps) {
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-3 pt-3">
-              <Link href={`/${locale}/license`}>
-                <Button variant="outline" size="sm" className="rounded-full">
-                  License Terms (AGPL-3.0)
-                </Button>
-              </Link>
-              <Link href={`/${locale}/acknowledgements`}>
-                <Button variant="outline" size="sm" className="rounded-full">
-                  Credits & Acknowledgements
-                </Button>
-              </Link>
               <a
                 href="https://github.com/Sudip-Mani-Gautam/iCreatePDF"
                 target="_blank"
